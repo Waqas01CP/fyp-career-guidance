@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.env
+*.env
+!.env.example
+
+# Alembic
+alembic/versions/*.py
+!alembic/versions/.gitkeep
+
+# Database
+*.db
+*.sqlite
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dart / Flutter
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
+frontend/build/
+frontend/.pub-cache/
+frontend/.pub/
+frontend/android/.gradle/
+frontend/android/app/debug/
+frontend/android/app/profile/
+frontend/android/app/release/
+frontend/ios/Pods/
+frontend/ios/.symlinks/
+frontend/.fvm/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/*.md
+!logs/.gitkeep
+
+# Secrets
+*.pem
+*.key
+secrets/

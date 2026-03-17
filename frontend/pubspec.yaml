@@ -1,0 +1,28 @@
+name: fyp_career_guidance
+description: AI-Assisted Academic Career Guidance System for Karachi students.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  flutter_secure_storage: ^9.2.2
+  provider: ^6.1.2         # State management — decide Provider vs Riverpod, update CLAUDE.md
+  # riverpod: ^2.5.1       # Alternative if team chooses Riverpod — uncomment and remove provider
+  google_fonts: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/fonts/
