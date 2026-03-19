@@ -5,14 +5,14 @@ python-multipart==0.0.12
 
 # Database
 sqlalchemy[asyncio]==2.0.35
-asyncpg==0.29.0
+asyncpg==0.30.0
 alembic==1.13.3
 
-# LangGraph / LangChain
-langgraph==0.2.28
-langgraph-checkpoint-postgres==0.1.9
-langchain-core==0.3.10
-langchain-google-genai==2.0.4
+# LangGraph / LangChain — unpinned to allow pip to resolve compatible versions
+langgraph
+langgraph-checkpoint-postgres
+langchain-core
+langchain-google-genai
 
 # Auth / Security
 python-jose[cryptography]==3.3.0
