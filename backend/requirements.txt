@@ -23,6 +23,7 @@ slowapi==0.1.9
 
 # Config
 pydantic-settings==2.5.2
+pydantic[email]
 python-dotenv==1.0.1
 
 # HTTP client (for Rozee scraper)

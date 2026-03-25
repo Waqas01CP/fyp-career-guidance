@@ -125,7 +125,7 @@ git status
 
 Make sure Docker Desktop is open and running first. Then from the **repo root** (not backend/):
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 Verify it is running:
