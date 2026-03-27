@@ -10,6 +10,7 @@ from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from app.core.limiter import limiter
 from app.api.v1.endpoints import auth, chat, profile
+import app.models  # noqa: F401 — registers all 6 SQLAlchemy mappers at startup
 
 
 @asynccontextmanager
