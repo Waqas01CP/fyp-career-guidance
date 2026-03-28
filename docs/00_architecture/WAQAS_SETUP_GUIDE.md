@@ -143,11 +143,17 @@ docker-compose down
 
 ## PART 6 — Create database tables
 
+The initial migration file is already in the repo (`alembic/versions/`).
+You do not need to generate it. Just apply it:
+
 ```bash
 cd backend
 # venv must be active — you should see (venv) in your prompt
 alembic upgrade head
 ```
+
+If alembic says "No such revision" or the versions/ folder is empty on your machine,
+it means git did not pull the migration file. Run `git pull` first, then retry.
 
 Expected output:
 ```

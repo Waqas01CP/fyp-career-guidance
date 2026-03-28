@@ -45,7 +45,7 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 2. Activate venv, install requirements: `pip install -r requirements.txt`
 3. Copy `.env.example` to `.env`, fill in `SECRET_KEY` and `GEMINI_API_KEY`
 4. Start PostgreSQL: `docker-compose up -d`
-5. Create all 6 tables: `alembic upgrade head`
+5. Create all 6 tables: `alembic upgrade head` (The migration file is already in the repo. If you get "No such revision", run `git pull` first.)
 6. Verify tables exist:
    ```bash
    docker exec -it fyp_postgres psql -U fyp_user -d fyp_db -c "\dt"
