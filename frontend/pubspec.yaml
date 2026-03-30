@@ -12,8 +12,7 @@ dependencies:
     sdk: flutter
   http: ^1.2.0
   flutter_secure_storage: ^9.2.2
-  provider: ^6.1.2         # State management — decide Provider vs Riverpod, update CLAUDE.md
-  # riverpod: ^2.5.1       # Alternative if team chooses Riverpod — uncomment and remove provider
+  flutter_riverpod: ^2.5.1  # State management — locked: Riverpod (see CLAUDE.md)
   google_fonts: ^6.2.1
 
 dev_dependencies:

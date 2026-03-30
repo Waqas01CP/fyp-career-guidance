@@ -28,6 +28,10 @@ At the start of every Claude Code session, read these files in order:
    guardrails, correct schemas, correct formulas. Reference this when
    implementing any backend component.
 
+2b. `docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md` — Flutter architecture,
+   Riverpod patterns, screen structure, SSE integration. Reference this when
+   implementing any frontend Dart/Flutter file.
+
 3. `team-updates/` — scan all files here. If there is a recent schema change
    or API change that affects your task, acknowledge it before proceeding.
 

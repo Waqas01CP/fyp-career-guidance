@@ -38,7 +38,7 @@ eligibility tiers, merit tiers, soft flags, and full reasoning trace.
 | Vector search | Not used — JSON structured lookup only | ✓ |
 | LLM | Gemini 2.0 Flash (Sprint 1–2), Claude Sonnet 4.6 (Sprint 3+) | ✓ |
 | Frontend | Flutter — single codebase Android + Web | ✓ |
-| State management | Provider or Riverpod — TBD before Sprint 1, update this line | ⚠ |
+| State management | Riverpod (flutter_riverpod ^2.5.1) | ✓ |
 | Rate limiting | slowapi, 10 req/min per IP on /chat/stream | ✓ |
 
 ---
@@ -335,7 +335,7 @@ Transport is a **soft flag only** — never a hard exclusion.
 ## SECURITY RULES
 
 - JWT sub = user UUID — never accept user_id from request body (tenant isolation)
-- Bcrypt for all passwords — passlib library
+- Bcrypt for all passwords — direct bcrypt library (passlib removed — incompatible with bcrypt 5.x)
 - **PII scrubbing before every LLM call:**
   - Pakistani phone numbers: `03\d{2}[-\s]?\d{7}`
   - CNICs: `\d{5}[-\s]\d{7}[-\s]\d`
@@ -360,6 +360,24 @@ Format: team-updates/YYYY-MM-DD-<type>-<description>.md
 | `api-change` | Any endpoint request/response shape change | Waqas → Khuzzaim |
 | `data-change` | Any JSON file structural change | Fazal → Waqas + Khuzzaim |
 | `config-change` | Any constant in config.py affecting scoring or quiz | Waqas → Fazal + Khuzzaim |
+
+---
+
+## NAVIGATION — WHERE TO FIND DETAILED GUIDANCE
+
+Claude Code: read CLAUDE.md first, then read the file for your component below.
+
+| Working on | Read this file |
+|---|---|
+| Any backend Python file | `docs/00_architecture/BACKEND_CHAT_INSTRUCTIONS.md` |
+| Any frontend Dart/Flutter file | `docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md` |
+| Any JSON data file | `docs/00_architecture/DATA_CHAT_INSTRUCTIONS.md` |
+| FilterNode or ScoringNode | `docs/00_architecture/POINT_2_LANGGRAPH_DESIGN_v2_0.md` |
+| Database schema or models | `docs/00_architecture/POINT_3_DATABASE_SCHEMA_v1_4.md` |
+| API endpoints | `docs/00_architecture/POINT_5_API_SURFACE_v1_2.md` |
+| Claude Code rules | `docs/00_architecture/CLAUDE_CODE_RULES.md` |
+| Sprint tasks and gate conditions | `docs/00_architecture/SPRINT_PLAN.md` |
+| All architecture docs index | `docs/00_architecture/README.md` |
 
 ---
 
@@ -392,3 +410,4 @@ Format: team-updates/YYYY-MM-DD-<type>-<description>.md
 *CLAUDE.md v1.1 — March 2026 (added: SSE protocol, FilterNode details, onboarding state machine,*
 *education_level derivation, merit tiers, soft flags, transport zones, assessment pool,*
 *lag categories, mismatch trigger, PII scrubbing regex, team-updates protocol)*
+*CLAUDE.md v1.2 — March 2026 (state management locked: Riverpod; navigation index added)*
