@@ -1,6 +1,6 @@
 # CLAUDE.md — Single Source of Truth
 ## FYP: AI-Assisted Academic Career Guidance System
-### Version: 1.1 — March 2026
+### Version: 1.2 — March 2026
 
 This file is authoritative. Every Claude Code session, every specialist chat,
 and every team member reads this before starting any work.
