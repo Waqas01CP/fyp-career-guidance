@@ -583,7 +583,7 @@ Returns all student_profile fields including `onboarding_stage`. Flutter uses
 | `"riasec_complete"` | Grades input screen |
 | `"grades_complete"` | Capability assessment screen |
 | `"assessment_complete"` | Chat screen |
-| `"complete"` | Chat screen (session restored) |
+| `"complete"` | Chat screen (AI has prior context — chat list appears empty, history is server-side) |
 
 Empty containers — never null: `riasec_scores: {}`, `subject_marks: {}`,
 `capability_scores: {}`, `stated_preferences: []`.
