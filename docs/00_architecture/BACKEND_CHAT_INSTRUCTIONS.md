@@ -588,6 +588,16 @@ Returns all student_profile fields including `onboarding_stage`. Flutter uses
 Empty containers — never null: `riasec_scores: {}`, `subject_marks: {}`,
 `capability_scores: {}`, `stated_preferences: []`.
 
+The response also includes `session_id` — the UUID of the student's active
+chat session. Flutter reads this from ProfileProvider and passes it to
+`POST /api/v1/chat/stream`. It is null only if registration failed to create
+a session (should never happen in practice).
+
+Example field in the response:
+```json
+"session_id": "550e8400-e29b-41d4-a716-446655440001"
+```
+
 ### IBCC grade conversion (O/A Level students)
 profile.py grades endpoint handles O/A Level students whose marks come as
 letter grades (A*, A, B, C). The `_ibcc_convert()` helper in profile.py
