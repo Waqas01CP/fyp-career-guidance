@@ -11,6 +11,7 @@ from app.core.security import hash_password, verify_password, create_access_toke
 from app.models.user import User
 from app.models.profile import StudentProfile
 from app.schemas.auth import UserCreate, UserLogin, TokenResponse
+from app.models.session import ChatSession
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -29,13 +30,19 @@ async def register(payload: UserCreate, db: AsyncSession = Depends(get_db)):
                                                       "details": ["email"]})
     user = User(email=payload.email, password_hash=hash_password(payload.password))
     db.add(user)
-    await db.flush()  # get user.id before commit
+    await db.flush()  # get user.id before creating child rows
 
     # Create empty profile row immediately
     profile = StudentProfile(user_id=user.id)
     db.add(profile)
-    # No explicit commit — get_db() context manager commits on clean exit
     await db.flush()
+
+    # Create a ChatSession so Flutter can read session_id from GET /profile/me
+    new_session = ChatSession(user_id=user.id)
+    db.add(new_session)
+    await db.flush()
+    # No explicit commit — get_db() context manager commits on clean exit
+
     await db.refresh(user)
 
     token = create_access_token(str(user.id), user.role)

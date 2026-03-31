@@ -17,6 +17,7 @@ from app.core.config import settings
 from app.models.user import User
 from app.models.profile import StudentProfile
 from app.models.profile_history import ProfileHistory
+from app.models.session import ChatSession
 from app.schemas.profile import (
     ProfileOut, QuizSubmission, GradesSubmission,
     AssessmentSubmission, MarksheetUploadResponse
@@ -93,7 +94,19 @@ async def get_profile(
     if not profile:
         raise HTTPException(status_code=404, detail={"error_code": "NOT_FOUND",
                                                       "message": "Profile not found.", "details": []})
-    return profile
+
+    session_result = await db.execute(
+        select(ChatSession)
+        .where(ChatSession.user_id == current_user.id)
+        .order_by(ChatSession.created_at.desc())
+        .limit(1)
+    )
+    chat_session = session_result.scalar_one_or_none()
+    session_id = chat_session.id if chat_session else None
+
+    out = ProfileOut.model_validate(profile)
+    out.session_id = session_id
+    return out
 
 
 # ── POST /profile/quiz ──────────────────────────────────────────────────────

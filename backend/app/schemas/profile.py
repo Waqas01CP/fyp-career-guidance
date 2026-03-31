@@ -1,7 +1,8 @@
 """Profile schemas — request/response shapes for all profile endpoints."""
+from typing import Optional
 from uuid import UUID
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class QuizSubmission(BaseModel):
@@ -37,6 +38,8 @@ class MarksheetUploadResponse(BaseModel):
 
 
 class ProfileOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: UUID
     onboarding_stage: str
     education_level: str | None
@@ -55,3 +58,4 @@ class ProfileOut(BaseModel):
     career_goal: str | None
     student_notes: str | None
     updated_at: datetime
+    session_id: Optional[UUID] = None
