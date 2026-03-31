@@ -16,6 +16,7 @@ langchain-google-genai
 
 # Auth / Security
 python-jose[cryptography]==3.3.0
+bcrypt==5.0.0
 
 # Rate limiting
 slowapi==0.1.9
