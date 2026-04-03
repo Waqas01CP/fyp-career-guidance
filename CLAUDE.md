@@ -68,7 +68,7 @@ eligibility tiers, merit tiers, soft flags, and full reasoning trace.
 | When end-to-end passes clean | `git tag v1.0-final-viva` |
 
 **Sprint plan:**
-- Sprint 1 (now): DB + Alembic + Mock API + Flutter shells
+- Sprint 1: DB + Alembic + Mock API ✓ | Flutter shells — in progress (Khuzzaim)
 - Sprint 2: ProfilerNode + OCR service + onboarding screens connected to real API
 - Sprint 3 ← April 20 deadline: FilterNode + ScoringNode + ExplanationNode + SSE live
 - Sprint 4: Error handling + LangSmith + performance + viva prep
@@ -372,7 +372,7 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Any backend Python file | `docs/00_architecture/BACKEND_CHAT_INSTRUCTIONS.md` |
 | Any frontend Dart/Flutter file | `docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md` |
 | Any JSON data file | `docs/00_architecture/DATA_CHAT_INSTRUCTIONS.md` |
-| FilterNode or ScoringNode | `docs/00_architecture/POINT_2_LANGGRAPH_DESIGN_v2_0.md` |
+| FilterNode or ScoringNode | `docs/00_architecture/POINT_2_LANGGRAPH_DESIGN_v2_1.md` |
 | Database schema or models | `docs/00_architecture/POINT_3_DATABASE_SCHEMA_v1_4.md` |
 | API endpoints | `docs/00_architecture/POINT_5_API_SURFACE_v1_2.md` |
 | Claude Code rules | `docs/00_architecture/CLAUDE_CODE_RULES.md` |
@@ -403,6 +403,7 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Minimum results shown | Always ≥5 degrees regardless of marks |
 | Marks filtering | Never hard-exclude by marks — use merit tiers |
 | scripts/ location | backend/scripts/ — not repo root |
+| out_of_scope intent routing | answer_node (polite decline) — NOT silent END |
 
 ---
 
@@ -411,3 +412,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *education_level derivation, merit tiers, soft flags, transport zones, assessment pool,*
 *lag categories, mismatch trigger, PII scrubbing regex, team-updates protocol)*
 *CLAUDE.md v1.2 — March 2026 (state management locked: Riverpod; navigation index added)*
+*CLAUDE.md v1.3 — April 2026 (nav index updated to Point 2 v2.1; Sprint 1 backend complete; out_of_scope routing locked)*

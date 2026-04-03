@@ -18,7 +18,7 @@ class StudentProfile(Base):
 
     # Onboarding state machine
     onboarding_stage    = Column(String, nullable=False, default="not_started")
-    # Values: 'not_started' | 'riasec_complete' | 'grades_complete' | 'assessment_complete'
+    # Values: 'not_started' | 'riasec_complete' | 'grades_complete' | 'assessment_complete' | 'complete'
 
     education_level     = Column(String)   # matric|inter_part1|inter_part2|completed_inter|o_level|a_level
     student_mode        = Column(String)   # 'inter' | 'matric_planning'
