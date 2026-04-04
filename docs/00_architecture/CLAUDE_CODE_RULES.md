@@ -24,20 +24,23 @@ At the start of every Claude Code session, read these files in order:
    consistent with this file. If your instruction conflicts with CLAUDE.md,
    stop and tell the user before proceeding.
 
-2. `docs/00_architecture/BACKEND_CHAT_INSTRUCTIONS.md` — architecture rules,
+2. `logs/README.md` — session history index. Read this to understand what
+   prior sessions did before starting your task.
+
+3. `docs/00_architecture/BACKEND_CHAT_INSTRUCTIONS.md` — architecture rules,
    guardrails, correct schemas, correct formulas. Reference this when
    implementing any backend component.
 
-2b. `docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md` — Flutter architecture,
+3b. `docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md` — Flutter architecture,
    Riverpod patterns, screen structure, SSE integration. Reference this when
    implementing any frontend Dart/Flutter file.
 
-3. `team-updates/` — scan all files here. If there is a recent schema change
+4. `team-updates/` — scan all files here. If there is a recent schema change
    or API change that affects your task, acknowledge it before proceeding.
 
-4. The specific files named in your task instruction.
+5. The specific files named in your task instruction.
 
-5. For Sprint 2 and Sprint 3 node implementation, also read the relevant
+6. For Sprint 2 and Sprint 3 node implementation, also read the relevant
    Point files in `docs/00_architecture/`:
    - FilterNode or ScoringNode work → read `POINT_2_LANGGRAPH_DESIGN_v2_0.md`
    - Schema changes → read `POINT_3_DATABASE_SCHEMA_v1_4.md`
@@ -181,6 +184,17 @@ for verification before committing.
 
 This log is how Backend Chat and Architecture Chat know exactly what
 Claude Code did. Always write it. Never skip it.
+
+After writing the log, update logs/README.md — add a new row to the
+STANDARD SESSION LOGS table with the filename, date, model, what was
+done, and outcome. Never leave logs/README.md out of date.
+
+**Lane rule — Sonnet and all non-Opus models:**
+Write session logs to logs/ root only. Never write to logs/audits/ or
+logs/changes/. Those folders are reserved for Claude Code Opus sessions
+exclusively. If your task produces an audit report or a change record
+from an Opus prompt, that is still an Opus responsibility — do not
+write it yourself unless explicitly instructed by the user.
 
 ---
 
