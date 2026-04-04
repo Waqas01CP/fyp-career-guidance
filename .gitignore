@@ -56,6 +56,9 @@ Thumbs.db
 # Logs
 logs/*.md
 !logs/.gitkeep
+!logs/README.md
+!logs/session-*.md
+!logs/claude-code-*.md
 
 # Secrets
 *.pem
