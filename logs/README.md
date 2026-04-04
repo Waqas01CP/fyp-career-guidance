@@ -48,6 +48,7 @@ writes a log file to this directory or any subdirectory.
 ---
 
 ## FOLDER STRUCTURE
+```
 logs/
 ├── README.md                        ← this file — read first always
 ├── session-YYYY-MM-DD-[desc].md              ← existing logs (pre-rules file)
@@ -66,6 +67,7 @@ logs/
                                        then references to the audit file
                                        that triggered it.
                                        Never written by Sonnet.
+```
 
 **Who writes where:**
 - Standard Claude Code sessions (Sonnet, any model): logs/ root only
