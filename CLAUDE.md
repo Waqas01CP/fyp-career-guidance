@@ -378,6 +378,7 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Claude Code rules | `docs/00_architecture/CLAUDE_CODE_RULES.md` |
 | Sprint tasks and gate conditions | `docs/00_architecture/SPRINT_PLAN.md` |
 | All architecture docs index | `docs/00_architecture/README.md` |
+| Session history and log navigation | `logs/README.md` |
 
 ---
 
@@ -413,3 +414,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *lag categories, mismatch trigger, PII scrubbing regex, team-updates protocol)*
 *CLAUDE.md v1.2 — March 2026 (state management locked: Riverpod; navigation index added)*
 *CLAUDE.md v1.3 — April 2026 (nav index updated to Point 2 v2.1; Sprint 1 backend complete; out_of_scope routing locked)*
+*CLAUDE.md v1.4 — April 2026 (logs/README.md added to navigation index; Sprint 1 Flutter shells marked complete)*
