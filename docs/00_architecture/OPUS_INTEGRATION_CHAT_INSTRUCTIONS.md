@@ -60,6 +60,7 @@ this chat. You discuss it, analyse findings, and when the user is ready,
 generate a prompt to be executed in Claude Code Opus or in a specialist chat.
 
 **When to use this mode:**
+- User wants to generate the initial audit prompt to give to Claude Code Opus
 - User wants to discuss an audit report produced by Claude Code Opus
 - User wants to reason through a system-level concern before running an audit
 - User wants a corrective prompt generated after a finding has been agreed upon
