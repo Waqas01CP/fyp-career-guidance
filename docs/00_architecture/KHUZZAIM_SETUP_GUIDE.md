@@ -251,6 +251,14 @@ The log should contain:
 - Any issues noticed
 - What the next session should start with
 
+After writing the log, update `logs/README.md` — add a new row to the
+STANDARD SESSION LOGS table with the filename, date, model, what was
+done, and outcome. Never leave logs/README.md out of date.
+
+Lane rule: write session logs to `logs/` root only. Never write to
+`logs/audits/` or `logs/changes/` — those are reserved for Claude Code
+Opus sessions exclusively.
+
 ---
 
 ## PART 10 — Sprint 1 tasks
