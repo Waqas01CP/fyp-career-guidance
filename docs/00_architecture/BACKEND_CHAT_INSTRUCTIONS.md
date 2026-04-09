@@ -683,6 +683,12 @@ When producing a Claude Code prompt, always include:
 3. What specific files should be changed and what should NOT be changed
 4. How to verify the fix worked (exact command or test to run)
 5. What the expected output looks like when correct
+6. Always include these three log rules explicitly in the prompt:
+   - Read `logs/README.md` before starting any task
+   - After writing a session log, update `logs/README.md` STANDARD
+     SESSION LOGS table immediately — never leave it out of date
+   - Write logs to `logs/` root only — never to `logs/audits/` or
+     `logs/changes/` (those are Claude Code Opus lanes exclusively)
 
 Format: structured numbered steps, not prose. Claude Code executes better
 with explicit numbered instructions than with conversational descriptions.
