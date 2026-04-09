@@ -516,6 +516,30 @@ Architecture Chat which handles all CLAUDE.md updates.
 
 ---
 
+## PRODUCING CLAUDE CODE PROMPTS
+
+Data Chat occasionally needs Claude Code to run validation scripts or
+make bulk edits to JSON files. When producing a Claude Code prompt,
+always include:
+1. Which files to read first (CLAUDE.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md,
+   FAZAL_DATA_GUIDE.md, the specific JSON file being edited)
+2. The exact task description — which file, which field, what change
+3. Which files to change and which to leave alone
+4. How to verify correctness (run the validation script at
+   `backend/app/data/validate.py` — exit code 0 means safe to commit)
+5. Expected output when correct
+6. Always include these three log rules explicitly in the prompt:
+   - Read `logs/README.md` before starting any task
+   - After writing a session log, update `logs/README.md` STANDARD
+     SESSION LOGS table immediately — never leave it out of date
+   - Write logs to `logs/` root only — never to `logs/audits/` or
+     `logs/changes/` (those are Claude Code Opus lanes exclusively)
+
+Format: structured numbered steps. Claude Code executes better with
+explicit numbered instructions than with prose.
+
+---
+
 ## WHAT IS NOT YOUR SCOPE
 
 - Python, FastAPI, or database code — flag for Backend Chat

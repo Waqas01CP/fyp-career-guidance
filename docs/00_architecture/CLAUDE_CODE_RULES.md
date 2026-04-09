@@ -42,7 +42,7 @@ At the start of every Claude Code session, read these files in order:
 
 6. For Sprint 2 and Sprint 3 node implementation, also read the relevant
    Point files in `docs/00_architecture/`:
-   - FilterNode or ScoringNode work → read `POINT_2_LANGGRAPH_DESIGN_v2_0.md`
+   - FilterNode or ScoringNode work → read `POINT_2_LANGGRAPH_DESIGN_v2_1.md`
    - Schema changes → read `POINT_3_DATABASE_SCHEMA_v1_4.md`
    - Endpoint changes → read `POINT_5_API_SURFACE_v1_2.md`
 
