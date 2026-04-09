@@ -20,6 +20,9 @@ before proceeding — do not guess and implement something untested.
 
 At the start of every Claude Code session, read these files in order:
 
+0. `logs/README.md` — navigation index for all session history. Read this
+   before anything else. It tells you what was done in prior sessions.
+
 1. `CLAUDE.md` — single source of truth. Everything you implement must be
    consistent with this file. If your instruction conflicts with CLAUDE.md,
    stop and tell the user before proceeding.
@@ -195,6 +198,23 @@ logs/changes/. Those folders are reserved for Claude Code Opus sessions
 exclusively. If your task produces an audit report or a change record
 from an Opus prompt, that is still an Opus responsibility — do not
 write it yourself unless explicitly instructed by the user.
+
+---
+
+## SESSION LOG — README UPDATE OBLIGATION
+
+After writing the session log file, immediately update `logs/README.md`.
+Add a new row to the STANDARD SESSION LOGS table:
+- Date, short task description, status, log filename
+
+Never write a log and leave `logs/README.md` out of date.
+
+**Log folder lane rules — strictly enforced:**
+- Session logs go to `logs/` root only
+- Format: `logs/claude-code-YYYY-MM-DD-HH-MM-description.md`
+- NEVER write to `logs/audits/` — reserved for Claude Code Opus audit reports
+- NEVER write to `logs/changes/` — reserved for Claude Code Opus change records
+- These are Opus-reserved folders. Sonnet writing there is a lane violation.
 
 ---
 

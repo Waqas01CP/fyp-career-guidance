@@ -516,27 +516,26 @@ Architecture Chat which handles all CLAUDE.md updates.
 
 ---
 
+---
+
 ## PRODUCING CLAUDE CODE PROMPTS
 
-Data Chat occasionally needs Claude Code to run validation scripts or
-make bulk edits to JSON files. When producing a Claude Code prompt,
-always include:
-1. Which files to read first (CLAUDE.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md,
-   FAZAL_DATA_GUIDE.md, the specific JSON file being edited)
-2. The exact task description — which file, which field, what change
-3. Which files to change and which to leave alone
-4. How to verify correctness (run the validation script at
-   `backend/app/data/validate.py` — exit code 0 means safe to commit)
-5. Expected output when correct
-6. Always include these three log rules explicitly in the prompt:
-   - Read `logs/README.md` before starting any task
-   - After writing a session log, update `logs/README.md` STANDARD
-     SESSION LOGS table immediately — never leave it out of date
-   - Write logs to `logs/` root only — never to `logs/audits/` or
-     `logs/changes/` (those are Claude Code Opus lanes exclusively)
+When this chat produces a Claude Code prompt for Waqas to paste into Claude
+Code in VS Code, every such prompt must explicitly include these three rules:
 
-Format: structured numbered steps. Claude Code executes better with
-explicit numbered instructions than with prose.
+1. Read `logs/README.md` before starting any task — it is the navigation
+   index for all session history.
+
+2. After writing a session log, update `logs/README.md` immediately — add
+   a new row to the STANDARD SESSION LOGS table. Never write a log and leave
+   README.md out of date.
+
+3. Write session logs to `logs/` root only, using the format
+   `logs/claude-code-YYYY-MM-DD-HH-MM-description.md`. Never write to
+   `logs/audits/` or `logs/changes/` — those folders are reserved for Claude
+   Code Opus sessions exclusively.
+
+These three rules must appear verbatim in every Claude Code prompt.
 
 ---
 

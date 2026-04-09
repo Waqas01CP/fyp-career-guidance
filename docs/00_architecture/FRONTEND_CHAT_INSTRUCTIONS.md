@@ -664,12 +664,12 @@ When producing a Claude Code prompt, always include:
 3. Which files to change and which to leave alone
 4. How to verify it worked (`flutter run -d chrome` and test the specific flow)
 5. Expected outcome
-6. Always include these three log rules explicitly in the prompt:
+6. Include these three log rules verbatim in every Claude Code prompt:
    - Read `logs/README.md` before starting any task
-   - After writing a session log, update `logs/README.md` STANDARD
-     SESSION LOGS table immediately — never leave it out of date
-   - Write logs to `logs/` root only — never to `logs/audits/` or
-     `logs/changes/` (those are Claude Code Opus lanes exclusively)
+   - After writing the session log, update `logs/README.md` immediately —
+     add a new row to the STANDARD SESSION LOGS table
+   - Write session logs to `logs/` root only (`logs/claude-code-YYYY-MM-DD-HH-MM-description.md`).
+     Never write to `logs/audits/` or `logs/changes/` — Opus-reserved folders.
 
 Format: structured numbered steps. Claude Code executes better with explicit
 numbered instructions than with prose.
