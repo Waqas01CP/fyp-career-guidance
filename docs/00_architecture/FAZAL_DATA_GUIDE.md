@@ -355,6 +355,52 @@ accounting, law, media_studies do not exist in the canonical list.
 
 ---
 
+### Adding a new canonical field_id
+
+When a university offers a program not in the canonical list above
+(e.g. petroleum_engineering, automotive_engineering), follow these
+steps exactly. Do not skip or reorder them.
+
+**Step 1 — Choose the name.**
+Use snake_case. Use the full field name. No abbreviations.
+Follow the existing pattern: `petroleum_engineering` not `petrol_eng`.
+Check the canonical list to confirm no overlap or near-duplicate exists.
+
+**Step 2 — Flag to Waqas immediately.**
+New field_ids must be added to the canonical list in DATA_CHAT_INSTRUCTIONS.md,
+POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Fazal does not update
+these files directly. Message Waqas: "New field_id needed: [name]. Adding
+to universities.json, lag_model.json, affinity_matrix.json in this commit."
+Waqas produces the update blocks and applies them.
+
+**Step 3 — Add to lag_model.json immediately.**
+In the same commit as the university entry that uses this new field_id.
+Not in a later commit. Populate all raw data fields per Part 2 of this guide.
+Leave computed.future_value as 0.0 — Waqas runs the compute script.
+Choose lag_category from the table in Part 2.
+Add every degree_id from universities.json that uses this field_id to the
+associated_degrees array.
+
+**Step 4 — Add to affinity_matrix.json immediately.**
+Same commit. Use the RIASEC reference table in Part 3 as a starting point.
+Compare to the closest existing field and adjust by 1-2 points if your
+research justifies it. Set social_acceptability_tier and write prestige_note.
+Never enter 0 for any RIASEC dimension — minimum is 1.
+
+**Step 5 — Run validation script.**
+```bash
+cd backend/app/data
+python validate.py
+```
+All five rules must pass (exit code 0) before committing.
+Exit code 1 means errors must be fixed first — never commit a failing state.
+
+**The three-file rule:** universities.json, lag_model.json, and
+affinity_matrix.json must always be committed together when a new
+field_id is introduced. A new field_id in universities.json without
+matching entries in the other two files will fail validation and crash
+the pipeline at runtime.
+
 ### Karachi transport zones:
 
 | Zone | Areas |
@@ -557,6 +603,28 @@ AnswerNode reads this for market queries from students.
 - typical_first_role_salary_pkr: string range. Example: "60,000 – 90,000/month".
   Always a range string, never a precise number.
 - common_sectors: array of 3-5 sectors where graduates typically work.
+
+---
+
+**Migration context for Gulf-pathway fields:**
+For fields where physical migration to Gulf countries is a well-documented
+career pathway — specifically petroleum_engineering, medicine_mbbs, and
+civil_engineering — populate career_paths as follows:
+
+- common_sectors: include Gulf employers alongside domestic ones.
+  Example for petroleum_engineering:
+  ["OGDCL", "PPL", "Sui Networks", "Saudi Aramco", "ADNOC", "Kuwait Oil Company"]
+- qualitative_pathway: write one sentence describing the migration pathway.
+  Example: "Pakistani petroleum engineers are regularly recruited by Saudi
+  Aramco, ADNOC, and Kuwait Oil Company for upstream operations; Gulf
+  employment is a primary career route for this field."
+- data_source_used: "qualitative"
+- data_status: "partial" (Rozee live count captures domestic demand only;
+  Gulf demand is described qualitatively)
+
+This does not change the FutureValue formula. It ensures AnswerNode gives
+a complete picture when a student asks about career prospects in these fields.
+For all other fields, leave qualitative_pathway as null.
 
 ---
 
