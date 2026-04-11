@@ -156,6 +156,12 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 
 *Starts after Waqas confirms profiler endpoint is working.*
 
+**New screens confirmed in v1.5 — build alongside the screens below:**
+- `screens/onboarding/riasec_complete_screen.dart` — shown on 200 from POST /profile/quiz. Navigates to Grades Input.
+- `screens/onboarding/grades_complete_screen.dart` — shown on 200 from POST /profile/grades. Navigates to Capability Assessment.
+- `screens/onboarding/assessment_complete_screen.dart` — shown on 200 from POST /profile/assessment. Auto-navigates to Chat after 2–3 seconds with loading animation.
+- `screens/error_screen.dart` — three states: no internet (retry), server timeout (retry), 401 session expired (clear token + navigate to login). See CLAUDE.md locked decisions for JWT 401 rule.
+
 7. Build RIASEC Quiz screen (`screens/onboarding/riasec_quiz_screen.dart`):
    - 60 questions displayed as scrollable list or one-at-a-time
    - 5-point Likert buttons per question
@@ -173,12 +179,22 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
    - 12 MCQ questions per subject (60 total)
    - Multiple choice A/B/C/D
    - On submit: call `POST /api/v1/profile/assessment`
-10. Connect Chat screen to real SSE stream:
+10a. Add welcome state to Chat screen (`screens/chat/main_chat_screen.dart`):
+    - If local messages list is empty, show welcome state
+    - Three hardcoded suggested question chips (e.g. "What degrees match my profile?",
+      "Which field has the best job market?", "Tell me about engineering at NED")
+    - Chip tap pre-fills input field and submits via POST /api/v1/chat/stream
+    - No backend involvement — purely frontend empty-state check
+10b. Wire Onboarding Carousel (`screens/onboarding/carousel_screen.dart`):
+    - Show when no token exists in flutter_secure_storage
+    - Covers fresh install and post-logout cases
+    - No backend field — purely client-side check
+11. Connect Chat screen to real SSE stream:
     - Replace stub with real `SseService.stream()` call
     - Show ThinkingIndicator widget during `status` events
     - Append text to message during `chunk` events
     - Stop on `done` event
-11. Commit: `feat(frontend): sprint-2 — onboarding screens, real SSE chat`
+12. Commit: `feat(frontend): sprint-2 — onboarding screens, real SSE chat`
 
 ---
 
@@ -301,6 +317,25 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 
 ### Waqas — Backend
 
+**Deferred endpoints from v1.5 screen lock — implement in this sprint:**
+
+0a. Implement `GET /api/v1/chat/messages` (`endpoints/chat.py`):
+    - Returns prior session messages for the current user's active chat session
+    - Flutter loads these on chat screen open; welcome state only shows if list is empty
+    - Fixes: welcome state currently shows on every fresh load regardless of prior sessions
+0b. Implement `POST /api/v1/auth/forgot-password` (`endpoints/auth.py`):
+    - Accepts email, generates OTP, sends via email service (SendGrid or equivalent)
+    - OTP flow is locked — do NOT implement as a reset link
+    - Add email service dependency to requirements.txt
+0c. Implement `POST /api/v1/auth/verify-otp` (`endpoints/auth.py`):
+    - Accepts email + OTP, returns short-lived reset token on match
+0d. Implement `POST /api/v1/auth/reset-password` (`endpoints/auth.py`):
+    - Accepts reset token + new password, updates user record
+0e. Implement `POST /api/v1/auth/change-password` (`endpoints/auth.py`):
+    - Authenticated endpoint — accepts current_password + new_password
+    - Settings screen button is already built and waiting for this endpoint
+Implementation order: 0a first (fixes demo UX regression), then 0b–0e together
+(share the email service dependency).
 1. Replace Gemini with Claude Sonnet 4.6 for ExplanationNode and AnswerNode
    (update `LLM_MODEL_NAME` in config and test)
 2. Add LangSmith tracing:

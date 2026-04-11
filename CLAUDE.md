@@ -96,6 +96,7 @@ eligibility tiers, merit tiers, soft flags, and full reasoning trace.
 | 9 | POST | `/api/v1/admin/seed-knowledge` | JWT admin | `endpoints/profile.py` |
 
 **No upload.py. No upload_schema.py. Marksheet is in profile.py.**
+**GET /profile/me response includes `session_id: UUID` (non-null) — confirmed working, commit 2ace388.**
 
 ---
 
