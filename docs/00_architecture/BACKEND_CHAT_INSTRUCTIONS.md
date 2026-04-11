@@ -65,7 +65,7 @@ Sprint 1 foundation work is complete:
 - Health check returns 200
 - Server starts cleanly with `uvicorn app.main:app --reload`
 
-**Known blocking issue:** POST /api/v1/auth/register returns 500.
+**Known blocking issue:** POST /api/v1/auth/register returns 500. (fixed in session 2026-03-28)
 SQLAlchemy mapper error — ChatSession not found when User model initialises.
 Fix: ensure all 6 models are imported in `backend/app/models/__init__.py`.
 
