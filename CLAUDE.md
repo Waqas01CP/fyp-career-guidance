@@ -1,6 +1,6 @@
 # CLAUDE.md — Single Source of Truth
 ## FYP: AI-Assisted Academic Career Guidance System
-### Version: 1.2 — March 2026
+### Version: 1.5 — April 2026
 
 This file is authoritative. Every Claude Code session, every specialist chat,
 and every team member reads this before starting any work.
@@ -132,19 +132,89 @@ SupervisorNode emits no status event — internal routing only.
 ---
 
 ## ONBOARDING STATE MACHINE
-
 ```
 "not_started"
-      ↓  POST /profile/quiz
+↓  POST /profile/quiz → 200 response → RIASEC Complete screen
 "riasec_complete"
-      ↓  POST /profile/grades
+↓  POST /profile/grades → 200 response → Grades Complete screen
 "grades_complete"
-      ↓  POST /profile/assessment
+↓  POST /profile/assessment → 200 response → Assessment Complete screen
 "assessment_complete"   ← chat is available from here
+↓  auto-navigate after 2–3 seconds
+Chat screen (welcome state) → first message sent → pipeline runs
+↓  recommendation generated
+Recommendation Dashboard
 ```
 
 Flutter reads `onboarding_stage` from GET /profile/me on every launch.
 Frontend never decides navigation — always follows this field.
+
+**Completion screen navigation rule:** Flutter trusts the 200 response for
+in-session navigation. It does NOT call GET /profile/me again after each
+step. The GET /profile/me on launch is a recovery rule only — not a per-step
+polling rule.
+
+**LangGraph pipeline initialisation:** The graph is invoked on the first
+POST /api/v1/chat/stream message. There is no pre-initialisation step.
+Assessment Complete screen triggers nothing on the backend — it only
+auto-navigates to chat.
+
+**Onboarding Carousel rule:** Show carousel when no token exists in
+`flutter_secure_storage`. This covers both fresh install and post-logout.
+No backend field required.
+
+## FULL SCREEN FLOW (locked — no screens may be added without Architecture Chat sign-off)
+
+```
+Splash
+↓
+Onboarding Carousel  ← shown only when no token in flutter_secure_storage
+↓
+Login / Signup
+↓
+[if onboarding_stage = not_started]       RIASEC Quiz
+↓ 200
+RIASEC Complete
+↓
+[if onboarding_stage = riasec_complete]   Grades Input (with OCR modal)
+↓ 200
+Grades Complete
+↓
+[if onboarding_stage = grades_complete]   Capability Assessment
+↓ 200
+Assessment Complete (auto-nav 2–3s)
+↓
+[if onboarding_stage = assessment_complete] Chat — welcome state
+↓ first message
+Chat — active
+↓ recommendation received
+Recommendation Dashboard
+```
+
+**Settings and error screens are accessible outside this linear flow.**
+
+## LOCKED SCREEN INVENTORY (15 screens — Sprint 3 complete set)
+
+| Screen | Dart file | Status for demo |
+|---|---|---|
+| Splash | `screens/splash_screen.dart` | Full |
+| Onboarding Carousel | `screens/onboarding/carousel_screen.dart` | Full |
+| Login | `screens/auth/login_screen.dart` | Full |
+| Signup | `screens/auth/signup_screen.dart` | Full |
+| Forgot Password | `screens/auth/forgot_password_screen.dart` | Static "coming soon" |
+| RIASEC Quiz | `screens/onboarding/riasec_quiz_screen.dart` | Full |
+| RIASEC Complete | `screens/onboarding/riasec_complete_screen.dart` | Full |
+| Grades Input | `screens/onboarding/grades_input_screen.dart` | Full |
+| Grades Complete | `screens/onboarding/grades_complete_screen.dart` | Full |
+| Capability Assessment | `screens/onboarding/assessment_screen.dart` | Full |
+| Assessment Complete | `screens/onboarding/assessment_complete_screen.dart` | Full |
+| Chat | `screens/chat/main_chat_screen.dart` | Full |
+| Recommendation Dashboard | `screens/dashboard/recommendation_dashboard.dart` | Full |
+| Settings | `screens/profile/settings_screen.dart` | Logout only; Change Password = static "coming soon" |
+| Network Error | `screens/error_screen.dart` | Full |
+
+No new screens may be added to Sprint 3 scope. Additions require Architecture Chat
+sign-off and a CLAUDE.md update.
 
 ---
 
@@ -363,6 +433,37 @@ Format: team-updates/YYYY-MM-DD-<type>-<description>.md
 
 ---
 
+## DEFERRED WORK — MUST NOT BE FORGOTTEN
+
+These items are explicitly out of scope for the April 20 demo but are
+confirmed required for the June 10–15 complete system. Every item here
+has a decision already locked — implementation is what is deferred, not
+the decision.
+
+| # | Feature | What is needed | Decision already locked |
+|---|---|---|---|
+| 1 | Message history on reload | `GET /api/v1/chat/messages` endpoint returning prior session messages. Flutter loads these on chat screen open so welcome state does not appear for returning users. | OTP flow locked. Screen design stable. |
+| 2 | Forgot Password | `POST /api/v1/auth/forgot-password` — accepts email, sends OTP via email service. `POST /api/v1/auth/verify-otp` — verifies code, returns short-lived reset token. `POST /api/v1/auth/reset-password` — accepts reset token + new password. Requires email service (SendGrid or equivalent) added to backend dependencies. | OTP flow locked. Screen design stable. No redesign needed. |
+| 3 | Change Password | `POST /api/v1/auth/change-password` — authenticated endpoint, accepts current_password + new_password. Settings screen button already exists — just needs the endpoint wired. | Same email service dependency as Forgot Password. |
+| 4 | SSE stream timeout state | Frontend: if SSE connection drops before `done` event, show specific "Recommendation is taking longer than expected — tap to retry" state, distinct from generic server error. No new backend endpoint needed. | Identified as needed — Frontend Chat to implement in Sprint 4. |
+| 5 | Profile edit after onboarding | Settings screen may need edit buttons for budget, home_zone, stated_preferences. Backend: `PATCH /api/v1/profile/me` or reuse existing quiz/grades endpoints. Scope to be confirmed in Sprint 4. | Not yet decided — flag for Architecture Chat in Sprint 4. |
+
+**API endpoints required for items 1–3 (Sprint 4):**
+
+| Endpoint | File | Sprint |
+|---|---|---|
+| `GET /api/v1/chat/messages` | `endpoints/chat.py` | Sprint 4 |
+| `POST /api/v1/auth/forgot-password` | `endpoints/auth.py` | Sprint 4 |
+| `POST /api/v1/auth/verify-otp` | `endpoints/auth.py` | Sprint 4 |
+| `POST /api/v1/auth/reset-password` | `endpoints/auth.py` | Sprint 4 |
+| `POST /api/v1/auth/change-password` | `endpoints/auth.py` | Sprint 4 |
+
+These endpoints do not exist yet. The screen designs are complete and will
+not change. Implementation order: message history first (affects demo UX),
+then password features.
+
+---
+
 ## NAVIGATION — WHERE TO FIND DETAILED GUIDANCE
 
 Claude Code: read CLAUDE.md first, then read the file for your component below.
@@ -405,6 +506,17 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Marks filtering | Never hard-exclude by marks — use merit tiers |
 | scripts/ location | backend/scripts/ — not repo root |
 | out_of_scope intent routing | answer_node (polite decline) — NOT silent END |
+| JWT 401 handling | No silent refresh — no refresh token endpoint exists. 401 always clears stored token and shows session expired screen. Re-login required. |
+| Logout | Client-side only — clear flutter_secure_storage, navigate to login. No backend logout endpoint. JWT is stateless; no token blacklist. |
+| LangGraph pipeline init | Triggered by first POST /api/v1/chat/stream message only. No pre-initialisation on assessment completion. |
+| Onboarding completion nav | Flutter trusts 200 response for in-session navigation. GET /profile/me is launch-time recovery only, not per-step polling. |
+| Chat welcome state | Hardcoded on frontend. Three static suggested question chips. Shown when local messages list is empty. No backend endpoint. |
+| Message history on reload | NOT implemented for April 20 demo. Fresh app load always shows welcome state regardless of prior sessions. Deferred — see DEFERRED WORK section. |
+| Forgot Password (demo) | Static "coming soon" message. No backend endpoint for demo. Deferred — see DEFERRED WORK section. |
+| Change Password (demo) | Static "coming soon" message in Settings screen. No backend endpoint for demo. Deferred — see DEFERRED WORK section. |
+| Password reset flow (post-demo) | OTP via email — NOT a reset link. Requires email service (e.g. SendGrid). Screen design: email field → OTP field → new password field. This sequence is locked so the screen does not need redesign when implemented. |
+| Onboarding Carousel trigger | Show when no token in flutter_secure_storage. Covers fresh install and post-logout. No backend field. |
+| Screen count | 15 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
 
 ---
 
@@ -415,3 +527,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.2 — March 2026 (state management locked: Riverpod; navigation index added)*
 *CLAUDE.md v1.3 — April 2026 (nav index updated to Point 2 v2.1; Sprint 1 backend complete; out_of_scope routing locked)*
 *CLAUDE.md v1.4 — April 2026 (logs/README.md added to navigation index; Sprint 1 Flutter shells marked complete)*
+*CLAUDE.md v1.5 — April 2026 (screen inventory locked: 15 screens; full onboarding flow with completion screens; JWT 401 handling, logout, pipeline init, welcome state, carousel trigger locked; deferred work section added: message history, forgot/change password, SSE timeout state)*
