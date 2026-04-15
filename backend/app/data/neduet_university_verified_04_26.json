@@ -1,0 +1,3113 @@
+[
+  {
+    "university_id": "neduet",
+    "name": "NED University of Engineering & Technology",
+    "type": "public",
+    "zone": 3,
+    "location": {
+      "area": "University Road, Karachi \u2013 75270",
+      "zone": 3
+    },
+    "scholarships": [
+      {
+        "name": "NED Merit Scholarship",
+        "coverage": "Full tuition waiver",
+        "criteria": "Top 10% of batch per department"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Partial to full tuition",
+        "criteria": "Financial need; CGPA \u2265 2.5"
+      },
+      {
+        "name": "Sindh Government Education Endowment Fund",
+        "coverage": "Partial tuition",
+        "criteria": "Sindh domicile; need-based"
+      }
+    ],
+    "data_last_verified": "March 2026",
+    "degrees": [
+      {
+        "degree_id": "neduet_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates must have Mathematics at HSC level. A bridge course in Mathematics may be required. Subject to seat availability in this category."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 483800,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 84.27
+          },
+          {
+            "year": 2023,
+            "cutoff": 84.27
+          },
+          {
+            "year": 2022,
+            "cutoff": 89.45
+          },
+          {
+            "year": 2021,
+            "cutoff": 83.59
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.59,
+          "max": 89.45
+        },
+        "confidence_band": 5.86,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_ai",
+        "name": "BS Computer Science \u2014 AI Specialization",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 483800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.5
+          },
+          {
+            "year": 2022,
+            "cutoff": 88.14
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.5,
+          "max": 88.14
+        },
+        "confidence_band": 4.64,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_cybersecurity",
+        "name": "BS Computer Science \u2014 Cybersecurity Specialization",
+        "field_id": "cybersecurity",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 483800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.23
+          },
+          {
+            "year": 2022,
+            "cutoff": 87.82
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.23,
+          "max": 87.82
+        },
+        "confidence_band": 4.59,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_data_science",
+        "name": "BS Computer Science \u2014 Data Science Specialization",
+        "field_id": "data_science",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 483800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.73
+          },
+          {
+            "year": 2022,
+            "cutoff": 88.4
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.73,
+          "max": 88.4
+        },
+        "confidence_band": 4.67,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_animation",
+        "name": "BS Computer Science \u2014 Gaming & Animation Specialization",
+        "field_id": "digital_media",
+        "field_category": "Arts",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 483800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 82.64
+          }
+        ],
+        "cutoff_range": {
+          "min": 82.64,
+          "max": 82.64
+        },
+        "confidence_band": 0.0,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_software_eng",
+        "name": "BE Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 86.86
+          },
+          {
+            "year": 2023,
+            "cutoff": 86.86
+          },
+          {
+            "year": 2022,
+            "cutoff": 91.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 83.35
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.35,
+          "max": 91.5
+        },
+        "confidence_band": 8.15,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_cise",
+        "name": "BE Computer & Information Systems Engineering",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 83.9
+          },
+          {
+            "year": 2023,
+            "cutoff": 83.9
+          },
+          {
+            "year": 2022,
+            "cutoff": 89.18
+          },
+          {
+            "year": 2021,
+            "cutoff": 83.61
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.61,
+          "max": 89.18
+        },
+        "confidence_band": 5.57,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_electrical",
+        "name": "BE Electrical Engineering",
+        "field_id": "electrical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 79.41
+          },
+          {
+            "year": 2023,
+            "cutoff": 79.41
+          },
+          {
+            "year": 2022,
+            "cutoff": 85.82
+          },
+          {
+            "year": 2021,
+            "cutoff": 78.74
+          }
+        ],
+        "cutoff_range": {
+          "min": 78.74,
+          "max": 85.82
+        },
+        "confidence_band": 7.08,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_electronics",
+        "name": "BE Electronics Engineering",
+        "field_id": "electronics_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 76.02
+          },
+          {
+            "year": 2023,
+            "cutoff": 76.82
+          },
+          {
+            "year": 2022,
+            "cutoff": 83.41
+          },
+          {
+            "year": 2021,
+            "cutoff": 75.25
+          }
+        ],
+        "cutoff_range": {
+          "min": 75.25,
+          "max": 83.41
+        },
+        "confidence_band": 8.16,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_mechanical",
+        "name": "BE Mechanical Engineering",
+        "field_id": "mechanical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 73.06
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.86
+          },
+          {
+            "year": 2022,
+            "cutoff": 82.86
+          },
+          {
+            "year": 2021,
+            "cutoff": 77.67
+          }
+        ],
+        "cutoff_range": {
+          "min": 73.06,
+          "max": 82.86
+        },
+        "confidence_band": 9.8,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_civil",
+        "name": "BE Civil Engineering",
+        "field_id": "civil_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 69.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 70.18
+          },
+          {
+            "year": 2022,
+            "cutoff": 79.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.65
+          }
+        ],
+        "cutoff_range": {
+          "min": 69.0,
+          "max": 79.0
+        },
+        "confidence_band": 10.0,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_biomedical",
+        "name": "BE Biomedical Engineering",
+        "field_id": "biomedical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Biomedical Engineering. Must have Biology and Chemistry at HSC level. A Mathematics bridge course is required before the first semester as per PEC guidelines. Seats in this category are limited."
+          },
+          "mandatory_subjects": [
+            "Physics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 66.3
+          },
+          {
+            "year": 2023,
+            "cutoff": 62.77
+          },
+          {
+            "year": 2022,
+            "cutoff": 72.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.77,
+          "max": 73.0
+        },
+        "confidence_band": 10.23,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high",
+          "math_weight": 0.25
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_chemical",
+        "name": "BE Chemical Engineering",
+        "field_id": "chemical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 71.9
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.32
+          },
+          {
+            "year": 2021,
+            "cutoff": 74.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 71.9,
+          "max": 80.32
+        },
+        "confidence_band": 8.42,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_petroleum",
+        "name": "BE Petroleum Engineering",
+        "field_id": "petroleum_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 65.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.77
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.13
+          },
+          {
+            "year": 2021,
+            "cutoff": 71.25
+          }
+        ],
+        "cutoff_range": {
+          "min": 65.0,
+          "max": 76.13
+        },
+        "confidence_band": 11.13,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_telecom",
+        "name": "BE Telecommunications Engineering",
+        "field_id": "telecommunications_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 71.68
+          },
+          {
+            "year": 2023,
+            "cutoff": 71.68
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.69
+          }
+        ],
+        "cutoff_range": {
+          "min": 71.68,
+          "max": 80.5
+        },
+        "confidence_band": 8.82,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_industrial_mfg",
+        "name": "BE Industrial & Manufacturing Engineering",
+        "field_id": "industrial_manufacturing_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 73.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 82.14
+          },
+          {
+            "year": 2021,
+            "cutoff": 76.04
+          }
+        ],
+        "cutoff_range": {
+          "min": 73.0,
+          "max": 82.14
+        },
+        "confidence_band": 9.14,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_automotive",
+        "name": "BE Mechanical Engineering \u2014 Automotive Specialization",
+        "field_id": "automotive_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 68.32
+          },
+          {
+            "year": 2023,
+            "cutoff": 68.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 78.95
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.04
+          }
+        ],
+        "cutoff_range": {
+          "min": 68.32,
+          "max": 78.95
+        },
+        "confidence_band": 10.63,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_metallurgical",
+        "name": "BE Metallurgy & Materials Engineering",
+        "field_id": "metallurgical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 63.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.77
+          },
+          {
+            "year": 2022,
+            "cutoff": 74.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 67.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 60.77,
+          "max": 74.0
+        },
+        "confidence_band": 13.23,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_materials",
+        "name": "BE Materials Engineering",
+        "field_id": "materials_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 64.44
+          },
+          {
+            "year": 2023,
+            "cutoff": 62.36
+          },
+          {
+            "year": 2022,
+            "cutoff": 75.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 70.75
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.36,
+          "max": 75.0
+        },
+        "confidence_band": 12.64,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_polymer_petrochem",
+        "name": "BE Polymer & Petrochemical Engineering",
+        "field_id": "polymer_petrochemical_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 60.55
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.55
+          },
+          {
+            "year": 2022,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 70.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 60.55,
+          "max": 72.0
+        },
+        "confidence_band": 11.45,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_urban_planning",
+        "name": "BE Civil Engineering \u2014 Urban Planning Specialization",
+        "field_id": "urban_infrastructure_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 76.3
+          },
+          {
+            "year": 2022,
+            "cutoff": 77.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 78.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 79.09
+          }
+        ],
+        "cutoff_range": {
+          "min": 76.3,
+          "max": 79.09
+        },
+        "confidence_band": 2.79,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_construction",
+        "name": "BE Civil Engineering \u2014 Construction Engineering Specialization",
+        "field_id": "construction_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 66.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 66.64
+          },
+          {
+            "year": 2022,
+            "cutoff": 77.86
+          },
+          {
+            "year": 2021,
+            "cutoff": 72.64
+          }
+        ],
+        "cutoff_range": {
+          "min": 66.0,
+          "max": 77.86
+        },
+        "confidence_band": 11.86,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_be_textile_eng",
+        "name": "BE Textile Engineering",
+        "field_id": "textile_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 69.32
+          },
+          {
+            "year": 2023,
+            "cutoff": 69.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 79.36
+          },
+          {
+            "year": 2021,
+            "cutoff": 74.89
+          }
+        ],
+        "cutoff_range": {
+          "min": 69.32,
+          "max": 79.36
+        },
+        "confidence_band": 10.04,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_food_eng",
+        "name": "BE Food Engineering",
+        "field_id": "food_engineering",
+        "field_category": "Engineering",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Food Engineering. Must have Biology and Chemistry at HSC level. A Mathematics bridge course is required before the first semester as per PEC guidelines. Seats in this category are limited."
+          },
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 68.27
+          },
+          {
+            "year": 2023,
+            "cutoff": 68.27
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.27
+          },
+          {
+            "year": 2021,
+            "cutoff": 72.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 68.27,
+          "max": 80.27
+        },
+        "confidence_band": 12.0,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high",
+          "math_weight": 0.25
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_physics",
+        "name": "BS Physics",
+        "field_id": "physics",
+        "field_category": "Science",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Physics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 60.02
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.09
+          },
+          {
+            "year": 2022,
+            "cutoff": 73.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 58.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 58.0,
+          "max": 73.0
+        },
+        "confidence_band": 15.0,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_chemistry",
+        "name": "BS Chemistry",
+        "field_id": "chemistry_biochemistry",
+        "field_category": "Science",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 70.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 71.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 72.45
+          }
+        ],
+        "cutoff_range": {
+          "min": 70.0,
+          "max": 72.45
+        },
+        "confidence_band": 2.45,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_textile_science",
+        "name": "BS Textile Science",
+        "field_id": "textile_sciences",
+        "field_category": "Science",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates may apply for Textile Science. Subject to seat availability and meeting the minimum aggregate requirement."
+          },
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 68.5
+          },
+          {
+            "year": 2022,
+            "cutoff": 69.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 70.2
+          },
+          {
+            "year": 2024,
+            "cutoff": 70.72
+          }
+        ],
+        "cutoff_range": {
+          "min": 68.5,
+          "max": 70.72
+        },
+        "confidence_band": 2.22,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_management_sci",
+        "name": "BS Management Sciences",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Management Sciences. No additional bridge course required. Subject to seat availability."
+          },
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 71.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 72.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.2
+          },
+          {
+            "year": 2024,
+            "cutoff": 73.81
+          }
+        ],
+        "cutoff_range": {
+          "min": 71.0,
+          "max": 73.81
+        },
+        "confidence_band": 2.81,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_economics_finance",
+        "name": "BS Economics & Finance",
+        "field_id": "economics",
+        "field_category": "Business",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 61.36
+          },
+          {
+            "year": 2023,
+            "cutoff": 61.36
+          },
+          {
+            "year": 2022,
+            "cutoff": 71.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 65.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 61.36,
+          "max": 71.5
+        },
+        "confidence_band": 10.14,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_bs_comp_finance",
+        "name": "BS Computational Finance",
+        "field_id": "finance_accounting",
+        "field_category": "Business",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 73.5
+          },
+          {
+            "year": 2022,
+            "cutoff": 74.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 75.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 76.27
+          }
+        ],
+        "cutoff_range": {
+          "min": 73.5,
+          "max": 76.27
+        },
+        "confidence_band": 2.77,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_dev_studies",
+        "name": "BS Development Studies",
+        "field_id": "social_work",
+        "field_category": "Arts",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 62.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 64.27
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.0,
+          "max": 64.27
+        },
+        "confidence_band": 2.27,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_english_ling",
+        "name": "BS English Linguistics",
+        "field_id": "english_linguistics",
+        "field_category": "Arts",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "English"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 440360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 59.34
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.73
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 63.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 59.34,
+          "max": 76.0
+        },
+        "confidence_band": 16.66,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "english_weight": 0.25,
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        } 
+      },
+      {
+        "degree_id": "neduet_barch_architecture",
+        "name": "B.Arch Architecture & Planning",
+        "field_id": "architecture",
+        "field_category": "Arts",
+        "duration_years": 5,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 55045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 550450,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 67.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 67.45
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.77
+          },
+          {
+            "year": 2021,
+            "cutoff": 71.05
+          }
+        ],
+        "cutoff_range": {
+          "min": 67.45,
+          "max": 76.77
+        },
+        "confidence_band": 9.32,
+        "location": {
+          "area": "University Road, Karachi \u2013 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 \u2013 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 \u2013 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      }
+    ]
+  }
+]
