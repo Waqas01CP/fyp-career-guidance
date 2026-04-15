@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Academic Intelligence - Splash</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#515f74",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-container": "#00857A",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#9cf2e8",
+                        "on-secondary-container": "#57657b",
+                        "on-tertiary-fixed": "#25005a",
+                        "secondary-container": "#d5e3fd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#80d5cb",
+                        "on-tertiary-container": "#f1e6ff",
+                        "inverse-primary": "#80d5cb",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary": "#006B62",
+                        "surface-tint": "#006a63",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#6e7977",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#a3faef",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#3e4947",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "tertiary-container": "#7f3ef0",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed": "#00201d",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#00504a",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#d5e3fd",
+                        "tertiary": "#6616d7",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#bdc9c6",
+                        "tertiary-fixed": "#eaddff",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .flat-book-logo {
+            clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+        }
+    </style>
+<style>
+    html { background-color: #d8dadc; }
+    body {
+      min-height: max(884px, 100dvh);
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+  </style>
+  </head>
+<body class="font-body overflow-hidden" style="background-color:#006B62;">
+<!-- Sprint label (developer reference, not user-facing) -->
+<div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 1</div>
+<!-- Splash Screen Layout -->
+<main class="relative h-screen w-full flex flex-col items-center justify-center" style="background-color:#006B62;">
+<!-- Branding Identity -->
+<div class="flex flex-col items-center space-y-8">
+<!-- Minimalist Geometric Logo Container -->
+<div class="relative w-32 h-32 flex items-center justify-center">
+<!-- Outer Hexagon Shell (Flat White) -->
+<div class="absolute inset-0 bg-white flat-book-logo opacity-20"></div>
+<!-- Inner Stylized AI Book Symbol (Material Icon) -->
+<div class="relative z-10 text-white flex flex-col items-center">
+<span class="material-symbols-outlined text-[64px]" style="font-variation-settings: 'FILL' 1;">
+                        auto_stories
+                    </span>
+<div class="absolute -top-2 -right-2 bg-white text-primary-container rounded-full p-1 shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">
+                            auto_awesome
+                        </span>
+</div>
+</div>
+</div>
+<!-- Brand Name Typography -->
+<div class="text-center">
+<h1 class="text-white text-3xl font-headline font-extrabold tracking-tight leading-none mb-2">
+                    Academic Intelligence
+                </h1>
+<p class="text-white text-sm font-medium tracking-widest uppercase">
+                    Career Guidance System
+                </p>
+</div>
+</div>
+<!-- Footer / Status Area -->
+<div class="absolute bottom-12 w-full flex flex-col items-center space-y-4">
+<!-- Loading Indicator (Pure CSS/Flat) -->
+<div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden" role="status" aria-label="Loading, please wait">
+<div class="h-full bg-white rounded-full" style="width:33%;animation:loadBar 2s ease-in-out infinite;"></div>
+</div>
+<style>
+@keyframes loadBar {
+  0% { width: 0%; opacity: 0.7; }
+  50% { width: 66%; opacity: 1; }
+  100% { width: 100%; opacity: 0.6; }
+}
+</style>
+<!-- Loading Text -->
+<span class="text-white text-xs font-label font-semibold tracking-widest uppercase">
+                Loading...
+            </span>
+</div>
+<!-- Structural Content Canvas (Hidden backdrop for editorial hierarchy) -->
+<div class="sr-only">
+<h2>Academic Intelligence — loading</h2>
+<p>Checking your account and taking you to the right screen.</p>
+</div>
+</main>
+<!-- Design System Decoration (Subtle asymmetric patterns) -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden opacity-[0.03]">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full"></div>
+<div class="absolute top-1/2 -right-48 w-[600px] h-[600px] bg-white rounded-full"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<!-- DEVELOPER ANNOTATION — not user-facing, routing logic reference  -->
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<div style="display:none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 10px 16px 14px;
+  background: rgba(25, 28, 30, 0.72);
+  backdrop-filter: blur(8px);
+  font-family: 'Inter', monospace;
+">
+  <!-- DEV badge -->
+  <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+    <span style="font-size:8px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#9cf2e8;background:rgba(0,92,85,0.40);padding:2px 7px;border-radius:4px;">DEV NOTE</span>
+    <span style="font-size:9px;color:rgba(255,255,255,0.40);font-weight:500;">Splash screen routing logic — remove before production release</span>
+  </div>
+  <!-- Routing logic steps -->
+  <p style="
+    font-size: 11px;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
+    font-weight: 500;
+  ">
+    <span style="color:#80d5cb;font-weight:700;">On launch:</span>
+    check <code style="font-size:10px;background:rgba(255,255,255,0.10);padding:1px 5px;border-radius:3px;color:#9cf2e8;">flutter_secure_storage</code> for auth token
+    <span style="color:rgba(255,255,255,0.40);margin:0 4px;">→</span>
+    <span style="color:#ffdad6;font-weight:600;">if none</span>, navigate to <code style="font-size:10px;background:rgba(255,255,255,0.10);padding:1px 5px;border-radius:3px;color:#9cf2e8;">LoginScreen</code>
+    <span style="color:rgba(255,255,255,0.40);margin:0 4px;">→</span>
+    <span style="color:#9cf2e8;font-weight:600;">if token exists</span>, call <code style="font-size:10px;background:rgba(255,255,255,0.10);padding:1px 5px;border-radius:3px;color:#d2bbff;">GET /profile/me</code>
+    <span style="color:rgba(255,255,255,0.40);margin:0 4px;">→</span>
+    route based on <code style="font-size:10px;background:rgba(255,255,255,0.10);padding:1px 5px;border-radius:3px;color:#d2bbff;">onboarding_stage</code> field in response
+  </p>
+  <!-- onboarding_stage routing table -->
+  <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;">
+    <span style="font-size:9px;color:rgba(255,255,255,0.50);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:4px;font-weight:600;">stage: <span style="color:#9cf2e8;">not_started</span> → OnboardingCarouselScreen</span>
+    <span style="font-size:9px;color:rgba(255,255,255,0.50);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:4px;font-weight:600;">stage: <span style="color:#9cf2e8;">riasec_complete</span> → GradesInputScreen</span>
+    <span style="font-size:9px;color:rgba(255,255,255,0.50);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:4px;font-weight:600;">stage: <span style="color:#9cf2e8;">grades_complete</span> → AssessmentScreen</span>
+    <span style="font-size:9px;color:rgba(255,255,255,0.50);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:4px;font-weight:600;">stage: <span style="color:#9cf2e8;">assessment_complete</span> → ChatScreen (welcome state)</span>
+    <span style="font-size:9px;color:rgba(255,255,255,0.50);background:rgba(255,255,255,0.06);padding:3px 8px;border-radius:4px;font-weight:600;">stage: <span style="color:#9cf2e8;">complete</span> → ChatScreen (prior session)</span>
+  </div>
+</div>
+</body></html>

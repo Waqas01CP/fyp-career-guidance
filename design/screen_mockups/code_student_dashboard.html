@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Student Profile Dashboard | Academic Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#d2bbff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-tertiary-fixed": "#25005a",
+                    "on-secondary-fixed": "#0d1c2f",
+                    "surface": "#f7f9fb",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-high": "#e6e8ea",
+                    "secondary-container": "#d5e3fd",
+                    "on-tertiary-fixed-variant": "#5a00c6",
+                    "inverse-on-surface": "#eff1f3",
+                    "on-primary-container": "#a3faef",
+                    "on-error": "#ffffff",
+                    "on-tertiary-container": "#f1e6ff",
+                    "on-primary-fixed-variant": "#00504a",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#3e4947",
+                    "surface-variant": "#e0e3e5",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#9cf2e8",
+                    "on-secondary-fixed-variant": "#3a485c",
+                    "inverse-primary": "#80d5cb",
+                    "surface-dim": "#d8dadc",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#f7f9fb",
+                    "tertiary": "#6616d7",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#57657b",
+                    "surface-container": "#eceef0",
+                    "inverse-surface": "#2d3133",
+                    "secondary": "#515f74",
+                    "primary": "#006B62",
+                    "outline-variant": "#bdc9c6",
+                    "secondary-fixed": "#d5e3fd",
+                    "secondary-fixed-dim": "#b9c7e0",
+                    "on-primary-fixed": "#00201d",
+                    "surface-tint": "#006a63",
+                    "on-background": "#191c1e",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#7f3ef0",
+                    "primary-fixed-dim": "#80d5cb",
+                    "primary-container": "#00857A",
+                    "outline": "#6e7977",
+                    "background": "#f7f9fb",
+                    "tertiary-fixed": "#eaddff",
+                    "on-surface": "#191c1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 12px 40px rgba(51, 65, 85, 0.06);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    html { background-color: #d8dadc; }
+    body {
+      min-height: max(884px, 100dvh);
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+
+<!-- Sprint label (developer reference, not user-facing) -->
+<div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 3</div>
+
+<!-- TopAppBar Component -->
+<header class="w-full top-0 sticky z-40 flex justify-between items-center px-6 py-4" style="background-color:#f7f9fb;">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+<h1 class="text-lg font-bold text-primary font-headline tracking-tight">Academic Intelligence</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<a class="text-primary font-bold bg-surface-container-low px-3 py-1 rounded-xl" href="#">Dashboard</a>
+<a class="text-secondary hover:bg-surface-container-low transition-colors px-3 py-1 rounded-xl" href="#">Assessment</a>
+<a class="text-secondary hover:bg-surface-container-low transition-colors px-3 py-1 rounded-xl" href="#">Settings</a>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="User profile photo" data-alt="professional portrait of a young student in a library setting with soft natural light and blurred bookshelves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfQFwUDEh1Xn23VHF99G0DusxXY2dU_0ZebepVntg7YPoJE4WiS4EHWAon6hN4KgkZ_2FggVZPFIc99akKrJlEfcUgFt32_z9XGGY4I9Ug0TexkIqE2O3nHURbS6u_zwhGzuHLwY2jnajU7p1q42WiayA0XAoeRAMI9AKv2Q8Hs7VjX8xnLDb5x9gEpI0rHB8FP9tDbUBmeCp6rQD9Le-V4RnbJ7gfRGUt13TW2K6gKJrwbHkHzNdgFOy6TdFO32t9Pq-9vyNyjtE"/>
+</div>
+</div>
+</header>
+<main class="px-4 py-8 pb-24">
+<!-- Dashboard Hero Section (Asymmetric Editorial Layout) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
+<div class="md:col-span-8">
+<div class="mb-4">
+<span class="text-secondary font-semibold text-xs tracking-widest uppercase">Student Profile</span>
+<h2 class="text-4xl md:text-5xl font-bold text-primary mt-2 -tracking-widest">Ali Raza Khan</h2>
+</div>
+<div class="flex flex-wrap gap-3 mt-6">
+<span class="bg-primary-fixed text-on-primary-fixed px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Inter Part 2</span>
+<span class="bg-surface-container-high text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Pre-Engineering</span>
+<span class="bg-surface-container-high text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Karachi Board</span>
+</div>
+</div>
+<div class="md:col-span-4 flex items-end">
+<div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow w-full">
+<p class="text-secondary text-sm font-medium">Overall Academic Standing</p>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-4xl font-bold text-primary">81%</span>
+<span class="text-secondary text-sm">Aggregate</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left Column: Academic & RIASEC -->
+<div class="md:col-span-8 grid grid-cols-1 gap-6">
+<!-- Academic Marks Section -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-semibold text-primary">Academic Transcripts</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:opacity-80 transition-opacity py-3 min-h-[48px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+                            Update Marks
+                        </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
+<div>
+<p class="text-xs font-bold text-secondary uppercase tracking-widest mb-4">Core Subjects</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">Mathematics</span>
+<span class="font-bold text-primary">82%</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">Physics</span>
+<span class="font-bold text-primary">76%</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">Chemistry</span>
+<span class="font-bold text-primary">91%</span>
+</div>
+</div>
+</div>
+<div>
+<p class="text-xs font-bold text-secondary uppercase tracking-widest mb-4">Other Subjects</p>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">English</span>
+<span class="font-bold text-secondary">68%</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">Computer Science</span>
+<span class="font-bold text-primary">88%</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="text-body-lg font-medium">Overall Aggregate</span>
+<span class="font-bold text-primary">81%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIASEC Interest Scores -->
+<div class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow">
+<h3 class="text-xl font-semibold text-primary mb-8">Your Interest Profile</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div class="relative aspect-square flex items-center justify-center">
+<!-- Simple Hexagonal Rep (Simulated via SVG) -->
+<svg class="w-full h-full max-w-[240px]" viewBox="0 0 200 200" role="img" aria-labelledby="student-radar-title"><title id="student-radar-title">Your RIASEC interest profile</title>
+<polygon class="fill-surface-container-high stroke-outline-variant" points="100,20 170,60 170,140 100,180 30,140 30,60" stroke-width="1"></polygon>
+<polygon class="fill-none stroke-outline-variant/30" points="100,40 150,70 150,130 100,160 50,130 50,70" stroke-width="1"></polygon>
+<!-- Values layer (primary teal — student data, not AI prediction) -->
+<polygon fill="rgba(0,92,85,0.18)" stroke="#005c55" points="100,40 160,75 140,125 100,170 45,135 60,65" stroke-width="2"></polygon>
+</svg>
+<div class="absolute top-2 left-1/2 -translate-x-1/2 text-[10px] font-bold text-secondary uppercase tracking-tighter">Realistic</div>
+<div class="absolute top-1/4 right-0 text-[10px] font-bold text-secondary uppercase tracking-tighter">Investigative</div>
+<div class="absolute bottom-1/4 right-0 text-[10px] font-bold text-secondary uppercase tracking-tighter">Artistic</div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-[10px] font-bold text-secondary uppercase tracking-tighter">Social</div>
+<div class="absolute bottom-1/4 left-0 text-[10px] font-bold text-secondary uppercase tracking-tighter">Enterprising</div>
+<div class="absolute top-1/4 left-0 text-[10px] font-bold text-secondary uppercase tracking-tighter">Conventional</div>
+</div>
+<!-- RIASEC score bars: primary (teal) — student-submitted data, NOT AI prediction -->
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-semibold">Investigative</span>
+<span class="text-primary font-bold">88%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full">
+<div class="h-full bg-primary rounded-full w-[88%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-semibold">Conventional</span>
+<span class="text-primary font-bold">80%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full">
+<div class="h-full bg-primary rounded-full w-[80%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="font-semibold">Enterprising</span>
+<span class="text-primary font-bold">70%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full">
+<div class="h-full bg-primary rounded-full w-[70%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Predictions & Constraints -->
+<div class="md:col-span-4 grid grid-cols-1 gap-6">
+<!-- AI Degree Recommendations -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-6 rounded-xl relative overflow-hidden" style="box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-bold uppercase tracking-widest">AI Suggestions</span>
+</div>
+<h4 class="text-lg font-bold mb-4">Top Degree Matches</h4>
+<div class="space-y-3">
+<div class="bg-white/20 p-3 rounded-lg flex items-center justify-between backdrop-blur-sm">
+<span class="text-sm font-medium">BE Computer Engineering — NED</span>
+<span class="bg-tertiary text-white text-[10px] px-2 py-0.5 rounded font-bold">91%</span>
+</div>
+<div class="bg-white/20 p-3 rounded-lg flex items-center justify-between backdrop-blur-sm">
+<span class="text-sm font-medium">BS Software Engineering — FAST</span>
+<span class="bg-tertiary text-white text-[10px] px-2 py-0.5 rounded font-bold">87%</span>
+</div>
+<div class="bg-white/20 p-3 rounded-lg flex items-center justify-between backdrop-blur-sm">
+<span class="text-sm font-medium">BS Computer Science — IBA</span>
+<span class="bg-tertiary text-white text-[10px] px-2 py-0.5 rounded font-bold">82%</span>
+</div>
+</div>
+<button class="w-full mt-6 bg-tertiary-container text-on-tertiary-container py-3 rounded-xl font-bold text-sm hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                        View All Matches
+                    </button>
+</div>
+<!-- Active Constraints Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl editorial-shadow">
+<h3 class="text-sm font-bold text-secondary uppercase tracking-widest mb-6">Active Constraints</h3>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div>
+<p class="text-xs font-bold text-secondary">Monthly Budget</p>
+<p class="text-lg font-bold text-on-surface">PKR 25,000 — 45,000/mo</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="map">map</span>
+</div>
+<div>
+<p class="text-xs font-bold text-secondary">Transport Zone</p>
+<p class="text-lg font-bold text-on-surface">Zone 1-4 / North Region</p>
+<p class="text-xs text-secondary mt-1">Prefer Urban Campus Centers</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 bg-surface-container-low text-secondary py-3 rounded-xl font-bold text-sm hover:bg-surface-container transition-colors">
+                        Edit Preferences
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Component (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-2 pb-safe z-50 rounded-t-xl" style="background-color:rgba(255,255,255,0.92);backdrop-filter:blur(16px);box-shadow:0 -4px 20px rgba(51,65,85,0.06);">
+<a class="flex flex-col items-center justify-center text-primary bg-surface-container-low rounded-xl p-2 transition-transform duration-150 min-h-[48px]" href="#" aria-label="Dashboard" aria-current="page">
+<span class="material-symbols-outlined" data-icon="dashboard" aria-hidden="true">dashboard</span>
+<span class="text-[11px] font-medium uppercase tracking-wider mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 min-h-[48px]" href="#" aria-label="Assessment">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in" aria-hidden="true">assignment_turned_in</span>
+<span class="text-[11px] font-medium uppercase tracking-wider mt-1">Assessment</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary p-2 min-h-[48px]" href="#" aria-label="Settings">
+<span class="material-symbols-outlined" data-icon="settings" aria-hidden="true">settings</span>
+<span class="text-[11px] font-medium uppercase tracking-wider mt-1">Settings</span>
+</a>
+</nav>
+<!-- FAB Action (Contextual: Home/Dashboard) -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 bg-primary text-on-primary w-14 h-14 rounded-full editorial-shadow flex items-center justify-center hover:scale-105 transition-transform z-40">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</body></html>

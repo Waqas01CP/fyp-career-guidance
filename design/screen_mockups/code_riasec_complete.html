@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>RIASEC Complete | Academic Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006B62",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fb;
+      min-height: max(884px, 100dvh);
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 2</div>
+
+  <!-- AppBar -->
+  <header class="sticky top-0 z-40 flex items-center gap-3 px-4 py-3" style="background-color:#f7f9fb;">
+    <button class="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-surface-container-low transition-colors" aria-label="Go back">
+      <span class="material-symbols-outlined text-secondary">arrow_back</span>
+    </button>
+    <span class="font-bold tracking-tight text-on-surface" style="font-size:16px;">Interest Assessment</span>
+  </header>
+
+  <main style="padding:24px 20px 40px;">
+
+    <!-- ── Celebration hero ───────────────────────── -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <!-- Completion badge -->
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#006B62,#00857A);box-shadow:0 12px 32px rgba(0,107,98,0.30);margin-bottom:20px;">
+        <span class="material-symbols-outlined fill-icon" style="color:#ffffff;font-size:40px;">check</span>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:6px;background-color:#f2f4f6;border-radius:20px;padding:4px 14px;margin-bottom:16px;">
+        <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#515f74;">Step 1 of 3 Complete</span>
+      </div>
+      <h1 style="font-size:28px;font-weight:700;color:#191c1e;letter-spacing:-0.02em;line-height:1.2;margin-bottom:10px;">Your Interests<br>Are Mapped</h1>
+      <p style="font-size:15px;color:#515f74;line-height:1.6;max-width:300px;margin:0 auto;">Your interest scores have been recorded across all 6 dimensions.</p>
+    </div>
+
+    <!-- ── RIASEC radar visual ────────────────────── -->
+    <div style="background-color:#ffffff;border-radius:20px;padding:24px;box-shadow:0 12px 40px rgba(51,65,85,0.06);margin-bottom:20px;">
+      <p style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#515f74;margin-bottom:20px;">Your Interest Profile</p>
+      <div style="position:relative;width:200px;height:200px;margin:0 auto 20px;">
+        <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="riasec-radar-title"><title id="riasec-radar-title">RIASEC interest profile radar chart: Investigative 88%, Realistic 72%, Conventional 61%, Artistic 45%, Social 38%, Enterprising 30%</title>
+          <!-- Background hex -->
+          <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="#f2f4f6" stroke="#e6e8ea" stroke-width="1"/>
+          <polygon points="100,40 150,70 150,130 100,160 50,130 50,70" fill="none" stroke="#eceef0" stroke-width="1"/>
+          <polygon points="100,60 130,80 130,120 100,140 70,120 70,80" fill="none" stroke="#eceef0" stroke-width="1"/>
+          <!-- Axes -->
+          <line x1="100" y1="20" x2="100" y2="180" stroke="#e6e8ea" stroke-width="0.5"/>
+          <line x1="30" y1="60" x2="170" y2="140" stroke="#e6e8ea" stroke-width="0.5"/>
+          <line x1="170" y1="60" x2="30" y2="140" stroke="#e6e8ea" stroke-width="0.5"/>
+          <!-- Profile shape (I=88, R=72, C=61, A=45, S=38, E=30) -->
+          <polygon points="100,32 152,74 138,128 100,152 63,122 72,68"
+                   fill="rgba(0,107,98,0.15)" stroke="#006B62" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Dots -->
+          <circle cx="100" cy="32" r="4" fill="#006B62"/>
+          <circle cx="152" cy="74" r="4" fill="#006B62"/>
+          <circle cx="138" cy="128" r="3" fill="#006B62" opacity="0.7"/>
+          <circle cx="100" cy="152" r="3" fill="#006B62" opacity="0.5"/>
+          <circle cx="63" cy="122" r="3" fill="#006B62" opacity="0.4"/>
+          <circle cx="72" cy="68" r="3" fill="#006B62" opacity="0.6"/>
+        </svg>
+        <!-- Labels -->
+        <div style="position:absolute;top:4px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:#006B62;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Investigative</div>
+        <div style="position:absolute;top:30%;right:-8px;font-size:11px;font-weight:600;color:#515f74;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Realistic</div>
+        <div style="position:absolute;bottom:20%;right:-8px;font-size:11px;font-weight:600;color:#515f74;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Conventional</div>
+        <div style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:600;color:#515f74;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Artistic</div>
+        <div style="position:absolute;bottom:20%;left:-8px;font-size:11px;font-weight:600;color:#515f74;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Social</div>
+        <div style="position:absolute;top:30%;left:-12px;font-size:11px;font-weight:600;color:#515f74;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;">Enterprising</div>
+      </div>
+
+      <!-- Top 3 dimension pills -->
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <div style="text-align:center;background-color:#f2f4f6;border-radius:12px;padding:10px 16px;">
+          <div style="font-size:20px;font-weight:800;color:#006B62;letter-spacing:-0.02em;">I</div>
+          <div style="font-size:10px;font-weight:600;color:#515f74;margin-top:2px;">88%</div>
+        </div>
+        <div style="text-align:center;background-color:#f2f4f6;border-radius:12px;padding:10px 16px;">
+          <div style="font-size:20px;font-weight:800;color:#006B62;letter-spacing:-0.02em;">C</div>
+          <div style="font-size:10px;font-weight:600;color:#515f74;margin-top:2px;">80%</div>
+        </div>
+        <div style="text-align:center;background-color:#f2f4f6;border-radius:12px;padding:10px 16px;">
+          <div style="font-size:20px;font-weight:800;color:#515f74;letter-spacing:-0.02em;">E</div>
+          <div style="font-size:10px;font-weight:600;color:#515f74;margin-top:2px;">70%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── AI Insight (purple = AI content) ─────── -->
+    <div style="background-color:#eaddff;border-radius:16px;padding:18px 20px;margin-bottom:32px;border-left:4px solid #6616d7;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+        <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:16px;">auto_awesome</span>
+        <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a00c6;">AI Insight</span>
+      </div>
+      <p style="font-size:13px;color:#25005a;line-height:1.6;margin:0;">Your I–C–E code points toward analytical and structured fields. Engineering, Computer Science, and Business Administration programmes at Karachi universities may be a strong fit — your full results come after the capability assessment.</p>
+    </div>
+
+    <!-- ── CTA button ─────────────────────────────── -->
+    <button style="width:100%;background-color:#006B62;color:#ffffff;border:none;border-radius:16px;padding:18px;font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(0,107,98,0.25);transition:background-color 150ms,transform 100ms;" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'" aria-label="Continue to Academic Grades">
+      Continue to Academic Grades
+      <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+    </button>
+
+  </main>
+
+</body>
+</html>

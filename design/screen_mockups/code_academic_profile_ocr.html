@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>Academic Profile | Academic Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006a63",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; min-height: 100dvh; padding-bottom: 80px; max-width: 390px; margin: 0 auto; overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* ── Field label ─────────────────────────── */
+    .field-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #515f74;
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    /* ── Input / Select base ─────────────────── */
+    .field-input, .field-select {
+      width: 100%;
+      background-color: #f2f4f6;
+      border: none;
+      border-left: 2px solid transparent;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: #191c1e;
+      outline: none;
+      transition: border-left-color 150ms;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .field-input:focus, .field-select:focus { border-left-color: #006B62; }
+    .field-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23515f74' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+
+    /* ── Disabled field state (Stream/Board for O/A Level) ── */
+    .field-input.disabled, .field-select.disabled {
+      background-color: #eceef0;
+      color: #bdc9c6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── Marks row ───────────────────────────── */
+    .marks-row {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 12px;
+      align-items: center;
+    }
+    .marks-input-group {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .marks-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-left: 2px solid transparent;
+      border-radius: 12px 0 0 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #191c1e;
+      outline: none;
+      text-align: right;
+      transition: border-left-color 150ms;
+      width: 72px;
+    }
+    .marks-input:focus { border-left-color: #006B62; }
+    .marks-total {
+      padding: 12px 14px 12px 8px;
+      font-size: 13px;
+      color: #6e7977;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* ── Glass overlay ───────────────────────── */
+    .glass-overlay {
+      background: rgba(247, 249, 251, 0.80);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    /* ── Animated scan line ──────────────────── */
+    @keyframes scanLine {
+      0% { top: 0; }
+      100% { top: 100%; }
+    }
+    .scan-line { animation: scanLine 2s linear infinite; }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 2</div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- APP BAR                                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-40 flex justify-between items-center px-6 py-3" style="background-color:#f7f9fb;">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined" style="color:#006B62;">school</span>
+      <h1 class="font-bold tracking-tight" style="font-size:17px;color:#006B62;">Academic Intelligence</h1>
+    </div>
+    <div class="flex items-center gap-4">
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a class="font-semibold" style="color:#515f74;" href="#">Home</a>
+        <a class="font-bold" style="color:#006B62;" href="#">Profile</a>
+        <a class="font-semibold" style="color:#515f74;" href="#">Quiz</a>
+      </nav>
+      <div class="w-9 h-9 rounded-full overflow-hidden" style="background-color:#e0e3e5;">
+        <span class="material-symbols-outlined w-full h-full flex items-center justify-center text-secondary pt-1">person</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PAGE CONTENT                                          -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <main style="padding:24px 16px 40px;">
+
+    <!-- Page header -->
+    <div style="margin-bottom:40px;">
+      <h2 style="font-size:28px;font-weight:700;letter-spacing:-0.02em;color:#006B62;margin-bottom:8px;line-height:1.2;">Academic Profile</h2>
+      <p style="font-size:16px;color:#515f74;max-width:560px;line-height:1.6;">Complete your academic history so we can find degree programmes that match your marks and interests.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:32px;" class="lg-cols-8-4">
+
+      <!-- ─────────────────────────────────────────── -->
+      <!-- LEFT COLUMN: OCR Upload + Manual Form       -->
+      <!-- ─────────────────────────────────────────── -->
+      <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <!-- OCR Smart Upload card -->
+        <section style="background-color:#ffffff;border-radius:16px;padding:24px;border-left:4px solid #006B62;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+          <div style="display:flex;flex-direction:column;gap:20px;" class="md-row">
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <span class="material-symbols-outlined" style="color:#006B62;">document_scanner</span>
+                <h3 style="font-size:18px;font-weight:700;color:#191c1e;">Smart Marksheet Upload</h3>
+              </div>
+              <p style="font-size:14px;color:#515f74;line-height:1.5;max-width:420px;">Take a photo of your result card and we'll read the subjects and marks for you — supports Matric, Inter, O Level, and A Level certificates.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start;" class="md-col-btns">
+              <button style="display:flex;align-items:center;gap:8px;background-color:#006B62;color:#ffffff;border:none;border-radius:12px;padding:14px 24px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;box-shadow:0 4px 12px rgba(0,92,85,0.18);" aria-label="Scan marksheet">
+                <span class="material-symbols-outlined" style="font-size:18px;">upload_file</span>
+                Scan Marksheet
+              </button>
+              <p style="font-size:11px;color:#515f74;margin:0;">JPG, PNG or PDF · Max 10 MB</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Manual Academic Records Form -->
+        <section style="background-color:#f2f4f6;border-radius:16px;padding:28px;">
+          <h3 style="font-size:20px;font-weight:700;color:#191c1e;margin-bottom:24px;letter-spacing:-0.01em;">Manual Academic Records</h3>
+
+          <form style="display:flex;flex-direction:column;gap:20px;">
+
+            <!-- ROW 1: Education Level + Academic Year -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="sm-cols-2">
+
+              <!-- Education Level -->
+              <div>
+                <label class="field-label">Education Level</label>
+                <div style="position:relative;">
+                  <select class="field-select">
+                    <option value="">Select level…</option>
+                    <option>Matric</option>
+                    <option>Inter Part 1</option>
+                    <option selected>Inter Part 2</option>
+                    <option>Completed Inter</option>
+                    <option>O Level</option>
+                    <option>A Level</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Academic Year -->
+              <div>
+                <label class="field-label">Examination Year</label>
+                <select class="field-select">
+                  <option>2026</option>
+                  <option selected>2025</option>
+                  <option>2024</option>
+                  <option>2023</option>
+                  <option>2022</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- ROW 2: Stream + Board (hidden for O/A Level — shown here for Inter Part 2) -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="sm-cols-2">
+
+              <!-- Stream -->
+              <div>
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                  <label class="field-label" style="margin-bottom:0;">Stream / Group</label>
+                  <span style="font-size:9px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;letter-spacing:0.04em;text-transform:uppercase;">Board only</span>
+                </div>
+                <select class="field-select">
+                  <option>Pre-Engineering</option>
+                  <option>Pre-Medical</option>
+                  <option>ICS (Computer Science)</option>
+                  <option>Commerce</option>
+                  <option>Humanities</option>
+                </select>
+              </div>
+
+              <!-- Board -->
+              <div>
+                <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                  <label class="field-label" style="margin-bottom:0;">Examination Board</label>
+                  <span style="font-size:9px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;letter-spacing:0.04em;text-transform:uppercase;">Board only</span>
+                </div>
+                <select class="field-select">
+                  <option>Karachi Board</option>
+                  <option>Federal Board</option>
+                  <option>AKU</option>
+                  <option>Cambridge</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conditional field note (developer reference) -->
+            <div style="display:flex;align-items:flex-start;gap:10px;background-color:#eceef0;border-radius:10px;padding:12px 14px;">
+              <span class="material-symbols-outlined" style="font-size:16px;color:#6e7977;flex-shrink:0;margin-top:1px;">info</span>
+              <p style="font-size:12px;color:#515f74;line-height:1.5;margin:0;">
+                Stream and Board fields are hidden when O Level or A Level is selected. Cambridge / AKU exams don't use stream or local board groupings.
+              </p>
+            </div>
+
+            <!-- Subject Marks Section -->
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+                <label class="field-label" style="margin-bottom:0;">Subject Marks <span style="font-weight:400;text-transform:none;letter-spacing:0;font-size:12px;color:#6e7977;">— Pre-Engineering stream</span></label>
+                <button type="button" style="display:flex;align-items:center;gap:4px;background:none;border:none;font-size:12px;font-weight:700;color:#006B62;font-family:'Inter',sans-serif;cursor:pointer;">
+                  <span class="material-symbols-outlined" style="font-size:15px;">add_circle</span>
+                  Add Subject
+                </button>
+              </div>
+
+              <!-- Marks table -->
+              <div style="background-color:#ffffff;border-radius:12px;overflow:hidden;">
+
+                <!-- Header row -->
+                <div style="display:grid;grid-template-columns:1fr 140px 40px;gap:0;padding:10px 16px;background-color:#f2f4f6;">
+                  <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#6e7977;">Subject</span>
+                  <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#6e7977;text-align:right;">Percentage</span>
+                  <span></span>
+                </div>
+
+                <!-- Mathematics -->
+                <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">calculate</span>
+                    <span style="font-size:14px;font-weight:600;color:#191c1e;">Mathematics</span>
+                    <span style="font-size:10px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:0.04em;">Required</span>
+                  </div>
+                  <div class="marks-input-group">
+                    <input class="marks-input" type="number" placeholder="e.g. 87" value="82" min="0" max="100" step="0.1"/>
+                    <span class="marks-total">%</span>
+                  </div>
+                  <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                    <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                  </button>
+                </div>
+
+                <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+                <!-- Physics -->
+                <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">bolt</span>
+                    <span style="font-size:14px;font-weight:600;color:#191c1e;">Physics</span>
+                    <span style="font-size:10px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:0.04em;">Required</span>
+                  </div>
+                  <div class="marks-input-group">
+                    <input class="marks-input" type="number" placeholder="e.g. 87" value="76" min="0" max="100" step="0.1"/>
+                    <span class="marks-total">%</span>
+                  </div>
+                  <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                    <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                  </button>
+                </div>
+
+                <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+                <!-- Chemistry -->
+                <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">science</span>
+                    <span style="font-size:14px;font-weight:600;color:#191c1e;">Chemistry</span>
+                    <span style="font-size:10px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:0.04em;">Required</span>
+                  </div>
+                  <div class="marks-input-group">
+                    <input class="marks-input" type="number" placeholder="e.g. 87" value="91" min="0" max="100" step="0.1"/>
+                    <span class="marks-total">%</span>
+                  </div>
+                  <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                    <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                  </button>
+                </div>
+
+                <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+                <!-- English -->
+                <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">menu_book</span>
+                    <span style="font-size:14px;font-weight:600;color:#191c1e;">English</span>
+                    <span style="font-size:10px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.08);padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:0.04em;">Required</span>
+                  </div>
+                  <div class="marks-input-group">
+                    <input class="marks-input" type="number" placeholder="e.g. 87" value="68" min="0" max="100" step="0.1"/>
+                    <span class="marks-total">%</span>
+                  </div>
+                  <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                    <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                  </button>
+                </div>
+
+                <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+                <!-- Computer Science (stream-relevant elective) -->
+                <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;border-radius:0 0 12px 12px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="material-symbols-outlined fill-icon" style="color:#515f74;font-size:17px;">computer</span>
+                    <span style="font-size:14px;font-weight:600;color:#191c1e;">Computer Science</span>
+                    <span style="font-size:10px;font-weight:700;color:#515f74;background:#f2f4f6;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:0.04em;">Elective</span>
+                  </div>
+                  <div class="marks-input-group">
+                    <input class="marks-input" type="number" placeholder="e.g. 87" value="88" min="0" max="100" step="0.1"/>
+                    <span class="marks-total">%</span>
+                  </div>
+                  <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                    <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Save button -->
+            <div style="display:flex;justify-content:flex-end;padding-top:8px;">
+              <button type="submit" style="background-color:#006B62;color:#ffffff;border:none;border-radius:12px;padding:14px 32px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;box-shadow:0 4px 12px rgba(0,92,85,0.18);">
+                Save Academic Profile
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <!-- ─────────────────────────────────────────── -->
+      <!-- RIGHT COLUMN: AI Insights + Document Status -->
+      <!-- ─────────────────────────────────────────── -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- AI Prediction Panel -->
+        <div style="background-color:#eaddff;border-radius:20px;padding:24px;position:relative;overflow:hidden;">
+          <div style="position:relative;z-index:1;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:20px;">auto_awesome</span>
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a00c6;">AI Prediction</span>
+            </div>
+            <h4 style="font-size:18px;font-weight:700;color:#191c1e;margin-bottom:8px;">Academic Standing</h4>
+            <p style="font-size:13px;color:#5a00c6;line-height:1.6;margin-bottom:16px;">Based on your marks (avg 81%), you are likely to meet the typical entry requirements for Engineering and Computer Science programmes at NED, FAST, and IBA Karachi.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <span style="font-size:10px;font-weight:700;color:#6616d7;background:rgba(255,255,255,0.50);padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.04em;">STEM Focus</span>
+              <span style="font-size:10px;font-weight:700;color:#6616d7;background:rgba(255,255,255,0.50);padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:0.04em;">High Merit</span>
+            </div>
+          </div>
+          <!-- Decorative icon -->
+          <div style="position:absolute;right:-10px;bottom:-10px;opacity:0.08;">
+            <span class="material-symbols-outlined fill-icon" style="font-size:100px;color:#6616d7;">trending_up</span>
+          </div>
+        </div>
+
+        <!-- Document Status Card -->
+        <div style="background-color:#ffffff;border-radius:16px;padding:20px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+          <h4 style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6e7977;margin-bottom:16px;">Document Status</h4>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:20px;">check_circle</span>
+              <div>
+                <p style="font-size:13px;font-weight:700;color:#191c1e;margin:0 0 2px;">CNIC / B-Form</p>
+                <p style="font-size:11px;color:#515f74;margin:0;">Verified · Apr 8, 2026</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="material-symbols-outlined" style="color:#bdc9c6;font-size:20px;">pending</span>
+              <div>
+                <p style="font-size:13px;font-weight:700;color:#191c1e;margin:0 0 2px;">Marksheet / Result Card</p>
+                <p style="font-size:11px;color:#515f74;margin:0;">Upload pending</p>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span class="material-symbols-outlined" style="color:#bdc9c6;font-size:20px;">pending</span>
+              <div>
+                <p style="font-size:13px;font-weight:700;color:#191c1e;margin:0 0 2px;">School Leaving Certificate</p>
+                <p style="font-size:11px;color:#515f74;margin:0;">Optional · Not uploaded</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eligibility note -->
+        <div style="background-color:#f2f4f6;border-radius:12px;padding:16px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span class="material-symbols-outlined" style="color:#006B62;font-size:18px;flex-shrink:0;margin-top:1px;">shield</span>
+            <p style="font-size:12px;color:#515f74;line-height:1.5;margin:0;">Your data is stored securely and only used for generating personalized recommendations. It is never shared with universities without your consent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- STATE DEMO: O Level selected — Stream + Board disabled -->
+    <!-- Developer reference: shows conditional disabled state  -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div style="margin-top:32px;">
+      <!-- Dev label -->
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+        <span style="font-size:9px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:#6616d7;background:#eaddff;padding:2px 8px;border-radius:4px;">Dev State</span>
+        <span style="font-size:12px;color:#6e7977;font-weight:500;">O Level / A Level selected — Stream &amp; Board hidden/disabled</span>
+      </div>
+
+      <section style="background-color:#ffffff;border-radius:20px;padding:24px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+        <div style="display:flex;flex-direction:column;gap:20px;">
+
+          <!-- ROW 1: Education Level (O Level selected) + Year -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <label class="field-label">Education Level</label>
+              <div style="position:relative;">
+                <select class="field-select">
+                  <option>Matric</option>
+                  <option>Inter Part 1</option>
+                  <option>Inter Part 2</option>
+                  <option>Completed Inter</option>
+                  <option selected>O Level</option>
+                  <option>A Level</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="field-label">Examination Year</label>
+              <select class="field-select">
+                <option selected>2025</option>
+                <option>2024</option>
+                <option>2023</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ROW 2: Stream + Board — DISABLED (O Level selected) -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
+            <!-- Stream — disabled -->
+            <div>
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                <label class="field-label" style="margin-bottom:0;color:#bdc9c6;">Stream / Group</label>
+                <span style="font-size:9px;font-weight:700;color:#bdc9c6;background:#f2f4f6;padding:2px 7px;border-radius:10px;letter-spacing:0.04em;text-transform:uppercase;">N/A</span>
+              </div>
+              <select class="field-select disabled" disabled style="background-color:#eceef0;color:#bdc9c6;cursor:not-allowed;opacity:1;">
+                <option>Not applicable</option>
+              </select>
+            </div>
+
+            <!-- Board — disabled -->
+            <div>
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                <label class="field-label" style="margin-bottom:0;color:#bdc9c6;">Examination Board</label>
+                <span style="font-size:9px;font-weight:700;color:#bdc9c6;background:#f2f4f6;padding:2px 7px;border-radius:10px;letter-spacing:0.04em;text-transform:uppercase;">N/A</span>
+              </div>
+              <select class="field-select disabled" disabled style="background-color:#eceef0;color:#bdc9c6;cursor:not-allowed;opacity:1;">
+                <option>Not applicable</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Explanation note -->
+          <div style="display:flex;align-items:flex-start;gap:10px;background-color:#f2f4f6;border-radius:10px;padding:12px 14px;">
+            <span class="material-symbols-outlined" style="font-size:16px;color:#6e7977;flex-shrink:0;margin-top:1px;">info</span>
+            <p style="font-size:12px;color:#515f74;line-height:1.5;margin:0;">
+              O Level and A Level qualifications use <strong>Cambridge grading</strong>. Stream and local board fields are hidden — they don't apply to international curricula.
+            </p>
+          </div>
+
+          <!-- Subject Grades Section (O/A Level: grade letters replace percentage fields) -->
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+              <label class="field-label" style="margin-bottom:0;">Subject Grades</label>
+              <button type="button" style="display:flex;align-items:center;gap:4px;background:none;border:none;font-size:12px;font-weight:700;color:#006B62;font-family:'Inter',sans-serif;cursor:pointer;">
+                <span class="material-symbols-outlined" style="font-size:15px;">add_circle</span>
+                Add Subject
+              </button>
+            </div>
+
+            <!-- Format note -->
+            <div style="display:flex;align-items:center;gap:8px;background-color:#eaddff;border-radius:10px;padding:10px 14px;margin-bottom:12px;">
+              <span class="material-symbols-outlined fill-icon" style="font-size:15px;color:#6616d7;flex-shrink:0;">grade</span>
+              <p style="font-size:12px;color:#5a00c6;line-height:1.4;margin:0;">
+                Enter your grade letter (A*, A, B, C, D, E)
+              </p>
+            </div>
+
+            <!-- Grade rows -->
+            <div style="background-color:#ffffff;border-radius:12px;overflow:hidden;">
+
+              <!-- Header -->
+              <div style="display:grid;grid-template-columns:1fr 80px 40px;padding:10px 16px;background-color:#f2f4f6;">
+                <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#6e7977;">Subject</span>
+                <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#6e7977;text-align:right;">Grade</span>
+                <span></span>
+              </div>
+
+              <!-- Mathematics -->
+              <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">calculate</span>
+                  <span style="font-size:14px;font-weight:600;color:#191c1e;">Mathematics</span>
+                </div>
+                <div class="marks-input-group">
+                  <input class="marks-input" type="text" placeholder="e.g. A*" value="A*" maxlength="2" style="text-align:center;text-transform:uppercase;"/>
+                </div>
+                <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                </button>
+              </div>
+
+              <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+              <!-- Physics -->
+              <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">bolt</span>
+                  <span style="font-size:14px;font-weight:600;color:#191c1e;">Physics</span>
+                </div>
+                <div class="marks-input-group">
+                  <input class="marks-input" type="text" placeholder="e.g. A*" value="A" maxlength="2" style="text-align:center;text-transform:uppercase;"/>
+                </div>
+                <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                </button>
+              </div>
+
+              <div style="height:1px;background-color:#f2f4f6;margin:0 16px;"></div>
+
+              <!-- English Language -->
+              <div class="marks-row" style="padding:12px 16px;background-color:#ffffff;border-radius:0 0 12px 12px;">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:17px;">menu_book</span>
+                  <span style="font-size:14px;font-weight:600;color:#191c1e;">English Language</span>
+                </div>
+                <div class="marks-input-group">
+                  <input class="marks-input" type="text" placeholder="e.g. A*" value="B" maxlength="2" style="text-align:center;text-transform:uppercase;"/>
+                </div>
+                <button type="button" style="background:none;border:none;cursor:pointer;color:#bdc9c6;padding:12px;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+                  <span class="material-symbols-outlined" style="font-size:18px;">delete</span>
+                </button>
+              </div>
+            </div>
+          </div><!-- /subject grades -->
+
+        </div>
+      </section>
+    </div><!-- /state demo -->
+
+  </main>
+
+  <!-- Bottom mobile nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-5 pt-2 z-50" style="background-color:rgba(255,255,255,0.85);backdrop-filter:blur(16px);box-shadow:0 -4px 20px rgba(51,65,85,0.06);">
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Home">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">home</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Home</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Quiz">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">psychology</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Quiz</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#006B62;text-decoration:none;background-color:rgba(0,92,85,0.08);padding:6px 12px;border-radius:12px;min-height:48px;justify-content:center;" href="#" aria-label="Profile" aria-current="page">
+      <span class="material-symbols-outlined fill-icon" style="font-size:22px;color:#006B62;" aria-hidden="true">person</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Profile</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Settings">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">settings</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Settings</span>
+    </a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- OCR VERIFICATION MODAL (VISIBLE FOR DEMO)             -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div role="dialog" aria-modal="true" aria-labelledby="modal-title" style="position:fixed;inset:0;z-index:70;background:rgba(25,28,30,0.50);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:16px;">
+    <div style="background-color:#ffffff;border-radius:24px;box-shadow:0 24px 64px rgba(51,65,85,0.20);max-width:520px;width:100%;max-height:90dvh;display:flex;flex-direction:column;">
+
+      <!-- Modal header -->
+      <div style="padding:20px 24px;background-color:#f7f9fb;border-radius:24px 24px 0 0;display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <h3 id="modal-title" style="font-size:18px;font-weight:700;color:#191c1e;margin:0 0 4px;">Verify Extracted Data</h3>
+          <p style="font-size:12px;color:#515f74;margin:0;">AI detected 5 subjects. Confirm or edit before saving.</p>
+        </div>
+        <button aria-label="Close verification modal" style="width:44px;height:44px;border-radius:10px;background-color:#eceef0;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+          <span class="material-symbols-outlined" style="font-size:18px;color:#515f74;">close</span>
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div style="padding:20px 24px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:12px;">
+
+        <!-- AI confidence notice -->
+        <div style="display:flex;align-items:flex-start;gap:10px;background-color:#eaddff;border-radius:12px;padding:12px 14px;margin-bottom:4px;">
+          <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:16px;flex-shrink:0;margin-top:1px;">auto_awesome</span>
+          <p style="font-size:12px;color:#5a00c6;line-height:1.5;margin:0;">
+            <strong>AI detected an issue:</strong> Slight blur near the Mathematics mark. Please check this value carefully before confirming.
+          </p>
+        </div>
+
+        <!-- Verification row: Mathematics (low confidence) -->
+        <div style="display:grid;grid-template-columns:1fr 100px 32px;gap:12px;align-items:center;background-color:#f2f4f6;padding:14px 16px;border-radius:12px;">
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Subject Name</span>
+            <input type="text" value="Mathematics" aria-label="Subject name" style="background:transparent;border:none;font-size:14px;font-weight:700;color:#191c1e;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Percentage</span>
+            <input type="text" value="82%" aria-label="Percentage, low confidence — please verify" style="background:transparent;border:none;font-size:16px;font-weight:800;color:#ba1a1a;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <!-- Warning: low confidence -->
+          <span class="material-symbols-outlined" style="color:#ba1a1a;font-size:20px;font-variation-settings:'FILL' 1;" title="Low confidence — please verify">warning</span>
+        </div>
+
+        <!-- Verification row: Physics (verified) -->
+        <div style="display:grid;grid-template-columns:1fr 100px 32px;gap:12px;align-items:center;background-color:#f2f4f6;padding:14px 16px;border-radius:12px;">
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Subject Name</span>
+            <input type="text" value="Physics" aria-label="Subject name" style="background:transparent;border:none;font-size:14px;font-weight:700;color:#191c1e;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Percentage</span>
+            <input type="text" value="76%" aria-label="Percentage" style="background:transparent;border:none;font-size:16px;font-weight:800;color:#006B62;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:20px;">verified</span>
+        </div>
+
+        <!-- Verification row: Chemistry (verified) -->
+        <div style="display:grid;grid-template-columns:1fr 100px 32px;gap:12px;align-items:center;background-color:#f2f4f6;padding:14px 16px;border-radius:12px;">
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Subject Name</span>
+            <input type="text" value="Chemistry" aria-label="Subject name" style="background:transparent;border:none;font-size:14px;font-weight:700;color:#191c1e;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Percentage</span>
+            <input type="text" value="91%" aria-label="Percentage" style="background:transparent;border:none;font-size:16px;font-weight:800;color:#006B62;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:20px;">verified</span>
+        </div>
+
+        <!-- Verification row: English (verified) -->
+        <div style="display:grid;grid-template-columns:1fr 100px 32px;gap:12px;align-items:center;background-color:#f2f4f6;padding:14px 16px;border-radius:12px;">
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Subject Name</span>
+            <input type="text" value="English" aria-label="Subject name" style="background:transparent;border:none;font-size:14px;font-weight:700;color:#191c1e;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Percentage</span>
+            <input type="text" value="68%" aria-label="Percentage" style="background:transparent;border:none;font-size:16px;font-weight:800;color:#006B62;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:20px;">verified</span>
+        </div>
+
+        <!-- Verification row: Computer Science (verified) -->
+        <div style="display:grid;grid-template-columns:1fr 100px 32px;gap:12px;align-items:center;background-color:#f2f4f6;padding:14px 16px;border-radius:12px;">
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Subject Name</span>
+            <input type="text" value="Computer Science" aria-label="Subject name" style="background:transparent;border:none;font-size:14px;font-weight:700;color:#191c1e;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <div>
+            <span style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#515f74;display:block;margin-bottom:4px;">Percentage</span>
+            <input type="text" value="88%" aria-label="Percentage" style="background:transparent;border:none;font-size:16px;font-weight:800;color:#006B62;font-family:'Inter',sans-serif;outline:none;width:100%;"/>
+          </div>
+          <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:20px;">verified</span>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div style="padding:16px 24px;background-color:#f7f9fb;border-radius:0 0 24px 24px;display:flex;align-items:center;justify-content:space-between;">
+        <button style="display:flex;align-items:center;gap:6px;background:none;border:none;font-size:13px;font-weight:700;color:#515f74;font-family:'Inter',sans-serif;cursor:pointer;">
+          <span class="material-symbols-outlined" style="font-size:16px;">refresh</span>
+          Retake Photo
+        </button>
+        <button style="display:flex;align-items:center;gap:8px;background-color:#006B62;color:#ffffff;border:none;border-radius:12px;padding:13px 24px;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;box-shadow:0 4px 12px rgba(0,92,85,0.20);">
+          <span class="material-symbols-outlined fill-icon" style="font-size:18px;">check_circle</span>
+          Confirm & Save
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @media (min-width: 1024px) {
+      .lg-cols-8-4 { grid-template-columns: 1fr 320px !important; }
+    }
+    @media (min-width: 640px) {
+      .md-row { flex-direction: row !important; }
+      .md-col-btns { align-items: flex-end !important; }
+    }
+  </style>
+
+</body>
+</html>

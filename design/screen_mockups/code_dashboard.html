@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>Career Recommendations | Academic Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006a63",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; min-height: 100dvh; padding-bottom: 80px; max-width: 390px; margin: 0 auto; overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .editorial-shadow { box-shadow: 0 12px 40px rgba(51, 65, 85, 0.06); }
+
+    /* ── Match score progress bar ────────────── */
+    .match-track {
+      width: 100%;
+      height: 8px;
+      background-color: #e6e8ea;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .match-fill {
+      height: 100%;
+      background-color: #006B62;
+      border-radius: 4px;
+      transition: width 600ms ease;
+    }
+
+    /* ── FutureValue badge ───────────────────── */
+    .fv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background-color: #eaddff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #5a00c6;
+    }
+
+    /* ── Rank badge ──────────────────────────── */
+    .rank-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* ── Ask button ──────────────────────────── */
+    .ask-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background-color: rgba(0,92,85,0.08);
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      color: #006B62;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background-color 150ms;
+    }
+    .ask-btn:hover { background-color: rgba(0,92,85,0.14); }
+
+    /* ── Details button ──────────────────────── */
+    .details-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      background-color: #006B62;
+      border: none;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background-color 150ms;
+      box-shadow: 0 4px 10px rgba(0,92,85,0.20);
+    }
+    .details-btn:hover { background-color: #00857A; }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 3</div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- APP BAR                                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-50 flex justify-between items-center px-6 py-3" style="background-color:#f7f9fb;">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined" style="color:#006B62;">school</span>
+      <span class="font-bold tracking-tight" style="font-size:17px;color:#006B62;">Academic Intelligence</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a style="color:#006B62;font-weight:700;text-decoration:none;" href="#">Recommendations</a>
+      <a style="color:#515f74;font-weight:500;text-decoration:none;" href="#">Profile</a>
+      <a style="color:#515f74;font-weight:500;text-decoration:none;" href="#">Quiz</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button style="display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#6616d7,#7f3ef0);color:#ffffff;border:none;border-radius:10px;padding:12px 14px;font-size:12px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;min-height:48px;" aria-label="Open AI Advisor">
+        <span class="material-symbols-outlined fill-icon" style="font-size:16px;">smart_toy</span>
+        AI Advisor
+      </button>
+      <div class="w-9 h-9 rounded-full overflow-hidden" style="background-color:#e0e3e5;">
+        <span class="material-symbols-outlined w-full h-full flex items-center justify-center text-secondary pt-1">person</span>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding:16px 16px 0;">
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- ACADEMIC MISMATCH BANNER                              -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div style="background-color:#FFF8E1;border-left:4px solid #F59E0B;border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:28px;display:flex;align-items:center;gap:14px;box-shadow:0 4px 12px rgba(51,65,85,0.04);">
+      <span class="material-symbols-outlined fill-icon" style="color:#92400E;font-size:20px;flex-shrink:0;">warning</span>
+      <div style="flex:1;">
+        <p style="font-size:13px;font-weight:700;color:#78350F;margin:0 0 2px;">One thing to work on</p>
+        <p style="font-size:12px;color:#92400E;margin:0;line-height:1.4;">Your English marks (68%) may affect eligibility at some universities. Improving to 75+ strengthens all 3 recommendations below.</p>
+      </div>
+      <button style="font-size:11px;font-weight:700;color:#78350F;background:none;border:none;cursor:pointer;white-space:nowrap;letter-spacing:0.04em;text-transform:uppercase;padding:10px 12px;min-height:48px;" aria-label="Review English marks recommendation">Review</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- PAGE HEADING                                          -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div style="margin-bottom:32px;">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;">Career Recommendations</span>
+      <h1 style="font-size:36px;font-weight:700;color:#191c1e;letter-spacing:-0.02em;margin:6px 0 8px;line-height:1.15;">Your top degree matches,<br><span style="color:#006B62;">powered by AI.</span></h1>
+      <p style="font-size:15px;color:#515f74;line-height:1.6;max-width:520px;">Based on your RIASEC profile (I–C–E), Inter Part 2 marks, and Pre-Engineering stream. Updated Apr 10, 2026.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════ -->
+    <!-- MAIN GRID: Cards (left) + Sidebar (right)            -->
+    <!-- ══════════════════════════════════════════════════════ -->
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;" class="dash-grid">
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- RECOMMENDATION CARDS                                -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- CARD 1 — NED University, 91% match     -->
+        <!-- ═══════════════════════════════════════ -->
+        <div style="background-color:#ffffff;border-radius:20px;padding:24px;" class="editorial-shadow" role="article" aria-label="NED University — BE Computer Engineering, 91% match">
+
+          <!-- Card header row -->
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <!-- Rank badge -->
+              <div class="rank-badge" style="background-color:#006B62;color:#ffffff;">#1</div>
+              <!-- Uni + degree info -->
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                  <h2 style="font-size:18px;font-weight:700;color:#191c1e;margin:0;letter-spacing:-0.01em;">NED University of Eng. & Technology</h2>
+                </div>
+                <p style="font-size:15px;font-weight:600;color:#006B62;margin:0 0 6px;">BE Computer Engineering</p>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:11px;color:#515f74;font-weight:500;display:inline-flex;align-items:center;gap:2px;"><span class="material-symbols-outlined" style="font-size:13px;color:#515f74;">location_on</span>Karachi, Pakistan</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">4-year degree</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">Public university</span>
+                </div>
+              </div>
+            </div>
+            <!-- Top Match chip -->
+            <span style="font-size:10px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.10);padding:4px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0;">Top Match</span>
+          </div>
+
+          <!-- Match score row -->
+          <div style="margin-bottom:16px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Match Score</span>
+              <span style="font-size:28px;font-weight:800;color:#006B62;letter-spacing:-0.02em;line-height:1;">91%</span>
+            </div>
+            <div class="match-track" role="progressbar" aria-valuenow="91" aria-valuemin="0" aria-valuemax="100" aria-label="Match score 91%">
+              <div class="match-fill" style="width:91%;"></div>
+            </div>
+          </div>
+
+          <!-- FutureValue badge (AI-generated) -->
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <div class="fv-badge">
+              <span class="material-symbols-outlined fill-icon" style="font-size:12px;color:#6616d7;">auto_awesome</span>
+              High Future Value · AI Projected
+            </div>
+            <span style="font-size:12px;color:#515f74;font-weight:500;">Avg. salary: PKR 80k–140k/mo</span>
+          </div>
+
+          <!-- AI match reasoning (tertiary accent) -->
+          <div style="background-color:#eaddff;border-radius:12px;padding:12px 14px;margin-bottom:20px;">
+            <p style="font-size:13px;color:#25005a;line-height:1.55;margin:0;">
+              <strong style="color:#5a00c6;">Why this match:</strong> Your Investigative score (88%) aligns with NED's research-heavy curriculum. Strong Mathematics and Physics marks (82 + 76) meet the 65% aggregate requirement. RIASEC code I–C matches the systems-oriented focus of this degree.
+            </p>
+          </div>
+
+          <!-- Action buttons -->
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <button class="ask-btn">
+              <span class="material-symbols-outlined" style="font-size:16px;">chat</span>
+              Ask about this degree
+            </button>
+            <button class="details-btn">
+              View Full Details
+              <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- CARD 2 — FAST-NUCES, 87% match         -->
+        <!-- ═══════════════════════════════════════ -->
+        <div style="background-color:#ffffff;border-radius:20px;padding:24px;" class="editorial-shadow">
+
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div class="rank-badge" style="background-color:#f2f4f6;color:#515f74;">#2</div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                  <h2 style="font-size:18px;font-weight:700;color:#191c1e;margin:0;letter-spacing:-0.01em;">FAST-NUCES — Karachi Campus</h2>
+                </div>
+                <p style="font-size:15px;font-weight:600;color:#006B62;margin:0 0 6px;">BS Software Engineering</p>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:11px;color:#515f74;font-weight:500;display:inline-flex;align-items:center;gap:2px;"><span class="material-symbols-outlined" style="font-size:13px;color:#515f74;">location_on</span>Karachi, Pakistan</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">4-year degree</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">Private university</span>
+                </div>
+              </div>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#515f74;background:#f2f4f6;padding:4px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0;">Strong Match</span>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Match Score</span>
+              <span style="font-size:28px;font-weight:800;color:#006B62;letter-spacing:-0.02em;line-height:1;">87%</span>
+            </div>
+            <div class="match-track" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="Match score 87%">
+              <div class="match-fill" style="width:87%;"></div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <div class="fv-badge">
+              <span class="material-symbols-outlined fill-icon" style="font-size:12px;color:#6616d7;">auto_awesome</span>
+              Strong Industry Demand · AI Projected
+            </div>
+            <span style="font-size:12px;color:#515f74;font-weight:500;">Avg. salary: PKR 70k–120k/mo</span>
+          </div>
+
+          <div style="background-color:#eaddff;border-radius:12px;padding:12px 14px;margin-bottom:20px;">
+            <p style="font-size:13px;color:#25005a;line-height:1.55;margin:0;">
+              <strong style="color:#5a00c6;">Why this match:</strong> FAST's industry-linked curriculum and strong alumni network in Karachi tech companies matches your career interest in software. Computer Science elective score (88) shows aptitude alignment.
+            </p>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <button class="ask-btn">
+              <span class="material-symbols-outlined" style="font-size:16px;">chat</span>
+              Ask about this degree
+            </button>
+            <button class="details-btn">
+              View Full Details
+              <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!-- CARD 3 — IBA Karachi, 82% match        -->
+        <!-- ═══════════════════════════════════════ -->
+        <div style="background-color:#ffffff;border-radius:20px;padding:24px;" class="editorial-shadow">
+
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;">
+            <div style="display:flex;align-items:flex-start;gap:14px;">
+              <div class="rank-badge" style="background-color:#f2f4f6;color:#515f74;">#3</div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                  <h2 style="font-size:18px;font-weight:700;color:#191c1e;margin:0;letter-spacing:-0.01em;">IBA — Institute of Business Administration</h2>
+                </div>
+                <p style="font-size:15px;font-weight:600;color:#006B62;margin:0 0 6px;">BS Computer Science</p>
+                <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:11px;color:#515f74;font-weight:500;display:inline-flex;align-items:center;gap:2px;"><span class="material-symbols-outlined" style="font-size:13px;color:#515f74;">location_on</span>Karachi, Pakistan</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">4-year degree</span>
+                  <span style="font-size:11px;color:#bdc9c6;">·</span>
+                  <span style="font-size:11px;color:#515f74;font-weight:500;">Public/Semi-autonomous</span>
+                </div>
+              </div>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#515f74;background:#f2f4f6;padding:4px 12px;border-radius:20px;white-space:nowrap;text-transform:uppercase;letter-spacing:0.04em;flex-shrink:0;">Good Match</span>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Match Score</span>
+              <span style="font-size:28px;font-weight:800;color:#006B62;letter-spacing:-0.02em;line-height:1;">82%</span>
+            </div>
+            <div class="match-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Match score 82%">
+              <div class="match-fill" style="width:82%;"></div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <div class="fv-badge">
+              <span class="material-symbols-outlined fill-icon" style="font-size:12px;color:#6616d7;">auto_awesome</span>
+              Emerging FinTech Growth · AI Projected
+            </div>
+            <span style="font-size:12px;color:#515f74;font-weight:500;">Avg. salary: PKR 75k–130k/mo</span>
+          </div>
+
+          <div style="background-color:#eaddff;border-radius:12px;padding:12px 14px;margin-bottom:20px;">
+            <p style="font-size:13px;color:#25005a;line-height:1.55;margin:0;">
+              <strong style="color:#5a00c6;">Why this match:</strong> IBA's business-technology fusion suits your Conventional score (C-type prefers structured, data-driven roles). The CS-Finance combined exposure opens doors in Karachi's growing FinTech sector.
+            </p>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <button class="ask-btn">
+              <span class="material-symbols-outlined" style="font-size:16px;">chat</span>
+              Ask about this degree
+            </button>
+            <button class="details-btn">
+              View Full Details
+              <span class="material-symbols-outlined" style="font-size:16px;">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Load more nudge -->
+        <div style="text-align:center;padding:8px 0;">
+          <button style="background:none;border:none;font-size:13px;font-weight:700;color:#515f74;font-family:'Inter',sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:6px;">
+            <span class="material-symbols-outlined" style="font-size:18px;">expand_more</span>
+            Show 7 more recommendations
+          </button>
+        </div>
+
+      </div><!-- /cards column -->
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- SIDEBAR                                             -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <aside style="display:flex;flex-direction:column;gap:20px;position:sticky;top:80px;align-self:start;">
+
+        <!-- Student profile summary card -->
+        <div style="background-color:#f2f4f6;border-radius:16px;padding:20px;">
+          <p style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6e7977;margin-bottom:12px;">Your Profile</p>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div style="width:44px;height:44px;border-radius:50%;background-color:#006B62;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="material-symbols-outlined fill-icon" style="color:#ffffff;font-size:22px;">person</span>
+            </div>
+            <div>
+              <p style="font-size:15px;font-weight:700;color:#191c1e;margin:0 0 2px;">Ali Raza Khan</p>
+              <p style="font-size:12px;color:#515f74;margin:0;">Inter Part 2 · Pre-Engineering</p>
+            </div>
+          </div>
+          <!-- Profile completeness -->
+          <div style="margin-bottom:12px;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:11px;font-weight:600;color:#515f74;">Profile complete</span>
+              <span style="font-size:11px;font-weight:700;color:#006B62;">78%</span>
+            </div>
+            <div style="width:100%;height:5px;background-color:#e6e8ea;border-radius:3px;overflow:hidden;">
+              <div style="height:100%;width:78%;background-color:#006B62;border-radius:3px;"></div>
+            </div>
+          </div>
+          <!-- RIASEC codes -->
+          <div>
+            <p style="font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:#6e7977;margin-bottom:8px;">Top RIASEC codes</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="font-size:12px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.10);padding:4px 12px;border-radius:20px;">I — Investigative</span>
+              <span style="font-size:12px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.10);padding:4px 12px;border-radius:20px;">C — Conventional</span>
+              <span style="font-size:12px;font-weight:700;color:#515f74;background:#e6e8ea;padding:4px 12px;border-radius:20px;">E — Enterprising</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Advisor CTA -->
+        <div style="background:linear-gradient(135deg,#6616d7,#7f3ef0);border-radius:16px;padding:20px;position:relative;overflow:hidden;">
+          <div style="position:relative;z-index:1;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <span class="material-symbols-outlined fill-icon" style="color:#eaddff;font-size:20px;">smart_toy</span>
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#d2bbff;">AI Advisor</span>
+            </div>
+            <p style="font-size:14px;font-weight:600;color:#ffffff;margin:0 0 14px;line-height:1.5;">Ask the AI Advisor anything about these universities, fees, or preparation steps.</p>
+            <button style="width:100%;padding:11px;border-radius:10px;background:rgba(255,255,255,0.15);border:none;font-size:13px;font-weight:700;color:#ffffff;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+              <span class="material-symbols-outlined" style="font-size:17px;">chat</span>
+              Open AI Chat
+            </button>
+          </div>
+          <div style="position:absolute;right:-20px;bottom:-20px;opacity:0.07;">
+            <span class="material-symbols-outlined fill-icon" style="font-size:100px;color:#ffffff;">psychology</span>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div style="background-color:#ffffff;border-radius:16px;padding:20px;" class="editorial-shadow">
+          <p style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6e7977;margin-bottom:14px;">Quick Actions</p>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <button style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:none;border:none;font-size:13px;font-weight:600;color:#191c1e;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;text-align:left;width:100%;">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#515f74;">edit</span>
+              Update Academic Marks
+            </button>
+            <button style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:none;border:none;font-size:13px;font-weight:600;color:#191c1e;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;text-align:left;width:100%;">
+              <span class="material-symbols-outlined" style="font-size:18px;color:#515f74;">psychology</span>
+              Retake RIASEC Quiz
+            </button>
+          </div>
+        </div>
+
+        <!-- Last updated note -->
+        <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;background-color:#f2f4f6;border-radius:10px;">
+          <span class="material-symbols-outlined" style="font-size:16px;color:#515f74;">schedule</span>
+          <p style="font-size:11px;color:#515f74;line-height:1.4;margin:0;font-weight:500;">Recommendations last generated on <strong>Apr 10, 2026</strong>.</p>
+        </div>
+
+      </aside>
+
+    </div><!-- /dash-grid -->
+  </main>
+
+  <!-- Mobile bottom nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-5 pt-2 z-50" style="background-color:rgba(255,255,255,0.90);backdrop-filter:blur(16px);box-shadow:0 -4px 20px rgba(51,65,85,0.06);">
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#006B62;text-decoration:none;background-color:rgba(0,92,85,0.08);padding:6px 12px;border-radius:12px;min-height:48px;justify-content:center;" href="#" aria-label="Home" aria-current="page">
+      <span class="material-symbols-outlined fill-icon" style="font-size:22px;color:#006B62;" aria-hidden="true">home</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Home</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Quiz">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">psychology</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Quiz</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Profile">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">person</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Profile</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Advisor">
+      <span class="material-symbols-outlined" style="font-size:22px;" aria-hidden="true">chat</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Advisor</span>
+    </a>
+  </nav>
+
+  <style>
+    @media (min-width: 1024px) {
+      .dash-grid { grid-template-columns: 1fr 320px !important; }
+    }
+  </style>
+
+</body>
+</html>

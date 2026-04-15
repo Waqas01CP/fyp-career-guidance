@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#5a00c6",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-error-container": "#93000a",
+                        "secondary": "#515f74",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-container": "#00857A",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#9cf2e8",
+                        "on-secondary-container": "#57657b",
+                        "on-tertiary-fixed": "#25005a",
+                        "secondary-container": "#d5e3fd",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#80d5cb",
+                        "on-tertiary-container": "#f1e6ff",
+                        "inverse-primary": "#80d5cb",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "primary": "#006B62",
+                        "surface-tint": "#006a63",
+                        "surface-container-low": "#f2f4f6",
+                        "outline": "#6e7977",
+                        "tertiary-fixed-dim": "#d2bbff",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-container": "#a3faef",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface-variant": "#3e4947",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "tertiary-container": "#7f3ef0",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed": "#00201d",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#00504a",
+                        "surface": "#f7f9fb",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#d5e3fd",
+                        "tertiary": "#6616d7",
+                        "background": "#f7f9fb",
+                        "outline-variant": "#bdc9c6",
+                        "tertiary-fixed": "#eaddff",
+                        "surface-dim": "#d8dadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    html { background-color: #d8dadc; }
+    body {
+      min-height: max(884px, 100dvh);
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Sprint label -->
+<div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 1</div>
+<div class="flex flex-col min-h-screen max-w-md mx-auto relative bg-surface-bright overflow-hidden">
+<!-- Header / Skip Button Area -->
+<div class="flex justify-between items-center px-8 py-6 z-20">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" data-icon="school">school</span>
+</div>
+<span class="font-headline font-bold text-primary tracking-tight">Academic Intelligence</span>
+</div>
+<button class="text-secondary font-semibold text-sm hover:text-on-surface transition-colors py-3 px-4 min-h-[48px] inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Skip</button>
+</div>
+<!-- Carousel Container -->
+<div class="flex-1 relative flex flex-col justify-center overflow-hidden">
+<!-- Slide Content (Active: Slide 1) -->
+<div class="px-8 space-y-12">
+<!-- Visual Anchor -->
+<div class="relative w-full aspect-square bg-surface-container-low rounded-[2.5rem] flex items-center justify-center overflow-hidden group">
+<!-- The Editorial Asymmetry/Bento Feel -->
+<div class="absolute inset-0 p-8 grid grid-cols-2 grid-rows-2 gap-4">
+<div class="col-span-1 row-span-1 bg-white rounded-2xl shadow-[0_12px_40px_rgba(51,65,85,0.04)] flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined text-tertiary text-3xl mb-2" data-icon="psychology">psychology</span>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Realistic</span>
+</div>
+<div class="col-span-1 row-span-2 bg-primary-container/10 rounded-2xl flex flex-col items-center justify-center p-4">
+<svg width="100%" height="100%" viewBox="0 0 140 180" xmlns="http://www.w3.org/2000/svg" style="border-radius:12px;">
+  <rect width="140" height="180" fill="#eceef0"/>
+  <circle cx="70" cy="76" r="44" fill="none" stroke="#006B62" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.35"/>
+  <circle cx="70" cy="76" r="28" fill="none" stroke="#6616d7" stroke-width="1" stroke-dasharray="3 4" opacity="0.3"/>
+  <circle cx="70" cy="76" r="12" fill="#eaddff" opacity="0.9"/>
+  <line x1="70" y1="32" x2="70" y2="76" stroke="#006B62" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="70" y1="76" x2="108" y2="98" stroke="#6616d7" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="70" y1="76" x2="32" y2="98" stroke="#515f74" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="70" cy="32" r="5" fill="#006B62"/>
+  <circle cx="108" cy="98" r="5" fill="#6616d7"/>
+  <circle cx="32" cy="98" r="4" fill="#515f74" opacity="0.6"/>
+  <text x="70" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="#6e7977" letter-spacing="1.5" opacity="0.8">APTITUDE MAP</text>
+</svg>
+</div>
+<div class="col-span-1 row-span-1 bg-tertiary-fixed rounded-2xl flex flex-col items-center justify-center p-4">
+<span class="material-symbols-outlined text-tertiary-fixed-dim bg-tertiary p-2 rounded-full text-xl" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-widest mt-2">Investigative</span>
+</div>
+</div>
+</div>
+<!-- Text Content -->
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-fixed rounded-full">
+<span class="material-symbols-outlined text-tertiary text-[14px]" data-icon="insights">insights</span>
+<span class="text-tertiary text-[10px] font-bold uppercase tracking-widest">Interest Mapping</span>
+</div>
+<h1 class="text-3xl font-bold text-on-surface leading-tight tracking-tight">
+                        Discover What You <span class="text-primary italic">Enjoy</span>
+</h1>
+<p class="text-secondary text-base leading-relaxed max-w-[90%]">
+                        Answer 60 questions about activities you enjoy. We use your responses to find degree programmes that genuinely fit you.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Footer / Interaction Area -->
+<div class="px-8 pb-12 pt-8 flex flex-col gap-8 bg-surface-bright">
+<!-- Progress Indicators -->
+<div class="flex gap-1.5 items-center" role="tablist" aria-label="Carousel progress">
+<div role="tab" aria-selected="true" aria-label="Slide 1 of 3" style="height:3px;width:28px;background-color:#006B62;border-radius:2px;transition:all 300ms;"></div>
+<div role="tab" aria-selected="false" aria-label="Slide 2 of 3" style="height:3px;width:6px;background-color:#e0e3e5;border-radius:2px;transition:all 300ms;"></div>
+<div role="tab" aria-selected="false" aria-label="Slide 3 of 3" style="height:3px;width:6px;background-color:#e0e3e5;border-radius:2px;transition:all 300ms;"></div>
+</div>
+<!-- CTA Cluster -->
+<div class="flex items-center justify-between">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface-bright bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="Student profile portrait for academic guidance platform" data-alt="Student profile portrait for academic guidance platform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyESmiirTF_RyiVEG2IqFtYrJp6MkXFyG649j0q7bnDFrw3WstcgNtoQlWKgz31tAYIws31rf-fkBC19UqJACPlbihbNz14ps_mhw8WWBhlhe51eVLGJspdxPXESVPslY9NaMQDKoMIVhC4s0tboP5utLYQAhjWdaR9Nb_Xdp_puStts8qwDK1ius3ygsgGEZ9vshzIV6Yv4cw_dRKLr5hXcepucQlhAEEnI3bbOdy95prI-hrwTu7BCqXLoKnqHNdn8XBsoPJSf0"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-bright bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="Student profile portrait for academic guidance platform" data-alt="Student profile portrait for academic guidance platform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkyYxJkp8PFjG3OzVlmtHqijAQnz0qAUDuOAx6ltFmp0bumGKGEP4Lz3zbzEaUFPCU6mPFXRYpRif-w3ywT9nEYr2C9PxJ98YykRA89LtDC_2i28fOUFyGQ0rqJhEygIpoAHAFYxPv4r_XSsAomwoF-1nDZn-5fhHyaGD8AQaai-D_xvxSEQjiFixndndZql91JTC7SBOgiATK-RQUvMoXX68yl8ImGJXv_ydERqQ8eP-0P2KLvp1fYpi2ugUrvqcboo5huiB4VNk"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-bright bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" alt="Student profile portrait for academic guidance platform" data-alt="Student profile portrait for academic guidance platform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcr2sCvLdoTqyxN5cEJMx6PiRIgs3gsB99_mc6Nz7jZ9ynC8cz2pk1Q-fqlrSvGKKWuaDX1sOQzzqveo-TNqLHgo1aolY4UzOpZeo0F9QDAp-WwBWcJOjZ-N6oEF14UuR8TbgXSyb59cut9akyhNqgOWvfg9dBuDpEBL52EHU_5YjRBzPfa-qTeGWvUYGLrV2DpdW2ExBjNWMNy2SQrLNyb4uVAyqW6krnsPTRKCaTrZLT2Z5haYQ9PgAtm0qT-CJibKfjibOK3H4"/>
+</div>
+</div>
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 shadow-[0_8px_20px_rgba(0,107,98,0.25)] active:scale-95 transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" aria-label="Next slide">
+                    Next
+                    <span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Decorative UI Element (Editorial Line) -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-16 -mt-16 pointer-events-none"></div>
+</div>
+<!-- Background Layer for Large Screens (Containerization) -->
+<div class="hidden lg:flex fixed inset-0 z-[-1] bg-surface-container-low items-center justify-center p-20">
+<div class="max-w-2xl text-left space-y-6">
+<div class="text-tertiary font-bold tracking-[0.2em] uppercase text-xs">Academic Intelligence Platform</div>
+<h2 class="text-6xl font-extrabold text-on-surface leading-tight tracking-tighter">Your career,<br/>made clearer by <span class="text-primary underline decoration-primary-fixed decoration-8 underline-offset-4">AI</span>.</h2>
+<div class="grid grid-cols-2 gap-8 pt-8">
+<div class="p-6 bg-white rounded-3xl shadow-sm">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="verified">verified</span>
+<h3 class="font-bold text-on-surface mb-2">Verified Admissions</h3>
+<p class="text-secondary text-sm">Direct links to Karachi's top 20 universities based on real-time data.</p>
+</div>
+<div class="p-6 bg-white rounded-3xl shadow-sm">
+<span class="material-symbols-outlined text-tertiary mb-4" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="font-bold text-on-surface mb-2">Market Insights</h3>
+<p class="text-secondary text-sm">See average starting salaries for graduates of each degree from Karachi universities.</p>
+</div>
+</div>
+</div>
+</div>
+</body></html>

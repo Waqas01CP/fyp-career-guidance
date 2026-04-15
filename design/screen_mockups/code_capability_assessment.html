@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>Capability Assessment | Academic Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006a63",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; min-height: 100dvh; padding-bottom: 80px; max-width: 390px; margin: 0 auto; overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .editorial-shadow { box-shadow: 0 12px 40px rgba(51, 65, 85, 0.06); }
+
+    /* ── Subject tab ─────────────────────────── */
+    .subject-tab {
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 150ms, color 150ms;
+      color: #515f74;
+      background-color: transparent;
+    }
+    .subject-tab:hover { background-color: #e6e8ea; }
+    .subject-tab.active {
+      background-color: #ffffff;
+      color: #006B62;
+      box-shadow: 0 4px 12px rgba(51,65,85,0.06);
+    }
+
+    /* ── MCQ option row ──────────────────────── */
+    .mcq-option {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 150ms;
+      background-color: #f2f4f6;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mcq-option:hover:not(.selected-option) { background-color: #eceef0; }
+    .mcq-option.selected-option {
+      background-color: rgba(0, 92, 85, 0.10);
+    }
+    .mcq-option.selected-option::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background-color: #006B62;
+      border-radius: 3px 0 0 3px;
+    }
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      background-color: #e6e8ea;
+      color: #515f74;
+      transition: background-color 150ms, color 150ms;
+    }
+    .selected-option .option-letter {
+      background-color: #006B62;
+      color: #ffffff;
+    }
+    .option-text {
+      font-size: 14px;
+      color: #191c1e;
+      line-height: 1.4;
+      flex: 1;
+    }
+    .selected-option .option-text {
+      color: #006B62;
+      font-weight: 500;
+    }
+
+    /* ── Question grid cell ──────────────────── */
+    .q-cell {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 150ms;
+    }
+    .q-answered { background-color: #006B62; color: #ffffff; }
+    .q-current { background-color: rgba(0,92,85,0.15); color: #006B62; box-shadow: 0 0 0 3px rgba(0,92,85,0.20); }
+    .q-review { background-color: #eaddff; color: #6616d7; }
+    .q-pending { background-color: #f2f4f6; color: #515f74; }
+    .q-cell:focus-visible { outline: 2px solid #006B62; outline-offset: 2px; }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 2</div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- APP BAR — no timer                                    -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <header class="w-full top-0 sticky z-40 flex justify-between items-center px-6 py-3" style="background-color:#f7f9fb;">
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined" style="color:#006B62;">school</span>
+      <span class="font-bold tracking-tight" style="font-size:17px;color:#006B62;">Academic Intelligence</span>
+    </div>
+    <div class="hidden md:flex items-center gap-6">
+      <nav class="flex gap-5 text-sm">
+        <a style="color:#515f74;font-weight:500;text-decoration:none;" href="#">Dashboard</a>
+        <a style="color:#006B62;font-weight:700;text-decoration:none;" href="#">Assessment</a>
+      </nav>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full overflow-hidden" style="background-color:#e0e3e5;">
+        <span class="material-symbols-outlined w-full h-full flex items-center justify-center text-secondary pt-1">person</span>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding:16px 16px 0;" class="grid-layout">
+
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;" class="main-grid">
+
+      <!-- ─────────────────────────────────────────── -->
+      <!-- LEFT: Question area                         -->
+      <!-- ─────────────────────────────────────────── -->
+      <div style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- Subject navigation tabs (P9: scrollable with fade + no scrollbar) -->
+        <div style="position:relative;">
+        <div style="background-color:#f2f4f6;border-radius:14px;padding:4px;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;" class="tabs-scroll">
+          <button class="subject-tab active">Mathematics</button>
+          <button class="subject-tab">Physics</button>
+          <button class="subject-tab">Chemistry</button>
+          <button class="subject-tab">Biology</button>
+          <button class="subject-tab">English</button>
+        </div>
+        <!-- Fade gradient at right edge -->
+        <div style="position:absolute;right:0;top:0;bottom:0;width:32px;background:linear-gradient(to right,transparent,#f2f4f6);border-radius:0 14px 14px 0;pointer-events:none;"></div>
+        </div>
+
+        <!-- Question card -->
+        <section style="background-color:#ffffff;border-radius:20px;padding:28px;box-shadow:0 0 0 2px #006B62,0 12px 40px rgba(0,107,98,0.10);">
+
+          <!-- Question header: counter + subject badge (no timer, no bookmark/report) -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#006B62;background:rgba(0,92,85,0.10);padding:4px 12px;border-radius:20px;">Question 14 of 60</span>
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:4px 12px;border-radius:20px;">Mathematics</span>
+            </div>
+            <!-- Overall progress (compact) -->
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:80px;height:5px;background-color:#f2f4f6;border-radius:3px;overflow:hidden;" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" aria-label="Progress 23%">
+                <div style="height:100%;width:23%;background-color:#006B62;border-radius:3px;"></div>
+              </div>
+              <span style="font-size:11px;font-weight:600;color:#515f74;">23%</span>
+            </div>
+          </div>
+
+          <!-- Question text -->
+          <div style="margin-bottom:24px;">
+            <h2 style="font-size:18px;font-weight:600;color:#191c1e;line-height:1.55;margin-bottom:16px;letter-spacing:-0.01em;">
+              A particle moves along a straight line such that its displacement <em>s</em> at time <em>t</em> is given by
+              <span style="font-family:monospace;background-color:#f2f4f6;padding:2px 8px;border-radius:6px;font-size:16px;">s = t³ − 6t² + 9t + 5</span>.
+              At what time <em>t</em> is the acceleration of the particle zero?
+            </h2>
+            <!-- Displacement-time graph: s = t³ − 6t² + 9t + 5 -->
+            <div style="width:100%;border-radius:12px;overflow:hidden;background-color:#f7f9fb;padding:12px 16px 8px;">
+              <svg viewBox="0 0 340 120" width="100%" height="120" xmlns="http://www.w3.org/2000/svg" style="display:block;" role="img" aria-labelledby="graph-title"><title id="graph-title">Displacement-time graph showing s = t³ − 6t² + 9t + 5, with local maximum at t=1 and local minimum at t=3</title>
+                <!-- Grid lines -->
+                <line x1="40" y1="10" x2="40" y2="100" stroke="#e6e8ea" stroke-width="1"/>
+                <line x1="40" y1="100" x2="320" y2="100" stroke="#e6e8ea" stroke-width="1"/>
+                <!-- Subtle horizontal guide lines -->
+                <line x1="40" y1="30" x2="320" y2="30" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="40" y1="55" x2="320" y2="55" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="40" y1="75" x2="320" y2="75" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <!-- Vertical guides at t=1, t=2, t=3 (local extrema at t=1 and t=3) -->
+                <line x1="113" y1="10" x2="113" y2="100" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="190" y1="10" x2="190" y2="100" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <line x1="267" y1="10" x2="267" y2="100" stroke="#eceef0" stroke-width="1" stroke-dasharray="4,4"/>
+                <!-- Curve: s = t³ - 6t² + 9t + 5, t from 0→4, mapped to x:40→320, s range ≈[5,9] → y:10→100 -->
+                <!-- Points (t,s): (0,5),(0.5,7.125),(1,9),(1.5,8.375),(2,7),(2.5,5.875),(3,5),(3.5,5.875),(4,9) -->
+                <!-- x = 40 + t*(280/4); y = 100 - (s-4)*(90/6) where s range [4..10], domain offset -->
+                <path d="M40,85 C55,60 75,22 113,22 C145,22 162,57 190,57 C218,57 240,85 267,85 C290,85 305,60 320,22"
+                      fill="none" stroke="#006B62" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <!-- Shaded area under curve -->
+                <path d="M40,85 C55,60 75,22 113,22 C145,22 162,57 190,57 C218,57 240,85 267,85 C290,85 305,60 320,22 L320,100 L40,100 Z"
+                      fill="rgba(0,92,85,0.06)"/>
+                <!-- Local max dot at t=1 (s=9) -->
+                <circle cx="113" cy="22" r="4" fill="#006B62"/>
+                <!-- Local min dot at t=3 (s=5) -->
+                <circle cx="267" cy="85" r="4" fill="#006B62"/>
+                <!-- Axis labels -->
+                <text x="36" y="104" font-size="9" fill="#6e7977" font-family="Inter,sans-serif" text-anchor="middle">0</text>
+                <text x="113" y="104" font-size="9" fill="#6e7977" font-family="Inter,sans-serif" text-anchor="middle">1</text>
+                <text x="190" y="104" font-size="9" fill="#6e7977" font-family="Inter,sans-serif" text-anchor="middle">2</text>
+                <text x="267" y="104" font-size="9" fill="#6e7977" font-family="Inter,sans-serif" text-anchor="middle">3</text>
+                <text x="320" y="104" font-size="9" fill="#6e7977" font-family="Inter,sans-serif" text-anchor="middle">4</text>
+                <!-- Axis label text -->
+                <text x="182" y="114" font-size="9" fill="#515f74" font-family="Inter,sans-serif" text-anchor="middle" font-weight="600">t (seconds)</text>
+                <text x="18" y="58" font-size="9" fill="#515f74" font-family="Inter,sans-serif" text-anchor="middle" font-weight="600" transform="rotate(-90,18,58)">s (m)</text>
+                <!-- Annotation: local max -->
+                <text x="113" y="17" font-size="8" fill="#006B62" font-family="Inter,sans-serif" text-anchor="middle" font-weight="700">max</text>
+              </svg>
+            </div>
+          </div>
+
+          <!-- MCQ Options: A B C D — no borders on unselected, teal fill on selected -->
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+
+            <!-- Option A -->
+            <label class="mcq-option">
+              <input type="radio" name="mcq" style="display:none;"/>
+              <div class="option-letter">A</div>
+              <span class="option-text">t = 1 second</span>
+            </label>
+
+            <!-- Option B — SELECTED -->
+            <label class="mcq-option selected-option">
+              <input type="radio" name="mcq" checked style="display:none;"/>
+              <div class="option-letter">B</div>
+              <span class="option-text">t = 2 seconds</span>
+              <!-- Check icon for selected -->
+              <span class="material-symbols-outlined fill-icon" style="color:#006B62;font-size:18px;flex-shrink:0;">check_circle</span>
+            </label>
+
+            <!-- Option C -->
+            <label class="mcq-option">
+              <input type="radio" name="mcq" style="display:none;"/>
+              <div class="option-letter">C</div>
+              <span class="option-text">t = 3 seconds</span>
+            </label>
+
+            <!-- Option D -->
+            <label class="mcq-option">
+              <input type="radio" name="mcq" style="display:none;"/>
+              <div class="option-letter">D</div>
+              <span class="option-text">t = 4 seconds</span>
+            </label>
+          </div>
+
+          <!-- AI Insight Pulse (AI-generated hint — tertiary) -->
+          <div style="display:flex;align-items:flex-start;gap:12px;background-color:#eaddff;border-radius:12px;padding:14px 16px;margin-bottom:24px;">
+            <div style="background-color:#6616d7;border-radius:8px;padding:6px;flex-shrink:0;">
+              <span class="material-symbols-outlined fill-icon" style="color:#ffffff;font-size:16px;">psychology</span>
+            </div>
+            <div>
+              <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a00c6;display:block;margin-bottom:4px;">Study Hint</span>
+              <p style="font-size:13px;color:#25005a;line-height:1.5;margin:0;">Differentiate the displacement function twice to find acceleration. Set <em>a(t) = 0</em> and solve. Watch the sign of your second derivative.</p>
+              <p style="font-size:10px;color:#5a00c6;margin-top:6px;line-height:1.4;">Hints are based on common difficulty patterns, not your personal data. Your score is calculated independently.</p>
+            </div>
+          </div>
+
+          <!-- Navigation actions -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid rgba(188,201,198,0.15);">
+            <button style="display:flex;align-items:center;gap:8px;padding:14px 16px;border-radius:10px;background:none;border:none;font-size:14px;font-weight:600;color:#515f74;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;" aria-label="Previous question">
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+              Previous
+            </button>
+            <div style="display:flex;gap:10px;">
+              <button style="padding:14px 18px;border-radius:10px;background:none;border:none;font-size:13px;font-weight:700;color:#006B62;font-family:'Inter',sans-serif;cursor:pointer;background-color:rgba(0,92,85,0.08);">
+                Mark for Review
+              </button>
+              <button style="display:flex;align-items:center;gap:8px;padding:14px 24px;border-radius:10px;background-color:#006B62;color:#ffffff;border:none;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:background-color 150ms;box-shadow:0 4px 12px rgba(0,92,85,0.18);" aria-label="Next question">
+                Next Question
+                <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ─────────────────────────────────────────── -->
+      <!-- RIGHT: Progress + Question Map              -->
+      <!-- ─────────────────────────────────────────── -->
+      <aside style="display:flex;flex-direction:column;gap:16px;">
+
+        <!-- Overall progress card -->
+        <div style="background-color:#f2f4f6;border-radius:16px;padding:20px;" class="editorial-shadow">
+          <h3 style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#515f74;margin-bottom:12px;">Overall Progress</h3>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;">
+            <span style="font-size:24px;font-weight:700;color:#191c1e;">23% <span style="font-size:12px;font-weight:500;color:#6e7977;">complete</span></span>
+            <span style="font-size:11px;font-weight:700;color:#006B62;">14 / 60</span>
+          </div>
+          <div style="width:100%;background-color:#e6e8ea;height:8px;border-radius:4px;overflow:hidden;" role="progressbar" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" aria-label="Overall assessment progress 23%">
+            <div style="height:100%;width:23%;background-color:#006B62;border-radius:4px;"></div>
+          </div>
+          <!-- Per-subject breakdown -->
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;font-weight:600;color:#191c1e;">Mathematics</span>
+              <span style="font-size:11px;font-weight:700;color:#006B62;">12/12 ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;font-weight:500;color:#515f74;">Physics</span>
+              <span style="font-size:11px;font-weight:600;color:#515f74;">0/12</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;font-weight:500;color:#515f74;">Chemistry</span>
+              <span style="font-size:11px;font-weight:600;color:#515f74;">0/12</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;font-weight:500;color:#515f74;">Biology</span>
+              <span style="font-size:11px;font-weight:600;color:#515f74;">0/12</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:12px;font-weight:500;color:#515f74;">English</span>
+              <span style="font-size:11px;font-weight:600;color:#515f74;">0/12</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Question grid map -->
+        <div style="background-color:#ffffff;border-radius:16px;padding:20px;" class="editorial-shadow">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <h3 style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#515f74;">Question Map</h3>
+            <span style="font-size:10px;color:#515f74;font-weight:500;">Mathematics section</span>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:12px;">
+            <!-- Answered -->
+            <button class="q-cell q-answered" aria-label="Question 1 answered">1</button>
+            <button class="q-cell q-answered" aria-label="Question 2 answered">2</button>
+            <button class="q-cell q-answered" aria-label="Question 3 answered">3</button>
+            <!-- Marked for review -->
+            <button class="q-cell q-review" aria-label="Question 4 marked for review">4</button>
+            <button class="q-cell q-answered" aria-label="Question 5 answered">5</button>
+            <button class="q-cell q-answered" aria-label="Question 6 answered">6</button>
+            <button class="q-cell q-answered" aria-label="Question 7 answered">7</button>
+            <button class="q-cell q-answered" aria-label="Question 8 answered">8</button>
+            <button class="q-cell q-answered" aria-label="Question 9 answered">9</button>
+            <button class="q-cell q-answered" aria-label="Question 10 answered">10</button>
+            <button class="q-cell q-answered" aria-label="Question 11 answered">11</button>
+            <button class="q-cell q-answered" aria-label="Question 12 answered">12</button>
+            <button class="q-cell q-answered" aria-label="Question 13 answered">13</button>
+            <!-- Current question -->
+            <button class="q-cell q-current" aria-label="Question 14 current" aria-current="true">14</button>
+            <!-- Pending -->
+            <button class="q-cell q-pending" aria-label="Question 15 pending">15</button>
+            <button class="q-cell q-pending" aria-label="Question 16 pending">16</button>
+            <button class="q-cell q-pending" aria-label="Question 17 pending">17</button>
+            <button class="q-cell q-pending" aria-label="Question 18 pending">18</button>
+            <button class="q-cell q-pending" aria-label="Question 19 pending">19</button>
+            <button class="q-cell q-pending" aria-label="Question 20 pending">20</button>
+          </div>
+
+          <!-- Legend -->
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <div style="width:8px;height:8px;border-radius:3px;background-color:#006B62;flex-shrink:0;"></div>
+              <span style="font-size:10px;color:#515f74;font-weight:500;">Answered</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <div style="width:8px;height:8px;border-radius:3px;background-color:#eaddff;flex-shrink:0;"></div>
+              <span style="font-size:10px;color:#515f74;font-weight:500;">Review</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <div style="width:8px;height:8px;border-radius:3px;background-color:#f2f4f6;flex-shrink:0;"></div>
+              <span style="font-size:10px;color:#515f74;font-weight:500;">Pending</span>
+            </div>
+          </div>
+
+          <!-- Submit button -->
+          <button style="width:100%;margin-top:20px;padding:13px;border-radius:12px;background:linear-gradient(135deg,#6616d7,#7f3ef0);color:#ffffff;border:none;font-size:14px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 12px rgba(102,22,215,0.25);">
+            <span class="material-symbols-outlined fill-icon" style="font-size:18px;">check_circle</span>
+            Submit Assessment
+          </button>
+        </div>
+
+      </aside>
+
+    </div><!-- /main-grid -->
+  </main>
+
+  <!-- Mobile bottom nav -->
+  <nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-5 pt-2 z-50" style="background-color:rgba(255,255,255,0.85);backdrop-filter:blur(16px);box-shadow:0 -4px 20px rgba(51,65,85,0.06);">
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Dashboard">
+      <span class="material-symbols-outlined" style="font-size:22px;">dashboard</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Dashboard</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#006B62;text-decoration:none;background-color:rgba(0,92,85,0.08);padding:6px 12px;border-radius:12px;min-height:48px;justify-content:center;" href="#" aria-label="Assessment" aria-current="page">
+      <span class="material-symbols-outlined fill-icon" style="font-size:22px;color:#006B62;">assignment_turned_in</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Assessment</span>
+    </a>
+    <a style="display:flex;flex-direction:column;align-items:center;gap:4px;color:#bdc9c6;text-decoration:none;min-height:48px;justify-content:center;" href="#" aria-label="Profile">
+      <span class="material-symbols-outlined" style="font-size:22px;">person</span>
+      <span style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;">Profile</span>
+    </a>
+  </nav>
+
+  <style>
+    @media (min-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr 300px !important; }
+    }
+  </style>
+
+</body>
+</html>

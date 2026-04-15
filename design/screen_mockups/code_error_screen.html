@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>Error States | Academic Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006B62",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fb;
+      min-height: max(884px, 100dvh);
+      max-width: 390px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* Shared error state layout */
+    .error-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 48px 32px;
+      min-height: 100dvh;
+      justify-content: center;
+      gap: 0;
+    }
+    .error-icon-wrap {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .error-code {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #515f74;
+      background-color: #e6e8ea;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .error-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #191c1e;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .error-body {
+      font-size: 14px;
+      color: #515f74;
+      line-height: 1.65;
+      max-width: 280px;
+      margin-bottom: 32px;
+    }
+    .btn-primary {
+      width: 100%;
+      max-width: 280px;
+      background-color: #006B62;
+      color: #ffffff;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 20px rgba(0,107,98,0.22);
+      margin-bottom: 12px;
+    }
+    .btn-ghost {
+      background: none;
+      border: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: #515f74;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      padding: 14px 16px;
+      border-radius: 10px;
+      min-height: 48px;
+    }
+    .btn-ghost:hover { background-color: #f2f4f6; }
+    .btn-primary:focus-visible, .btn-ghost:focus-visible { outline: 2px solid #006B62; outline-offset: 2px; }
+
+    /* Dev annotation */
+    .dev-state-divider {
+      width: 100%;
+      padding: 8px 20px;
+      background-color: rgba(25,28,30,0.06);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #6e7977;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 3</div>
+
+  <!-- DEV: State selector note -->
+  <div style="position:fixed;top:8px;right:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#5a00c6;background:#eaddff;padding:3px 8px;border-radius:6px;opacity:0.85;pointer-events:none;">3 states shown</div>
+
+  <main>
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STATE 1: No Network Connection                -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="dev-state-divider" aria-hidden="true">State 1 — No Network</div>
+
+  <div class="error-state" role="alert" style="min-height:auto;padding:48px 32px 40px;">
+    <div class="error-icon-wrap" style="background-color:#f2f4f6;" aria-hidden="true">
+      <span class="material-symbols-outlined fill-icon" style="color:#515f74;font-size:36px;">wifi_off</span>
+    </div>
+    <div class="error-code">No Connection</div>
+    <h1 class="error-title">You're offline</h1>
+    <p class="error-body">Check your internet connection and try again.</p>
+    <button class="btn-primary">
+      <span class="material-symbols-outlined" style="font-size:18px;">refresh</span>
+      Try Again
+    </button>
+    <button class="btn-ghost">Go to Home</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STATE 2: Server Timeout                       -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="dev-state-divider" aria-hidden="true">State 2 — Server Timeout</div>
+
+  <div class="error-state" role="alert" style="min-height:auto;padding:48px 32px 40px;background-color:#f2f4f6;">
+    <div class="error-icon-wrap" style="background-color:#ffffff;" aria-hidden="true">
+      <span class="material-symbols-outlined fill-icon" style="color:#515f74;font-size:36px;">cloud_off</span>
+    </div>
+    <div class="error-code">Timeout</div>
+    <h1 class="error-title">Our servers aren't responding</h1>
+    <p class="error-body">Our servers are taking too long to respond. Please try again in a moment.</p>
+    <button class="btn-primary">
+      <span class="material-symbols-outlined" style="font-size:18px;">refresh</span>
+      Retry
+    </button>
+    <button class="btn-ghost">Go to Home</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STATE 3: Session Expired (401)                -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="dev-state-divider" aria-hidden="true">State 3 — Session Expired (401)</div>
+
+  <div class="error-state" role="alert" style="min-height:auto;padding:48px 32px 56px;">
+    <div class="error-icon-wrap" style="background-color:#f2f4f6;" aria-hidden="true">
+      <span class="material-symbols-outlined fill-icon" style="color:#515f74;font-size:36px;">lock</span>
+    </div>
+    <div class="error-code">Session Expired</div>
+    <h1 class="error-title">Please Log In Again</h1>
+    <p class="error-body">Your session has expired for security. Please sign in again to continue.</p>
+    <button class="btn-primary">
+      <span class="material-symbols-outlined" style="font-size:18px;">login</span>
+      Sign In
+    </button>
+    <p style="display:none;font-size:9px;color:#515f74;margin-top:12px;line-height:1.6;max-width:260px;text-align:center;">Dev: clears flutter_secure_storage token, navigates to LoginScreen</p>
+  </div>
+
+  </main>
+</body>
+</html>

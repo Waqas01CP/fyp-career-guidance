@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=390, initial-scale=1.0" name="viewport"/>
+  <title>Interest Assessment — RIASEC | Academic Intelligence</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ba1a1a",
+            "on-surface": "#191c1e",
+            "on-tertiary-fixed-variant": "#5a00c6",
+            "on-secondary-fixed-variant": "#3a485c",
+            "on-error-container": "#93000a",
+            "secondary": "#515f74",
+            "surface-container-highest": "#e0e3e5",
+            "primary-container": "#00857A",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#9cf2e8",
+            "on-secondary-container": "#57657b",
+            "on-tertiary-fixed": "#25005a",
+            "secondary-container": "#d5e3fd",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#80d5cb",
+            "on-tertiary-container": "#f1e6ff",
+            "inverse-primary": "#80d5cb",
+            "surface-container": "#eceef0",
+            "on-primary": "#ffffff",
+            "on-background": "#191c1e",
+            "primary": "#006B62",
+            "surface-tint": "#006a63",
+            "surface-container-low": "#f2f4f6",
+            "outline": "#6e7977",
+            "tertiary-fixed-dim": "#d2bbff",
+            "surface-variant": "#e0e3e5",
+            "on-primary-container": "#a3faef",
+            "surface-container-high": "#e6e8ea",
+            "on-surface-variant": "#3e4947",
+            "on-secondary-fixed": "#0d1c2f",
+            "tertiary-container": "#7f3ef0",
+            "secondary-fixed-dim": "#b9c7e0",
+            "inverse-on-surface": "#eff1f3",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#2d3133",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#00504a",
+            "surface": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d5e3fd",
+            "tertiary": "#6616d7",
+            "background": "#f7f9fb",
+            "outline-variant": "#bdc9c6",
+            "tertiary-fixed": "#eaddff",
+            "surface-dim": "#d8dadc"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { background-color: #d8dadc; }
+    body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; min-height: 100dvh; max-width: 390px; margin: 0 auto; overflow-x: hidden; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .fill-icon { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+
+    /* ── Likert button styles ────────────────────── */
+    .likert-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 8px;
+      border-radius: 12px;
+      background-color: #e6e8ea;
+      border: none;
+      cursor: pointer;
+      transition: background-color 150ms, color 150ms, transform 100ms;
+      gap: 6px;
+      min-width: 0;
+    }
+    .likert-btn:hover:not(.selected) { background-color: #eceef0; }
+    .likert-btn:active { transform: scale(0.96); }
+    .likert-btn.selected {
+      background-color: #006B62;
+      color: #ffffff;
+    }
+    .likert-num {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+      color: #515f74;
+    }
+    .likert-btn.selected .likert-num { color: #ffffff; }
+    .likert-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #515f74;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .likert-btn.selected .likert-label { color: rgba(255,255,255,0.85); }
+
+    /* ── Dim chip (dimension label) ─────────────── */
+    .dim-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background-color: #f2f4f6;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #006B62;
+    }
+
+    /* ── Example separator ───────────────────────── */
+    .example-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 32px 0 20px;
+    }
+    .example-label-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #515f74;
+      white-space: nowrap;
+    }
+    .example-label-line { flex: 1; height: 1px; background-color: #eceef0; }
+
+    /* ── Progress bar ───────────────────────────── */
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: #f2f4f6;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #006B62;
+      border-radius: 3px;
+      transition: width 500ms ease;
+    }
+
+    /* ── Ghost nav button ────────────────────────── */
+    .nav-ghost {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 24px;
+      border-radius: 12px;
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: #515f74;
+      cursor: pointer;
+      transition: background-color 150ms;
+    }
+    .nav-ghost:hover { background-color: #e6e8ea; }
+
+    /* ── Primary nav button ──────────────────────── */
+    .nav-primary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 15px 24px;
+      border-radius: 12px;
+      background-color: #006B62;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 150ms, transform 100ms;
+      box-shadow: 0 4px 12px rgba(0, 92, 85, 0.18);
+    }
+    .nav-primary:hover { background-color: #0f766e; }
+    .nav-primary:active { transform: scale(0.98); }
+
+    /* Ambient background blobs */
+    .blob { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; filter: blur(80px); }
+  </style>
+</head>
+<body class="text-on-surface">
+
+  <!-- Sprint label -->
+  <div style="position:fixed;top:8px;left:8px;z-index:200;font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#515f74;background:#f2f4f6;padding:3px 8px;border-radius:6px;opacity:0.75;pointer-events:none;">Sprint 2</div>
+
+  <!-- Ambient blobs -->
+  <div class="blob" style="width:320px;height:320px;background:rgba(0,92,85,0.04);top:-80px;left:-80px;"></div>
+  <div class="blob" style="width:280px;height:280px;background:rgba(102,22,215,0.03);bottom:10%;right:-60px;"></div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- APP BAR                                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <header class="sticky top-0 z-50 bg-surface flex justify-between items-center px-6 py-3" style="background-color:#f7f9fb;">
+    <div class="flex items-center gap-3">
+      <button class="w-12 h-12 flex items-center justify-center rounded-lg hover:bg-surface-container-high transition-colors" aria-label="Go back">
+        <span class="material-symbols-outlined text-secondary">arrow_back</span>
+      </button>
+      <span class="material-symbols-outlined text-primary" style="font-size:22px;">school</span>
+      <span class="font-bold tracking-tight text-primary" style="font-size:17px;">Academic Intelligence</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-secondary font-medium" style="font-size:13px;">Step 1 of 3</span>
+      <div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+        <span class="material-symbols-outlined text-secondary text-sm">person</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- STICKY PROGRESS BAR (below AppBar)                    -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div style="position:sticky;top:52px;z-index:40;height:6px;background-color:#f2f4f6;" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Quiz progress 12% complete">
+    <!-- Progress fill shown for Example 1: 12% (Q7/60) -->
+    <div style="height:100%;width:12%;background-color:#006B62;transition:width 500ms ease;"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- PAGE CONTENT                                          -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <main class="relative z-10 pt-4 pb-16" style="padding-left:16px;padding-right:16px;">
+
+    <!-- Page heading -->
+    <section style="margin-bottom:32px;">
+      <h1 class="font-bold text-primary" style="font-size:26px;letter-spacing:-0.02em;margin-bottom:6px;">Interest Assessment</h1>
+      <p class="text-secondary" style="font-size:15px;line-height:1.6;max-width:560px;">Rate each activity honestly. Your answers shape the career paths and universities we recommend for you.</p>
+    </section>
+
+    <!-- Mobile AI insight strip (md:hidden) — P8 -->
+    <div class="md:hidden" style="margin-bottom:16px;background-color:#eaddff;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+      <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:16px;flex-shrink:0;">psychology</span>
+      <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#5a00c6;flex-shrink:0;">Top codes so far</span>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <span style="font-size:11px;font-weight:700;color:#006B62;background:rgba(0,107,98,0.10);padding:3px 10px;border-radius:20px;">I – 72%</span>
+        <span style="font-size:11px;font-weight:700;color:#006B62;background:rgba(0,107,98,0.10);padding:3px 10px;border-radius:20px;">C – 61%</span>
+        <span style="font-size:11px;font-weight:700;color:#515f74;background:#f2f4f6;padding:3px 10px;border-radius:20px;">R – 48%</span>
+      </div>
+    </div>
+
+    <!-- Two-column layout: AI sidebar + question cards -->
+    <div style="display:grid;grid-template-columns:1fr;gap:24px;" class="lg:grid-cols-quiz">
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- AI INSIGHT PANEL (shows on md+ as sticky sidebar)  -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <div class="hidden md:block" style="position:sticky;top:80px;align-self:start;">
+        <div style="background-color:#eaddff;border-radius:16px;padding:20px;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:18px;">psychology</span>
+            <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a00c6;">AI Insight</span>
+          </div>
+          <p style="font-size:13px;line-height:1.6;color:#25005a;margin:0;">
+            The RIASEC model measures six personality types: <strong>Realistic, Investigative, Artistic, Social, Enterprising,</strong> and <strong>Conventional</strong>. Answer based on how much you'd genuinely enjoy each activity — not what you think you should say.
+          </p>
+          <div style="margin-top:16px;padding-top:16px;background:linear-gradient(to bottom,rgba(102,22,215,0.06),transparent) top/100% 1px no-repeat;">
+            <p style="font-size:11px;font-weight:600;color:#5a00c6;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;">Your top codes so far</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="font-size:11px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.10);padding:3px 10px;border-radius:20px;">I – 72%</span>
+              <span style="font-size:11px;font-weight:700;color:#006B62;background:rgba(0,92,85,0.10);padding:3px 10px;border-radius:20px;">C – 61%</span>
+              <span style="font-size:11px;font-weight:700;color:#515f74;background:#f2f4f6;padding:3px 10px;border-radius:20px;">R – 48%</span>
+            </div>
+          </div>
+        </div>
+        <!-- Dimension progress mini-list -->
+        <div style="background-color:#ffffff;border-radius:16px;padding:20px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+          <p style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#515f74;margin-bottom:16px;">Dimensions answered</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <!-- R -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#191c1e;">Realistic</span>
+                <span style="font-size:11px;font-weight:700;color:#006B62;">7/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:70%;"></div></div>
+            </div>
+            <!-- I -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#191c1e;">Investigative</span>
+                <span style="font-size:11px;font-weight:700;color:#006B62;">7/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:70%;"></div></div>
+            </div>
+            <!-- A -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#515f74;">Artistic</span>
+                <span style="font-size:11px;font-weight:700;color:#515f74;">5/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:50%;background-color:#bdc9c6;"></div></div>
+            </div>
+            <!-- S -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#515f74;">Social</span>
+                <span style="font-size:11px;font-weight:700;color:#515f74;">0/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:0%;background-color:#bdc9c6;"></div></div>
+            </div>
+            <!-- E -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#515f74;">Enterprising</span>
+                <span style="font-size:11px;font-weight:700;color:#515f74;">0/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:0%;background-color:#bdc9c6;"></div></div>
+            </div>
+            <!-- C -->
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:12px;font-weight:600;color:#515f74;">Conventional</span>
+                <span style="font-size:11px;font-weight:700;color:#515f74;">0/10</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:0%;background-color:#bdc9c6;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─────────────────────────────────────────────────── -->
+      <!-- QUESTION CARDS COLUMN                              -->
+      <!-- ─────────────────────────────────────────────────── -->
+      <div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- EXAMPLE 1 — Investigative dimension, Q7/60     -->
+        <!-- Selected: Like (4)                             -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <div class="example-label">
+          <div class="example-label-line"></div>
+          <span class="example-label-text">Example 1 — Investigative dimension</span>
+          <div class="example-label-line"></div>
+        </div>
+
+        <div style="background-color:#ffffff;border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+
+          <!-- Question header row -->
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div class="dim-chip">
+              <span class="material-symbols-outlined" style="font-size:13px;color:#006B62;">biotech</span>
+              Investigative
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Question 7 / 60</span>
+          </div>
+
+          <!-- Progress bar for this question's position -->
+          <div class="progress-track" style="margin-bottom:24px;" role="progressbar" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100" aria-label="Question 7 of 60">
+            <div class="progress-fill" style="width:12%;"></div>
+          </div>
+
+          <!-- Question text -->
+          <h2 id="q1-text" style="font-size:20px;font-weight:600;color:#191c1e;line-height:1.45;margin-bottom:28px;letter-spacing:-0.01em;">
+            How much would you enjoy analyzing data patterns and forming scientific hypotheses based on experimental findings?
+          </h2>
+
+          <!-- Likert Scale: 5 horizontal buttons -->
+          <div role="group" aria-labelledby="q1-text" style="display:flex;gap:8px;margin-bottom:28px;">
+            <button class="likert-btn" aria-pressed="false" aria-label="1 Strongly Dislike">
+              <span class="likert-num">1</span>
+              <span class="likert-label">Strongly<br>Dislike</span>
+            </button>
+            <button class="likert-btn" aria-pressed="false" aria-label="2 Dislike">
+              <span class="likert-num">2</span>
+              <span class="likert-label">Dislike</span>
+            </button>
+            <button class="likert-btn" aria-pressed="false" aria-label="3 Neutral">
+              <span class="likert-num">3</span>
+              <span class="likert-label">Neutral</span>
+            </button>
+            <!-- SELECTED: Like (4) -->
+            <button class="likert-btn selected" aria-pressed="true" aria-label="4 Like">
+              <span class="likert-num">4</span>
+              <span class="likert-label">Like</span>
+            </button>
+            <button class="likert-btn" aria-pressed="false" aria-label="5 Strongly Like">
+              <span class="likert-num">5</span>
+              <span class="likert-label">Strongly<br>Like</span>
+            </button>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(188,201,198,0.20);">
+            <button class="nav-ghost">
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+              Previous
+            </button>
+            <button class="nav-primary">
+              Next
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- EXAMPLE 2 — Artistic dimension, Q25/60         -->
+        <!-- No selection yet (unanswered state)            -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <div class="example-label">
+          <div class="example-label-line"></div>
+          <span class="example-label-text">Example 2 — Artistic dimension</span>
+          <div class="example-label-line"></div>
+        </div>
+
+        <div style="background-color:#ffffff;border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div class="dim-chip" style="color:#515f74;">
+              <span class="material-symbols-outlined" style="font-size:13px;color:#515f74;">palette</span>
+              Artistic
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Question 25 / 60</span>
+          </div>
+
+          <div class="progress-track" style="margin-bottom:24px;" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100" aria-label="Question 25 of 60">
+            <div class="progress-fill" style="width:42%;"></div>
+          </div>
+
+          <h2 style="font-size:20px;font-weight:600;color:#191c1e;line-height:1.45;margin-bottom:28px;letter-spacing:-0.01em;">
+            How much would you enjoy expressing yourself through creative writing, graphic design, or musical composition?
+          </h2>
+
+          <!-- Unanswered — no button is selected -->
+          <div style="display:flex;gap:8px;margin-bottom:28px;">
+            <button class="likert-btn">
+              <span class="likert-num">1</span>
+              <span class="likert-label">Strongly<br>Dislike</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">2</span>
+              <span class="likert-label">Dislike</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">3</span>
+              <span class="likert-label">Neutral</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">4</span>
+              <span class="likert-label">Like</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">5</span>
+              <span class="likert-label">Strongly<br>Like</span>
+            </button>
+          </div>
+
+          <!-- Unanswered state notice -->
+          <div style="display:flex;align-items:center;gap:8px;background-color:#f2f4f6;border-radius:10px;padding:10px 14px;margin-bottom:20px;">
+            <span class="material-symbols-outlined" style="font-size:16px;color:#6e7977;">info</span>
+            <span style="font-size:12px;color:#515f74;font-weight:500;">Tap a number to rate this activity before moving on.</span>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(188,201,198,0.20);">
+            <button class="nav-ghost">
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+              Previous
+            </button>
+            <!-- Next is disabled when unanswered -->
+            <button class="nav-primary" style="background-color:#e0e3e5;box-shadow:none;color:#6e7977;cursor:not-allowed;" disabled>
+              Next
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════ -->
+        <!-- EXAMPLE 3 — Conventional dimension, Q51/60     -->
+        <!-- Selected: Strongly Like (5)                    -->
+        <!-- ═══════════════════════════════════════════════ -->
+        <div class="example-label">
+          <div class="example-label-line"></div>
+          <span class="example-label-text">Example 3 — Conventional dimension</span>
+          <div class="example-label-line"></div>
+        </div>
+
+        <div style="background-color:#ffffff;border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(51,65,85,0.06);">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+            <div class="dim-chip" style="color:#3a485c;">
+              <span class="material-symbols-outlined" style="font-size:13px;color:#3a485c;">table_chart</span>
+              Conventional
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#515f74;">Question 51 / 60</span>
+          </div>
+
+          <div class="progress-track" style="margin-bottom:24px;" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Question 51 of 60">
+            <div class="progress-fill" style="width:85%;"></div>
+          </div>
+
+          <h2 style="font-size:20px;font-weight:600;color:#191c1e;line-height:1.45;margin-bottom:28px;letter-spacing:-0.01em;">
+            How much would you enjoy organizing information, maintaining accurate records, and working within established systems and procedures?
+          </h2>
+
+          <!-- Strongly Like (5) selected -->
+          <div style="display:flex;gap:8px;margin-bottom:28px;">
+            <button class="likert-btn">
+              <span class="likert-num">1</span>
+              <span class="likert-label">Strongly<br>Dislike</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">2</span>
+              <span class="likert-label">Dislike</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">3</span>
+              <span class="likert-label">Neutral</span>
+            </button>
+            <button class="likert-btn">
+              <span class="likert-num">4</span>
+              <span class="likert-label">Like</span>
+            </button>
+            <!-- SELECTED: Strongly Like (5) -->
+            <button class="likert-btn selected">
+              <span class="likert-num">5</span>
+              <span class="likert-label">Strongly<br>Like</span>
+            </button>
+          </div>
+
+          <!-- Near end — show completion insight -->
+          <div style="display:flex;align-items:flex-start;gap:12px;background-color:#eaddff;border-radius:12px;padding:14px 16px;margin-bottom:20px;">
+            <span class="material-symbols-outlined fill-icon" style="color:#6616d7;font-size:18px;flex-shrink:0;margin-top:1px;">auto_awesome</span>
+            <div>
+              <span style="font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a00c6;display:block;margin-bottom:4px;">AI Observation</span>
+              <p style="font-size:13px;color:#25005a;line-height:1.5;margin:0;">You're showing a strong Conventional pattern — your answers suggest you may thrive in structured, data-driven environments like Accounting, Finance, or Business Administration in Karachi.</p>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid rgba(188,201,198,0.20);">
+            <button class="nav-ghost">
+              <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+              Previous
+            </button>
+            <!-- Last question: "View Results" CTA instead of "Next" -->
+            <button class="nav-primary" style="background:linear-gradient(135deg,#6616d7,#7f3ef0);box-shadow:0 4px 12px rgba(102,22,215,0.25);">
+              View My Results
+              <span class="material-symbols-outlined" style="font-size:18px;">insights</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom spacer -->
+        <div style="height:32px;"></div>
+
+      </div><!-- /question cards column -->
+
+    </div><!-- /two-column grid -->
+
+  </main>
+
+  <style>
+    /* Two-column layout for md+ */
+    @media (min-width: 768px) {
+      .lg\\:grid-cols-quiz {
+        grid-template-columns: 240px 1fr !important;
+      }
+    }
+  </style>
+
+</body>
+</html>
