@@ -67,6 +67,13 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 
 *Starts after Waqas posts the team-updates file above.*
 
+**Design reference — read before building any screen:**
+- `design/screen_mockups/DESIGN_HANDOFF.md` — implementation guide, one section per screen
+- `design/screen_mockups/DESIGN_SYSTEM_TOKENS.md` — colours, typography, spacing tokens
+- `design/screen_mockups/code_[screen].html` — visual reference for the screen you are currently building
+
+**Use the session starter in DESIGN_HANDOFF.md for every screen session. One screen per Claude Code session.**
+
 1. Open `frontend/` in VS Code
 2. Run `flutter pub get`
 3. **Make the state management decision with Waqas** before writing any screen
@@ -155,6 +162,8 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 ### Khuzzaim — Frontend
 
 *Starts after Waqas confirms profiler endpoint is working.*
+
+**Design reference — same as Sprint 1. Read DESIGN_HANDOFF.md section for each screen before building it.**
 
 **New screens confirmed in v1.5 — build alongside the screens below:**
 - `screens/onboarding/riasec_complete_screen.dart` — shown on 200 from POST /profile/quiz. Navigates to Grades Input.
