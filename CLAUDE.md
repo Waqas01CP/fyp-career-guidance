@@ -213,9 +213,9 @@ Recommendation Dashboard
 | Recommendation Dashboard | `screens/dashboard/recommendation_dashboard.dart` | Full |
 | Settings | `screens/profile/settings_screen.dart` | Logout only; Change Password = static "coming soon" |
 | Network Error | `screens/error_screen.dart` | Full |
+| Student Profile | `screens/profile/profile_screen.dart` | Full |
 
-No new screens may be added to Sprint 3 scope. Additions require Architecture Chat
-sign-off and a CLAUDE.md update.
+No new screens may be added without Architecture Chat sign-off and a CLAUDE.md update.
 
 ---
 
@@ -481,6 +481,7 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Sprint tasks and gate conditions | `docs/00_architecture/SPRINT_PLAN.md` |
 | All architecture docs index | `docs/00_architecture/README.md` |
 | Session history and log navigation | `logs/README.md` |
+| Flutter screen implementation | `design/screen_mockups/DESIGN_HANDOFF.md` |
 
 ---
 
@@ -517,7 +518,8 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Change Password (demo) | Static "coming soon" message in Settings screen. No backend endpoint for demo. Deferred — see DEFERRED WORK section. |
 | Password reset flow (post-demo) | OTP via email — NOT a reset link. Requires email service (e.g. SendGrid). Screen design: email field → OTP field → new password field. This sequence is locked so the screen does not need redesign when implemented. |
 | Onboarding Carousel trigger | Show when no token in flutter_secure_storage. Covers fresh install and post-logout. No backend field. |
-| Screen count | 15 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
+| Screen count | 16 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
+| Flutter screen designs | Complete — 16 screens locked in design/screen_mockups/. DESIGN_HANDOFF.md is the implementation guide. DESIGN_SYSTEM_TOKENS.md is the token reference. No new screens without Architecture Chat sign-off per CLAUDE.md screen inventory. |
 
 ---
 
@@ -529,3 +531,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.3 — April 2026 (nav index updated to Point 2 v2.1; Sprint 1 backend complete; out_of_scope routing locked)*
 *CLAUDE.md v1.4 — April 2026 (logs/README.md added to navigation index; Sprint 1 Flutter shells marked complete)*
 *CLAUDE.md v1.5 — April 2026 (screen inventory locked: 15 screens; full onboarding flow with completion screens; JWT 401 handling, logout, pipeline init, welcome state, carousel trigger locked; deferred work section added: message history, forgot/change password, SSE timeout state)*
+*CLAUDE.md v1.6 — April 2026 (design phase complete: 16 screen mockups, DESIGN_HANDOFF.md, DESIGN_SYSTEM_TOKENS.md added to design/screen_mockups/; screen count corrected to 16; Student Profile screen added to locked inventory; design/screen_mockups/DESIGN_HANDOFF.md added to navigation index)*
