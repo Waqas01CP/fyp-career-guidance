@@ -368,9 +368,9 @@ alembic downgrade -1
 
 | File | Owner | Count | Status |
 |---|---|---|---|
-| `backend/app/data/universities.json` | Fazal | 20 universities | Empty — populate Sprint 1 |
-| `backend/app/data/lag_model.json` | Fazal | 30+ fields | Empty — populate Sprint 1 |
-| `backend/app/data/affinity_matrix.json` | Fazal | 30+ fields | Empty — populate Sprint 1 |
+| `backend/app/data/universities.json` | Fazal | 20 universities | 1 of 5 priority universities done (NED) |
+| `backend/app/data/lag_model.json` | Fazal | 43+ fields | Empty — blocked until all 5 universities done |
+| `backend/app/data/affinity_matrix.json` | Fazal | 43+ fields | Empty — blocked until all 5 universities done |
 | `backend/app/data/assessment_questions.json` | Khuzzaim | 1140 questions | Empty — populate Sprint 1 |
 
 **Schemas:** Point 4 — `POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md`
@@ -380,10 +380,10 @@ alembic downgrade -1
 | Category | Layer 3 weight | Fields |
 |---|---|---|
 | `LEAPFROG` | 50% | CS/AI/Software Engineering |
-| `FAST` | 40% | Cybersecurity, Digital Media, Data Science |
-| `MEDIUM` | 30% | Cloud, Electrical, Biomedical Engineering |
-| `SLOW` | 20% | Robotics, IoT, Embedded |
-| `LOCAL` | 0% | Medicine, Law, Civil Eng, Business |
+| `FAST` | 40% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering |
+| `MEDIUM` | 30% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering |
+| `SLOW` | 20% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering |
+| `LOCAL` | 0% | Medicine, Law, Civil Eng, Business, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics |
 
 ---
 
@@ -532,3 +532,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.4 — April 2026 (logs/README.md added to navigation index; Sprint 1 Flutter shells marked complete)*
 *CLAUDE.md v1.5 — April 2026 (screen inventory locked: 15 screens; full onboarding flow with completion screens; JWT 401 handling, logout, pipeline init, welcome state, carousel trigger locked; deferred work section added: message history, forgot/change password, SSE timeout state)*
 *CLAUDE.md v1.6 — April 2026 (design phase complete: 16 screen mockups, DESIGN_HANDOFF.md, DESIGN_SYSTEM_TOKENS.md added to design/screen_mockups/; screen count corrected to 16; Student Profile screen added to locked inventory; design/screen_mockups/DESIGN_HANDOFF.md added to navigation index)*
+*CLAUDE.md v1.7 — April 2026 (NED University data committed to universities.json; 13 new field_ids added to canonical list; lag_model and affinity_matrix field counts updated to 43+)*
