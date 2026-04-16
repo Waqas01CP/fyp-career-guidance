@@ -3,7 +3,9 @@
     "allow": [
       "Bash(curl -s http://127.0.0.1:8001/api/v1/health)",
       "Bash(curl:*)",
-      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMTMyZDVhMi1mZGIyLTQxZGQtYTVlMC1jZDEyYjY2ZmEzN2UiLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc3NDk4ODY1OH0.E2TC_aBCJaa4XrH3-3FXjCG0wpR1fLw6Oki0YWKbJcI\")"
+      "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMTMyZDVhMi1mZGIyLTQxZGQtYTVlMC1jZDEyYjY2ZmEzN2UiLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc3NDk4ODY1OH0.E2TC_aBCJaa4XrH3-3FXjCG0wpR1fLw6Oki0YWKbJcI\")",
+      "Bash(venv\\\\Scripts\\\\python.exe scripts/compute_future_values.py)",
+      "Bash(\"venv/Scripts/python.exe\" scripts/compute_future_values.py)"
     ]
   }
 }
