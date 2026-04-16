@@ -47,12 +47,14 @@ class Settings(BaseSettings):
     })
 
     # FutureValue layer weights by lag category
+    # layer1=pak_now, layer2=pak_future, layer3a=world_now, layer3b=world_future
+    # All rows sum to 1.0 — layer3 split into layer3a/layer3b to fix double-counting bug.
     FUTURE_VALUE_WEIGHTS: dict = Field(default_factory=lambda: {
-        "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3": 0.50},
-        "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3": 0.40},
-        "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3": 0.30},
-        "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3": 0.20},
-        "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3": 0.00},
+        "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3a": 0.30, "layer3b": 0.20},
+        "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3a": 0.24, "layer3b": 0.16},
+        "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3a": 0.18, "layer3b": 0.12},
+        "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3a": 0.12, "layer3b": 0.08},
+        "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3a": 0.00, "layer3b": 0.00},
     })
 
     LAG_CONFIDENCE: dict = Field(default_factory=lambda: {
