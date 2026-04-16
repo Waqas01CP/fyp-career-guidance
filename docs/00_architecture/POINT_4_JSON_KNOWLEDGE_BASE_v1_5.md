@@ -392,7 +392,12 @@ electronics_engineering, robotics_iot, medicine_mbbs, dentistry_bds,
 pharmacy, mathematics, physics, chemistry_biochemistry, architecture,
 fine_arts, psychology, social_work, education_bed, business_bba,
 economics, finance_accounting, law_llb, mass_communication,
-agriculture, veterinary_science
+agriculture, veterinary_science, chemical_engineering, telecommunications_engineering,
+industrial_manufacturing_engineering, automotive_engineering,
+metallurgical_engineering, materials_engineering,
+polymer_petrochemical_engineering, urban_infrastructure_engineering,
+construction_engineering, textile_engineering, food_engineering,
+textile_sciences, english_linguistics
 ```
 
 ---
