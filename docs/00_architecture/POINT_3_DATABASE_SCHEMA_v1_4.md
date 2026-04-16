@@ -506,7 +506,7 @@ completes — written by `core_graph.py` as a post-node side effect, not inside 
     "aggregate_used": 82.5,
     "fee_per_semester": 27500,
     "capability_adjustment_applied": true,
-    "effective_grade_used": 79.5
+    "effective_grade_used": {"mathematics": 60.0, "physics": 80.0, "chemistry": 75.0, "biology": 82.0, "english": 70.0}
   },
   {
     "degree_id": "fast_bsse",
@@ -523,7 +523,7 @@ completes — written by `core_graph.py` as a post-node side effect, not inside 
     "aggregate_used": 82.5,
     "fee_per_semester": 75000,
     "capability_adjustment_applied": false,
-    "effective_grade_used": 82.5
+    "effective_grade_used": {"mathematics": 82.5, "physics": 82.5, "chemistry": 82.5, "biology": 82.5, "english": 82.5}
   }
 ]
 ```
@@ -535,12 +535,15 @@ completes — written by `core_graph.py` as a post-node side effect, not inside 
 `aggregate_used` which appears in Point 2's FilterNode output section.
 
 - `aggregate_used` — raw student aggregate before any capability blend
-- `effective_grade_used` — grade actually used for scoring; equals `aggregate_used` when no
-  blend was applied, differs when `capability_adjustment_applied` is `true`
+- `effective_grade_used` — `dict[str, float]`, per-subject effective grades used in
+  `calculate_aggregate()`. Equals reported `subject_marks` per subject when no blend
+  was applied for that subject; differs for subjects where `capability_adjustment_applied`
+  triggered. Changed from `float` to `dict` — per-subject blend is applied BEFORE
+  `calculate_aggregate()`, not post-aggregate.
 - `eligibility_note` — `null` when stream is fully eligible; populated string when
   conditionally eligible or an unusual subject combination applies
 - `capability_adjustment_applied` — `true` when gap between reported grade and capability
-  score was ≥25 points, triggering the blend formula
+  score was ≥25 points for ANY subject, triggering the per-subject blend formula
 
 ### How `trigger` is Determined
 
@@ -727,6 +730,7 @@ class MarksheetUploadResponse(BaseModel):
 
 class ProfileOut(BaseModel):
     id: UUID
+    session_id: UUID   # chat session UUID — generated on register, read by Flutter to call POST /chat/stream
     onboarding_stage: str
     education_level: str | None
     student_mode: str | None
@@ -799,6 +803,7 @@ class SSEEvent(BaseModel):
 | `student_profiles.board` | Stored — collected on Screen 2, NULL for O/A Level, not read by pipeline nodes in v1 but preserved for future use |
 | `student_profiles.stated_preferences` | JSONB list — replaces `interests` field from original baseline |
 | `student_profiles.onboarding_stage` | State machine with 4 values — frontend always follows this field |
+| `ProfileOut.session_id` | Included in GET /profile/me response — UUID of the user's active chat session. Generated on register (not on profile fetch). Flutter reads this to call POST /chat/stream. Confirmed working, commit 2ace388. |
 | IBCC conversion location | `POST /profile/grades` endpoint service layer — not in any agent node |
 | `recommendations.roadmap_snapshot` entry fields | 15 fields per entry — 14 from Point 2 AgentState spec plus `aggregate_used` from Point 2 FilterNode output |
 | `recommendations.trigger` | 'initial' / 'profile_update' / 'manual_rerun' — determined by core_graph.py |
@@ -811,6 +816,7 @@ class SSEEvent(BaseModel):
 | `chat_sessions.session_state` | Written exclusively by AsyncPostgresSaver — never manually |
 | `chat_sessions.session_summary` | NULL in Sprint 1–3, populated for context compression in Sprint 4 |
 | `conflict_detected` in AgentState | Always False in v1 — placeholder for MVP-3, permanently deferred |
+| Capability blend scope | Per-subject — blend applied to each subject independently BEFORE `calculate_aggregate()`. `effective_grade_used` is `dict[str, float]`, not a single float. Ensures subject_weights in degree's aggregate_formula apply to already-adjusted values. |
 | schemas/ folder | 3 files only: auth.py, chat.py, profile.py — no upload.py (marksheet upload is in profile.py per Point 1) |
 | pgvector | Not used. JSON structured lookup only. This is intentional and locked. |
 | Tenant isolation | user_id from JWT sub only — never from request body |

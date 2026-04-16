@@ -747,8 +747,16 @@ scoring function compares against the student's submitted answer index.
 | Each of 5 subjects | `inter_part1` | 76 (20 easy, 32 medium, 24 hard) |
 | Each of 5 subjects | `inter_part2` (NEW, Part 2-specific only) | ~40 (Khuzzaim judges split) |
 
-Total: ~960 questions. `inter_part2` students draw from all `inter_part1` questions
-plus the `inter_part2`-tagged ones — the pool is a superset, not a separate file.
+Total: 1140 questions (76 per subject × 5 subjects × 3 curriculum levels).
+
+76 questions per subject per level supports up to 6 fresh retake sessions (12 drawn
+per session) before any question must repeat. The `inter_part2` runtime draw pool is
+a superset: students at this level draw from all `inter_part1`-tagged questions plus
+`inter_part2`-tagged questions. However, the file itself contains 76 `inter_part2`-tagged
+entries — these cover Part 2-specific syllabus topics (calculus, organic chemistry,
+coordinate geometry, etc.). Total file entries: 1140. The ~40 figure in earlier
+documentation referred to the approximate count of questions covering purely
+Part 2-new topics within the 76, not the total Part 2 entries in the file.
 
 **Do NOT include in questions:**
 - `"inter_part1"`: calculus, organic chemistry, coordinate geometry (Part 2 syllabus)

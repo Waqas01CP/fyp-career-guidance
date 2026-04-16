@@ -179,6 +179,7 @@ No body. User identity comes from JWT `sub`.
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
+  "session_id": "7c9e6679-7425-40de-944b-e07fc1f90ae7",
   "onboarding_stage": "grades_complete",
   "education_level": "inter_part2",
   "student_mode": "inter",

@@ -62,8 +62,7 @@ After animation completes (~2s), read `flutter_secure_storage` key `'jwt_token'`
   - `not_started` → `RiasecQuizScreen`
   - `riasec_complete` → `GradesInputScreen`
   - `grades_complete` → `AssessmentScreen`
-  - `assessment_complete` → `AssessmentScreen` (resume)
-  - `complete` → `RecommendationDashboard`
+  - `assessment_complete` → `ChatScreen` (AsyncPostgresSaver restores prior session; recommendations table checked for prior runs)
 - 401 response → clear token → `CarouselScreen`
 
 ### 10. API Connection
@@ -818,14 +817,28 @@ Full
 
 ### 10. API Connection
 `POST /api/v1/profile/assessment`  
-Body: `{ "answers": [{ "question_id": int, "selected_option": string ("A"|"B"|"C"|"D") }] }` — all 60  
-Response: `{ "onboarding_stage": "assessment_complete", "capability_scores": { "mathematics": float, "physics": float, "chemistry": float, "english": float, "computer_science": float } }`
+Body:
+```json
+{
+  "responses": {
+    "mathematics": [1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1],
+    "physics":     [1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0],
+    "chemistry":   [0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1],
+    "biology":     [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1],
+    "english":     [1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1]
+  }
+}
+```
+Each subject has exactly 12 integers: `1` = correct, `0` = incorrect. Order matches the question sequence delivered to the student.  
+Response: `{ "onboarding_stage": "assessment_complete", "capability_scores": { "mathematics": float, "physics": float, "chemistry": float, "biology": float, "english": float } }`
+
+**⚠️ Note for Khuzzaim:** The local `answers` state (`Map<int, String>`) must be converted before submission. Map the student's A/B/C/D selections against `correct_index` from the bundled JSON to produce the 0/1 list per subject. The backend expects binary flags, not letter options.
 
 **Note for Khuzzaim:** No `GET` endpoint for assessment questions exists yet. Bundle questions as `assets/assessment_questions.json` until backend provides `GET /api/v1/profile/assessment/questions`.
 
 ### 11. State Management
 - Local state: `currentSubject`, `currentQuestionIndex`, `answers: Map<int, String>`, `reviewFlags: Set<int>`
-- On submit: `profileProvider.notifier.submitAssessment(answers)`
+- On submit: convert local `Map<int, String> answers` to `Map<String, List<int>>` per subject (1=correct, 0=incorrect), then call `profileProvider.notifier.submitAssessment(responses)`
 
 ### 12. Platform Notes
 - Android: Hardware back → confirmation dialog
@@ -1367,7 +1380,7 @@ These decisions from `CLAUDE.md` directly affect Flutter implementation. Every i
 | SSE event types: `status`, `chunk`, `rich_ui` ONLY | Ignore any other event types. Do not crash on unknown events — log and skip. |
 | 401 handling | Clear `flutter_secure_storage`, invalidate providers, navigate to `LoginScreen`. No silent token refresh. |
 | Logout: client-side only | Clear storage + invalidate providers. No `POST /logout` API call. |
-| Onboarding state machine (5 values) | `not_started` → `riasec_complete` → `grades_complete` → `assessment_complete` → `complete`. Match exact strings. |
+| Onboarding state machine (4 values) | `not_started` → `riasec_complete` → `grades_complete` → `assessment_complete`. Match exact strings. `complete` is NOT a valid stage — it was a design doc error. Terminal stage is `assessment_complete`. |
 | Font: Inter only | Use `google_fonts` package: `GoogleFonts.inter(...)`. No system fonts, no other Google Fonts. |
 | Colour: Purple (`#6616D7`) on AI elements only | `tertiary` colour must NEVER appear on non-AI UI elements under any circumstance. |
 | No 1px solid borders | Use background colour shifts for section separation. `Divider` widget forbidden except with `thickness: 0, color: Color(0x26BDC9C6)` for ghost separators. |

@@ -904,36 +904,57 @@ CAPABILITY_BLEND_MAX_SHIFT = 10    # maximum points effective grade can move
 ```
 
 ```python
-gap = capability_score - reported_grade  # positive = stronger than marks show
-                                         # negative = weaker than marks show
+# Per-subject blend — applied BEFORE calculate_aggregate().
+# Each subject's reported grade is individually adjusted against its
+# matching capability score. The adjusted marks dict is then passed
+# to calculate_aggregate() so subject_weights in aggregate_formula
+# are applied to the already-adjusted per-subject values.
+effective_marks = {}
+for subject, reported_grade in subject_marks.items():
+    capability = capability_scores.get(subject)
+    if capability is None:
+        effective_marks[subject] = reported_grade
+        continue
+    gap = capability - reported_grade  # positive = stronger than marks show
+    if abs(gap) >= CAPABILITY_BLEND_THRESHOLD:   # >= not > — gap of exactly 25 triggers
+        raw_effective = (reported_grade * (1 - CAPABILITY_BLEND_WEIGHT)) + \
+                        (capability * CAPABILITY_BLEND_WEIGHT)
+        effective_marks[subject] = max(
+            reported_grade - CAPABILITY_BLEND_MAX_SHIFT,
+            min(reported_grade + CAPABILITY_BLEND_MAX_SHIFT, raw_effective)
+        )
+        thought_trace.append(
+            f"{degree_name} — {subject}: capability {capability}% vs reported {reported_grade}% "
+            f"(gap {gap:+.0f}pts). Effective: {effective_marks[subject]:.1f}%"
+        )
+    else:
+        effective_marks[subject] = reported_grade  # no adjustment
 
-if abs(gap) >= CAPABILITY_BLEND_THRESHOLD:   # >= not > — gap of exactly 25 triggers
-    raw_effective = (reported_grade * (1 - CAPABILITY_BLEND_WEIGHT)) + (capability_score * CAPABILITY_BLEND_WEIGHT)
-    # Hard cap — effective grade never moves more than CAPABILITY_BLEND_MAX_SHIFT points
-    effective_grade = max(
-        reported_grade - CAPABILITY_BLEND_MAX_SHIFT,
-        min(reported_grade + CAPABILITY_BLEND_MAX_SHIFT, raw_effective)
-    )
-    thought_trace.append(
-        f"{degree_name} — capability {capability_score}% vs reported {reported_grade}% "
-        f"(gap {gap:+.0f}pts). Effective grade: {effective_grade:.1f}%"
-    )
-else:
-    effective_grade = reported_grade  # no adjustment
+aggregate = calculate_aggregate(effective_marks, degree["aggregate_formula"])
+capability_adjustment_applied = any(
+    effective_marks[s] != subject_marks[s] for s in subject_marks
+)
 ```
 
-**Worked examples (verification):**
+**Worked examples — per-subject (verification):**
 
+Example student: mathematics=70%, physics=80%. Capability scores: mathematics=40%, physics=85%.
+
+| Subject | Reported | Capability | Gap | Raw effective | After cap | Final effective |
+|---|---|---|---|---|---|---|
+| mathematics | 70% | 40% | -30 (triggers) | 62.5% | 60% (capped -10) | 60% |
+| physics | 80% | 85% | +5 (no trigger) | — | — | 80% |
+
+Additional single-subject reference:
 | Reported | Capability | Gap | Raw effective | After cap | Movement |
-|---|---|---|---|---|---|
-| 70% | 40% | -30 (triggers) | 62.5% | 60% (capped) | -10 |
-| 70% | 30% | -40 (triggers) | 60.0% | 60% (capped) | -10 |
+|---|---|---|---|---|---|---|
 | 70% | 45% | -25 (exactly triggers ≥) | 63.75% | 63.75% | -6.25 |
 | 70% | 95% | +25 (triggers) | 76.25% | 76.25% | +6.25 |
-| 70% | 100% | +30 (triggers) | 77.5% | 77.5% | +7.5 |
 | 80% | 100% | +20 (no trigger — below 25) | — | 80% | 0 |
 
-**Critical:** `effective_grade` used only within ScoringNode for `match_score_normalised`. NOT stored back to student profile. Original reported grade remains unchanged everywhere else.
+`effective_marks` is then passed to `calculate_aggregate()`. Subject weights in `aggregate_formula` apply to the adjusted per-subject values — not to a post-aggregate number.
+
+**Critical:** `effective_marks` values are used only within ScoringNode. NOT stored back to the student profile. Original `subject_marks` remain unchanged everywhere else.
 
 ### Mismatch Detection
 
@@ -973,8 +994,10 @@ for pref in stated_prefs:
     "total_score": 0.74,                       # float 0-1
     "match_score_normalised": 0.81,            # float 0-1
     "future_score": 7.2,                       # float 0-10, read from lag_model.json
-    "capability_adjustment_applied": True,     # bool — was blending used?
-    "effective_grade_used": 78.4,             # float — grade actually used in calculation
+    "capability_adjustment_applied": True,     # bool — was blending used for ANY subject?
+    "effective_grade_used": {"mathematics": 60.0, "physics": 80.0, "chemistry": 75.0, "biology": 82.0, "english": 70.0},
+    # dict[str, float] — per-subject effective grades used in calculate_aggregate().
+    # Equals reported subject_marks when no blend was applied for that subject.
 }
 
 # Sorted descending by total_score
@@ -1399,11 +1422,13 @@ From `config.py`:
 
 ```python
 FUTURE_VALUE_WEIGHTS = {
-    "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3": 0.50},
-    "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3": 0.40},
-    "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3": 0.30},
-    "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3": 0.20},
-    "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3": 0.00},
+    # layer1 = pak_now, layer2 = pak_future, layer3a = world_now, layer3b = world_future
+    # All rows sum to 1.0. layer3 was split to prevent double-counting world signals.
+    "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3a": 0.30, "layer3b": 0.20},
+    "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3a": 0.24, "layer3b": 0.16},
+    "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3a": 0.18, "layer3b": 0.12},
+    "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3a": 0.12, "layer3b": 0.08},
+    "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3a": 0.00, "layer3b": 0.00},
 }
 
 LAG_CONFIDENCE = {
@@ -1481,10 +1506,13 @@ def compute_future_value(field: dict, all_fields: list[dict]) -> float:
 
     raw = (
         pak_now_score   * weights["layer1"] +
-        world_now_score * weights["layer3"] +
         pak_fut_score   * weights["layer2"] +
-        world_fut_score * weights["layer3"]
+        world_now_score * weights["layer3a"] +
+        world_fut_score * weights["layer3b"]
     )
+    # Missing signal rule: if a signal is unavailable for a field,
+    # redistribute its weight proportionally across remaining signals
+    # for that field only, and set data_status: "partial" in lag_model.json.
 
     future_value = round(raw * 10 * confidence, 2)  # scale to 0-10
     return future_value
@@ -1532,12 +1560,16 @@ PROFILER_OPTIONAL_FIELDS = [
 ]
 
 # ── FutureValue weights (per lag category) ────────────────────────────
+# layer1=pak_now, layer2=pak_future, layer3a=world_now, layer3b=world_future
+# All rows sum to 1.0. layer3 was split into layer3a/layer3b to fix
+# a bug where the old single layer3 was applied to both world signals,
+# causing weights to sum to >1.0 and future_value to exceed 10.
 FUTURE_VALUE_WEIGHTS = {
-    "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3": 0.50},
-    "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3": 0.40},
-    "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3": 0.30},
-    "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3": 0.20},
-    "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3": 0.00},
+    "LEAPFROG": {"layer1": 0.30, "layer2": 0.20, "layer3a": 0.30, "layer3b": 0.20},
+    "FAST":     {"layer1": 0.35, "layer2": 0.25, "layer3a": 0.24, "layer3b": 0.16},
+    "MEDIUM":   {"layer1": 0.40, "layer2": 0.30, "layer3a": 0.18, "layer3b": 0.12},
+    "SLOW":     {"layer1": 0.45, "layer2": 0.35, "layer3a": 0.12, "layer3b": 0.08},
+    "LOCAL":    {"layer1": 0.60, "layer2": 0.40, "layer3a": 0.00, "layer3b": 0.00},
 }
 
 # ── Lag confidence multipliers ────────────────────────────────────────
