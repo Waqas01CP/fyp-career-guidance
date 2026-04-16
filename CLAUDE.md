@@ -303,9 +303,17 @@ weights    = SCORING_WEIGHTS[student_mode]    # inter: 0.6/0.4 | matric_planning
 future_score = lag_model[field_id]["computed"]["future_value"]   # 0-10
 total_score  = (weights["match"] * match_score_normalised) + (weights["future"] * future_score / 10)
 
-# Capability blend (triggers when abs(capability_score - reported_grade) >= 25)
-raw_effective  = (reported_grade * 0.75) + (capability_score * 0.25)
-effective_grade = max(reported_grade - 10, min(reported_grade + 10, raw_effective))
+# Capability blend — per-subject, applied BEFORE calculate_aggregate()
+# Triggers per subject when abs(capability - reported) >= 25
+effective_marks = {}
+for subject, reported_grade in subject_marks.items():
+    capability = capability_scores.get(subject)
+    if capability is None or abs(capability - reported_grade) < 25:
+        effective_marks[subject] = reported_grade
+    else:
+        raw_eff = (reported_grade * 0.75) + (capability * 0.25)
+        effective_marks[subject] = max(reported_grade - 10, min(reported_grade + 10, raw_eff))
+# effective_marks passed to calculate_aggregate() — dict[str, float], not a single float
 
 # Mismatch notice (ScoringNode sets mismatch_notice when both conditions true)
 score_gap = top_match_total_score - preferred_degree_total_score
@@ -377,13 +385,16 @@ alembic downgrade -1
 
 **FutureValue lag categories** (stored in lag_model.json as `lag_type`):
 
-| Category | Layer 3 weight | Fields |
-|---|---|---|
-| `LEAPFROG` | 50% | CS/AI/Software Engineering |
-| `FAST` | 40% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering |
-| `MEDIUM` | 30% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering |
-| `SLOW` | 20% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering |
-| `LOCAL` | 0% | Medicine, Law, Civil Eng, Business, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics |
+| Category | layer1 | layer2 | layer3a | layer3b | Fields |
+|---|---|---|---|---|---|
+| `LEAPFROG` | 30% | 20% | 30% | 20% | CS/AI/Software Engineering |
+| `FAST` | 35% | 25% | 24% | 16% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering |
+| `MEDIUM` | 40% | 30% | 18% | 12% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering |
+| `SLOW` | 45% | 35% | 12% | 8% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering |
+| `LOCAL` | 60% | 40% | 0% | 0% | Medicine, Law, Civil Eng, Business, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics |
+
+layer1=pak_now, layer2=pak_future, layer3a=world_now, layer3b=world_future. All rows sum to 1.0.
+Old single `layer3` key split to fix double-counting bug (was summing to >1.0 for non-LOCAL categories).
 
 ---
 
@@ -533,3 +544,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.5 — April 2026 (screen inventory locked: 15 screens; full onboarding flow with completion screens; JWT 401 handling, logout, pipeline init, welcome state, carousel trigger locked; deferred work section added: message history, forgot/change password, SSE timeout state)*
 *CLAUDE.md v1.6 — April 2026 (design phase complete: 16 screen mockups, DESIGN_HANDOFF.md, DESIGN_SYSTEM_TOKENS.md added to design/screen_mockups/; screen count corrected to 16; Student Profile screen added to locked inventory; design/screen_mockups/DESIGN_HANDOFF.md added to navigation index)*
 *CLAUDE.md v1.7 — April 2026 (NED University data committed to universities.json; 13 new field_ids added to canonical list; lag_model and affinity_matrix field counts updated to 43+)*
+*CLAUDE.md v1.8 — April 2026 (Opus audit fixes landed: FutureValue weights corrected layer3→layer3a/layer3b; capability blend changed to per-subject dict; compute_future_values.py rewritten to read Point 4 schema fields directly)*
