@@ -26,12 +26,14 @@
       }
     ],
     "data_last_verified": "March 2026",
+    "entry_test_difficulty_tier": "standard",
     "degrees": [
       {
         "degree_id": "neduet_bs_cs",
         "name": "BS Computer Science",
         "field_id": "computer_science",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -130,6 +132,7 @@
         "name": "BS Computer Science \u2014 AI Specialization",
         "field_id": "artificial_intelligence",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -216,6 +219,7 @@
         "name": "BS Computer Science \u2014 Cybersecurity Specialization",
         "field_id": "cybersecurity",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -302,6 +306,7 @@
         "name": "BS Computer Science \u2014 Data Science Specialization",
         "field_id": "data_science",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -388,6 +393,7 @@
         "name": "BS Computer Science \u2014 Gaming & Animation Specialization",
         "field_id": "digital_media",
         "field_category": "Arts",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -468,6 +474,7 @@
         "name": "BE Software Engineering",
         "field_id": "software_engineering",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -562,6 +569,7 @@
         "name": "BE Computer & Information Systems Engineering",
         "field_id": "computer_science",
         "field_category": "CS",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -656,6 +664,7 @@
         "name": "BE Electrical Engineering",
         "field_id": "electrical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -750,6 +759,7 @@
         "name": "BE Electronics Engineering",
         "field_id": "electronics_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -844,6 +854,7 @@
         "name": "BE Mechanical Engineering",
         "field_id": "mechanical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -938,6 +949,7 @@
         "name": "BE Civil Engineering",
         "field_id": "civil_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1032,6 +1044,7 @@
         "name": "BE Biomedical Engineering",
         "field_id": "biomedical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1130,6 +1143,7 @@
         "name": "BE Chemical Engineering",
         "field_id": "chemical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1224,6 +1238,7 @@
         "name": "BE Petroleum Engineering",
         "field_id": "petroleum_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1318,6 +1333,7 @@
         "name": "BE Telecommunications Engineering",
         "field_id": "telecommunications_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1412,6 +1428,7 @@
         "name": "BE Industrial & Manufacturing Engineering",
         "field_id": "industrial_manufacturing_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1506,6 +1523,7 @@
         "name": "BE Mechanical Engineering \u2014 Automotive Specialization",
         "field_id": "automotive_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1600,6 +1618,7 @@
         "name": "BE Metallurgy & Materials Engineering",
         "field_id": "metallurgical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1694,6 +1713,7 @@
         "name": "BE Materials Engineering",
         "field_id": "materials_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1788,6 +1808,7 @@
         "name": "BE Polymer & Petrochemical Engineering",
         "field_id": "polymer_petrochemical_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1882,6 +1903,7 @@
         "name": "BE Civil Engineering \u2014 Urban Planning Specialization",
         "field_id": "urban_infrastructure_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -1975,6 +1997,7 @@
         "name": "BE Civil Engineering \u2014 Construction Engineering Specialization",
         "field_id": "construction_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2069,6 +2092,7 @@
         "name": "BE Textile Engineering",
         "field_id": "textile_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2162,6 +2186,7 @@
         "name": "BE Food Engineering",
         "field_id": "food_engineering",
         "field_category": "Engineering",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2259,6 +2284,7 @@
         "name": "BS Physics",
         "field_id": "physics",
         "field_category": "Science",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2353,6 +2379,7 @@
         "name": "BS Chemistry",
         "field_id": "chemistry_biochemistry",
         "field_category": "Science",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2447,6 +2474,7 @@
         "name": "BS Textile Science",
         "field_id": "textile_sciences",
         "field_category": "Science",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2544,6 +2572,7 @@
         "name": "BS Management Sciences",
         "field_id": "business_bba",
         "field_category": "Business",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2641,6 +2670,7 @@
         "name": "BS Economics & Finance",
         "field_id": "economics",
         "field_category": "Business",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2735,6 +2765,7 @@
         "name": "BS Computational Finance",
         "field_id": "finance_accounting",
         "field_category": "Business",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2830,6 +2861,7 @@
         "name": "BS Development Studies",
         "field_id": "social_work",
         "field_category": "Arts",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -2925,6 +2957,7 @@
         "name": "BS English Linguistics",
         "field_id": "english_linguistics",
         "field_category": "Arts",
+        "shift": "full_day",
         "duration_years": 4,
         "eligibility": {
           "fully_eligible_streams": [
@@ -3022,6 +3055,7 @@
         "name": "B.Arch Architecture & Planning",
         "field_id": "architecture",
         "field_category": "Arts",
+        "shift": "full_day",
         "duration_years": 5,
         "eligibility": {
           "fully_eligible_streams": [
