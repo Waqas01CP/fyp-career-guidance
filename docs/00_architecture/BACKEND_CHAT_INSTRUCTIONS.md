@@ -387,7 +387,10 @@ Reads `universities.json`. Applies 5 constraint checks in order:
 }
 ```
 Minimum results rule: always return at least 5 degrees. If fewer pass all
-filters, relax budget constraint first, then zone constraint.
+filters, promote next-best degrees ranked by RIASEC match approximation
+(sum of affinity scores once available — JSON order at FilterNode stage).
+These promoted entries receive merit_tier="improvement_needed" and a
+planning_mode soft flag.
 
 ### ScoringNode (pure Python — no LLM)
 ```python
