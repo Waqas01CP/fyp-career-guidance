@@ -245,6 +245,8 @@ Different degrees at the same university can have different formulas.
 - subject_weights: multipliers applied to Inter subject marks. "other" covers
   subjects not explicitly listed.
 
+entry_test_weight — must be 0.0 (not omitted, not null) for degrees with no entry test. FilterNode's calculate_estimated_merit() reads this field directly from aggregate_formula to determine whether to build an entry test proxy. If omitted, it defaults to 0.0 via .get() which is safe, but explicit 0.0 is required for clarity and validation script checks.
+
 **fee_per_semester**
 Integer, in PKR. FilterNode reads this directly as degree["fee_per_semester"].
 If a university publishes annual fees, divide by 2 before storing here.
