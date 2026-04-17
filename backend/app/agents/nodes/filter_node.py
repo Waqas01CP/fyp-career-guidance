@@ -356,7 +356,6 @@ def filter_node(state: AgentState) -> AgentState:
             results.append({
                 "degree_id": degree_id,
                 "field_id": degree["field_id"],
-                "aggregate_formula": degree["aggregate_formula"],
                 "university_id": university_id,
                 "university_name": university_name,
                 "degree_name": degree_name,
@@ -367,7 +366,6 @@ def filter_node(state: AgentState) -> AgentState:
                 "aggregate_used": round(aggregate, 2) if aggregate is not None else None,
                 "fee_per_semester": fee,
                 "soft_flags": soft_flags,
-                "hard_excluded": False,
             })
 
     # ── Minimum display rule ──────────────────────────────────────────────
@@ -383,7 +381,6 @@ def filter_node(state: AgentState) -> AgentState:
             results.append({
                 "degree_id": exc["degree_id"],
                 "field_id": exc["field_id"],
-                "aggregate_formula": exc["aggregate_formula"],
                 "university_id": exc["university_id"],
                 "university_name": exc["university_name"],
                 "degree_name": exc["degree_name"],
@@ -409,7 +406,6 @@ def filter_node(state: AgentState) -> AgentState:
                         ),
                     }
                 ],
-                "hard_excluded": False,
             })
             trace_entries.append(
                 f"{exc['university_name']} {exc['degree_name']} — "

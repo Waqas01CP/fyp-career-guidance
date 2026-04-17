@@ -195,3 +195,19 @@ Point 2 Section 7 example output does NOT list `aggregate_formula` in the roadma
 ### 4. `eligibility_notes` direct access with empty `conditionally_eligible_streams`
 
 When `conditionally_eligible_streams: []` and `eligibility_notes: {}`, the stream check falls through to the `else` branch (not the `elif` branch). Direct access to `eligibility_notes[stream]` is only executed when `stream in conditionally_eligible_streams` is True, which means the key is guaranteed to exist (by validation Rule 5). This pattern is correct and matches Point 4's documented behavior.
+
+---
+
+## Architecture Chat Review Fix — 2026-04-17
+
+Two fields removed from both roadmap entry dicts (main `results.append` block and minimum display promotion block):
+
+1. **`"aggregate_formula": degree["aggregate_formula"]`** — removed.
+   Rationale: not in Point 3's 15-field roadmap_snapshot schema. ScoringNode will re-read `aggregate_formula` from `universities.json` by `degree_id` directly — passing it through the roadmap was unnecessary coupling.
+
+2. **`"hard_excluded": False`** — removed.
+   Rationale: every entry in `current_roadmap` is by definition not hard-excluded (hard-excluded entries never reach `results.append`). The field was meaningless and not in the schema.
+
+Note: `hard_excluded_raw` still stores `"aggregate_formula"` internally (used to compute `exc_agg` via `calculate_aggregate()` inside the minimum display promotion block). This is correct — it is internal bookkeeping, not a roadmap output field.
+
+`REQUIRED_FIELDS` in `test_output_fields_complete` already did not include either field — no test changes needed. All 10 tests pass after the fix (1.21s).
