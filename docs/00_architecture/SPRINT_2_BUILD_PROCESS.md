@@ -96,8 +96,13 @@ After each component's Claude Code session:
    context, catches cross-document inconsistencies, and gives green/red.
 3. **Test output review** — test results reviewed here if any unexpected behaviour
 
-**Green = proceed to next component.**
-**Red = Claude Code corrects, re-tests, re-logs. Loop repeats.**
+**Green from Architecture Chat + Green from Backend Chat = proceed to next component.**
+**Red from either = Claude Code corrects, re-tests, re-logs. Loop repeats.**
+
+Architecture Chat reviews first (cross-document consistency, field names, integration
+boundaries, AgentState correctness). Backend Chat reviews second (code logic, Python
+implementation, error handling, whether the code does what the spec says line by line).
+Both must give green before the next component begins.
 
 Do not begin the next component until Architecture Chat gives green.
 
