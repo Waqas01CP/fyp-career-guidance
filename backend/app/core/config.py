@@ -69,6 +69,16 @@ class Settings(BaseSettings):
     MERIT_STRETCH_THRESHOLD: int = 5        # % below cutoff_min to qualify as stretch
     FILTER_MINIMUM_RESULTS_SHOWN: int = 5   # always show at least this many degrees
 
+    # Entry test proxy (FilterNode estimated_merit — v1.9)
+    CAPABILITY_PROXY_DEFAULT: float = 50.0  # neutral default when capability score missing
+    ENTRY_TEST_SUBJECT_MAP: dict = Field(default_factory=lambda: {
+        "math_weight":      "mathematics",
+        "physics_weight":   "physics",
+        "chemistry_weight": "chemistry",
+        "biology_weight":   "biology",
+        "english_weight":   "english",
+    })
+
     # Mismatch notice thresholds
     MISMATCH_SCORE_GAP_THRESHOLD: int = 20       # min score gap to trigger mismatch
     MISMATCH_FUTURE_VALUE_CEILING: float = 6.0   # pref FV must be below this too

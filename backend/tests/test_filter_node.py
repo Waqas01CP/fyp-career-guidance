@@ -4,7 +4,8 @@ test_filter_node.py — Sprint 3 production tests for FilterNode.
 Uses simulated but realistic student profile against actual NED universities.json.
 Test 3 uses stream="Pre-Medical" to force a hard exclusion on Pre-Engineering-only degrees.
 Test cases cover: non-empty list, minimum display rule, hard exclusion, over_budget flag,
-merit tier assignment, output field completeness, thought_trace population.
+merit tier assignment, output field completeness, thought_trace population,
+HEC floor exclusion, entry test proxy flag, shift field presence.
 
 Run: pytest backend/tests/test_filter_node.py -v
 """
@@ -298,3 +299,85 @@ def test_calculate_aggregate_all_zero_returns_zero():
     formula = {"subject_weights": {"mathematics": 1.0}}
     assert calculate_aggregate({"mathematics": 0}, formula) == 0.0
     assert calculate_aggregate({}, formula) == 0.0
+
+
+# ── Test 11: HEC floor hard exclusion ────────────────────────────────────────
+
+def test_hec_floor_hard_exclusion():
+    """
+    Student with all subject_marks at 55.0 has unadjusted_inter = 55.0%.
+    neduet_bs_cs has min_percentage_hssc=60.0 and Pre-Engineering in
+    fully_eligible_streams — the only reason to exclude is the HEC floor.
+
+    The degree must not appear in results. Not asserting on total roadmap
+    length because other degrees with min_percentage_hssc <= 55 may still pass.
+    """
+    marks_55 = {
+        "mathematics": 55,
+        "physics": 55,
+        "chemistry": 55,
+        "english": 55,
+        "biology": 0,
+    }
+    state = _make_state(
+        stream="Pre-Engineering",
+        budget=200000,
+        subject_marks=marks_55,
+    )
+    result_state = filter_node(state)
+    roadmap = result_state["current_roadmap"]
+    degree_ids = {e["degree_id"] for e in roadmap}
+
+    assert "neduet_bs_cs" not in degree_ids, (
+        "neduet_bs_cs (min_percentage_hssc=60.0) must be HEC-excluded when "
+        "unadjusted inter is 55.0% — it must never appear in results"
+    )
+
+    # HEC exclusion must be recorded in thought_trace with governing council
+    trace_text = " ".join(result_state["thought_trace"])
+    assert "HARD EXCLUDED" in trace_text, (
+        "thought_trace must contain 'HARD EXCLUDED' entry for HEC-floor exclusions"
+    )
+
+
+# ── Test 12: entry_test_proxy_used soft flag ─────────────────────────────────
+
+def test_entry_test_proxy_flag_present():
+    """
+    neduet_bs_cs has entry_test_weight=0.6 in aggregate_formula.
+    With the default Pre-Engineering student profile, calculate_estimated_merit()
+    returns proxy_used=True, which appends entry_test_proxy_used to soft_flags.
+
+    At least one entry in results must carry this flag.
+    """
+    state = _make_state()
+    result_state = filter_node(state)
+    roadmap = result_state["current_roadmap"]
+
+    proxy_flagged = [
+        e for e in roadmap
+        if any(f["type"] == "entry_test_proxy_used" for f in e["soft_flags"])
+    ]
+    assert len(proxy_flagged) > 0, (
+        "Expected at least one entry with entry_test_proxy_used soft flag "
+        "(neduet_bs_cs has entry_test_weight=0.6 — proxy must trigger)"
+    )
+
+
+# ── Test 13: shift field present in all roadmap entries ──────────────────────
+
+def test_shift_field_in_output():
+    """Every roadmap entry must have a 'shift' key whose value is a string."""
+    state = _make_state()
+    result_state = filter_node(state)
+    roadmap = result_state["current_roadmap"]
+
+    assert len(roadmap) > 0, "Roadmap must be non-empty"
+
+    for i, entry in enumerate(roadmap):
+        assert "shift" in entry, (
+            f"Entry {i} ({entry.get('degree_id', '?')}) missing 'shift' field"
+        )
+        assert isinstance(entry["shift"], str), (
+            f"Entry {i} 'shift' must be a string, got {type(entry['shift'])}"
+        )
