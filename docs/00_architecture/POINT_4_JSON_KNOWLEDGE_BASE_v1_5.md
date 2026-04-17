@@ -117,9 +117,21 @@ The file is a JSON array. Each element is one university.
     }
   ],
   "data_last_verified": "March 2026",
+  "entry_test_difficulty_tier": "standard",
   "degrees": [ /* array of degree objects — see below */ ]
 }
 ```
+**`entry_test_difficulty_tier`** — university-level entry test difficulty relative to the
+capability assessment proxy. FilterNode uses this to determine `entry_test_harder_than_assessed`
+soft flag reliability.
+
+| Value | Universities | Meaning |
+|---|---|---|
+| `"standard"` | NED, UoK, IBA, Bahria, most others | Assessment proxy is a reasonable approximation |
+| `"hard"` | FAST-NUCES | Test is harder than assessed — advise extra prep |
+| `"extreme"` | NUST | Test difficulty far exceeds assessment — strong caution flag |
+
+Set this at the university level — it applies to all degrees at that university.
 
 **`zone`** appears at both the top-level and inside `location.zone`. FilterNode reads
 `degree["location"]["zone"]` per Point 2 — the nested path is what the code uses.
@@ -141,6 +153,7 @@ greenwich, cbm, kasbit, newports, khi_univ_arts, khi_univ_science
   "name": "BS Computer Science",
   "field_id": "computer_science",
   "field_category": "CS",
+  "shift": "full_day",
   "duration_years": 4,
 
   "eligibility": {
@@ -220,6 +233,18 @@ greenwich, cbm, kasbit, newports, khi_univ_arts, khi_univ_science
 
 **`degree_id`** — globally unique string. Format: `{university_id}_{canonical_degree_id}`.
 Example: `neduet_bs_cs`, `fast_nuces_bs_cs`, `iba_bba`.
+For universities with multiple shifts of the same degree, use suffix:
+`fast_nuces_bs_cs_morning`, `fast_nuces_bs_cs_evening`. Both entries share the same `field_id`.
+
+**`shift`** — program delivery schedule. Valid values: `"morning"`, `"evening"`, `"full_day"`.
+Use `"full_day"` when the university only offers one shift and does not distinguish.
+NED, FAST: all undergraduate degrees are `"full_day"` (no evening undergrad programs).
+UoK, some private universities: may have `"morning"` and `"evening"` entries.
+When a university offers two shifts, create two separate degree entries with different
+`degree_id` values (suffix `_morning`/`_evening`), separate `fee_per_semester`, separate
+`merit_history` and `cutoff_range`. Both entries share the same `field_id`.
+FilterNode passes `shift` through to roadmap entries — no logic change.
+ExplanationNode and frontend display shift as part of the degree label.
 
 **`field_id`** — links to `lag_model.json` and `affinity_matrix.json`. Uses the canonical
 field IDs (e.g., `"computer_science"`, `"electrical_engineering"`). Multiple degrees at
@@ -255,8 +280,25 @@ explaining the condition.
 Rule: `len(conditionally_eligible_streams) == len(eligibility_notes)` and all keys must
 match exactly.
 
-**`eligibility.min_percentage_hssc`** — minimum HSSC percentage to apply. FilterNode
-checks this as a hard floor (degree is excluded if aggregate is below this).
+**`eligibility.min_percentage_hssc`** — HEC/council legal minimum HSSC percentage.
+FilterNode uses the student's unadjusted inter average (simple mean of non-zero
+subject marks, no weighting) and compares against this value. If below → hard exclusion
+with the governing council cited in the message.
+
+This is a legal disqualification, not a merit judgment. The "merit cutoffs never
+hard-exclude" rule applies to `cutoff_range` comparisons only — `min_percentage_hssc`
+is a separate, absolute legal floor.
+
+HEC/council minimum categories (stored per-degree — do not deviate from these values):
+
+| Value | Applies to | Governing council |
+|---|---|---|
+| `60.0` | BE/BSc Engg, MBBS/BDS, Pharm-D, DVM | PEC / PMDC / PCP / PVMC |
+| `50.0` | BS CS/SE/AI/Cyber/IT, B.Arch, BSN, DPT | NCEAC / PCATP / PNC |
+| `45.0` | LLB, General BS Sciences, BBA, Arts/Humanities | HEC (general) |
+
+Note: `BE Software Engineering` = 60% (PEC). `BS Software Engineering` = 50% (NCEAC).
+The degree title prefix determines which council governs — not the subject matter.
 
 **`eligibility.policy_pending_verification`** — when `true`, FilterNode adds a
 `policy_unconfirmed` soft flag. Used for NED Pre-Medical → Engineering pathway until

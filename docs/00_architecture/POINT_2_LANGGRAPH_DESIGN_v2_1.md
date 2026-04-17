@@ -619,9 +619,37 @@ A degree is hard-excluded and never shown when:
 | `"stretch"` | Aggregate within `MERIT_STRETCH_THRESHOLD` (5%) below cutoff minimum |
 | `"improvement_needed"` | Aggregate more than 5% below cutoff minimum |
 
-### Five Constraint Checks — In Order
+### Six Constraint Checks — In Order
 
-Every degree in every university goes through all five checks. Short-circuit on hard failures.
+Every degree in every university goes through all six checks. Short-circuit on hard failures.
+
+**Check 0 — HEC/council legal floor (new — runs before stream eligibility):**
+
+```python
+# Unadjusted inter percentage — simple mean of non-zero marks (no subject weighting)
+# HEC specifies "unadjusted marks" — subject weights do NOT apply here
+non_zero = [v for v in subject_marks.values() if v > 0]
+unadjusted_inter = sum(non_zero) / len(non_zero) if non_zero else 0.0
+
+min_required = degree["eligibility"]["min_percentage_hssc"]
+if unadjusted_inter < min_required:
+    # Determine governing council for message
+    degree_name_lower = degree_name.lower()
+    if any(t in degree_name_lower for t in ["be ", "bsc engg", "mbbs", "bds", "pharm-d", "dvm"]):
+        council = "PEC/PMDC/PCP — legally enforced minimum"
+    elif any(t in degree_name_lower for t in ["bs computer", "bs software", "bs cs", "bs ai", "bs cyber", "b.arch", "b arch"]):
+        council = "NCEAC/PCATP — legally enforced minimum"
+    else:
+        council = "HEC — legally enforced minimum"
+    thought_trace.append(
+        f"{degree_label} — unadjusted inter {unadjusted_inter:.1f}% < "
+        f"required {min_required}% ({council}): HARD EXCLUDED"
+    )
+    hard_exclude = True
+```
+
+The thought_trace message for HEC exclusions must include the governing council and make
+clear this is a legal minimum, not a competitive merit judgment.
 
 **Check 1 — Stream eligibility:**
 
@@ -678,12 +706,28 @@ for subject in degree["eligibility"]["mandatory_subjects"]:
 
 This handles HEC policy: Pre-Medical students can enter Engineering via bridge course. Degree appears with `bridge_course_required` flag, not excluded.
 
-**Check 3 — Merit tier assignment:**
+**Check 3 — Merit tier assignment (uses estimated_merit, not raw inter):**
 
 ```python
-aggregate = calculate_aggregate(subject_marks, degree["aggregate_formula"])
+# calculate_estimated_merit() uses assessment scores as entry test proxy
+# when entry_test_weight > 0. Returns (estimated_merit, proxy_used).
+# For degrees with no entry test, returns (inter_component, False).
+estimated_merit, proxy_used = calculate_estimated_merit(
+    subject_marks, capability_scores, degree["aggregate_formula"], degree["entry_test"]
+)
+aggregate = estimated_merit   # used throughout Check 3 and stored as aggregate_used
 cutoff_min = degree["cutoff_range"]["min"]
 cutoff_max = degree["cutoff_range"]["max"]
+
+if proxy_used:
+    soft_flags.append({
+        "type": "entry_test_proxy_used",
+        "message": (
+            "Merit estimate uses your assessment scores as a proxy for the entry test. "
+            "Final merit depends on your actual entry test performance."
+        ),
+        "actionable": "Treat this as a guidance estimate — your real entry test score determines final admission."
+    })
 
 if aggregate >= cutoff_max:
     merit_tier = "confirmed"
@@ -709,6 +753,34 @@ else:
 ```
 
 `calculate_aggregate()` is a helper in FilterNode. Different degrees weight subjects differently — Engineering weights Maths + Physics higher. Formula stored in `universities.json` per degree.
+
+**Check 3b — Entry test difficulty warning (runs after Check 3 when proxy was used):**
+
+```python
+if proxy_used:
+    difficulty_tier = university.get("entry_test_difficulty_tier", "standard")
+    if difficulty_tier == "hard":
+        soft_flags.append({
+            "type": "entry_test_harder_than_assessed",
+            "message": (
+                f"{university_name}'s entry test is harder than our capability "
+                "assessment. Your estimate may be optimistic."
+            ),
+            "actionable": "Invest in focused entry test prep — past papers and dedicated study."
+        })
+    elif difficulty_tier == "extreme":
+        soft_flags.append({
+            "type": "entry_test_harder_than_assessed",
+            "message": (
+                f"{university_name}'s entry test is significantly harder than our "
+                "capability assessment. This estimate has high uncertainty."
+            ),
+            "actionable": (
+                "Treat this as aspirational. Dedicated preparation over months is required. "
+                "Consider this a stretch target."
+            )
+        })
+```
 
 **Check 4 — Budget (soft flag only, never exclude):**
 
@@ -1545,6 +1617,16 @@ CAPABILITY_BLEND_MAX_SHIFT = 10    # maximum points effective grade can move fro
 # ── Filter ────────────────────────────────────────────────────────────
 MERIT_STRETCH_THRESHOLD      = 5   # % below cutoff minimum to qualify as stretch (not improvement_needed)
 FILTER_MINIMUM_RESULTS_SHOWN = 5   # always show at least this many degrees
+
+# ── Entry test proxy (FilterNode estimated_merit) ─────────────────────
+CAPABILITY_PROXY_DEFAULT     = 50.0  # default capability score when a subject is missing (neutral)
+ENTRY_TEST_SUBJECT_MAP = {           # maps entry_test weight keys → capability_scores keys
+    "math_weight":      "mathematics",
+    "physics_weight":   "physics",
+    "chemistry_weight": "chemistry",
+    "biology_weight":   "biology",
+    "english_weight":   "english",
+}
 
 # ── Profiler fields ───────────────────────────────────────────────────
 PROFILER_REQUIRED_FIELDS = [

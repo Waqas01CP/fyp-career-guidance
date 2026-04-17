@@ -60,6 +60,7 @@ step-by-step guide. Both must be read before starting any data work.
     }
   ],
   "data_last_verified": "March 2026",
+  "entry_test_difficulty_tier": "standard",
   "degrees": []
 }
 ```
@@ -72,6 +73,7 @@ step-by-step guide. Both must be read before starting any data work.
   "name": "BS Computer Science",
   "field_id": "computer_science",
   "field_category": "CS",
+  "shift": "full_day",
   "duration_years": 4,
 
   "eligibility": {
@@ -379,7 +381,15 @@ Collect per degree:
 - Fee per semester (divide annual fees by 2 before storing)
 - Admission fee
 - Merit cutoffs 2021–2024 for `merit_history`
-- Minimum HSSC percentage for `min_percentage_hssc`
+- `min_percentage_hssc` — HEC/council legal floor. Use EXACTLY these values based on degree type:
+  - `60.0`: BE/BSc Engg, MBBS/BDS, Pharm-D, DVM
+  - `50.0`: BS CS/SE/AI/Cyber/IT, B.Arch, BSN, DPT (note: BE Software = 60.0, BS Software = 50.0)
+  - `45.0`: LLB, General BS Sciences, BBA/Commerce, Arts/Humanities
+- `shift`: `"morning"`, `"evening"`, or `"full_day"`. NED and FAST = `"full_day"` for all undergrad.
+  For universities with evening programs (e.g. UoK), create two separate degree entries with
+  `_morning`/`_evening` degree_id suffixes — different fee, different merit_history.
+- `entry_test_difficulty_tier` (university level, not degree level): `"standard"`, `"hard"`, or `"extreme"`.
+  NUST = `"extreme"`, FAST = `"hard"`, all others = `"standard"` unless explicitly confirmed otherwise.
 - Mandatory subjects for `eligibility.mandatory_subjects`
 - Stream eligibility (fully / conditionally eligible)
 - Entry test details (test name, subject weights, difficulty)

@@ -267,13 +267,18 @@ Three lists — never binary pass/fail:
 - `likely_eligible` — conditionally eligible stream (bridge course required), or marks close
 - `stretch` — marks within 5% below historical cutoff minimum
 
-**Only two hard exclusions:**
-1. Stream not in fully_eligible AND not in conditionally_eligible AND no subject waiver
-2. Mandatory subject missing AND no waiver
+**Three hard exclusions:**
+1. Stream not in fully_eligible AND not in conditionally_eligible AND no conditional waiver
+2. Mandatory subject missing AND no subject waiver
+3. Student's unadjusted inter percentage below `min_percentage_hssc` — HEC/council
+   legal minimum. This is a legal disqualification, not a merit judgment.
 
-**Marks never produce a hard exclusion.** Minimum always shown: 5 degrees.
+**Merit cutoffs never hard-exclude.** The minimum always shown is 5 degrees.
+`min_percentage_hssc` is the HEC/council legal floor — it is distinct from
+`cutoff_range` merit comparisons. Students below the legal floor are shown a clear
+explanation with the governing council cited, not a blank exclusion.
 
-**Merit tiers** (marks-based, independent of eligibility):
+**Merit tiers** (based on estimated_merit — composite of inter + assessment proxy when entry test exists):
 
 | Tier | Condition |
 |---|---|
@@ -284,7 +289,8 @@ Three lists — never binary pass/fail:
 
 **Soft flags** (never exclude — always inform):
 `over_budget`, `commute_distance`, `stretch_merit`, `improvement_needed`,
-`bridge_course_required`, `policy_unconfirmed`, `eligibility_contact_university`, `planning_mode`
+`bridge_course_required`, `policy_unconfirmed`, `eligibility_contact_university`,
+`planning_mode`, `entry_test_proxy_used`, `entry_test_harder_than_assessed`
 
 ---
 
@@ -314,6 +320,35 @@ for subject, reported_grade in subject_marks.items():
         raw_eff = (reported_grade * 0.75) + (capability * 0.25)
         effective_marks[subject] = max(reported_grade - 10, min(reported_grade + 10, raw_eff))
 # effective_marks passed to calculate_aggregate() — dict[str, float], not a single float
+
+# Estimated merit — FilterNode uses this for cutoff comparison (not ScoringNode)
+# Replaces direct calculate_aggregate() in Check 3 when entry_test_weight > 0
+inter_component = calculate_aggregate(subject_marks, degree["aggregate_formula"])
+inter_weight = aggregate_formula["inter_weight"]
+entry_test_weight = aggregate_formula["entry_test_weight"]
+
+if entry_test_weight == 0.0:
+    estimated_merit = inter_component   # no entry test — inter is everything
+    proxy_used = False
+else:
+    # Build assessment proxy from entry_test subject weights in universities.json
+    entry_test_blocks = degree["entry_test"]
+    SUBJECT_MAP = {
+        "math_weight": "mathematics", "physics_weight": "physics",
+        "chemistry_weight": "chemistry", "biology_weight": "biology",
+        "english_weight": "english"
+    }
+    proxy_score = 0.0
+    for weight_key, subject in SUBJECT_MAP.items():
+        w = entry_test_blocks.get(weight_key, 0.0)
+        score = capability_scores.get(subject, 50.0)  # 50.0 = neutral default
+        proxy_score += score * w
+    # proxy_score is 0-100 matching entry test scale
+    estimated_merit = (inter_component * inter_weight) + (proxy_score * entry_test_weight)
+    proxy_used = True
+
+# estimated_merit compared against degree["cutoff_range"]["min/max"] in FilterNode Check 3
+# aggregate_used in roadmap entry = estimated_merit (not raw inter component)
 
 # Mismatch notice (ScoringNode sets mismatch_notice when both conditions true)
 score_gap = top_match_total_score - preferred_degree_total_score
@@ -516,7 +551,12 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | RIASEC scale | 5-point Likert, summed, range 10-50 per dimension |
 | Assessment questions | Static, pre-written by Khuzzaim — NOT LLM-generated |
 | Minimum results shown | Always ≥5 degrees regardless of marks |
-| Marks filtering | Never hard-exclude by marks — use merit tiers |
+| Marks filtering | Merit cutoffs never hard-exclude — use merit tiers. Exception: `min_percentage_hssc` HEC/council legal floor IS a hard exclusion. This is a legal disqualification, not a merit judgment. |
+| Merit estimation | FilterNode Check 3 uses `calculate_estimated_merit()` — composite of inter component + assessment proxy when `entry_test_weight > 0`. Assessment scores used as entry test proxy. |
+| Assessment as entry test proxy | Capability scores (0-100) treated as proxy for entry test performance. Subject-matched: `math_weight` maps to `mathematics` capability score, etc. Default 50.0 when a subject score is missing. |
+| Entry test difficulty tiers | Three tiers at university level — `standard`, `hard`, `extreme`. NUST=extreme, FAST=hard, all others=standard unless flagged. FilterNode adds `entry_test_harder_than_assessed` soft flag for hard/extreme. |
+| Shift field | Degrees offered in multiple shifts get separate degree_id entries with `_morning`/`_evening` suffix. Single-shift degrees use `"shift": "full_day"`. No logic change in FilterNode — shift is passed through to roadmap entry for display. |
+| HEC/council inter floor categories | 60%: BE/BSc Engg, MBBS/BDS, Pharm-D, DVM. 50%: BS Computing (CS/SE/AI/Cyber/IT), B.Arch, BSN, DPT. 45%: LLB, General BS Sciences, BBA/Commerce, Arts/Humanities. Stored as `min_percentage_hssc` per degree. |
 | scripts/ location | backend/scripts/ — not repo root |
 | out_of_scope intent routing | answer_node (polite decline) — NOT silent END |
 | JWT 401 handling | No silent refresh — no refresh token endpoint exists. 401 always clears stored token and shows session expired screen. Re-login required. |
@@ -545,3 +585,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.6 — April 2026 (design phase complete: 16 screen mockups, DESIGN_HANDOFF.md, DESIGN_SYSTEM_TOKENS.md added to design/screen_mockups/; screen count corrected to 16; Student Profile screen added to locked inventory; design/screen_mockups/DESIGN_HANDOFF.md added to navigation index)*
 *CLAUDE.md v1.7 — April 2026 (NED University data committed to universities.json; 13 new field_ids added to canonical list; lag_model and affinity_matrix field counts updated to 43+)*
 *CLAUDE.md v1.8 — April 2026 (Opus audit fixes landed: FutureValue weights corrected layer3→layer3a/layer3b; capability blend changed to per-subject dict; compute_future_values.py rewritten to read Point 4 schema fields directly)*
+*CLAUDE.md v1.9 — April 2026 (FilterNode merit estimation redesigned: assessment proxy for entry test, estimated_merit replaces raw inter comparison; HEC/council hard floor as third hard exclusion; shift field added to degree schema; entry test difficulty tiers locked; HEC minimum percentage categories locked)*
