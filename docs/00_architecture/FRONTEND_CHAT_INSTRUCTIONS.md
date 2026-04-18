@@ -722,30 +722,31 @@ numbered instructions than with prose.
 - "Ask about this degree" button (pre-fills chat input)
 
 **Sprint 4:**
-- Error states on all screens
 - Profile screen
 - PWA manifest for installability
 
 ---
 
-## FIGMA AND VISUAL DESIGN
+## VISUAL DESIGN — LOCKED
 
-Khuzzaim owns the UI/UX design for the app. Design work lives in:
-`design/figma_exports/` — export mockups here as PNG or PDF for team reference.
+The app design is complete and locked. All screens are in design/screen_mockups/.
 
-The design system in this file (colours, typography, chat bubbles, elevation) is
-the minimum specification. Khuzzaim can build on top of it with additional visual
-decisions — rounded corners, animations, spacing, iconography — as long as they
-do not conflict with CLAUDE.md locked decisions.
+Khuzzaim does NOT make design decisions.
+Every visual decision is already made and documented.
 
-**Adding a new screen:** Create the file in the correct subfolder under `screens/`,
-register the route in your navigation logic, and flag Architecture Chat if it
-requires a new API endpoint. The folder structure is a naming convention, not a
-hard limit on what screens can exist.
+For every screen implementation:
+- Read DESIGN_HANDOFF.md — implementation guide, one section per screen, exact
+  widget types, colours, spacing, API connections, navigation
+- Read DESIGN_SYSTEM_TOKENS.md — full token reference
+- Open code_[screenname].html — visual reference only.
+  DO NOT convert HTML to Flutter. Build from scratch using Flutter widgets
+  matching the visual target.
 
-**Using Frontend Chat for design decisions:** If Khuzzaim wants feedback on a
-visual design choice before building it, describe it to Frontend Chat. Frontend
-Chat can advise on Flutter implementation of almost any design pattern.
+Design files:
+- `design/screen_mockups/DESIGN_HANDOFF.md`
+- `design/screen_mockups/DESIGN_SYSTEM_TOKENS.md`
+- `design/screen_mockups/DESIGN.md` (v1.5 change log)
+- `design/screen_mockups/code_[screen].html` (×16)
 
 ---
 

@@ -78,22 +78,37 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 2. Run `flutter pub get`
 3. **Make the state management decision with Waqas** before writing any screen
    — Update `CLAUDE.md` line that says "TBD" with the chosen option
-4. Build Login screen (`screens/auth/login_screen.dart`):
+4. Build Splash screen (`screens/splash_screen.dart`):
+   - Full screen teal background (#006B62)
+   - Brand icon + app name centred
+   - Animated loading bar
+   - Routing logic: check `flutter_secure_storage` for token → if none navigate
+     to `OnboardingCarouselScreen` → if token exists call `GET /profile/me` →
+     route based on `onboarding_stage`
+   - See DESIGN_HANDOFF.md Screen 01
+5. Build Onboarding Carousel (`screens/onboarding/carousel_screen.dart`):
+   - 3 slides with PageView
+   - Skip → `LoginScreen`
+   - Get Started → `LoginScreen`
+   - Show only when no token in `flutter_secure_storage` (covers fresh install
+     and post-logout)
+   - See DESIGN_HANDOFF.md Screen 02
+6. Build Login screen (`screens/auth/login_screen.dart`):
    - Email + password fields, Login button
    - On submit: call `AuthService.login(email, password)`
    - On success (token returned): navigate to ChatScreen shell
    - On failure (null returned): show error message
-5. Build Signup screen (`screens/auth/signup_screen.dart`):
+7. Build Signup screen (`screens/auth/signup_screen.dart`):
    - Email + password fields, Register button
    - On submit: call `AuthService.register(email, password)`
    - Same navigation on success
-6. Build static Chat screen shell (`screens/chat/main_chat_screen.dart`):
+8. Build static Chat screen shell (`screens/chat/main_chat_screen.dart`):
    - Message list area (empty for now)
    - Text input + send button (no functionality yet)
    - AppBar with title
-7. Wire navigation: Login → Chat, Signup → Chat
-8. Test full flow: register a new account, confirm token stored, confirm Chat screen appears
-9. Commit: `feat(frontend): sprint-1 — login, signup, chat shell wired to mock API`
+9. Wire navigation: Splash → Carousel → Login → Chat, Signup → Chat
+10. Test full flow: register a new account, confirm token stored, confirm Chat screen appears
+11. Commit: `feat(frontend): sprint-1 — splash, carousel, login, signup, chat shell wired to mock API`
 
 ---
 
