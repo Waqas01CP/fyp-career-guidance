@@ -76,3 +76,27 @@ Total degrees: 33
 **New confidence_band:** 11.0
 
 **Verification:** JSON valid ✓ | 5 years present ✓ | min=66.0 ✓ | max=77.0 ✓
+
+---
+
+## Post-Extraction Correction 2 — 2026-04-18
+
+Two field-value fixes applied to universities.json.
+
+### FIX 1 — neduet_bs_animation: min_percentage_hssc
+
+**Field:** `eligibility.min_percentage_hssc`  
+**Old value:** 50.0  
+**New value:** 60.0  
+**Reason:** Gaming & Animation is a BS CT specialisation. NED Prospectus Section 4.2.2(b) sets 60% as the HEC/NCEAC floor for all CT programmes without exception. The 50.0 value was incorrect — it applies to non-CT BS programmes, not CT specialisations.
+
+### FIX 2 — neduet_bs_chemistry: degree name
+
+**Field:** `name`  
+**Old value:** `"BS Chemistry"`  
+**New value:** `"BS Industrial Chemistry"`  
+**Degree ID:** `neduet_bs_chemistry`  
+**field_id:** `chemistry_biochemistry`  
+**Reason:** The official NED programme title is BS Industrial Chemistry. "BS Chemistry" was a data-entry shorthand that does not match the official prospectus name.
+
+**Verification:** JSON valid ✓ | neduet_bs_animation min_percentage_hssc = 60.0 ✓ | BS Industrial Chemistry name exact match ✓

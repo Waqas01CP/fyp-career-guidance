@@ -407,7 +407,7 @@
           "conditionally_eligible_streams": [],
           "eligibility_notes": {},
           "mandatory_subjects": [],
-          "min_percentage_hssc": 50.0,
+          "min_percentage_hssc": 60.0,
           "policy_pending_verification": true,
           "subject_waivers": {}
         },
@@ -2460,7 +2460,7 @@
       },
       {
         "degree_id": "neduet_bs_chemistry",
-        "name": "BS Chemistry",
+        "name": "BS Industrial Chemistry",
         "field_id": "chemistry_biochemistry",
         "field_category": "Science",
         "shift": "full_day",
