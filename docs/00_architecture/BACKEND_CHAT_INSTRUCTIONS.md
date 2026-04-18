@@ -433,7 +433,8 @@ effective_grade = max(reported_grade - CAPABILITY_BLEND_MAX_SHIFT,
 
 Mismatch detection (both conditions must be true):
 ```python
-if (top_match_score - stated_pref_score >= settings.MISMATCH_SCORE_GAP_THRESHOLD and
+score_gap = (top_match_score - stated_pref_score) * 100  # convert to 0-100 scale
+if (score_gap >= settings.MISMATCH_SCORE_GAP_THRESHOLD and
     stated_pref_future_score < settings.MISMATCH_FUTURE_VALUE_CEILING):
     state["mismatch_notice"] = "Your top RIASEC match differs from your stated preference..."
 ```
