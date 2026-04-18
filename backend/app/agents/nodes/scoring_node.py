@@ -91,6 +91,9 @@ def scoring_node(state: AgentState) -> AgentState:
             if capability is None:
                 effective_marks[subject] = reported_grade
                 continue
+            if reported_grade == 0:
+                effective_marks[subject] = 0
+                continue
             gap = capability - reported_grade
             if abs(gap) >= settings.CAPABILITY_BLEND_THRESHOLD:
                 raw_effective = (
@@ -183,7 +186,7 @@ def scoring_node(state: AgentState) -> AgentState:
             if pref_field_id in lag_model:
                 pref_future_value = float(lag_model[pref_field_id]["computed"]["future_value"])
             else:
-                pref_future_value = 5.0
+                continue  # no FutureValue data — skip mismatch for this preference
 
             if (
                 score_gap >= settings.MISMATCH_SCORE_GAP_THRESHOLD

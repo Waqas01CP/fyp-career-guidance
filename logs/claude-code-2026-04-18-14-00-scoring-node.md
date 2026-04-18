@@ -263,3 +263,52 @@ The fixture includes all required fields per Point 4 schema. The following field
 2. **`aggregate` not actually used in ScoringNode total_score.** The capability blend computes `effective_marks` and then `calculate_aggregate(effective_marks, aggregate_formula)` — but the resulting `aggregate` value is not used in the `total_score` formula (which only uses `match_score_normalised` and `future_score`). The spec's capability blend section says "effective_marks passed to calculate_aggregate() — dict[str, float], not a single float". ScoringNode computes the aggregate to produce `effective_grade_used` but does not feed it into `total_score`. This matches the spec (total_score only uses RIASEC match and FutureValue). Confirm this is the intended design — the blend affects merit display but not the scoring rank.
 
 3. **Mismatch detection for `pref_future_value` when field_id missing.** If a stated preference matches a degree whose `field_id` is not in `lag_model`, `pref_future_value` defaults to 5.0. Since 5.0 < 6.0, a mismatch could trigger based on score gap alone even though we have no real FutureValue data. Is 5.0 the right neutral value here, or should the mismatch check be skipped entirely for unknown field_ids?
+
+---
+
+## Architecture Chat Review Fix — 2026-04-18
+
+Two fixes applied to `backend/app/agents/nodes/scoring_node.py` only.
+No other files changed. 18/18 tests still pass.
+
+### Fix 1 — Exclude 0-mark subjects from capability blend
+
+**Location:** capability blend loop, after `if capability is None: continue`.
+
+**Change added:**
+```python
+if reported_grade == 0:
+    effective_marks[subject] = 0
+    continue
+```
+
+**Rationale:** A subject mark of 0 means "not taken" (e.g. biology=0 for a
+Pre-Engineering student). Blending 0 against a capability score produced a
+misleading non-zero effective mark. `calculate_aggregate` already skips
+0-mark subjects — the blend now matches that behaviour. Inconsistency
+eliminated. The 0 is written to `effective_marks` so the subject still
+appears in `effective_grade_used` (no missing key), but the value stays 0.
+
+### Fix 2 — Skip mismatch check for unknown field_ids
+
+**Location:** mismatch detection block, `else` branch of `if pref_field_id in lag_model`.
+
+**Change:** replaced `pref_future_value = 5.0` with `continue`.
+
+**Rationale:** The mismatch notice cites a specific FutureValue to the
+student. A placeholder 5.0 default could trigger a notice with a fabricated
+market outlook figure. Since 5.0 < 6.0 (the ceiling), any large enough
+score gap would have triggered a misleading notice for an unknown field_id.
+Skipping entirely is safer — no notice is better than a notice with bad data.
+
+### Test results
+
+```
+pytest tests/test_scoring_node.py -v
+18 passed in 1.29s
+```
+
+All 18 tests pass. The existing `test_missing_field_id_fallback` test
+verified the degree still appears in output with neutral scoring defaults —
+that behaviour is unchanged. The mismatch skip only affects the detection
+loop, not degree scoring or sorting.
