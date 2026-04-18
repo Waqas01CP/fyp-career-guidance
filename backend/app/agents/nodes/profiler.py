@@ -19,11 +19,10 @@ from app.core.config import settings
 logger = logging.getLogger(__name__)
 
 # Single module-level LLM instance — never hardcode model or key
-# temperature=0: deterministic JSON output — Gemini drops JSON format at high temperature
 llm = ChatGoogleGenerativeAI(
     model=settings.LLM_MODEL_NAME,
     google_api_key=settings.GEMINI_API_KEY,
-    temperature=0,
+    temperature=settings.LLM_TEMPERATURE,
 )
 
 # PII patterns — scrubbed from user input before every LLM call
@@ -165,6 +164,9 @@ def _build_system_prompt(state: AgentState) -> str:
         "- home_zone must be an integer 1-5 (use zone table above to map area names)\n"
         "- budget_per_semester must be an integer in PKR (handle '50k', 'fifty thousand', "
         "'around 50,000' — all mean 50000)\n"
+        "- If student gives a monthly budget amount, ask to confirm: "
+        "'Just to confirm — is that Rs. X per semester or per month? "
+        "We need the per-semester figure.'\n"
         "- transport_willing is true if student can travel anywhere in Karachi, "
         "false if they need to stay near their area\n\n"
     )
@@ -186,11 +188,11 @@ def profiler_node(state: AgentState) -> AgentState:
     # Build system prompt with current student context
     system_prompt = _build_system_prompt(state)
 
-    # Build message list: system + conversation history (PII-scrubbed on last human message)
+    # Build message list: system + conversation history (PII-scrubbed on ALL HumanMessages)
     history = list(state.get("messages", []))
     messages_for_llm = [SystemMessage(content=system_prompt)]
-    for i, msg in enumerate(history):
-        if i == len(history) - 1 and isinstance(msg, HumanMessage):
+    for msg in history:
+        if isinstance(msg, HumanMessage):
             messages_for_llm.append(HumanMessage(content=_scrub_pii(msg.content)))
         else:
             messages_for_llm.append(msg)

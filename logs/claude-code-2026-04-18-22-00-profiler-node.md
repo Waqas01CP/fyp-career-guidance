@@ -269,3 +269,116 @@ All 5 calls completed within the same minute window (run finished in ~45 seconds
 4. **"budget per month" ambiguity.** If student says "50k per month", the LLM will likely compute the wrong semester amount. Architecture Chat should decide: (a) add a rule to the system prompt to clarify ("if student gives monthly amount, ask them to confirm the per-semester figure"), or (b) add normalisation code to detect and reject non-semester budgets.
 
 5. **messages/{user_input} deviation.** See DEVIATIONS section. Confirm that passing messages as LangChain message objects (not injected into system prompt text) is acceptable for production.
+
+---
+
+## Architecture Chat Review Fix — 2026-04-19
+
+Four targeted fixes applied to `profiler.py` and `config.py` in response to Architecture Chat review of the items above. No other files changed.
+
+### Fix 1 — LLM_TEMPERATURE constant in config.py
+
+**What changed:** Added `LLM_TEMPERATURE: float = 0.0` to the `# LLM` block in `config.py`, immediately after `LLM_MODEL_NAME`. Includes inline comment explaining the rationale.
+
+**Rationale:** The hardcoded `temperature=0` in profiler.py violated the model abstraction rule — all tunable constants belong in `config.py`, never hardcoded in node files. This also resolves Architecture Chat review item 2 ("temperature=0 deviation from spec") by making the value overridable via `.env` (`LLM_TEMPERATURE=0.1`) without touching node code.
+
+**Before (`config.py`):**
+```python
+GEMINI_API_KEY: str = ""
+LLM_MODEL_NAME: str = "gemini-2.5-flash"
+```
+**After:**
+```python
+GEMINI_API_KEY: str = ""
+LLM_MODEL_NAME: str = "gemini-2.5-flash"
+LLM_TEMPERATURE: float = 0.0
+# temperature=0 ensures deterministic JSON output — Gemini drops JSON
+# format at non-zero temperature on completion turns (verified in testing)
+```
+
+### Fix 2 — settings.LLM_TEMPERATURE in profiler.py LLM init
+
+**What changed:** Replaced hardcoded `temperature=0` with `temperature=settings.LLM_TEMPERATURE` in the module-level `ChatGoogleGenerativeAI` initialisation. Removed the inline comment (rationale now lives in config.py where the value is declared).
+
+**Rationale:** Completes the constant extraction from Fix 1. Model swap (`LLM_MODEL_NAME`) and temperature change (`LLM_TEMPERATURE`) are now both config-only changes — no node code edits required.
+
+**Before (`profiler.py` lines 21–27):**
+```python
+# Single module-level LLM instance — never hardcode model or key
+# temperature=0: deterministic JSON output — Gemini drops JSON format at high temperature
+llm = ChatGoogleGenerativeAI(
+    model=settings.LLM_MODEL_NAME,
+    google_api_key=settings.GEMINI_API_KEY,
+    temperature=0,
+)
+```
+**After:**
+```python
+# Single module-level LLM instance — never hardcode model or key
+llm = ChatGoogleGenerativeAI(
+    model=settings.LLM_MODEL_NAME,
+    google_api_key=settings.GEMINI_API_KEY,
+    temperature=settings.LLM_TEMPERATURE,
+)
+```
+
+### Fix 3 — PII scrubbing on ALL HumanMessages in history
+
+**What changed:** In `profiler_node()`, replaced the loop that scrubbed only the final HumanMessage with a loop that scrubs every HumanMessage in the history. Removed the `enumerate()` and index check; replaced with a simple `isinstance(msg, HumanMessage)` condition.
+
+**Rationale:** Resolves Architecture Chat review item 3. CLAUDE.md states "PII scrubbing before every LLM call." The original implementation scrubbed only `messages[-1]`, leaving PII in earlier turns visible to the LLM. A student who shared a phone number in Turn 1 would have it passed un-scrubbed in Turn 2 and beyond. The fix ensures all HumanMessage content is scrubbed on every call, regardless of position in history.
+
+**Before (`profiler.py` lines 189–196):**
+```python
+# Build message list: system + conversation history (PII-scrubbed on last human message)
+history = list(state.get("messages", []))
+messages_for_llm = [SystemMessage(content=system_prompt)]
+for i, msg in enumerate(history):
+    if i == len(history) - 1 and isinstance(msg, HumanMessage):
+        messages_for_llm.append(HumanMessage(content=_scrub_pii(msg.content)))
+    else:
+        messages_for_llm.append(msg)
+```
+**After:**
+```python
+# Build message list: system + conversation history (PII-scrubbed on ALL HumanMessages)
+history = list(state.get("messages", []))
+messages_for_llm = [SystemMessage(content=system_prompt)]
+for msg in history:
+    if isinstance(msg, HumanMessage):
+        messages_for_llm.append(HumanMessage(content=_scrub_pii(msg.content)))
+    else:
+        messages_for_llm.append(msg)
+```
+
+**Known failure mode CLOSED:** The entry in KNOWN FAILURE MODES (profiler.py lines 191–193, partial PII scrubbing) is now resolved by this fix.
+
+### Fix 4 — Monthly budget clarification rule in system prompt
+
+**What changed:** In `_build_system_prompt()`, added one rule line immediately after the `budget_per_semester` rule: if the student gives a monthly amount, the LLM must ask for clarification before recording the value.
+
+**Rationale:** Resolves Architecture Chat review item 4. The integration test failure exposed that "My monthly fee budget is around 60,000 rupees" caused the LLM to compute 60,000 × 6 = 360,000. Adding an explicit clarification rule prevents silent misinterpretation without adding code-level normalisation — the LLM handles the ambiguity conversationally.
+
+**Added line (in rules section of `_build_system_prompt()`):**
+```python
+"- If student gives a monthly budget amount, ask to confirm: "
+"'Just to confirm — is that Rs. X per semester or per month? "
+"We need the per-semester figure.'\n"
+```
+
+This rule appears directly after the `budget_per_semester` line and before `transport_willing`, keeping related budget rules together.
+
+### Unit test result
+
+```
+pytest backend/tests/test_profiler_node.py -v -m "not slow"
+
+tests/test_profiler_node.py::test_check_profiling_complete_requires_all_fields PASSED
+tests/test_profiler_node.py::test_check_profiling_complete_olevel_requires_stream PASSED
+tests/test_profiler_node.py::test_field_merge_null_does_not_overwrite PASSED
+tests/test_profiler_node.py::test_field_merge_non_null_overwrites PASSED
+
+4 passed, 3 deselected in 14.33s
+```
+
+Zero API calls consumed. All 4 unit tests pass. Integration tests not run (quota preservation).
