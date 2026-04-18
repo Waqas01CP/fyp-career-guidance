@@ -331,17 +331,23 @@ class ProfileHistory(Base):
 
 ## LLM NODES — WHICH NODES CALL LLM (strict)
 
-LLM (Gemini 2.0 Flash, Sprint 1-2) is called ONLY in:
-- `nodes/profiler.py` — ConversationalProfiler (extracts constraints)
-- `nodes/explanation_node.py` — generates ranked explanations
-- `nodes/supervisor.py` — intent classification only
+LLM (gemini-2.5-flash in Sprint 1-2, see CLAUDE.md for production models) is
+called ONLY in:
+- `nodes/profiler.py` — conversational extraction of budget, zone, transport
+- `nodes/explanation_node.py` — ranked degree explanations (4-part response)
+- `nodes/supervisor.py` — intent classification into 7 labels
 - `nodes/answer_node.py` — fee and market queries with tool results
 
 FilterNode and ScoringNode are pure Python — NO LLM calls ever.
 
 **Does NOT exist:** `subject_assessment.py` as an LLM node. Assessment uses
-static pre-written MCQs from `assessment_questions.json`. The endpoint draws
-from the JSON bank deterministically — no LLM involved.
+static pre-written MCQs from `assessment_questions.json`. Deterministic only.
+
+**Model per node (locked in CLAUDE.md):**
+- SupervisorNode, ProfilerNode, AnswerNode → `claude-haiku-4-5` in production
+- ExplanationNode → `claude-sonnet-4-6` in production
+- Dev/Sprint 1-2 → `gemini-2.5-flash` for all nodes (set in `config.py`)
+- Opus: never used for inference nodes — reserved for architecture audit only
 
 ---
 
@@ -676,6 +682,78 @@ Enables full agent trace inspection in LangSmith dashboard.
 - Context compression for long sessions (session_summary field)
 - Performance: first token < 3 seconds on /chat/stream
 - Error handling for all edge cases
+
+---
+
+## TOKEN OPTIMIZATION — APPLY TO EVERY LLM NODE PROMPT
+
+Every LLM node prompt must balance two goals simultaneously: excellent output
+quality and efficient token use. Neither goal overrides the other.
+
+**The principle:** Find the minimum prompt length that delivers excellent,
+reliable output for that node's task. Do not add tokens that produce no
+measurable improvement. Do not cut tokens that degrade output quality.
+
+A node working poorly because its prompt is under-specified is worse than a
+node using 200 extra tokens to work correctly. The entire pipeline depends on
+each node doing its job well — a failing SupervisorNode misroutes every message.
+
+### How to calibrate
+For each LLM node, the prompt author should ask:
+- At what length does the output become reliable and correct?
+- Does adding more tokens meaningfully improve output, or does it plateau?
+- Is there any token that is not earning its place?
+
+The optimal zone is where output quality is excellent and additional tokens
+produce no meaningful improvement. Stay in that zone — do not over-optimize
+below it, do not waste above it.
+
+### Approximate guidance (targets, not hard caps)
+These are starting points for calibration. If a node requires more to work
+correctly, use more. If it works well with less, use less.
+
+- SupervisorNode: target ~200-350 tokens. It is a 7-label classifier — a
+  concise, directive prompt with clear label definitions and 1-2 examples
+  per ambiguous case should be sufficient. If output is unreliable at 350,
+  add examples until it is reliable, then stop.
+- ProfilerNode: target ~300-500 tokens. System prompt repeats every turn in
+  a multi-turn conversation — compounding cost makes lean prompts important
+  here, but the prompt must clearly specify all required fields, the
+  conversational tone, and what to do when a student is vague.
+- AnswerNode: target ~250-400 tokens. Factual retrieval with brief output.
+  The tool results provide most of the content — the system prompt only
+  needs to specify output format and tone.
+- ExplanationNode: target ~400-700 tokens. Most complex output. Input is
+  large (roadmap + thought_trace) so system prompt should be as lean as
+  possible, but the 4-part structure and conditional logic (mismatch notice,
+  language detection, improvement paths) require more specification.
+
+### Output format constraints
+Always specify output format explicitly. An uncontrolled output format means
+unbounded tokens and unpredictable structure for downstream parsing.
+- SupervisorNode: single label, no explanation
+- ProfilerNode: confirm each collected field in one sentence, ask one
+  question per turn
+- AnswerNode: 2-4 sentences, no preamble
+- ExplanationNode: exact 4-part structure with section labels
+
+### Context passed to ExplanationNode
+Pass only top-5 roadmap entries, not full current_roadmap.
+Trim thought_trace to the 5 most relevant entries (Point 2 Section 9 — Option B).
+Pass only the student profile fields ExplanationNode actually uses.
+This is not about saving tokens — it is about giving the model focused context
+rather than diluting the relevant signal with irrelevant data.
+
+### User input as variable
+User input is always passed as a variable, never concatenated into the system
+prompt. This serves both PII scrubbing (locked in CLAUDE.md) and token
+efficiency since the static system prompt can be cached.
+
+### Model abstraction
+Write prompts that work at the minimum model. Do not rely on a specific model's
+implicit behaviour or style. If a prompt needs the model to infer intent from
+vague instructions, the prompt is under-specified — fix the prompt, not the
+model choice.
 
 ---
 

@@ -531,6 +531,30 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 
 ---
 
+## LLM NODE MODEL ASSIGNMENTS
+
+Each LLM node has a minimum required model and an assigned production model.
+The prompt must be robust enough that any model at or above the minimum works
+correctly without code changes — model swapping is a config change only.
+
+| Node | Minimum model | Dev model (Sprint 1-2) | Production model (Sprint 3+) | Rationale |
+|---|---|---|---|---|
+| SupervisorNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Pure 7-label classification — smallest capable model is correct |
+| ProfilerNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Multi-turn conversational extraction — straightforward if prompt is well-structured |
+| AnswerNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Factual retrieval + brief explanation with tool results — within Haiku's capability |
+| ExplanationNode | Mid-tier model minimum | gemini-2.5-flash | claude-sonnet-4-6 | Extended prose students read directly — Roman Urdu, nuanced career advice, 4-part structured response — quality matters |
+
+**Model abstraction rule (locked):** Prompts must not rely on model-specific behaviour.
+If a prompt works at the minimum model, it must work unchanged at any more capable
+model. Swapping `LLM_MODEL_NAME` in `config.py` is the only change required to
+upgrade a node's model. No prompt edits, no code changes.
+
+**Never use Opus for inference nodes.** Opus is reserved for the pre-demo
+architecture audit (Claude Code Opus, one session). Per-request LLM inference
+uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
+
+---
+
 ## LOCKED DECISIONS — DO NOT REOPEN
 
 | Decision | Choice |
@@ -571,6 +595,9 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Onboarding Carousel trigger | Show when no token in flutter_secure_storage. Covers fresh install and post-logout. No backend field. |
 | Screen count | 16 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
 | Flutter screen designs | Complete — 16 screens locked in design/screen_mockups/. DESIGN_HANDOFF.md is the implementation guide. DESIGN_SYSTEM_TOKENS.md is the token reference. No new screens without Architecture Chat sign-off per CLAUDE.md screen inventory. |
+| LLM model per node | SupervisorNode, ProfilerNode, AnswerNode → Haiku 4.5 in production. ExplanationNode → Sonnet 4.6 in production. Dev uses gemini-2.5-flash. Opus never used for inference. See LLM NODE MODEL ASSIGNMENTS section. |
+| Model abstraction | Prompts must work at minimum model and above without code changes. Model swap = config.py change only. |
+| Token optimization | Every LLM node prompt balances output quality against token efficiency. Find the minimum prompt length that delivers excellent, reliable output — do not cut tokens that degrade quality, do not add tokens that produce no improvement. Output format explicitly constrained. User input passed as variable. See TOKEN OPTIMIZATION section in BACKEND_CHAT_INSTRUCTIONS.md. |
 
 ---
 
@@ -586,3 +613,4 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 *CLAUDE.md v1.7 — April 2026 (NED University data committed to universities.json; 13 new field_ids added to canonical list; lag_model and affinity_matrix field counts updated to 43+)*
 *CLAUDE.md v1.8 — April 2026 (Opus audit fixes landed: FutureValue weights corrected layer3→layer3a/layer3b; capability blend changed to per-subject dict; compute_future_values.py rewritten to read Point 4 schema fields directly)*
 *CLAUDE.md v1.9 — April 2026 (FilterNode merit estimation redesigned: assessment proxy for entry test, estimated_merit replaces raw inter comparison; HEC/council hard floor as third hard exclusion; shift field added to degree schema; entry test difficulty tiers locked; HEC minimum percentage categories locked)*
+*CLAUDE.md v2.0 — April 2026 (LLM node model assignments locked: Haiku for SupervisorNode/ProfilerNode/AnswerNode, Sonnet for ExplanationNode; model abstraction rule locked; token optimization principle locked; dev model updated to gemini-2.5-flash)*
