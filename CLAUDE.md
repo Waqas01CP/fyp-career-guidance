@@ -539,10 +539,10 @@ correctly without code changes — model swapping is a config change only.
 
 | Node | Minimum model | Dev model (Sprint 1-2) | Production model (Sprint 3+) | Rationale |
 |---|---|---|---|---|
-| SupervisorNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Pure 7-label classification — smallest capable model is correct |
-| ProfilerNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Multi-turn conversational extraction — straightforward if prompt is well-structured |
-| AnswerNode | Any capable chat model | gemini-2.5-flash | claude-haiku-4-5 | Factual retrieval + brief explanation with tool results — within Haiku's capability |
-| ExplanationNode | Mid-tier model minimum | gemini-2.5-flash | claude-sonnet-4-6 | Extended prose students read directly — Roman Urdu, nuanced career advice, 4-part structured response — quality matters |
+| SupervisorNode | Any capable chat model | gemini-3.1-flash-lite-preview | claude-haiku-4-5 | Pure 7-label classification — smallest capable model is correct |
+| ProfilerNode | Any capable chat model | gemini-3.1-flash-lite-preview | claude-haiku-4-5 | Multi-turn conversational extraction — straightforward if prompt is well-structured |
+| AnswerNode | Any capable chat model | gemini-3.1-flash-lite-preview | claude-haiku-4-5 | Factual retrieval + brief explanation with tool results — within Haiku's capability |
+| ExplanationNode | Mid-tier model minimum | gemini-3.1-flash-lite-preview | claude-sonnet-4-6 | Extended prose students read directly — Roman Urdu, nuanced career advice, 4-part structured response — quality matters |
 
 **Model abstraction rule (locked):** Prompts must not rely on model-specific behaviour.
 If a prompt works at the minimum model, it must work unchanged at any more capable
@@ -595,7 +595,7 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 | Onboarding Carousel trigger | Show when no token in flutter_secure_storage. Covers fresh install and post-logout. No backend field. |
 | Screen count | 16 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
 | Flutter screen designs | Complete — 16 screens locked in design/screen_mockups/. DESIGN_HANDOFF.md is the implementation guide. DESIGN_SYSTEM_TOKENS.md is the token reference. No new screens without Architecture Chat sign-off per CLAUDE.md screen inventory. |
-| LLM model per node | SupervisorNode, ProfilerNode, AnswerNode → Haiku 4.5 in production. ExplanationNode → Sonnet 4.6 in production. Dev uses gemini-2.5-flash. Opus never used for inference. See LLM NODE MODEL ASSIGNMENTS section. |
+| LLM model per node | SupervisorNode, ProfilerNode, AnswerNode → Haiku 4.5 in production. ExplanationNode → Sonnet 4.6 in production. Dev uses gemini-3.1-flash-lite-preview (free tier, 500 RPD, outperforms 2.5 Flash on benchmarks). Opus never used for inference. See LLM NODE MODEL ASSIGNMENTS section. |
 | Model abstraction | Prompts must work at minimum model and above without code changes. Model swap = config.py change only. |
 | Token optimization | Every LLM node prompt balances output quality against token efficiency. Find the minimum prompt length that delivers excellent, reliable output — do not cut tokens that degrade quality, do not add tokens that produce no improvement. Output format explicitly constrained. User input passed as variable. See TOKEN OPTIMIZATION section in BACKEND_CHAT_INSTRUCTIONS.md. |
 
@@ -614,3 +614,4 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 *CLAUDE.md v1.8 — April 2026 (Opus audit fixes landed: FutureValue weights corrected layer3→layer3a/layer3b; capability blend changed to per-subject dict; compute_future_values.py rewritten to read Point 4 schema fields directly)*
 *CLAUDE.md v1.9 — April 2026 (FilterNode merit estimation redesigned: assessment proxy for entry test, estimated_merit replaces raw inter comparison; HEC/council hard floor as third hard exclusion; shift field added to degree schema; entry test difficulty tiers locked; HEC minimum percentage categories locked)*
 *CLAUDE.md v2.0 — April 2026 (LLM node model assignments locked: Haiku for SupervisorNode/ProfilerNode/AnswerNode, Sonnet for ExplanationNode; model abstraction rule locked; token optimization principle locked; dev model updated to gemini-2.5-flash)*
+*CLAUDE.md v2.1 — April 2026 (dev model switched to gemini-3.1-flash-lite-preview — better benchmarks than 2.5 Flash, free tier 500 RPD; langchain-anthropic added to requirements.txt for easy Claude production switch; LLM output log standard added to SPRINT_2_BUILD_PROCESS.md)*

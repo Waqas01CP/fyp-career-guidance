@@ -65,6 +65,33 @@ Write pytest tests in backend/tests/test_{component}.py.
 Use realistic simulated data — full student profile, not minimal stubs.
 All tests must pass before writing the log.
 
+### PHASE 5b — LLM OUTPUT LOG (LLM nodes only)
+
+For every LLM node (ProfilerNode, SupervisorNode, AnswerNode, ExplanationNode),
+Claude Code must capture a raw output log immediately after Phase 5 tests pass.
+
+This is separate from the session log. It records actual model outputs word-for-word
+so Architecture Chat can review real behaviour, compare models, and diagnose issues
+without re-running the node.
+
+**File location:** `logs/llm-output-[nodename]-[YYYY-MM-DD].md`
+
+**What to capture:**
+- The exact model string used
+- The system prompt sent (full text, no truncation)
+- For each test case: the exact human input and the exact raw LLM response
+  before any parsing — word for word, as received
+- Any JSON parsing errors or fallbacks triggered
+- The final extracted fields after merging
+
+**For integrated runs (node X → node Y):** capture the output of each LLM node
+in sequence — what went in, what came out, exactly as-is.
+
+This log is committed alongside the session log. It is the reference for:
+- Comparing model behaviour before and after a model switch
+- Diagnosing prompt failures
+- Architecture Chat review of actual LLM compliance
+
 ### Phase 6 — Log
 Write to logs/claude-code-YYYY-MM-DD-HH-MM-{component}.md.
 The log must be detailed enough that someone reading it cold — with no other

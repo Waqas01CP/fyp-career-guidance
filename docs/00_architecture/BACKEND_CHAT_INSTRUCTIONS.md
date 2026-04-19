@@ -765,7 +765,10 @@ When producing a Claude Code prompt, always include:
 3. What specific files should be changed and what should NOT be changed
 4. How to verify the fix worked (exact command or test to run)
 5. What the expected output looks like when correct
-6. Always include these three log rules explicitly in the prompt:
+6. For LLM nodes: include Phase 5b (LLM output log) per SPRINT_2_BUILD_PROCESS.md.
+   The output log is mandatory — it captures raw model responses word-for-word for
+   Architecture Chat review and future model comparison. File: logs/llm-output-[node]-[date].md
+7. Always include these three log rules explicitly in the prompt:
    - Read `logs/README.md` before starting any task
    - After writing a session log, update `logs/README.md` STANDARD
      SESSION LOGS table immediately — never leave it out of date
