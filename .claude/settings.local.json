@@ -26,7 +26,8 @@
       "Bash(pytest tests/test_profiler_node.py -v -m \"not slow\")",
       "Bash(python *)",
       "Bash(GEMINI_API_KEY=dummy python -m pytest tests/test_profiler_node.py -v -m \"not slow\")",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(./venv/Scripts/python.exe -c ' *)"
     ]
   }
 }

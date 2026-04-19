@@ -491,6 +491,7 @@ def filter_node(state: AgentState) -> AgentState:
                 "eligibility_note": eligibility_note,
                 "aggregate_used": round(aggregate, 2) if aggregate is not None else None,
                 "aggregate_formula": degree["aggregate_formula"],
+                "entry_test": degree.get("entry_test", {}),
                 "fee_per_semester": fee,
                 "shift": degree.get("shift", "full_day"),
                 "soft_flags": soft_flags,
@@ -521,6 +522,7 @@ def filter_node(state: AgentState) -> AgentState:
                 ),
                 "aggregate_used": exc_agg,
                 "aggregate_formula": exc["aggregate_formula"],
+                "entry_test": exc.get("entry_test", {}),
                 "fee_per_semester": exc["fee_per_semester"],
                 "shift": exc.get("shift", "full_day"),
                 "soft_flags": [

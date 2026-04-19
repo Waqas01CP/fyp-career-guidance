@@ -103,3 +103,7 @@ None found in adjacent code.
 5. **aggregate_formula pre-existing omission**: The 2026-04-17 session log stated aggregate_formula was added to roadmap entries but the code did not contain it. Corrected in this session. Confirm ScoringNode build can now proceed with aggregate_formula in every roadmap entry.
 
 6. **NED entry_test_difficulty_tier is "standard"**: All current NED degrees use "standard" difficulty tier (verified at university level in universities.json line 29). Check 3b will not fire for NED data. When FAST/NUST data is added with "hard"/"extreme" tiers, Check 3b will fire. Architecture Chat should confirm this is expected for the current data state.
+
+## 2026-04-20 Addendum
+
+Added `"entry_test": degree.get("entry_test", {})` to results.append() (after aggregate_formula) and `"entry_test": exc.get("entry_test", {})` to the minimum display promotion block (after aggregate_formula). Required by ExplanationNode to access entry test subject weights when constructing degree explanations. 13/13 tests pass unchanged.
