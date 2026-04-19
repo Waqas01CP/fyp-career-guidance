@@ -382,3 +382,40 @@ tests/test_profiler_node.py::test_field_merge_non_null_overwrites PASSED
 ```
 
 Zero API calls consumed. All 4 unit tests pass. Integration tests not run (quota preservation).
+
+---
+
+## Model Switch Test — 2026-04-19
+
+### Changes made
+- `requirements.txt` — Added `langchain-anthropic` (no import added). Pre-emptive dependency for future production switch to claude-haiku-4-5 per CLAUDE.md LLM node model assignments.
+- `backend/scripts/run_profiler_baseline.py` — New single-turn test script. Invokes profiler_node with a fixed test state and prints reply, extracted_constraints, and profiling_complete.
+- `logs/llm-output-profiler-2026-04-19.md` — New comparison log.
+
+### Run 1 — gemini-2.5-flash (baseline)
+Input: `"My budget is 50,000 rupees per semester and I live in Gulshan-e-Iqbal."`
+
+Result: **Success**
+- budget_per_semester=50000 ✓
+- home_zone=2 (Gulshan-e-Iqbal → Central zone) ✓
+- Asked for transport_willing next ✓
+- JSON well-formed, no markdown wrapper ✓
+
+### Run 2 — gemini-2.0-flash-lite (attempted)
+Result: **429 Quota exceeded — free tier limit = 0 for this model**
+
+The free-tier API key has zero access to gemini-2.0-flash-lite. Only gemini-2.5-flash is accessible on this key. Error returned after 5 retries with exponential backoff (langchain_google_genai built-in retry logic).
+
+**Error handling confirmed:** profiler_node caught the exception, appended the fallback AIMessage ("I'm having trouble processing..."), and returned cleanly.
+
+### Model abstraction confirmed
+Swapping `LLM_MODEL_NAME` in `.env` is the only change needed — zero code changes. ChatGoogleGenerativeAI accepts any Gemini model ID. The abstraction works as designed.
+
+### Config reverted
+Both `config.py` default and `.env` restored to `gemini-2.5-flash` (only accessible model on this key).
+
+### Unit tests after model switch
+```
+pytest backend/tests/test_profiler_node.py -v -m "not slow"
+4 passed, 3 deselected in 1.77s
+```
