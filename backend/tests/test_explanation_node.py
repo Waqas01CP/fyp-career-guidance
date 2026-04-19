@@ -140,39 +140,45 @@ def test_language_detection_urdu_script():
 
 def test_thought_trace_trimming():
     """
-    10 trace entries with 3 matching top-5 degree_ids.
-    prompt_trace should contain exactly those 3 entries.
+    10 trace entries using real production trace format (degree_name / university_name).
+    3 entries match top-5 degree_names or university_names — prompt_trace must contain
+    exactly those 3.
+    FilterNode traces: "{university_name} {degree_name}" format.
+    ScoringNode traces: "{degree_name} ({university_abbrev})" format.
+    degree_id is never present in real traces — matching must use name fields.
     """
-    # Top-5 degree_ids in roadmap
     roadmap = [_base_roadmap_entry(f"neduet_deg_{i}") for i in range(5)]
-    top5_ids = [d["degree_id"] for d in roadmap[:5]]
+    top5_names = [d["degree_name"] for d in roadmap[:5]]
+    top5_unis = [d["university_name"] for d in roadmap[:5]]
 
-    # Build 10 trace entries: 3 match top-5, 7 do not
+    # Build 10 trace entries: 3 match top-5 degree_name or university_name, 7 do not
     trace = [
-        f"{top5_ids[0]} — stream CONFIRMED | merit likely",  # match
-        "ku_bs_cs — stream CONFIRMED | merit stretch",        # no match
-        f"{top5_ids[1]} — RIASEC match: 0.82 | FutureValue: 8.5",  # match
-        "szabist_bs_se — excluded: stream blocked",           # no match
-        f"{top5_ids[2]} — fee 64475 <= budget 65000: PASS",  # match
-        "iobm_bba — merit improvement_needed",               # no match
-        "iba_bs_cs — stream CONFIRMED | merit confirmed",    # no match
-        "fast_bs_se — over budget",                          # no match
-        "bahria_bs_cs — merit stretch",                      # no match
-        "nust_bs_cs — excluded: stream",                     # no match
+        f"NED University of Engineering & Technology {top5_names[0]} — stream CONFIRMED | merit likely",  # match (uni)
+        "University of Karachi BS Computer Science — stream CONFIRMED | merit stretch",                   # no match
+        f"{top5_names[1]} (NED) — RIASEC match: 0.82 | FutureValue: 8.5",                               # match (name)
+        "SZABIST BS Software Engineering — excluded: stream blocked",                                     # no match
+        f"{top5_unis[0]} {top5_names[2]} — fee 64475 <= budget 65000: PASS",                            # match (both)
+        "IOBM BBA — merit improvement_needed",                                                            # no match
+        "IBA BS Computer Science — stream CONFIRMED | merit confirmed",                                   # no match
+        "FAST BS Software Engineering — over budget",                                                     # no match
+        "Bahria University BS Computer Science — merit stretch",                                          # no match
+        "NUST BS Computer Science — excluded: stream",                                                    # no match
     ]
 
     state = _base_state(roadmap=roadmap, thought_trace=trace)
 
     # Replicate the trimming logic from explanation_node
-    current_top5_ids = [d["degree_id"] for d in state["current_roadmap"][:5]]
     prompt_trace = [
         t for t in state["thought_trace"]
-        if any(deg_id in t for deg_id in current_top5_ids)
+        if any(name in t for name in top5_names)
+        or any(uni in t for uni in top5_unis)
     ]
 
     assert len(prompt_trace) == 3
     for entry in prompt_trace:
-        assert any(deg_id in entry for deg_id in top5_ids)
+        assert any(name in entry for name in top5_names) or any(
+            uni in entry for uni in top5_unis
+        )
 
 
 # ── Rerun diff tests ──────────────────────────────────────────────────────────

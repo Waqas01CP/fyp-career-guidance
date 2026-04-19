@@ -398,12 +398,17 @@ def explanation_node(state: AgentState) -> AgentState:
     messages = state.get("messages") or []
     language_hint = detect_language_hint(messages)
 
-    # Thought trace trimming — Option B: top-5-relevant entries only
+    # Thought trace trimming — match on degree_name and university_name
+    # FilterNode traces: "{university_name} {degree_name}" format
+    # ScoringNode traces: "{degree_name} ({university_abbrev})" format
+    # Neither contains degree_id — degree_id matching always produces empty trace
     current_roadmap = state.get("current_roadmap") or []
-    top5_ids = [d["degree_id"] for d in current_roadmap[:5]]
+    top5_names = [d["degree_name"] for d in current_roadmap[:5]]
+    top5_unis = [d["university_name"] for d in current_roadmap[:5]]
     prompt_trace = [
         t for t in state.get("thought_trace", [])
-        if any(deg_id in t for deg_id in top5_ids)
+        if any(name in t for name in top5_names)
+        or any(uni in t for uni in top5_unis)
     ]
 
     # Rerun diff for Part 0

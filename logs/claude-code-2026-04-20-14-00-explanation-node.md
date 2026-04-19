@@ -250,3 +250,9 @@ FilterNode appends to `thought_trace` using `degree_label = f"{university_name} 
 prompt_trace = [t for t in state.get("thought_trace", []) if any(deg_id in t for deg_id in top5_ids)]
 ```
 ...will always produce an empty list in real pipeline runs. Options: (a) change FilterNode to include degree_id in trace entries, (b) change Option B to match on degree_name substring instead, (c) accept empty trace and remove the REASONING TRACE section from prompt. Decision needed before this is exercised in production.
+
+---
+
+## Architecture Chat Fix — thought trace trimming — 2026-04-20
+
+Item 3 resolved. Changed trimming logic in `explanation_node.py` to match on `degree_name` and `university_name` substrings instead of `degree_id`. New logic (lines 402–410): builds `top5_names` and `top5_unis` lists from the top-5 roadmap entries, then keeps any trace entry that contains any degree_name OR any university_name as a substring. This correctly matches both FilterNode format (`"{university_name} {degree_name}"`) and ScoringNode format (`"{degree_name} ({abbrev})"`). `test_thought_trace_trimming` updated to use real production trace format — degree_name and university_name substrings in the match entries, generic university names in the non-match entries. 10/10 tests pass after the fix.
