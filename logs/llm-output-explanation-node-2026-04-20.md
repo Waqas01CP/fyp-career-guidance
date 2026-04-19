@@ -175,3 +175,108 @@ None. `_flatten_content()` received a plain string from the model in both runs (
 1. **Thought trace trimming (Option B) works in Phase 5b test data only because traces contain degree_ids.** FilterNode actual traces use `f"{university_name} {degree_name}"` format (e.g. "NED University of Engineering & Technology BS Computer Science") — degree_id is not a substring. In production, prompt_trace will be empty for all FilterNode trace entries. ScoringNode traces use "BS CS (NED)" format — also no degree_id. This means the REASONING TRACE section will be absent in all real pipeline runs. Flagged for Architecture Chat.
 
 2. **Ranks 2–5 show "Career data pending"** in the market section because lag_model.json raw data is null stub for all fields except computer_science. This is correct behaviour — the fallback logic works. Will resolve when Fazal populates lag_model.json.
+
+---
+
+## Language Detection — Roman Urdu and Urdu Script Runs (post Fix 2)
+
+Captured after LLM-native language detection was implemented (Fix 2 — commit 92a354c).
+Tests verify that spelling variants and Urdu script are handled correctly by the LLM
+without any Python-level classification.
+
+---
+
+### Test Case 1 — Roman Urdu: "kiya" spelling
+
+**Human input:**
+```
+kiya mujhe CS kerni chahiye?
+```
+
+**LLM response:**
+```
+Dekho bhai, tumhare marks aur interest ko dekhte hue CS tumhare liye best choice hai. Tumhara RIASEC score (Investigative: 45, Conventional: 42) ye dikhata hai ke tumhara dimagh technical aur logical cheezon ke liye bana hai, jo CS mein bohot zaroori hai.
+
+Tumhare liye top options ye hain:
+
+1. **BS Computer Science (NED):** Ye tumhare liye perfect hai. Tumhare 84% marks in Math aur 78% capability score iske liye bohot strong hain. Market mein iski demand bohot zyada hai, har mahine 1,240 jobs aati hain.
+2. **BS CS (AI Specialization):** Agar tumhara interest AI mein hai, toh ye best hai. Iska future value score 9.2/10 hai aur AI ki jobs 42% ki speed se barh rahi hain.
+3. **BE Software Engineering:** Ye bhi CS jaisa hi hai aur iski market demand bhi 1,240 jobs/month hai. Tumhare profile ke hisaab se ye tumhare liye kaafi suitable hai.
+4. **BS Cybersecurity:** Ye thoda mushkil ho sakta hai kyunki tumhara aggregate NED ke cutoff ke bilkul border par hai, lekin agar mehnat karo toh mil sakta hai.
+
+**Ek zaroori baat:** NED mein admission ke liye Physics ka test bohot ahem hota hai. Tumhare Physics ke marks (68%) aur capability (61%) thode kam hain. Agar tum Electrical Engineering (jo ke 5th option hai) ya baqi CS programs mein apni jagah pakki karna chahte ho, toh Physics par abhi se focus karo. Physics mein tumhara 25-30% weightage hai, isliye uske concepts clear karo taake entry test mein koi masla na ho.
+
+Tumhare marks aur interest ko dekhte hue, kya tumne NED ke entry test ki tayari shuru kar di hai ya abhi kisi aur university ka bhi soch rahe ho?
+```
+
+**Verdict:** LLM correctly detected Roman Urdu from "kiya" spelling variant (old word list had "kya" — would have missed "kiya"). Responded entirely in Roman Urdu. Physics gap (61%) called out. 1,240 jobs cited.
+
+---
+
+### Test Case 2 — Roman Urdu compressed: "kia" + "krni" spelling
+
+**Human input:**
+```
+kia mujhe CS krni chahiye?
+```
+
+**LLM response:**
+```
+Bilkul, tumhein CS zaroor karni chahiye! Tumhara RIASEC score (Investigative: 45, Conventional: 42) aur Mathematics mein 84% marks saaf dikha rahe hain ke tumhara mind tech aur logical problems solve karne ke liye perfect hai.
+
+NED University tumhare budget (Rs. 65,000/semester) ke hisaab se best option hai. Yahan kuch behtareen choices hain:
+
+1. **BS Computer Science (NED):** Yeh tumhare liye top choice hai. Iska RIASEC match 0.89 hai aur market mein 1,240 active jobs/month hain. Tumhare marks ke hisaab se yahan admission milne ke chances kaafi ache hain.
+2. **BS CS (AI Specialization):** Agar tumhara interest AI mein hai, toh yeh best hai. Iska FutureValue score 9.2/10 hai aur AI ki jobs 42% ki speed se barh rahi hain.
+3. **BE Software Engineering:** Yeh bhi CS jaisa hi hai aur market mein 1,240 jobs/month available hain.
+4. **BS Cybersecurity:** Yeh thoda "stretch" hai, matlab iska merit thoda high ho sakta hai, lekin agar tumhari mehnat rahi toh mil sakta hai.
+
+**Ek zaroori baat:** NED ke entry test mein Physics ka 25% weightage hota hai. Tumhari Physics ki capability 61% hai, jo thodi kam hai. Admission secure karne ke liye Physics ke concepts par abhi se focus karo taake tumhara aggregate 75.8% maintain rahe.
+
+**Electrical Engineering ke liye:** Agar tum is taraf jana chaho, toh wahan merit ka masla aa sakta hai. Wahan Physics ka weightage 30% hai, isliye Physics mein apni grip mazboot karna bohot zaroori hai kyunke wahan tumhari capability 61% hai aur improvement ki zaroorat hai.
+
+Tumhare khayal mein, tumhare liye AI specialization zyada behtar rahegi ya general CS?
+```
+
+**Verdict:** LLM correctly detected Roman Urdu from heavily compressed spelling ("kia", "krni" — old word list would have failed both). Responded entirely in Roman Urdu. Data accuracy maintained. Follow-up question in Roman Urdu.
+
+---
+
+### Test Case 3 — Pure Urdu script
+
+**Human input:**
+```
+مجھے اپنی تجویز بتائیں
+```
+
+**LLM response:**
+```
+دیکھیں، آپ کے مارکس اور دلچسپی (AI اور Tech) کو دیکھتے ہوئے NED یونیورسٹی آپ کے لیے بہترین آپشن ہے۔ آپ کا RIASEC سکور (I:45, C:42) یہ بتاتا ہے کہ آپ کا رجحان تحقیق اور تکنیکی کاموں کی طرف بہت زیادہ ہے، جو کمپیوٹر سائنس کے لیے بالکل فٹ ہے۔
+
+میری تجویز یہ ہے:
+
+1. **BS Computer Science (NED):** یہ آپ کے لیے نمبر 1 چوائس ہونی چاہیے۔ آپ کے میتھس کے مارکس (84%) بہت اچھے ہیں، جو اس فیلڈ کے لیے بہت ضروری ہیں۔ مارکیٹ میں اس کی ڈیمانڈ بہت زیادہ ہے، ہر مہینے تقریباً 1,240 جابز آتی ہیں۔
+2. **BS CS with AI Specialization:** چونکہ آپ نے کہا کہ آپ کو AI میں انٹرسٹ ہے، تو یہ ڈگری آپ کے فیوچر کے لیے سب سے بہترین (9.2/10 ویلیو) ہے۔ اس کا مارکیٹ ٹرینڈ بھی 42% سالانہ کے حساب سے بڑھ رہا ہے۔
+3. **BE Software Engineering:** یہ بھی ایک بہترین آپشن ہے، اس کا سکوپ بھی کمپیوٹر سائنس جتنا ہی ہے۔
+
+**ایک ضروری بات:**
+آپ کی فزکس میں قابلیت (61%) تھوڑی کم ہے، جبکہ NED کے انٹری ٹیسٹ میں فزکس کا 25% سے 30% تک وزن ہوتا ہے۔ اگر آپ **BE Electrical Engineering** کی طرف جانا چاہتے ہیں (جو کہ ابھی آپ کے لیے تھوڑا مشکل ہے)، تو آپ کو اپنی فزکس پر خاص توجہ دینی ہوگی۔ آپ کو فزکس کے بنیادی کانسیپٹس (خاص طور پر الیکٹرو سٹیٹکس اور کرنٹ) کو بہتر کرنا ہوگا تاکہ آپ کا میرٹ سکور بہتر ہو سکے۔
+
+آپ کے پاس بجٹ بھی 65,000 روپے فی سمسٹر ہے، جو NED کی فیس (64,475 روپے) کے بالکل مطابق ہے۔
+
+کیا آپ نے NED کے انٹری ٹیسٹ کی تیاری شروع کر دی ہے یا آپ کو کسی خاص سبجیکٹ میں مدد چاہیے؟
+```
+
+**Verdict:** LLM correctly detected Urdu script and responded entirely in Urdu. Numbers (1,240 jobs, 84% marks, 61% capability, 9.2/10, 64,475 fee) cited correctly in Urdu prose. Physics gap explained in Urdu. Follow-up question in Urdu.
+
+---
+
+## Language detection summary
+
+| Test | Input spelling | LLM detected | Response language | Data accuracy |
+|---|---|---|---|---|
+| TC1 | "kiya" + "kerni" | Roman Urdu | Roman Urdu ✓ | 1,240 jobs, Physics 61% ✓ |
+| TC2 | "kia" + "krni" (compressed) | Roman Urdu | Roman Urdu ✓ | 1,240 jobs, Physics 61% ✓ |
+| TC3 | Urdu script (مجھے اپنی تجویز بتائیں) | Urdu | Urdu script ✓ | All numbers in Urdu ✓ |
+
+Old `detect_language_hint()` would have failed TC1 and TC2 — neither "kiya" nor "kia" was in the keyword list. LLM-native approach handles all three correctly.
