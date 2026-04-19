@@ -723,7 +723,7 @@ correctly, use more. If it works well with less, use less.
 - AnswerNode: target ~250-400 tokens. Factual retrieval with brief output.
   The tool results provide most of the content — the system prompt only
   needs to specify output format and tone.
-- ExplanationNode: target ~400-700 tokens. Most complex output. Input is
+- ExplanationNode: target ~800-1200 tokens. Most complex output. Input is
   large (roadmap + thought_trace) so system prompt should be as lean as
   possible, but the 4-part structure and conditional logic (mismatch notice,
   language detection, improvement paths) require more specification.
