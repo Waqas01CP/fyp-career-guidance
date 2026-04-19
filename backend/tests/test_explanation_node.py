@@ -1,8 +1,8 @@
 """
 test_explanation_node.py — Unit tests for ExplanationNode.
 All LLM calls are mocked — no API consumption.
-Tests cover: language detection, thought trace trimming, rerun diff,
-             LLM call behaviour, state isolation, failure handling.
+Tests cover: language rule prompt assembly (LLM-native detection), thought trace
+             trimming, rerun diff, LLM call behaviour, state isolation, failure handling.
 """
 from unittest.mock import MagicMock, patch
 
@@ -10,7 +10,7 @@ import pytest
 from langchain_core.messages import AIMessage, HumanMessage
 
 from app.agents.nodes.explanation_node import (
-    detect_language_hint,
+    _build_system_prompt,
     explanation_node,
 )
 
@@ -103,37 +103,94 @@ def _base_state(
     }
 
 
-# ── Language detection tests ──────────────────────────────────────────────────
+# ── Language rule prompt assembly tests ──────────────────────────────────────
+# Language detection is LLM-native: recent student messages are injected into
+# the system prompt verbatim. The LLM classifies language and responds accordingly.
+# These tests verify that the prompt assembly correctly includes the message text.
 
-def test_language_detection_english():
-    """English messages return 'English'."""
-    messages = [
-        HumanMessage(content="What degrees should I consider?"),
-        HumanMessage(content="I am interested in computer science and engineering."),
-        HumanMessage(content="What is the job market like?"),
-    ]
-    result = detect_language_hint(messages)
-    assert result == "English"
-
-
-def test_language_detection_roman_urdu():
-    """Messages containing Roman Urdu keywords return 'Roman Urdu'."""
-    messages = [
-        HumanMessage(content="kya hai meri recommendation?"),
-        HumanMessage(content="mujhe CS ka scope batao"),
-    ]
-    result = detect_language_hint(messages)
-    assert result == "Roman Urdu"
+def test_language_rule_in_prompt_english():
+    """English message text appears verbatim in the assembled system prompt."""
+    state = _base_state(messages=[HumanMessage(content="What degrees should I consider?")])
+    recent_text = "What degrees should I consider?"
+    prompt = _build_system_prompt(
+        state=state, top5=state["current_roadmap"][:5], lag_model={},
+        recent_text=recent_text, prompt_trace=[],
+        significant_change=False, entered=set(), dropped=set(),
+    )
+    assert "Student's recent messages" in prompt
+    assert "What degrees should I consider?" in prompt
 
 
-def test_language_detection_urdu_script():
-    """Messages with Urdu Unicode characters return 'Urdu'."""
-    messages = [
-        HumanMessage(content="مجھے اپنی تجویز بتائیں"),
-        HumanMessage(content="کیا کمپیوٹر سائنس اچھا ہے؟"),
-    ]
-    result = detect_language_hint(messages)
-    assert result == "Urdu"
+def test_language_rule_in_prompt_roman_urdu():
+    """Roman Urdu message text appears verbatim in the assembled system prompt."""
+    state = _base_state(messages=[
+        HumanMessage(content="kya hai yaar"),
+        HumanMessage(content="mein CS karna chahta hoon"),
+    ])
+    recent_text = "kya hai yaar | mein CS karna chahta hoon"
+    prompt = _build_system_prompt(
+        state=state, top5=state["current_roadmap"][:5], lag_model={},
+        recent_text=recent_text, prompt_trace=[],
+        significant_change=False, entered=set(), dropped=set(),
+    )
+    assert "kya hai yaar" in prompt
+    assert "mein CS karna chahta hoon" in prompt
+
+
+def test_language_rule_in_prompt_urdu_script():
+    """Urdu script characters appear verbatim in the assembled system prompt."""
+    urdu_text = "مجھے اپنی تجویز بتائیں"
+    state = _base_state(messages=[HumanMessage(content=urdu_text)])
+    recent_text = urdu_text
+    prompt = _build_system_prompt(
+        state=state, top5=state["current_roadmap"][:5], lag_model={},
+        recent_text=recent_text, prompt_trace=[],
+        significant_change=False, entered=set(), dropped=set(),
+    )
+    assert "Student's recent messages" in prompt
+    assert urdu_text in prompt
+
+
+def test_language_rule_spelling_variants():
+    """Spelling variants in Roman Urdu are passed to the LLM unchanged."""
+    # LLM-native detection handles spelling variants natively.
+    # "kiya" and "kya" are equivalent — LLM recognises both.
+    # "ha" and "hai" are equivalent — LLM recognises both.
+    # Manual word lists cannot cover all variants; LLM approach does.
+    variants_msg = "kiya ha nae theek hai bilkul zaroor acha"
+    state = _base_state(messages=[HumanMessage(content=variants_msg)])
+    recent_text = variants_msg
+    prompt = _build_system_prompt(
+        state=state, top5=state["current_roadmap"][:5], lag_model={},
+        recent_text=recent_text, prompt_trace=[],
+        significant_change=False, entered=set(), dropped=set(),
+    )
+    assert "kiya" in prompt
+    assert "ha" in prompt
+    assert "nae" in prompt
+    assert "theek hai" in prompt
+    assert "bilkul" in prompt
+    assert "zaroor" in prompt
+    assert "acha" in prompt
+
+
+def test_language_rule_pure_urdu():
+    """Pure Urdu keyboard input appears verbatim in the system prompt."""
+    # Pure Urdu (Urdu keyboard) input is handled natively by the LLM.
+    # The system prompt passes the exact Urdu text to the LLM.
+    # ExplanationNode will respond in Urdu script.
+    # Note: roadmap cards (Flutter layer) remain in English —
+    # accepted hybrid for demo. Full localisation is Sprint 4.
+    urdu_question = "یہ کیا ہے؟"
+    state = _base_state(messages=[HumanMessage(content=urdu_question)])
+    recent_text = urdu_question
+    prompt = _build_system_prompt(
+        state=state, top5=state["current_roadmap"][:5], lag_model={},
+        recent_text=recent_text, prompt_trace=[],
+        significant_change=False, entered=set(), dropped=set(),
+    )
+    assert "Student's recent messages" in prompt
+    assert urdu_question in prompt
 
 
 # ── Thought trace trimming tests ──────────────────────────────────────────────

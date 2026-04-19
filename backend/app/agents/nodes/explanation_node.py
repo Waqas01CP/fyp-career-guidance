@@ -2,14 +2,14 @@
 explanation_node.py — Production LLM response generation.
 The only node the student directly experiences.
 Reads: current_roadmap (top 5), student_profile, active_constraints, mismatch_notice,
-       thought_trace (trimmed to top-5-relevant via Option B), previous_roadmap (for diff),
-       student_mode.
+       thought_trace (trimmed to top-5-relevant via degree_name/university_name match),
+       previous_roadmap (for diff), student_mode.
 Generates up to 4 response parts:
   Part 0: What Changed diff (if previous_roadmap not None and >= ROADMAP_SIGNIFICANT_CHANGE_COUNT changes)
   Part 1: Mismatch notice (if mismatch_notice is not None)
   Part 2: Top 5 recommendations with evidence (always)
   Part 3: Improvement advice (only for improvement_needed merit tier entries)
-Language: detected from last 2-3 student messages (English / Roman Urdu / Urdu).
+Language: LLM-native detection — last 2-3 student messages injected into prompt verbatim.
 LLM: ChatGoogleGenerativeAI (dev) — swap to Claude Sonnet 4.6 via LLM_MODEL_NAME in config for Sprint 3+.
 State writes: ONLY state["messages"] appended — all other fields are read-only.
 """
@@ -82,27 +82,6 @@ def _scrub_pii(text: str) -> str:
     text = _PHONE_RE.sub("[PHONE]", text)
     text = _CNIC_RE.sub("[CNIC]", text)
     return text
-
-
-# ── Language detection ────────────────────────────────────────────────────────
-
-def detect_language_hint(messages: list) -> str:
-    """
-    Detect student's language from last 2-3 messages.
-    Returns 'Urdu', 'Roman Urdu', or 'English'.
-    """
-    recent = [m.content for m in messages[-3:]
-              if hasattr(m, "content") and isinstance(m.content, str)]
-    text = " ".join(recent).lower()
-    urdu_script = any("\u0600" <= c <= "\u06ff" for c in text)
-    roman_urdu = any(w in text.split()
-                     for w in ["yaar", "kya", "hai", "mein", "ka", "ki", "ko",
-                                "se", "bhi", "aur", "nahi"])
-    if urdu_script:
-        return "Urdu"
-    if roman_urdu:
-        return "Roman Urdu"
-    return "English"
 
 
 # ── Entry test advice ─────────────────────────────────────────────────────────
@@ -212,7 +191,7 @@ def _build_system_prompt(
     state: AgentState,
     top5: list,
     lag_model: dict,
-    language_hint: str,
+    recent_text: str,
     prompt_trace: list,
     significant_change: bool,
     entered: set,
@@ -357,16 +336,18 @@ def _build_system_prompt(
             "name the exact subject, cite the gap, be specific."
         )
 
-    # Language rule
+    # Language rule — LLM-native detection via recent message injection
     lang_rule = (
-        f"LANGUAGE RULE: Student's recent messages are in {language_hint}. "
-        "Respond entirely in that language."
+        "LANGUAGE RULE: Detect the language of the student's recent messages\n"
+        "shown below and respond entirely in that language.\n"
+        f"Student's recent messages: {recent_text}\n"
+        "If the messages are in Roman Urdu (Urdu written in English letters),\n"
+        "respond in natural conversational Roman Urdu as a Pakistani student\n"
+        "would write — not formal transliteration.\n"
+        "If the messages are in Urdu script, respond in Urdu script.\n"
+        "If the messages are in English, respond in English.\n"
+        "Do not mix languages unless the student mixes them."
     )
-    if language_hint == "Roman Urdu":
-        lang_rule += (
-            " Use natural conversational Roman Urdu as a Pakistani student would write — "
-            "not formal Urdu transliteration."
-        )
 
     # ── Assemble ──────────────────────────────────────────────────────────
     parts = [
@@ -396,7 +377,14 @@ def explanation_node(state: AgentState) -> AgentState:
     lag_model = _load_lag_model()
 
     messages = state.get("messages") or []
-    language_hint = detect_language_hint(messages)
+
+    # Extract last 2-3 student messages for LLM-native language detection
+    recent_messages = [
+        m.content for m in messages[-3:]
+        if hasattr(m, "content") and isinstance(m.content, str)
+        and not isinstance(m, AIMessage)
+    ]
+    recent_text = " | ".join(recent_messages) if recent_messages else ""
 
     # Thought trace trimming — match on degree_name and university_name
     # FilterNode traces: "{university_name} {degree_name}" format
@@ -443,7 +431,7 @@ def explanation_node(state: AgentState) -> AgentState:
         state=state,
         top5=top5,
         lag_model=lag_model,
-        language_hint=language_hint,
+        recent_text=recent_text,
         prompt_trace=prompt_trace,
         significant_change=significant_change,
         entered=entered,

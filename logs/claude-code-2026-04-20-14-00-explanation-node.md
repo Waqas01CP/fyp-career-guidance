@@ -256,3 +256,21 @@ prompt_trace = [t for t in state.get("thought_trace", []) if any(deg_id in t for
 ## Architecture Chat Fix — thought trace trimming — 2026-04-20
 
 Item 3 resolved. Changed trimming logic in `explanation_node.py` to match on `degree_name` and `university_name` substrings instead of `degree_id`. New logic (lines 402–410): builds `top5_names` and `top5_unis` lists from the top-5 roadmap entries, then keeps any trace entry that contains any degree_name OR any university_name as a substring. This correctly matches both FilterNode format (`"{university_name} {degree_name}"`) and ScoringNode format (`"{degree_name} ({abbrev})"`). `test_thought_trace_trimming` updated to use real production trace format — degree_name and university_name substrings in the match entries, generic university names in the non-match entries. 10/10 tests pass after the fix.
+
+---
+
+## Architecture Chat Fix 2 — LLM-native language detection — 2026-04-20
+
+**What was removed:** `detect_language_hint()` function (18 lines) and its call site in `explanation_node()`. The function used a hardcoded keyword list (`["yaar", "kya", "hai", "mein", "ka", "ki", "ko", "se", "bhi", "aur", "nahi"]`) for Roman Urdu detection and a Unicode range check for Urdu script.
+
+**What replaced it:** The last 2–3 student messages (non-AI) are extracted as `recent_text` (pipe-separated) and injected directly into the system prompt under a static `LANGUAGE RULE` block. The LLM reads the actual message text and detects language natively. The prompt instructs: respond in Roman Urdu if Roman Urdu is detected; respond in Urdu script if Urdu script is detected; respond in English otherwise; do not mix languages unless the student mixes them.
+
+**Why:** The hardcoded word list missed spelling variants (`"kiya"` vs `"kya"`, `"ha"` vs `"hai"`, `"nae"`, `"bilkul"`, `"zaroor"`, `"acha"`) and failed on punctuation (`"kya?"` did not match `"kya"` in a split). Adding every variant manually is not maintainable and degrades as new users write differently. The LLM handles all variants, code-switching, and edge cases natively without code changes.
+
+**Hybrid UI note:** Chat responses will be in the student's language. Roadmap cards (Flutter `rich_ui` payload) remain in English — these are structured data fields from the backend, not LLM prose. This hybrid is accepted for the April 20 demo. Full localisation of roadmap card labels is deferred to Sprint 4.
+
+**`_build_system_prompt()` signature change:** `language_hint: str` parameter replaced with `recent_text: str`. All call sites updated.
+
+**Test changes:** 3 `detect_language_hint()` call tests replaced with 5 prompt-assembly tests that import `_build_system_prompt` directly and assert the recent_text appears verbatim in the prompt. `test_language_rule_spelling_variants` explicitly documents that `"kiya"`, `"ha"`, `"nae"`, `"bilkul"`, `"zaroor"`, `"acha"` are passed through unchanged — the LLM handles them.
+
+**Results:** 12/12 explanation node tests pass. 65/65 full suite pass. No regressions.
