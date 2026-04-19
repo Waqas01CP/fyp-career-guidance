@@ -24,10 +24,10 @@ def fetch_fees(university_id: str) -> dict:
         if uni.get("university_id") == university_id:
             return {
                 "university_id": uni["university_id"],
-                "university_name": uni.get("university_name", ""),
+                "university_name": uni.get("name", ""),
                 "degrees": [
                     {
-                        "degree_name": d.get("degree_name"),
+                        "degree_name": d.get("name"),
                         "fee_per_semester": d.get("fee_per_semester"),
                     }
                     for d in uni.get("degrees", [])

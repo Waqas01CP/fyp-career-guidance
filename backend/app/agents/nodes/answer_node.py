@@ -2,32 +2,286 @@
 answer_node.py — Handles all post-recommendation queries. LLM + tools.
 Intents handled: fee_query, market_query, follow_up, clarification, out_of_scope.
 Tools: fetch_fees() for fee_query, lag_calc() for market_query.
-For follow_up and clarification: reads current_roadmap directly, no tool call needed.
-No status SSE event emitted for follow_up/clarification (no tool call = no wait state).
+For follow_up and clarification: reads current_roadmap directly, no tool call.
+For out_of_scope: polite decline, no data passed.
 """
-from langchain_core.messages import AIMessage
+import json
+import logging
+
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_google_genai import ChatGoogleGenerativeAI
+
 from app.agents.state import AgentState
 from app.agents.tools.fetch_fees import fetch_fees
 from app.agents.tools.lag_calc import lag_calc
+from app.core.config import settings
+
+logger = logging.getLogger(__name__)
+
+# Module-level LLM instance — same pattern as supervisor.py
+llm = ChatGoogleGenerativeAI(
+    model=settings.LLM_MODEL_NAME,
+    google_api_key=settings.GEMINI_API_KEY,
+    temperature=settings.LLM_TEMPERATURE,
+)
+
+# ── Extraction prompts ────────────────────────────────────────────────────────
+
+FEE_EXTRACTION_SYSTEM_PROMPT = """Extract the university ID from the student's message.
+Return only the university ID string — nothing else.
+
+Nickname mappings (case-insensitive):
+NED, NEDUET, NED University, ned university → neduet
+FAST, NUCES, FAST-NUCES, Fast Nuces, fast university → fast
+NUST → nust
+KU, UOK, Karachi University, University of Karachi → ku
+SZABIST, ZABIST → szabist
+IBA, IBA Karachi → iba
+AKU, Aga Khan, Aga Khan University, Aga Khan Karachi → aku
+
+Examples:
+"How much does NED charge per semester?" → neduet
+"What is FAST-NUCES fee?" → fast
+"Tell me about Karachi University fees" → ku
+
+If no university is mentioned, return an empty string."""
+
+MARKET_EXTRACTION_SYSTEM_PROMPT = """Extract the degree field ID from the student's message.
+Return only the field ID string — nothing else.
+
+Field mappings:
+CS, computer science, computing → computer_science
+SE, software, software engineering → software_engineering
+EE, electrical, electrical engineering → electrical_engineering
+AI, artificial intelligence → artificial_intelligence
+civil, civil engineering → civil_engineering
+mechanical, mech → mechanical_engineering
+data science, data → data_science
+cybersecurity, cyber, security → cybersecurity
+medicine, medical, MBBS → medicine
+business, BBA, management → business_administration
+law, LLB → law
+
+Examples:
+"What is the job market for software engineering?" → software_engineering
+"CS ka scope kya hai?" → computer_science
+"mech engineering mein future kya hai?" → mechanical_engineering
+
+If no field is mentioned, return an empty string."""
+
+# ── Answer prompts ────────────────────────────────────────────────────────────
+
+FEE_ANSWER_SYSTEM_PROMPT = """You are a helpful academic advisor for Pakistani students.
+Answer the student's question about university fees using only the data below.
+{fee_data_section}
+Rules:
+- Answer in 2-4 sentences. Include exact fee figures.
+- If student budget is present, compare it to the fees.
+- Do not invent information not in the data.
+- Never say 'based on my analysis' or 'as an AI'."""
+
+MARKET_ANSWER_SYSTEM_PROMPT = """You are a helpful academic advisor for Pakistani students.
+Answer the student's question about career market prospects using only the data below.
+{market_data_section}
+Rules:
+- Answer in 3-5 sentences.
+- Cite the FutureValue score (0-10 scale) and explain what it means for career prospects.
+- Mention the field's trajectory.
+- Do not invent numbers not in the data.
+- Never say 'based on my analysis' or 'as an AI'."""
+
+FOLLOWUP_ANSWER_SYSTEM_PROMPT = """You are a helpful academic advisor for Pakistani students.
+Answer the student's question using only information from their degree roadmap below.
+{roadmap_section}
+Rules:
+- Answer in 2-4 sentences.
+- Do not re-rank degrees. Do not invent information not in the roadmap.
+- For application deadlines: frame as 'Based on the previous cycle, [University] typically
+  opens applications in [month]. Check [website] for current cycle dates.'
+- Never say 'based on my analysis' or 'as an AI'."""
+
+OUT_OF_SCOPE_SYSTEM_PROMPT = """You are a helpful academic advisor for Pakistani students.
+Politely decline in one sentence. Tell the student you can only help with university
+and career guidance. Suggest they ask about their degree recommendations, fees,
+or career prospects.
+Never say 'based on my analysis' or 'as an AI'."""
+
+LLM_FAILURE_FALLBACK = "I'm having trouble right now. Could you try again in a moment?"
+
+
+def _flatten_content(content) -> str:
+    """Flatten Gemini 3.x list-of-parts content to plain string."""
+    if isinstance(content, list):
+        return "".join(
+            p.get("text", "") if isinstance(p, dict) else str(p) for p in content
+        )
+    return content
+
+
+def _get_user_input(state: AgentState) -> str:
+    """Extract the latest user message text from state."""
+    if not state.get("messages"):
+        return ""
+    last = state["messages"][-1]
+    return last.content if hasattr(last, "content") else str(last)
+
+
+def _extract_entity(user_input: str, system_prompt: str) -> str:
+    """
+    Short LLM call to extract a university_id or field_id from the student message.
+    Returns empty string on failure.
+    """
+    try:
+        response = llm.invoke([
+            SystemMessage(content=system_prompt),
+            HumanMessage(content=user_input),
+        ])
+        content = _flatten_content(response.content)
+        return content.strip().lower()
+    except Exception as e:
+        logger.error("AnswerNode: entity extraction LLM call failed: %s", e)
+        return ""
 
 
 def answer_node(state: AgentState) -> AgentState:
     """
-    Sprint 1 STUB — returns a placeholder response.
-    Sprint 3: implement tool dispatch + LLM answer generation.
-
-    Full implementation (Sprint 3):
-    intent = state["last_intent"]
-    if intent == "fee_query":
-        entity = extract_university(state)  # LLM extracts from message
-        data = fetch_fees(entity)
-    elif intent == "market_query":
-        field = extract_field(state)
-        data = lag_calc(field)
-    else:  # follow_up, clarification, out_of_scope
-        data = state["current_roadmap"]
-    response = llm.invoke(build_answer_prompt(intent, data, state))
+    Handles fee_query, market_query, follow_up, clarification, out_of_scope.
+    Only appends to state["messages"] — no other state field is modified.
     """
-    stub_response = "AnswerNode stub — implement in Sprint 3."
-    state["messages"].append(AIMessage(content=stub_response))
-    return state
+    intent = state["last_intent"]
+    user_input = _get_user_input(state)
+
+    # ── fee_query ─────────────────────────────────────────────────────────────
+    if intent == "fee_query":
+        university_id = _extract_entity(user_input, FEE_EXTRACTION_SYSTEM_PROMPT)
+        if not university_id:
+            state["messages"].append(AIMessage(
+                content="I couldn't identify which university you're asking about. "
+                        "Try asking about NED, FAST, or another university in the system."
+            ))
+            return state
+
+        fee_data = fetch_fees(university_id)
+        if not fee_data:
+            state["messages"].append(AIMessage(
+                content="I couldn't find fee information for that university. "
+                        "Try asking about NED, FAST, or another university in the system."
+            ))
+            return state
+
+        # Format fee data for prompt
+        degree_lines = "\n".join(
+            f"  - {d['degree_name']}: Rs. {d['fee_per_semester']:,}/semester"
+            if d.get("fee_per_semester") and d.get("degree_name")
+            else f"  - {d.get('degree_name', 'Unknown')}: fee not listed"
+            for d in fee_data.get("degrees", [])
+        )
+        fee_section = (
+            f"University: {fee_data['university_name']}\n"
+            f"Degrees and fees:\n{degree_lines}"
+        )
+        budget = state.get("active_constraints", {}).get("budget_per_semester")
+        if budget:
+            fee_section += f"\nStudent's stated budget: Rs. {budget:,}/semester"
+
+        system_prompt = FEE_ANSWER_SYSTEM_PROMPT.format(fee_data_section=fee_section)
+        try:
+            response = llm.invoke([
+                SystemMessage(content=system_prompt),
+                HumanMessage(content=user_input),
+            ])
+            content = _flatten_content(response.content)
+            state["messages"].append(AIMessage(content=content.strip()))
+        except Exception as e:
+            logger.error("AnswerNode: fee answer LLM call failed: %s", e)
+            state["messages"].append(AIMessage(content=LLM_FAILURE_FALLBACK))
+        return state
+
+    # ── market_query ──────────────────────────────────────────────────────────
+    elif intent == "market_query":
+        field_id = _extract_entity(user_input, MARKET_EXTRACTION_SYSTEM_PROMPT)
+        if not field_id:
+            state["messages"].append(AIMessage(
+                content="I couldn't identify which field you're asking about. "
+                        "Try asking about computer science, electrical engineering, "
+                        "or another field."
+            ))
+            return state
+
+        market_data = lag_calc(field_id)
+        if not market_data:
+            state["messages"].append(AIMessage(
+                content="I couldn't find market data for that field right now. "
+                        "Try asking about computer science, electrical engineering, "
+                        "or another field."
+            ))
+            return state
+
+        # Format market data for prompt
+        future_value = market_data.get("computed", {}).get("future_value", "N/A")
+        lag_category = market_data.get("lag_category", "N/A")
+        field_name = market_data.get("field_name", field_id)
+        pak_now = market_data.get("pakistan_now", {})
+        job_count = pak_now.get("job_postings_monthly")
+        yoy = pak_now.get("yoy_growth_rate")
+        career_paths = market_data.get("career_paths")
+
+        market_section = (
+            f"Field: {field_name}\n"
+            f"FutureValue: {future_value}/10\n"
+            f"Market trajectory category: {lag_category}"
+        )
+        if job_count:
+            market_section += f"\nActive job postings/month in Pakistan: {job_count:,}"
+        if yoy is not None:
+            market_section += f"\nYear-over-year growth: {yoy * 100:.0f}%"
+        if career_paths:
+            market_section += f"\nCareer paths: {', '.join(career_paths)}"
+
+        system_prompt = MARKET_ANSWER_SYSTEM_PROMPT.format(market_data_section=market_section)
+        try:
+            response = llm.invoke([
+                SystemMessage(content=system_prompt),
+                HumanMessage(content=user_input),
+            ])
+            content = _flatten_content(response.content)
+            state["messages"].append(AIMessage(content=content.strip()))
+        except Exception as e:
+            logger.error("AnswerNode: market answer LLM call failed: %s", e)
+            state["messages"].append(AIMessage(content=LLM_FAILURE_FALLBACK))
+        return state
+
+    # ── out_of_scope ──────────────────────────────────────────────────────────
+    elif intent == "out_of_scope":
+        try:
+            response = llm.invoke([
+                SystemMessage(content=OUT_OF_SCOPE_SYSTEM_PROMPT),
+                HumanMessage(content=user_input),
+            ])
+            content = _flatten_content(response.content)
+            state["messages"].append(AIMessage(content=content.strip()))
+        except Exception as e:
+            logger.error("AnswerNode: out_of_scope LLM call failed: %s", e)
+            state["messages"].append(AIMessage(
+                content="I can only help with university and career guidance. "
+                        "Feel free to ask about your degree recommendations, fees, "
+                        "or career prospects."
+            ))
+        return state
+
+    # ── follow_up / clarification ─────────────────────────────────────────────
+    else:
+        roadmap = state.get("current_roadmap", [])
+        roadmap_json = json.dumps(roadmap, indent=2) if roadmap else "No recommendations available yet."
+        system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_json)
+        try:
+            response = llm.invoke([
+                SystemMessage(content=system_prompt),
+                HumanMessage(content=user_input),
+            ])
+            content = _flatten_content(response.content)
+            state["messages"].append(AIMessage(content=content.strip()))
+        except Exception as e:
+            logger.error("AnswerNode: follow_up answer LLM call failed: %s", e)
+            state["messages"].append(AIMessage(content=LLM_FAILURE_FALLBACK))
+        return state
