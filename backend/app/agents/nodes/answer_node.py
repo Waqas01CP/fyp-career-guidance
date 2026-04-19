@@ -289,6 +289,7 @@ def answer_node(state: AgentState) -> AgentState:
                 "match_score_normalised": round(d.get("match_score_normalised", 0), 3),
                 "future_score": d.get("future_score"),
                 "eligibility_note": d.get("eligibility_note"),
+                "aggregate_used": d.get("aggregate_used"),
             }
             for i, d in enumerate(current_roadmap)
         ]
