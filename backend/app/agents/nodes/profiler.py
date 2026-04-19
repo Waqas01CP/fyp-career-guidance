@@ -228,6 +228,11 @@ def profiler_node(state: AgentState) -> AgentState:
             current_constraints[field] = value
     state["active_constraints"] = current_constraints
 
+    # Normalise stated_preferences to list — LLM may return a string instead of list
+    prefs = state["active_constraints"].get("stated_preferences")
+    if isinstance(prefs, str):
+        state["active_constraints"]["stated_preferences"] = [prefs]
+
     # Handle O/A Level stream confirmation
     confirmed_stream = parsed.get("confirmed_stream")
     grade_system = state["student_profile"].get("grade_system", "")

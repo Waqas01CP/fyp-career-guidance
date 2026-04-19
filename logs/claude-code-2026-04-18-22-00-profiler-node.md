@@ -427,3 +427,28 @@ Both `config.py` default and `.env` restored to `gemini-2.5-flash` (dev model pe
 pytest backend/tests/test_profiler_node.py -v -m "not slow"
 4 passed, 3 deselected in 1.29s
 ```
+
+---
+
+## Minor Fix — stated_preferences normalisation — 2026-04-19
+
+### What changed
+**File:** `backend/app/agents/nodes/profiler.py`, after line 229 (`state["active_constraints"] = current_constraints`)
+
+Added 3 lines:
+```python
+# Normalise stated_preferences to list — LLM may return a string instead of list
+prefs = state["active_constraints"].get("stated_preferences")
+if isinstance(prefs, str):
+    state["active_constraints"]["stated_preferences"] = [prefs]
+```
+
+### Why
+ProfilerNode's LLM occasionally returns `stated_preferences` as a plain string (e.g. `"Computer Science"`) instead of a list (`["Computer Science"]`). ScoringNode's mismatch detection and ExplanationNode both iterate over `stated_preferences`. Iterating a string produces character-by-character results (`["C", "o", "m", ...]`), silently corrupting mismatch logic. The fix belongs at the write point — immediately after the extracted fields are merged into `active_constraints`.
+
+### Test result
+```
+pytest backend/tests/test_profiler_node.py -v -m "not slow"
+4 passed, 3 deselected in 1.24s
+```
+All 4 unit tests pass. Integration tests skipped (no live API key in CI).

@@ -5,7 +5,28 @@
       "Bash(curl:*)",
       "Bash(TOKEN=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlMTMyZDVhMi1mZGIyLTQxZGQtYTVlMC1jZDEyYjY2ZmEzN2UiLCJyb2xlIjoic3R1ZGVudCIsImV4cCI6MTc3NDk4ODY1OH0.E2TC_aBCJaa4XrH3-3FXjCG0wpR1fLw6Oki0YWKbJcI\")",
       "Bash(venv\\\\Scripts\\\\python.exe scripts/compute_future_values.py)",
-      "Bash(\"venv/Scripts/python.exe\" scripts/compute_future_values.py)"
+      "Bash(\"venv/Scripts/python.exe\" scripts/compute_future_values.py)",
+      "Bash(..\\\\venv\\\\Scripts\\\\python.exe -m pytest tests/test_filter_node.py -v)",
+      "Bash(../venv/Scripts/python.exe -m pytest tests/test_filter_node.py -v)",
+      "Bash(venv/Scripts/python.exe -m pytest tests/test_filter_node.py -v)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(python apply_changes.py)",
+      "Bash(python -m json.tool backend/app/data/universities.json)",
+      "Bash(python -c ' *)",
+      "Bash(git check-ignore *)",
+      "Bash(venv\\\\Scripts\\\\activate)",
+      "Bash(python -m pytest tests/test_scoring_node.py -v)",
+      "Bash(\"venv/Scripts/python.exe\" -m pytest tests/test_profiler_node.py -v -m \"not slow\")",
+      "Bash(\"venv/Scripts/python.exe\" -m pytest tests/test_profiler_node.py -v -m slow)",
+      "Bash(\"venv/Scripts/python.exe\" -m pytest tests/test_profiler_node.py -v)",
+      "Bash(\"venv/Scripts/python.exe\" -m pytest tests/ -v -m \"not slow\")",
+      "Bash(pip install *)",
+      "Bash(python scripts/run_profiler_baseline.py)",
+      "Bash(pytest tests/test_profiler_node.py -v -m \"not slow\")",
+      "Bash(python *)",
+      "Bash(GEMINI_API_KEY=dummy python -m pytest tests/test_profiler_node.py -v -m \"not slow\")",
+      "Bash(git *)"
     ]
   }
 }
