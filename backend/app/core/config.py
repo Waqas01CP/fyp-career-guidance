@@ -20,7 +20,7 @@ class Settings(BaseSettings):
 
     # LLM
     GEMINI_API_KEY: str = ""
-    LLM_MODEL_NAME: str = "gemini-2.5-flash"
+    LLM_MODEL_NAME: str = "gemini-3.1-flash-lite-preview"
     LLM_TEMPERATURE: float = 0.0
     # temperature=0 ensures deterministic JSON output — Gemini drops JSON
     # format at non-zero temperature on completion turns (verified in testing)
