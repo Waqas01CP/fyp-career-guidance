@@ -554,6 +554,33 @@ These three rules must appear verbatim in every Claude Code prompt.
 
 ---
 
+## ANSWER NODE MAINTENANCE — REQUIRED WHEN ADDING NEW FIELD_IDS
+
+When you add a new field_id to universities.json AND lag_model.json,
+you must also add a corresponding mapping to answer_node.py in the
+same commit.
+
+File: backend/app/agents/nodes/answer_node.py
+Section: MARKET_EXTRACTION_SYSTEM_PROMPT
+
+Add one line per new field following this pattern:
+  [common student names for the field] → [exact field_id]
+
+Examples of correct additions:
+  "urban planning, UP → urban_planning"
+  "architecture, arch → architecture"
+  "textile, textile engineering → textile_engineering"
+
+Failure to add this mapping means students asking about that field's
+market prospects will get a fallback "couldn't find data" message
+even when lag_model.json has the data. The failure is graceful
+(no crash) but the feature is silently broken for that field.
+
+This is a one-line addition per new field. Do it in the same commit
+as the lag_model.json population for that field.
+
+---
+
 ## WHAT IS NOT YOUR SCOPE
 
 - Python, FastAPI, or database code — flag for Backend Chat

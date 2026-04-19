@@ -171,3 +171,50 @@ See `logs/llm-output-answer-node-2026-04-19.md` for full text of all 5 system pr
 3. **Application deadline data access:** Point 2 Section 10 and Section 13 say AnswerNode should frame deadlines as "Based on 2025 cycle...". But `application_window` data is in universities.json, not in current_roadmap entries. AnswerNode currently can only answer deadline questions if the data appears in the roadmap. Should AnswerNode call a separate `fetch_deadlines()` tool, or should `application_window` be included in FilterNode roadmap output? Decision needed.
 
 4. **market_query extraction returns "software_engineering" but lag_model.json has "computer_science" as the field_id:** Once lag_model.json is populated, confirm that field_ids in lag_model.json match the IDs the extraction LLM produces. If "software_engineering" is not a valid field_id, lag_calc() returns {} and the fallback fires. The mapping examples in MARKET_EXTRACTION_SYSTEM_PROMPT should match the actual field_ids Fazal uses.
+
+---
+
+## Follow-up Fix — slim roadmap + student summary + lag_model stub — 2026-04-19
+
+### What changed in answer_node.py follow_up path
+
+**FOLLOWUP_ANSWER_SYSTEM_PROMPT** — added one rule to the Rules section:
+`"- For improvement questions: use the student's subject_marks and capability_scores from the student profile above to give specific subject-level advice. Name the exact subject that needs improvement and the approximate gap to close."`
+
+**follow_up / clarification block** — replaced 3-line raw roadmap serialization with:
+1. Slim roadmap construction: 9-field dict per entry (`rank`, `degree_name`, `university_name`, `total_score`, `merit_tier`, `fee_per_semester`, `soft_flag_types`, `match_score_normalised`, `future_score`, `eligibility_note`). Reduces ~200 tokens/entry → ~50 tokens/entry. For 33 NED degrees: ~6600 tokens → ~1650 tokens.
+2. Student summary construction: 6-field dict (`subject_marks`, `capability_scores`, `stream`, `budget_per_semester`, `stated_preferences`, `career_goal`). ~150 tokens.
+3. `roadmap_section` formatted as "Student profile:\n{summary}\n\nDegree roadmap:\n{slim_list}". Empty roadmap fallback retained.
+
+**Token count estimate for updated follow_up prompt:**
+- System prompt preamble + rules: ~120 tokens
+- Student summary: ~150 tokens
+- Slim roadmap (33 entries × ~50 tokens): ~1650 tokens
+- Total: ~1920 tokens — down from ~4000-6000 tokens with raw roadmap
+
+### lag_model.json action taken
+
+**Was empty (`[]`).** Created stub with 32 entries covering all NED canonical field_ids:
+`computer_science, artificial_intelligence, software_engineering, cybersecurity, data_science, digital_media, telecommunications_engineering, electrical_engineering, electronics_engineering, biomedical_engineering, chemical_engineering, food_engineering, mechanical_engineering, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering, petroleum_engineering, civil_engineering, business_bba, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics, economics, finance_accounting, social_work, physics, chemistry_biochemistry, architecture`
+
+Each entry has `computed.future_value` set to the ScoringNode fixture values. All other raw data fields are null stubs (`data_status: "partial"`). Career paths use the Pakistani market data specified in the task. `associated_degrees` arrays cover all 33 NED degree_ids. `computer_science` entry covers both `neduet_bs_cs` and `neduet_be_cise`.
+
+Note: `petroleum_engineering` is included although not in the canonical DATA_CHAT_INSTRUCTIONS.md list — it is in NED universities.json and has a specified future_value.
+
+### DATA_CHAT_INSTRUCTIONS.md
+
+Section "ANSWER NODE MAINTENANCE" already existed with near-identical content. Updated one sentence: added "in the same commit" to the first rule paragraph. No duplicate section created.
+
+### CLAUDE.md
+
+Row "AnswerNode field mapping maintenance" already existed. Updated to add "for the exact format" to the reference sentence end.
+
+### Test results
+
+```
+pytest backend/tests/test_answer_node.py -v
+8 passed in 2.56s  ✓ All 8 answer_node tests pass
+
+pytest backend/tests/ -v -m "not slow"
+50 passed, 3 deselected in 2.62s  ✓ Full unit suite passes
+```

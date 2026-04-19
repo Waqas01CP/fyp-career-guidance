@@ -98,6 +98,10 @@ Rules:
 - Do not re-rank degrees. Do not invent information not in the roadmap.
 - For application deadlines: frame as 'Based on the previous cycle, [University] typically
   opens applications in [month]. Check [website] for current cycle dates.'
+- For improvement questions: use the student's subject_marks and
+  capability_scores from the student profile above to give specific
+  subject-level advice. Name the exact subject that needs improvement
+  and the approximate gap to close.
 - Never say 'based on my analysis' or 'as an AI'."""
 
 OUT_OF_SCOPE_SYSTEM_PROMPT = """You are a helpful academic advisor for Pakistani students.
@@ -271,9 +275,45 @@ def answer_node(state: AgentState) -> AgentState:
 
     # ── follow_up / clarification ─────────────────────────────────────────────
     else:
-        roadmap = state.get("current_roadmap", [])
-        roadmap_json = json.dumps(roadmap, indent=2) if roadmap else "No recommendations available yet."
-        system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_json)
+        # Slim roadmap — only fields needed for follow-up questions
+        current_roadmap = state.get("current_roadmap") or []
+        slim_roadmap = [
+            {
+                "rank": i + 1,
+                "degree_name": d["degree_name"],
+                "university_name": d["university_name"],
+                "total_score": round(d.get("total_score", 0), 3),
+                "merit_tier": d.get("merit_tier"),
+                "fee_per_semester": d.get("fee_per_semester"),
+                "soft_flag_types": [f["type"] for f in d.get("soft_flags", [])],
+                "match_score_normalised": round(d.get("match_score_normalised", 0), 3),
+                "future_score": d.get("future_score"),
+                "eligibility_note": d.get("eligibility_note"),
+            }
+            for i, d in enumerate(current_roadmap)
+        ]
+
+        # Student summary — needed for improvement and eligibility questions
+        student_profile = state.get("student_profile") or {}
+        active_constraints = state.get("active_constraints") or {}
+        student_summary = {
+            "subject_marks": student_profile.get("subject_marks", {}),
+            "capability_scores": student_profile.get("capability_scores", {}),
+            "stream": student_profile.get("stream"),
+            "budget_per_semester": active_constraints.get("budget_per_semester"),
+            "stated_preferences": active_constraints.get("stated_preferences"),
+            "career_goal": active_constraints.get("career_goal"),
+        }
+
+        roadmap_section = (
+            "Student profile:\n"
+            + json.dumps(student_summary, indent=2)
+            + "\n\nDegree roadmap:\n"
+            + json.dumps(slim_roadmap, indent=2)
+        )
+        if not current_roadmap:
+            roadmap_section = "No recommendations available yet."
+        system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_section)
         try:
             response = llm.invoke([
                 SystemMessage(content=system_prompt),
