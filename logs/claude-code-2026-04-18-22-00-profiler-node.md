@@ -401,21 +401,29 @@ Result: **Success**
 - Asked for transport_willing next ✓
 - JSON well-formed, no markdown wrapper ✓
 
-### Run 2 — gemini-2.0-flash-lite (attempted)
-Result: **429 Quota exceeded — free tier limit = 0 for this model**
+### Run 2 — gemini-3.1-flash-lite-preview
+Result: **Success** (after one compatibility fix in profiler.py)
 
-The free-tier API key has zero access to gemini-2.0-flash-lite. Only gemini-2.5-flash is accessible on this key. Error returned after 5 retries with exponential backoff (langchain_google_genai built-in retry logic).
+**Compatibility issue discovered:** Gemini 3.1 returns `response.content` as a list of parts, not a plain string. Fix added to profiler.py — content is flattened to string when it is a list:
+```python
+content = response.content
+if isinstance(content, list):
+    content = "".join(
+        p.get("text", "") if isinstance(p, dict) else str(p) for p in content
+    )
+raw_response = content.strip()
+```
 
-**Error handling confirmed:** profiler_node caught the exception, appended the fallback AIMessage ("I'm having trouble processing..."), and returned cleanly.
+**Output:** budget=50000 ✓, home_zone=2 ✓, profiling_complete=False ✓, next question=transport_willing ✓. JSON well-formed.
 
 ### Model abstraction confirmed
-Swapping `LLM_MODEL_NAME` in `.env` is the only change needed — zero code changes. ChatGoogleGenerativeAI accepts any Gemini model ID. The abstraction works as designed.
+Swapping `LLM_MODEL_NAME` in `.env` is the only config change needed. Both models produce correct field extraction, valid JSON, and correct next-question selection. Gemini 3.1 required a one-time content-format compatibility fix in the node.
 
 ### Config reverted
-Both `config.py` default and `.env` restored to `gemini-2.5-flash` (only accessible model on this key).
+Both `config.py` default and `.env` restored to `gemini-2.5-flash` (dev model per CLAUDE.md v2.0).
 
-### Unit tests after model switch
+### Unit tests after all changes
 ```
 pytest backend/tests/test_profiler_node.py -v -m "not slow"
-4 passed, 3 deselected in 1.77s
+4 passed, 3 deselected in 1.29s
 ```

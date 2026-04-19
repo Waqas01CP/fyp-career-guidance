@@ -200,7 +200,13 @@ def profiler_node(state: AgentState) -> AgentState:
     # LLM call — failure returns a clean fallback state, never crashes the node
     try:
         response = llm.invoke(messages_for_llm)
-        raw_response = response.content.strip()
+        content = response.content
+        # Gemini 3.x returns content as a list of parts; flatten to string
+        if isinstance(content, list):
+            content = "".join(
+                p.get("text", "") if isinstance(p, dict) else str(p) for p in content
+            )
+        raw_response = content.strip()
     except Exception as e:
         logger.error("ProfilerNode: LLM call failed: %s", e)
         state["messages"] = list(state.get("messages", [])) + [
