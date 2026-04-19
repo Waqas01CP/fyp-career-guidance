@@ -384,7 +384,7 @@ def explanation_node(state: AgentState) -> AgentState:
         if hasattr(m, "content") and isinstance(m.content, str)
         and not isinstance(m, AIMessage)
     ]
-    recent_text = " | ".join(recent_messages) if recent_messages else ""
+    recent_text = " | ".join(_scrub_pii(m) for m in recent_messages) if recent_messages else ""
 
     # Thought trace trimming — match on degree_name and university_name
     # FilterNode traces: "{university_name} {degree_name}" format
