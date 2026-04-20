@@ -27,7 +27,21 @@
       "Bash(python *)",
       "Bash(GEMINI_API_KEY=dummy python -m pytest tests/test_profiler_node.py -v -m \"not slow\")",
       "Bash(git *)",
-      "Bash(./venv/Scripts/python.exe -c ' *)"
+      "Bash(./venv/Scripts/python.exe -c ' *)",
+      "Bash(venv\\\\Scripts\\\\python.exe -m pip install \"psycopg[binary]\" --break-system-packages)",
+      "Bash(venv/Scripts/python.exe -m pip install \"psycopg[binary]\")",
+      "Bash(venv/Scripts/python.exe -c \"from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver; print\\('psycopg import OK'\\)\")",
+      "Bash(venv/Scripts/python.exe -c ' *)",
+      "Bash(venv/Scripts/uvicorn.exe app.main:app --reload --port 8000)",
+      "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8001)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8002)",
+      "Bash(venv/Scripts/python.exe -m uvicorn --version)",
+      "Bash(venv/Scripts/python.exe -c \"import uvicorn.loops.asyncio as la; import inspect; print\\(inspect.getsource\\(la\\)\\)\")",
+      "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8003 --loop asyncio --reload)",
+      "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8004 --loop asyncio --reload)",
+      "Bash(venv/Scripts/python.exe -m pytest tests/ -v --timeout=30)",
+      "Bash(venv/Scripts/python.exe -m pytest tests/ -v)"
     ]
   }
 }

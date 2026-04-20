@@ -98,4 +98,14 @@ class Settings(BaseSettings):
     )
 
 
+    @property
+    def checkpoint_db_url(self) -> str:
+        """psycopg3 connection string for AsyncPostgresSaver.
+        from_conn_string() already passes prepare_threshold=0 internally.
+        Supabase PgBouncer session pooler requires sslmode=require."""
+        url = self.DATABASE_URL.replace("postgresql+asyncpg://", "postgresql://")
+        separator = "&" if "?" in url else "?"
+        return url + separator + "sslmode=require"
+
+
 settings = Settings()

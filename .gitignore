@@ -59,6 +59,7 @@ logs/*.md
 !logs/README.md
 !logs/session-*.md
 !logs/claude-code-*.md
+!logs/supabase-setup-log-*.md
 
 # Secrets
 *.pem

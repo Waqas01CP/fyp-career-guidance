@@ -1,6 +1,10 @@
 """
 main.py — FastAPI application entry point.
 Registers all routers. Configures rate limiting. Sets up lifespan hooks.
+
+Windows dev note: psycopg3 (AsyncPostgresSaver) requires SelectorEventLoop.
+Run uvicorn with --loop asyncio on Windows:
+  uvicorn app.main:app --reload --loop asyncio
 """
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
@@ -9,16 +13,23 @@ from fastapi.middleware.cors import CORSMiddleware
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from app.core.limiter import limiter
+from app.core.config import settings
 from app.api.v1.endpoints import auth, chat, profile
 import app.models  # noqa: F401 — registers all 6 SQLAlchemy mappers at startup
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Startup and shutdown hooks."""
-    # TODO Sprint 3: initialise AsyncPostgresSaver checkpointer and build_graph()
-    yield
-    # Cleanup on shutdown
+    """Startup: initialise AsyncPostgresSaver checkpointer and compile LangGraph."""
+    from langgraph.checkpoint.postgres.aio import AsyncPostgresSaver
+    from app.agents.core_graph import build_graph
+
+    async with AsyncPostgresSaver.from_conn_string(
+        settings.checkpoint_db_url
+    ) as checkpointer:
+        await checkpointer.setup()
+        app.state.graph = build_graph(checkpointer)
+        yield
 
 
 app = FastAPI(
