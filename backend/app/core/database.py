@@ -4,6 +4,7 @@ All models import Base from here. All endpoints use get_db() from dependencies.p
 """
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import DeclarativeBase
+from sqlalchemy.pool import NullPool
 from typing import AsyncGenerator
 from app.core.config import settings
 
@@ -14,6 +15,8 @@ class Base(DeclarativeBase):
 
 engine = create_async_engine(
     settings.DATABASE_URL,
+    poolclass=NullPool,
+    connect_args={"ssl": "require", "statement_cache_size": 0},
     echo=False,
     pool_pre_ping=True,
 )
