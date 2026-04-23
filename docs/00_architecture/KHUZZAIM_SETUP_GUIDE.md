@@ -197,10 +197,18 @@ One screen per Claude Code session.
 
 ## PART 7 — Connecting to the backend
 
-Waqas runs the backend server locally. The base URL is:
+The backend is deployed on Render. The base URL is already set in
+`frontend/lib/services/api_service.dart`:
 ```
-http://127.0.0.1:8000
+https://fyp-career-guidance-api.onrender.com
 ```
+Do not change this. Do not use localhost. The Render backend connects
+to Supabase and is always available without Waqas's laptop being on.
+
+**Cold start warning:** If the backend has been idle for 15+ minutes,
+the first request takes ~50 seconds. Send a GET request to
+`https://fyp-career-guidance-api.onrender.com/health` before testing
+and wait for the 200 response.
 
 All API endpoints are prefixed `/api/v1/`. Examples:
 - `POST http://127.0.0.1:8000/api/v1/auth/register`
