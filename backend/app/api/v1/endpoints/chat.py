@@ -256,7 +256,8 @@ async def chat_stream(
     }
     # Step 5: context_overrides merged into active_constraints if present
     if payload.context_overrides:
-        initial_state["active_constraints"] = payload.context_overrides
+        existing = (initial_state.get("active_constraints") or {})
+        initial_state["active_constraints"] = {**existing, **payload.context_overrides}
 
     # ── Streaming generator ───────────────────────────────────────────────────
 
