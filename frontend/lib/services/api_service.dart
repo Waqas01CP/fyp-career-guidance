@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 /// Base HTTP client. All API calls go through this.
 /// Base URL: set in CLAUDE.md / environment config.
 class ApiService {
-  static const String baseUrl = 'http://localhost:8000/api/v1';
+  static const String baseUrl = 'https://fyp-career-guidance-api.onrender.com/api/v1';
 
   static Map<String, String> _headers(String? token) => {
     'Content-Type': 'application/json',
