@@ -509,6 +509,16 @@ These endpoints do not exist yet. The screen designs are complete and will
 not change. Implementation order: message history first (affects demo UX),
 then password features.
 
+**Sprint 4 backend code cleanup (non-urgent):**
+
+| # | Item | Detail |
+|---|---|---|
+| 6 | profile_update trigger dead code | `_write_recommendation()` in chat.py has a `"profile_update"` trigger branch that never fires. `last_intent` is always `"get_recommendation"` when recommendations are written. Remove the dead branch and simplify to: `"initial" if not previous_roadmap else "manual_rerun"`. |
+| 7 | AnswerNode tool status events | `"fetching_fees"` and `"fetching_market_data"` SSE status events not emitted. Flutter ThinkingIndicator shows nothing during fee/market queries. Fix requires subscribing to tool-call events in astream_events loop or emitting status events from inside answer_node. |
+| 8 | _load_lag_model() and _load_affinity_matrix() caching | Both functions re-read JSON files from disk on every pipeline call. Add module-level caching once Fazal populates real data files. |
+| 9 | Alembic migration missing curriculum_level | Migration file missing this column. Supabase has it. Fresh local DB setup via alembic upgrade head will fail on grades endpoint. Fix: generate new migration and apply to Supabase via SQL Editor. |
+| 10 | Credential rotation | Supabase password, Gemini API key, and SECRET_KEY appeared in conversation plaintext during setup sessions. Rotate all three after demo. Details in logs/render-deployment-log-2026-04-21.md. |
+
 ---
 
 ## NAVIGATION — WHERE TO FIND DETAILED GUIDANCE
@@ -595,6 +605,10 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 | Onboarding Carousel trigger | Show when no token in flutter_secure_storage. Covers fresh install and post-logout. No backend field. |
 | Screen count | 16 screens locked. No additions without Architecture Chat sign-off and CLAUDE.md update. |
 | Flutter screen designs | Complete — 16 screens locked in design/screen_mockups/. DESIGN_HANDOFF.md is the implementation guide. DESIGN_SYSTEM_TOKENS.md is the token reference. No new screens without Architecture Chat sign-off per CLAUDE.md screen inventory. |
+| Backend deployment | Render free tier — https://fyp-career-guidance-api.onrender.com. Auto-deploys on push to main (backend/ changes only). Cold start ~50s after inactivity — send warm-up request before demo. Dockerfile CMD does not include --loop asyncio (Linux/Render does not need it). |
+| Windows local dev command | uvicorn app.main:app --reload --loop asyncio — required on Windows due to psycopg3 + ProactorEventLoop incompatibility. On Linux/Mac/Render: uvicorn app.main:app --reload (no flag needed). |
+| context_overrides merge | payload.context_overrides is merged into existing active_constraints, not replaced. Fix applied in chat.py post-core-graph session. |
+| profile_update trigger dead code | In _write_recommendation(), the "profile_update" trigger branch never fires because last_intent is always "get_recommendation" when recommendations are written. Dead code, not wrong. Sprint 4 cleanup. |
 | AnswerNode field mapping maintenance | When new field_ids added to lag_model.json, corresponding nickname mappings must be added to MARKET_EXTRACTION_SYSTEM_PROMPT in answer_node.py in the same commit. See DATA_CHAT_INSTRUCTIONS.md for the exact format. |
 | LLM model per node | SupervisorNode, ProfilerNode, AnswerNode → Haiku 4.5 in production. ExplanationNode → Sonnet 4.6 in production. Dev uses gemini-3.1-flash-lite-preview (free tier, 500 RPD, outperforms 2.5 Flash on benchmarks). Opus never used for inference. See LLM NODE MODEL ASSIGNMENTS section. |
 | Model abstraction | Prompts must work at minimum model and above without code changes. Model swap = config.py change only. |
@@ -616,3 +630,4 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 *CLAUDE.md v1.9 — April 2026 (FilterNode merit estimation redesigned: assessment proxy for entry test, estimated_merit replaces raw inter comparison; HEC/council hard floor as third hard exclusion; shift field added to degree schema; entry test difficulty tiers locked; HEC minimum percentage categories locked)*
 *CLAUDE.md v2.0 — April 2026 (LLM node model assignments locked: Haiku for SupervisorNode/ProfilerNode/AnswerNode, Sonnet for ExplanationNode; model abstraction rule locked; token optimization principle locked; dev model updated to gemini-2.5-flash)*
 *CLAUDE.md v2.1 — April 2026 (dev model switched to gemini-3.1-flash-lite-preview — better benchmarks than 2.5 Flash, free tier 500 RPD; langchain-anthropic added to requirements.txt for easy Claude production switch; LLM output log standard added to SPRINT_2_BUILD_PROCESS.md)*
+*CLAUDE.md v2.2 — April 2026 (backend demo-ready: all nodes wired, Render deployment live at fyp-career-guidance-api.onrender.com, Supabase persistent, AsyncPostgresSaver confirmed working; Windows --loop asyncio requirement locked; context_overrides merge fix applied; Sprint 4 cleanup items 6-10 logged)*
