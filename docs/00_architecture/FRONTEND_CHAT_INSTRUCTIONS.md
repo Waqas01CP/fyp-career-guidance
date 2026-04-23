@@ -48,26 +48,40 @@ file, CLAUDE.md wins.
 
 ---
 
-## CURRENT PROJECT STATE (as of March 2026)
+## CURRENT PROJECT STATE (April 2026)
 
-Sprint 1 backend is complete — all 9 mock endpoints running at
-`http://127.0.0.1:8000`. Flutter skeleton exists with empty stubs.
+**Backend:** Fully deployed on Render.
+URL: `https://fyp-career-guidance-api.onrender.com`
+All 6 LangGraph nodes complete and wired. SSE streaming live and tested.
+Supabase connected. All endpoints working including `/chat/stream`.
 
-**Khuzzaim's Sprint 1 tasks:**
-- Build Login screen and Signup screen — connect to mock API
-- Build static Chat screen shell (layout only, no SSE)
-- Test full auth flow: register → token stored → Chat screen appears
-- Also: design 5 test student personas for FilterNode testing (see SPRINT_PLAN.md)
+**Cold start:** Render free tier sleeps after 15 minutes. First request
+after sleep takes ~50 seconds. Hit `/health` before any demo or test.
 
-State management is locked: **Riverpod** (`flutter_riverpod ^2.5.1`).
-`main.dart` already uses `ProviderScope`. Providers are empty stubs — write
-them as `StateNotifier` classes from scratch.
+**Flutter project:** Valid runnable project in `frontend/`.
+`flutter pub get` already run. All dependencies installed.
+`main.dart` is the stock Flutter counter — Khuzzaim's first task is
+replacing it with the proper Riverpod app entry point and named routes.
 
-⚠ **The stub files in the repo currently contain `ChangeNotifier` (old Provider
-pattern).** When Khuzzaim opens `auth_provider.dart`, `chat_provider.dart`, or
-`profile_provider.dart`, they will see `extends ChangeNotifier`. This is wrong —
-delete the entire class body, replace the `flutter/material.dart` import with
-`flutter_riverpod.dart`, and rewrite as `StateNotifier` per the patterns section below.
+**Providers:** `auth_provider.dart`, `chat_provider.dart`,
+`profile_provider.dart` all use `ChangeNotifier` stubs — must be
+rewritten as Riverpod `StateNotifier` before any screen uses them.
+See RIVERPOD PATTERNS section for the exact pattern.
+
+**Models:** `student_profile.dart`, `chat_message.dart`,
+`recommendation.dart` have full `fromJson` implementations — use them,
+do not rewrite.
+
+**Services:** `api_service.dart`, `auth_service.dart`, `sse_service.dart`
+have real implementations — use them, do not rewrite.
+`api_service.dart` base URL is already set to Render.
+
+**Widgets:** All widget files are empty stubs — implement per screen.
+
+**Android package name:** Currently `com.example.frontend_app` — must be
+changed to `com.fyp.career_guidance` before demo. Fix this first.
+
+**Demo deadline:** April 29, 2026.
 
 ---
 
@@ -102,49 +116,118 @@ and runs pub get automatically.
 
 ---
 
+## DO NOT CONVERT HTML TO FLUTTER
+
+The design system includes `.html` files in `design/screen_mockups/`.
+These are visual references only — open in a browser to see the target.
+
+**Never translate HTML structure to Flutter widgets.**
+
+HTML `<div>`, `<flex>`, CSS padding do not map to Flutter widgets.
+Converting HTML to Flutter produces bloated, brittle code that breaks
+on different screen sizes and fails on low-end devices.
+
+The correct process for every screen:
+1. Open `code_[screenname].html` in Chrome — understand the visual target
+2. Read the relevant section of `DESIGN_HANDOFF.md` — it gives Flutter
+   widget types, exact colours, spacing, API connections in Flutter terms
+3. Build from scratch using Flutter widgets that achieve the same visual
+
+The HTML is for visual reference. `DESIGN_HANDOFF.md` is for Claude Code.
+
+---
+
+## PERFORMANCE — LOW-END DEVICE FIRST
+
+Target: Android phones from 2017-2018 with 2GB RAM. `minSdkVersion` 21.
+Low-end performance is the primary constraint. High-end handles anything.
+
+- **`ListView.builder` always** — never `ListView` with a children list.
+  Builder creates items lazily. Loading 33 cards at once causes OOM.
+- **`const` constructors everywhere possible.** If a widget has no state,
+  mark it `const`. Const widgets are never rebuilt unnecessarily.
+- **Dispose all controllers.** Every `TextEditingController`,
+  `AnimationController`, `ScrollController` must be disposed in `dispose()`.
+  Memory leaks crash apps after extended use on 2GB devices.
+- **No heavy work in `build()`.** No HTTP calls, no file I/O, no loops
+  inside `build()`. These belong in providers or services.
+- **Animation duration 200-300ms.** Longer animations feel sluggish on
+  budget hardware and add no UX value.
+- **Extract repeated widget subtrees** into named private methods
+  (`_buildHeader()`) so Flutter can cache subtrees between rebuilds.
+
+---
+
+## RESPONSIVE DESIGN
+
+Target: Android phones, screen widths 360dp–430dp. No tablet support.
+
+- **`SafeArea` on every screen.** Notches and navigation bars vary by
+  device. Without it, content hides under system UI.
+- **Minimum touch target: 48×48dp.** Smaller targets fail on older devices
+  with imprecise touch and fail accessibility standards.
+- **No fixed heights for text containers.** Use flexible sizing so text
+  reflows. Urdu/Roman Urdu text can be wider than English.
+- **Never disable font scaling.** Some students use accessibility font sizes.
+  Use `Theme.of(context).textTheme` not hardcoded `TextStyle(fontSize: 14)`.
+- **Scrollable screens.** Any screen taller than ~600dp must scroll.
+  Wrap in `SingleChildScrollView` or use `ListView`.
+- **Prefer `Flexible`/`Expanded`** over hardcoded pixel dimensions.
+
+---
+
 ## FOLDER STRUCTURE (locked — do not deviate)
 
 ```
 frontend/lib/
-├── main.dart                          ← ProviderScope wraps MaterialApp
+├── main.dart                              ← replace stock counter with Riverpod entry point
 ├── screens/
 │   ├── auth/
-│   │   ├── login_screen.dart          ← Sprint 1
-│   │   └── signup_screen.dart         ← Sprint 1
+│   │   ├── login_screen.dart              ← build
+│   │   └── signup_screen.dart             ← build
 │   ├── onboarding/
-│   │   ├── riasec_quiz_screen.dart    ← Sprint 2
-│   │   ├── grades_input_screen.dart   ← Sprint 2
-│   │   └── assessment_screen.dart     ← Sprint 2
+│   │   ├── splash_screen.dart             ← build (first screen)
+│   │   ├── carousel_screen.dart           ← build (onboarding carousel)
+│   │   ├── riasec_quiz_screen.dart        ← build
+│   │   ├── riasec_complete_screen.dart    ← build (success screen)
+│   │   ├── grades_input_screen.dart       ← build
+│   │   ├── grades_complete_screen.dart    ← build (success screen)
+│   │   ├── assessment_screen.dart         ← build
+│   │   └── assessment_complete_screen.dart ← build (success screen)
 │   ├── chat/
-│   │   └── main_chat_screen.dart      ← Sprint 1 shell, Sprint 2 live SSE
+│   │   └── chat_screen.dart               ← build (main chat + SSE)
 │   ├── dashboard/
-│   │   └── recommendation_dashboard.dart ← Sprint 3
+│   │   └── recommendation_dashboard.dart  ← build
 │   └── profile/
-│       └── profile_screen.dart        ← Sprint 4
+│       └── profile_screen.dart            ← build
 ├── widgets/
-│   ├── university_card.dart           ← Sprint 3
-│   ├── lag_score_badge.dart           ← Sprint 3
-│   ├── roadmap_timeline.dart          ← Sprint 3
-│   ├── thinking_indicator.dart        ← Sprint 2
-│   ├── ocr_verification_modal.dart    ← Sprint 2
-│   └── mismatch_notice.dart           ← Sprint 3
+│   ├── university_card.dart               ← stub, implement in Dashboard session
+│   ├── lag_score_badge.dart               ← stub, implement in Dashboard session
+│   ├── roadmap_timeline.dart              ← stub, implement in Dashboard session
+│   ├── thinking_indicator.dart            ← stub, implement in Chat session
+│   ├── ocr_verification_modal.dart        ← stub, implement in Grades Input session
+│   └── mismatch_notice.dart               ← stub, implement in Chat session
 ├── services/
-│   ├── api_service.dart               ← Base HTTP client, base URL, auth headers
-│   ├── auth_service.dart              ← Login, register, flutter_secure_storage
-│   └── sse_service.dart               ← SSE stream parser
+│   ├── api_service.dart                   ← complete — base URL set to Render
+│   ├── auth_service.dart                  ← complete — do not rewrite
+│   └── sse_service.dart                   ← complete — do not rewrite
 ├── models/
-│   ├── student_profile.dart           ← Mirrors ProfileOut from backend (add String? sessionId
-│   │                                     field when backend adds it to GET /profile/me response)
-│   ├── recommendation.dart            ← university_card payload shape
-│   └── chat_message.dart
+│   ├── student_profile.dart               ← complete fromJson — do not rewrite
+│   ├── recommendation.dart                ← complete fromJson — do not rewrite
+│   └── chat_message.dart                  ← complete fromJson — do not rewrite
 └── providers/
-    ├── auth_provider.dart             ← StateNotifier — token, user state
-    ├── chat_provider.dart             ← StateNotifier — messages, SSE state
-    └── profile_provider.dart          ← StateNotifier — profile, onboarding stage
+├── auth_provider.dart                 ← REWRITE — currently ChangeNotifier stub
+├── chat_provider.dart                 ← REWRITE — currently ChangeNotifier stub
+└── profile_provider.dart              ← REWRITE — currently ChangeNotifier stub
 ```
 
-**Does NOT exist:** `upload.dart` as a separate screen. Upload is a button
-inside `grades_input_screen.dart`. Never create a standalone upload screen.
+16 screens total. Screens are empty (`.gitkeep` placeholder) until built.
+Services and models are complete — do not rewrite them.
+Providers are stubs — rewrite as StateNotifier before any screen uses them.
+
+**Does NOT exist and must not be created:**
+- `upload.dart` as a standalone screen — upload is a button inside `grades_input_screen.dart`
+- Any screen not listed above
 
 ---
 
@@ -276,7 +359,9 @@ String? thinkingLabel     // text shown in ThinkingIndicator, null when not thin
 
 ## API CALLS — EXACT PATTERNS
 
-Base URL: `http://127.0.0.1:8000` in development.
+Base URL: `https://fyp-career-guidance-api.onrender.com`
+This is already set in `frontend/lib/services/api_service.dart`.
+Never change it to localhost in committed code.
 All endpoints prefixed `/api/v1/` — never omit.
 
 ### Auth header (all protected endpoints)
@@ -324,10 +409,8 @@ package needed, no client-side generation.
 final sessionId = _ref.read(profileProvider).profile?.sessionId;
 ```
 
-⚠ **Requires backend change (Sprint 2 prerequisite):**
-`GET /api/v1/profile/me` must return a `session_id` field. This is not in the
-current mock response. Flag for Backend Chat before building the chat screen.
-See `BACKEND_CHAT_INSTRUCTIONS.md` for the required backend change.
+`GET /api/v1/profile/me` returns `session_id` in the response.
+Read it from `ProfileProvider` — no UUID package needed.
 
 ```dart
 // Always null-check before making the SSE call:
@@ -553,8 +636,9 @@ User must confirm or correct before proceeding to chat.
 ### MismatchNotice (Sprint 3)
 Amber banner shown at top of chat when `mismatch_notice` is non-null.
 Dismissable with X. Text comes from backend — do not hardcode.
-⚠ **ARCHITECTURAL NOTE:** `mismatch_notice` is in AgentState but is NOT in any SSE
-event per Point 5. Flutter needs a way to receive it. Options: (a) backend adds a
+`mismatch_notice` is included in the ExplanationNode's text response —
+the LLM naturally opens with the mismatch when one is detected. No
+separate SSE event needed. The text stream handles it. Options: (a) backend adds a
 `rich_ui` SSE event type for mismatch, or (b) it is returned in a post-stream API call.
 Flag for Backend Chat before building this widget.
 
@@ -647,12 +731,10 @@ so student can view their roadmap without active connection.
     per IP. On HTTP 429: show message *"Too many requests — please wait a moment"*,
     disable the send button for 60 seconds, then re-enable. Never crash or show
     a raw error code to the student.
-11. **BASE_URL as a constant:** Define the base URL once in `api_service.dart`:
-    ```dart
-    const String kBaseUrl = 'http://127.0.0.1:8000';
-    ```
-    Never hardcode the URL in individual service files. When the backend is deployed,
-    only this one constant changes.
+11. **BASE_URL never changes in committed code:** The base URL is set to
+    `https://fyp-career-guidance-api.onrender.com` in `api_service.dart`.
+    Never override this with localhost in any committed file. For local
+    backend testing only, change it temporarily and do not commit.
 
 ---
 
@@ -676,54 +758,24 @@ numbered instructions than with prose.
 
 ---
 
-## SPRINT TASK REFERENCE
+## SCREEN BUILD ORDER (priority for April 29 demo)
 
-**Sprint 1 (current):**
-- Login screen + Signup screen connected to mock API
-- Static Chat screen shell (layout only)
-- Full auth flow tested: register → token stored → Chat screen appears
-- Session log written to `logs/` — see `KHUZZAIM_SETUP_GUIDE.md` Part 9 for format
+| Priority | Screen | File | API dependency |
+|---|---|---|---|
+| 1 FIRST | Fix Android package name | android/ files | none |
+| 2 | Splash + Carousel | splash_screen.dart, carousel_screen.dart | none |
+| 3 | Login + Signup | login_screen.dart, signup_screen.dart | /auth/register, /auth/login |
+| 4 | RIASEC Quiz + Complete | riasec_quiz_screen.dart, riasec_complete_screen.dart | /profile/quiz |
+| 5 | Grades Input + Complete | grades_input_screen.dart, grades_complete_screen.dart | /profile/grades |
+| 6 | Assessment + Complete | assessment_screen.dart, assessment_complete_screen.dart | /profile/assessment |
+| 7 | Chat screen | chat_screen.dart | /chat/stream (SSE) |
+| 8 | Recommendation Dashboard | recommendation_dashboard.dart | reads from chat state |
+| 9 | Profile screen | profile_screen.dart | /profile/me |
 
-**Sprint 2:**
-- RIASEC Quiz screen (60 questions, 5-point Likert, progress bar)
-- Grades Input screen:
-  - Education level dropdown — exact values for backend:
-    `"matric"` | `"inter_part1"` | `"inter_part2"` | `"completed_inter"` | `"o_level"` | `"a_level"`
-    Wrong values cause 422. These must match exactly.
-  - Stream dropdown: `"Pre-Engineering"` | `"Pre-Medical"` | `"ICS"` | `"Commerce"` | `"Humanities"`
-    (null for O/A Level students — stream confirmed later by ProfilerNode)
-    When education_level is 'o_level' or 'a_level': hide the stream dropdown
-    entirely and send stream: null in the request body.
-  - Subject marks fields (percentages)
-  - Optional: marksheet upload button → OCR flow
-  - Board dropdown (show for Pakistani board students, hide for O/A Level):
-    `"Karachi Board"` | `"Federal Board"` | `"AKU"` | `"Cambridge"` | `"Other"`
-    When education_level is 'o_level' or 'a_level': hide board dropdown, send board: null.
-  - Complete POST body: `{education_level, stream (null for O/A Level),
-    subject_marks: {"mathematics": 87.0, ...}, board (null for O/A Level)}`
-- Capability Assessment screen (60 MCQs, 5 subjects):
-  - ⚠ **ARCHITECTURAL NOTE:** There is no GET endpoint to fetch questions. Flag
-    this for Backend Chat — a `GET /api/v1/profile/assessment/questions` endpoint
-    is needed before this screen can be built. Backend returns 12 questions per
-    subject (60 total) filtered by the student's `curriculum_level`.
-  - Submission body: `{responses: {mathematics: [1,0,1,...], physics: [...], ...}}`
-    Each list is 12 integers (1=correct, 0=incorrect) in the order presented.
-    All 5 subjects required. List length must be exactly 12.
-- Connect Chat screen to real SSE stream
-- ThinkingIndicator + OCRVerificationModal widgets
-
-**Sprint 3 (April 20 deadline):**
-- Recommendation Dashboard
-- UniversityCard, LagScoreBadge, RoadmapTimeline, MismatchNotice widgets
-- "Show Reasoning" toggle for thought_trace:
-  - ⚠ **ARCHITECTURAL NOTE:** thought_trace is stored in messages.agent_thought_trace
-    in the database, NOT sent via SSE stream. A GET endpoint or rich_ui SSE event
-    is needed to surface it. Flag for Backend Chat before building this toggle.
-- "Ask about this degree" button (pre-fills chat input)
-
-**Sprint 4:**
-- Profile screen
-- PWA manifest for installability
+Splash + Carousel can be one session (no API calls).
+RIASEC Complete, Grades Complete, Assessment Complete are simple success
+screens — bundle each with its parent screen in one session.
+All other screens: one per Claude Code session.
 
 ---
 
