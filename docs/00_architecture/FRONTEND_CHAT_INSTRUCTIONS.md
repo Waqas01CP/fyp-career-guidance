@@ -155,6 +155,28 @@ Low-end performance is the primary constraint. High-end handles anything.
   budget hardware and add no UX value.
 - **Extract repeated widget subtrees** into named private methods
   (`_buildHeader()`) so Flutter can cache subtrees between rebuilds.
+  
+- **`SafeArea` on every screen.** Wrap every Scaffold body in
+  `SafeArea()`. Notch and navigation bar heights vary across Android
+  devices. Without it, content clips under system UI on many phones.
+
+- **Dispose all controllers in `dispose()`.** Every `AnimationController`,
+  `TextEditingController`, `ScrollController`, and `PageController`
+  must be disposed. Memory leaks accumulate on 2GB devices and cause
+  crashes after extended use.
+
+- **No fixed heights on text containers.** Text containers must use
+  flexible sizing. Use `Spacer()` or `Flexible` for spacing between
+  elements, not hardcoded pixel gaps. Fixed pixel gaps push content
+  off-screen on 360dp phones.
+
+- **Never override font scaling.** Do not set `textScaler` or
+  `MediaQuery.textScaleFactor`. Some students use accessibility font
+  sizes. All text must scale with system settings.
+
+- **HTML mockups are visual reference only.** Always add
+  `code_[screenname].html` to the reading list for exact copy text.
+  Read it only for text content — never reference its structure in code.
 
 ---
 
