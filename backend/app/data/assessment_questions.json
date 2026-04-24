@@ -1,1 +1,4277 @@
-[]
+[
+  {
+    "id": "math_matric_001",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is 15% of 200?",
+    "options": [
+      "25",
+      "30",
+      "35",
+      "40"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_002",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the value of 2\u00b3?",
+    "options": [
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_003",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "If x + 5 = 12, what is x?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_matric_004",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the area of a square with side 4?",
+    "options": [
+      "12",
+      "14",
+      "16",
+      "18"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_matric_005",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the LCM of 4 and 6?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_006",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Solve: 2x\u00b2 - 5x + 3 = 0. Find x.",
+    "options": [
+      "1 and 3/2",
+      "2 and 1",
+      "3 and 1/2",
+      "1 and 2"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_matric_007",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is sin(90\u00b0)?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "0.5"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_008",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "If a triangle has angles 60\u00b0, 60\u00b0, and 60\u00b0, it is:",
+    "options": [
+      "Scalene",
+      "Isosceles",
+      "Equilateral",
+      "Right-angled"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_matric_009",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is the slope of y = 3x + 7?",
+    "options": [
+      "7",
+      "3",
+      "1/3",
+      "3/7"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_010",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Simplify: (x\u00b2-4)/(x-2)",
+    "options": [
+      "x+2",
+      "x-2",
+      "x\u00b2+2",
+      "2x"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_matric_011",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "The sum of interior angles of a hexagon is:",
+    "options": [
+      "540\u00b0",
+      "720\u00b0",
+      "900\u00b0",
+      "360\u00b0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_012",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Find the derivative of x\u00b3.",
+    "options": [
+      "x\u00b2",
+      "3x\u00b2",
+      "3x",
+      "x\u2074"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_013",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is log\u2081\u2080(1000)?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "10"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_014",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Evaluate: \u222bx\u00b2dx from 0 to 3",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "27"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_015",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "If f(x) = x\u00b3 - 3x, find f'(2).",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "3"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_016",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Solve: sin\u00b2x + cos\u00b2x = ?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "x"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_017",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "The number of ways to arrange 4 items is:",
+    "options": [
+      "12",
+      "16",
+      "24",
+      "48"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_matric_018",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "What is the sum of the infinite series 1 + 1/2 + 1/4 + ...?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_matric_019",
+    "subject": "mathematics",
+    "curriculum_level": "matric",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Find the value of i\u00b2 where i = \u221a(-1).",
+    "options": [
+      "1",
+      "-1",
+      "i",
+      "0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_020",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the SI unit of force?",
+    "options": [
+      "Watt",
+      "Joule",
+      "Newton",
+      "Pascal"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_021",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Speed = Distance / ?",
+    "options": [
+      "Mass",
+      "Time",
+      "Force",
+      "Energy"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_022",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Which colour of light has the highest frequency?",
+    "options": [
+      "Red",
+      "Green",
+      "Violet",
+      "Yellow"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_023",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the acceleration due to gravity on Earth?",
+    "options": [
+      "8.9 m/s\u00b2",
+      "9.8 m/s\u00b2",
+      "10.8 m/s\u00b2",
+      "11 m/s\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_024",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "An object at rest has which type of energy?",
+    "options": [
+      "Kinetic",
+      "Potential",
+      "Thermal",
+      "Chemical"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_025",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "A car travels 120 km in 2 hours. Its average speed is:",
+    "options": [
+      "40 km/h",
+      "60 km/h",
+      "80 km/h",
+      "100 km/h"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_026",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Ohm's Law states V = ?",
+    "options": [
+      "IR",
+      "I/R",
+      "R/I",
+      "I\u00b2R"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "phys_matric_027",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The wavelength of visible light is approximately:",
+    "options": [
+      "1-10 nm",
+      "400-700 nm",
+      "1-10 mm",
+      "700-1000 nm"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_028",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which law states F = ma?",
+    "options": [
+      "Newton's 1st",
+      "Newton's 2nd",
+      "Newton's 3rd",
+      "Hooke's Law"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_029",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The unit of electric resistance is:",
+    "options": [
+      "Ampere",
+      "Volt",
+      "Ohm",
+      "Watt"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_030",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Pressure = Force / ?",
+    "options": [
+      "Volume",
+      "Area",
+      "Mass",
+      "Distance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_031",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The speed of light in vacuum is approximately:",
+    "options": [
+      "3\u00d710\u2076 m/s",
+      "3\u00d710\u2078 m/s",
+      "3\u00d710\u00b9\u2070 m/s",
+      "3\u00d710\u2074 m/s"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_032",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which type of mirror is used in car headlights?",
+    "options": [
+      "Plane",
+      "Concave",
+      "Convex",
+      "Parabolic"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_033",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "A 5 kg object is accelerated at 4 m/s\u00b2. The force applied is:",
+    "options": [
+      "10 N",
+      "15 N",
+      "20 N",
+      "25 N"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_034",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The half-life of a radioactive element is 10 years. After 30 years, the fraction remaining is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/8",
+      "1/16"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_035",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "Which equation relates energy and mass?",
+    "options": [
+      "F=ma",
+      "E=mc\u00b2",
+      "V=IR",
+      "P=IV"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_036",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The magnetic force on a moving charge is given by:",
+    "options": [
+      "F=qE",
+      "F=qvB",
+      "F=mv\u00b2/r",
+      "F=kq\u00b2/r\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_matric_037",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "In simple harmonic motion, the restoring force is proportional to:",
+    "options": [
+      "Velocity",
+      "Acceleration",
+      "Displacement",
+      "Mass"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_matric_038",
+    "subject": "physics",
+    "curriculum_level": "matric",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The de Broglie wavelength of a particle is \u03bb = h/p. If momentum doubles, wavelength:",
+    "options": [
+      "Doubles",
+      "Halves",
+      "Stays same",
+      "Quadruples"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_039",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "The atomic number of Carbon is:",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_040",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Water is made of:",
+    "options": [
+      "HO",
+      "H\u2082O",
+      "H\u2082O\u2082",
+      "OH"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_041",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the pH of pure water?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_042",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Which gas is released during photosynthesis?",
+    "options": [
+      "CO\u2082",
+      "N\u2082",
+      "O\u2082",
+      "H\u2082"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_043",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "NaCl is the chemical formula for:",
+    "options": [
+      "Sugar",
+      "Salt",
+      "Baking soda",
+      "Vinegar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_044",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Avogadro's number is approximately:",
+    "options": [
+      "6.02\u00d710\u00b2\u00b2",
+      "6.02\u00d710\u00b2\u00b3",
+      "6.02\u00d710\u00b2\u2074",
+      "6.02\u00d710\u00b2\u2075"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_045",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "An acid has a pH:",
+    "options": [
+      "Greater than 7",
+      "Equal to 7",
+      "Less than 7",
+      "Zero"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_046",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The valency of Oxygen is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_047",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a noble gas?",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Argon",
+      "Hydrogen"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_048",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Rusting of iron is an example of:",
+    "options": [
+      "Physical change",
+      "Chemical change",
+      "Nuclear change",
+      "Phase change"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_049",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Benzene has the molecular formula:",
+    "options": [
+      "C\u2086H\u2086",
+      "C\u2086H\u2081\u2082",
+      "C\u2086H\u2081\u2084",
+      "C\u2086H\u2081\u2080"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "chem_matric_050",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which bond results from sharing of electrons?",
+    "options": [
+      "Ionic",
+      "Covalent",
+      "Metallic",
+      "Hydrogen"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_051",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The atomic mass of Sodium (Na) is approximately:",
+    "options": [
+      "11",
+      "12",
+      "23",
+      "24"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_052",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "In an electrolytic cell, oxidation occurs at the:",
+    "options": [
+      "Cathode",
+      "Anode",
+      "Electrolyte",
+      "Salt bridge"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_053",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which hybridisation is present in methane (CH\u2084)?",
+    "options": [
+      "sp",
+      "sp\u00b2",
+      "sp\u00b3",
+      "sp\u00b3d"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_054",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The equilibrium constant Kc for a reaction is 1000. This means:",
+    "options": [
+      "Reactants favoured",
+      "Products favoured",
+      "Equal amounts",
+      "Reaction is slow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_055",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Enthalpy change (\u0394H) for exothermic reactions is:",
+    "options": [
+      "Positive",
+      "Negative",
+      "Zero",
+      "Undefined"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_matric_056",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which law states PV = nRT?",
+    "options": [
+      "Boyle's Law",
+      "Charles's Law",
+      "Ideal Gas Law",
+      "Dalton's Law"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_matric_057",
+    "subject": "chemistry",
+    "curriculum_level": "matric",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The IUPAC name of CH\u2083-CH\u2082-OH is:",
+    "options": [
+      "Methanol",
+      "Ethanol",
+      "Propanol",
+      "Butanol"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_matric_058",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "The basic unit of life is:",
+    "options": [
+      "Atom",
+      "Molecule",
+      "Cell",
+      "Tissue"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_059",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Photosynthesis occurs in:",
+    "options": [
+      "Mitochondria",
+      "Ribosome",
+      "Chloroplast",
+      "Nucleus"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_060",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "DNA stands for:",
+    "options": [
+      "Deoxyribose Nucleic Acid",
+      "Diribose Nucleic Acid",
+      "Deoxyribonucleic Acid",
+      "Diribonucleic Acid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_061",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "How many chambers does the human heart have?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_062",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Which vitamin is produced by sunlight?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B",
+      "Vitamin C",
+      "Vitamin D"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_matric_063",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Mitosis results in:",
+    "options": [
+      "2 identical cells",
+      "4 identical cells",
+      "2 different cells",
+      "4 different cells"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "biol_matric_064",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The powerhouse of the cell is:",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Golgi body"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_065",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which blood group is the universal donor?",
+    "options": [
+      "A",
+      "B",
+      "AB",
+      "O"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_matric_066",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Insulin is produced by the:",
+    "options": [
+      "Liver",
+      "Kidney",
+      "Pancreas",
+      "Thyroid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_067",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The process of breaking down food in the absence of oxygen is:",
+    "options": [
+      "Aerobic respiration",
+      "Anaerobic respiration",
+      "Photosynthesis",
+      "Transpiration"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_matric_068",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which part of the brain controls balance?",
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Medulla",
+      "Thalamus"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_matric_069",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "DNA replication is:",
+    "options": [
+      "Conservative",
+      "Semi-conservative",
+      "Dispersive",
+      "Non-conservative"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_matric_070",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The role of lymphocytes is:",
+    "options": [
+      "Carry oxygen",
+      "Clot blood",
+      "Fight infection",
+      "Digest food"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_071",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "In meiosis, the chromosome number:",
+    "options": [
+      "Doubles",
+      "Stays same",
+      "Halves",
+      "Quadruples"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_072",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The Hardy-Weinberg equilibrium requires:",
+    "options": [
+      "Natural selection",
+      "No mutation",
+      "Small population",
+      "Gene flow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_matric_073",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Which molecule carries amino acids to ribosomes?",
+    "options": [
+      "mRNA",
+      "rRNA",
+      "tRNA",
+      "DNA"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_074",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Enzyme activity is affected by:",
+    "options": [
+      "Temperature and pH only",
+      "pH only",
+      "Temperature only",
+      "Temperature, pH, and substrate concentration"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_matric_075",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The lac operon is an example of:",
+    "options": [
+      "Post-translational regulation",
+      "Translational regulation",
+      "Transcriptional regulation",
+      "Epigenetic regulation"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_matric_076",
+    "subject": "biology",
+    "curriculum_level": "matric",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "CRISPR-Cas9 is used for:",
+    "options": [
+      "DNA sequencing",
+      "Gene editing",
+      "Protein synthesis",
+      "Cell division"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_077",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which is a noun?",
+    "options": [
+      "Run",
+      "Beautiful",
+      "Book",
+      "Quickly"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_078",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "The plural of 'child' is:",
+    "options": [
+      "Childs",
+      "Childes",
+      "Children",
+      "Childrens"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_079",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which sentence is correct?",
+    "options": [
+      "He don't like it",
+      "He doesn't likes it",
+      "He doesn't like it",
+      "He not like it"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_080",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "A word that describes a verb is called an:",
+    "options": [
+      "Adjective",
+      "Adverb",
+      "Pronoun",
+      "Conjunction"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_081",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "'The sun rises in the east' is a:",
+    "options": [
+      "Complex sentence",
+      "Compound sentence",
+      "Simple sentence",
+      "Compound-complex sentence"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_082",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the passive voice: ",
+    "options": [
+      "She writes a letter",
+      "A letter is written by her",
+      "She is writing",
+      "She wrote"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_083",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a compound sentence?",
+    "options": [
+      "She sings.",
+      "She sings and he dances.",
+      "Although she sings.",
+      "She sings beautifully."
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_084",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The antonym of 'benevolent' is:",
+    "options": [
+      "Kind",
+      "Generous",
+      "Malevolent",
+      "Helpful"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_085",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "A metaphor is:",
+    "options": [
+      "A direct comparison using like/as",
+      "A direct comparison without like/as",
+      "An exaggeration",
+      "A play on words"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_086",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which tense is 'He had eaten before she arrived'?",
+    "options": [
+      "Simple past",
+      "Past continuous",
+      "Past perfect",
+      "Present perfect"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_087",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the figure of speech: 'The wind whispered through the trees'",
+    "options": [
+      "Simile",
+      "Metaphor",
+      "Personification",
+      "Hyperbole"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_088",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The word 'affect' is a:",
+    "options": [
+      "Noun",
+      "Verb",
+      "Adjective",
+      "Adverb"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_089",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is correct? 'Neither the boys nor the girl ___ present.'",
+    "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_090",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "In 'To Kill a Mockingbird', Atticus Finch represents:",
+    "options": [
+      "Prejudice",
+      "Moral courage",
+      "Cowardice",
+      "Ambition"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_091",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "The literary device where the end of one clause begins the next is:",
+    "options": [
+      "Anaphora",
+      "Anadiplosis",
+      "Antithesis",
+      "Assonance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_092",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Identify the mood: 'If I were rich, I would travel.'",
+    "options": [
+      "Indicative",
+      "Imperative",
+      "Subjunctive",
+      "Infinitive"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_093",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Which rhetorical device appeals to emotion?",
+    "options": [
+      "Logos",
+      "Ethos",
+      "Pathos",
+      "Kairos"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_matric_094",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "A Petrarchan sonnet has the rhyme scheme:",
+    "options": [
+      "ABAB CDCD EFEF GG",
+      "ABBAABBA CDECDE",
+      "ABAB CDCD EFEF EE",
+      "AABB CCDD EEFF GG"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_matric_095",
+    "subject": "english",
+    "curriculum_level": "matric",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Stream of consciousness is a narrative technique associated with:",
+    "options": [
+      "Ernest Hemingway",
+      "Virginia Woolf",
+      "Charles Dickens",
+      "Jane Austen"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_096",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is 15% of 200?",
+    "options": [
+      "25",
+      "30",
+      "35",
+      "40"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_097",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the value of 2\u00b3?",
+    "options": [
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_098",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "If x + 5 = 12, what is x?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part1_099",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the area of a square with side 4?",
+    "options": [
+      "12",
+      "14",
+      "16",
+      "18"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part1_100",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the LCM of 4 and 6?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_101",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Solve: 2x\u00b2 - 5x + 3 = 0. Find x.",
+    "options": [
+      "1 and 3/2",
+      "2 and 1",
+      "3 and 1/2",
+      "1 and 2"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_inter_part1_102",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is sin(90\u00b0)?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "0.5"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_103",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "If a triangle has angles 60\u00b0, 60\u00b0, and 60\u00b0, it is:",
+    "options": [
+      "Scalene",
+      "Isosceles",
+      "Equilateral",
+      "Right-angled"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part1_104",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is the slope of y = 3x + 7?",
+    "options": [
+      "7",
+      "3",
+      "1/3",
+      "3/7"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_105",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Simplify: (x\u00b2-4)/(x-2)",
+    "options": [
+      "x+2",
+      "x-2",
+      "x\u00b2+2",
+      "2x"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_inter_part1_106",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "The sum of interior angles of a hexagon is:",
+    "options": [
+      "540\u00b0",
+      "720\u00b0",
+      "900\u00b0",
+      "360\u00b0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_107",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Find the derivative of x\u00b3.",
+    "options": [
+      "x\u00b2",
+      "3x\u00b2",
+      "3x",
+      "x\u2074"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_108",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is log\u2081\u2080(1000)?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "10"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_109",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Evaluate: \u222bx\u00b2dx from 0 to 3",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "27"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_110",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "If f(x) = x\u00b3 - 3x, find f'(2).",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "3"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_111",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Solve: sin\u00b2x + cos\u00b2x = ?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "x"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_112",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "The number of ways to arrange 4 items is:",
+    "options": [
+      "12",
+      "16",
+      "24",
+      "48"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part1_113",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "What is the sum of the infinite series 1 + 1/2 + 1/4 + ...?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part1_114",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part1",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Find the value of i\u00b2 where i = \u221a(-1).",
+    "options": [
+      "1",
+      "-1",
+      "i",
+      "0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_115",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the SI unit of force?",
+    "options": [
+      "Watt",
+      "Joule",
+      "Newton",
+      "Pascal"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_116",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Speed = Distance / ?",
+    "options": [
+      "Mass",
+      "Time",
+      "Force",
+      "Energy"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_117",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Which colour of light has the highest frequency?",
+    "options": [
+      "Red",
+      "Green",
+      "Violet",
+      "Yellow"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_118",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the acceleration due to gravity on Earth?",
+    "options": [
+      "8.9 m/s\u00b2",
+      "9.8 m/s\u00b2",
+      "10.8 m/s\u00b2",
+      "11 m/s\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_119",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "An object at rest has which type of energy?",
+    "options": [
+      "Kinetic",
+      "Potential",
+      "Thermal",
+      "Chemical"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_120",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "A car travels 120 km in 2 hours. Its average speed is:",
+    "options": [
+      "40 km/h",
+      "60 km/h",
+      "80 km/h",
+      "100 km/h"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_121",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Ohm's Law states V = ?",
+    "options": [
+      "IR",
+      "I/R",
+      "R/I",
+      "I\u00b2R"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "phys_inter_part1_122",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The wavelength of visible light is approximately:",
+    "options": [
+      "1-10 nm",
+      "400-700 nm",
+      "1-10 mm",
+      "700-1000 nm"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_123",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which law states F = ma?",
+    "options": [
+      "Newton's 1st",
+      "Newton's 2nd",
+      "Newton's 3rd",
+      "Hooke's Law"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_124",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The unit of electric resistance is:",
+    "options": [
+      "Ampere",
+      "Volt",
+      "Ohm",
+      "Watt"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_125",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Pressure = Force / ?",
+    "options": [
+      "Volume",
+      "Area",
+      "Mass",
+      "Distance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_126",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The speed of light in vacuum is approximately:",
+    "options": [
+      "3\u00d710\u2076 m/s",
+      "3\u00d710\u2078 m/s",
+      "3\u00d710\u00b9\u2070 m/s",
+      "3\u00d710\u2074 m/s"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_127",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which type of mirror is used in car headlights?",
+    "options": [
+      "Plane",
+      "Concave",
+      "Convex",
+      "Parabolic"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_128",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "A 5 kg object is accelerated at 4 m/s\u00b2. The force applied is:",
+    "options": [
+      "10 N",
+      "15 N",
+      "20 N",
+      "25 N"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_129",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The half-life of a radioactive element is 10 years. After 30 years, the fraction remaining is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/8",
+      "1/16"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_130",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "Which equation relates energy and mass?",
+    "options": [
+      "F=ma",
+      "E=mc\u00b2",
+      "V=IR",
+      "P=IV"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_131",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The magnetic force on a moving charge is given by:",
+    "options": [
+      "F=qE",
+      "F=qvB",
+      "F=mv\u00b2/r",
+      "F=kq\u00b2/r\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part1_132",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "In simple harmonic motion, the restoring force is proportional to:",
+    "options": [
+      "Velocity",
+      "Acceleration",
+      "Displacement",
+      "Mass"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part1_133",
+    "subject": "physics",
+    "curriculum_level": "inter_part1",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The de Broglie wavelength of a particle is \u03bb = h/p. If momentum doubles, wavelength:",
+    "options": [
+      "Doubles",
+      "Halves",
+      "Stays same",
+      "Quadruples"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_134",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "The atomic number of Carbon is:",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_135",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Water is made of:",
+    "options": [
+      "HO",
+      "H\u2082O",
+      "H\u2082O\u2082",
+      "OH"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_136",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the pH of pure water?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_137",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Which gas is released during photosynthesis?",
+    "options": [
+      "CO\u2082",
+      "N\u2082",
+      "O\u2082",
+      "H\u2082"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_138",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "NaCl is the chemical formula for:",
+    "options": [
+      "Sugar",
+      "Salt",
+      "Baking soda",
+      "Vinegar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_139",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Avogadro's number is approximately:",
+    "options": [
+      "6.02\u00d710\u00b2\u00b2",
+      "6.02\u00d710\u00b2\u00b3",
+      "6.02\u00d710\u00b2\u2074",
+      "6.02\u00d710\u00b2\u2075"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_140",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "An acid has a pH:",
+    "options": [
+      "Greater than 7",
+      "Equal to 7",
+      "Less than 7",
+      "Zero"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_141",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The valency of Oxygen is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_142",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a noble gas?",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Argon",
+      "Hydrogen"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_143",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Rusting of iron is an example of:",
+    "options": [
+      "Physical change",
+      "Chemical change",
+      "Nuclear change",
+      "Phase change"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_144",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Benzene has the molecular formula:",
+    "options": [
+      "C\u2086H\u2086",
+      "C\u2086H\u2081\u2082",
+      "C\u2086H\u2081\u2084",
+      "C\u2086H\u2081\u2080"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "chem_inter_part1_145",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which bond results from sharing of electrons?",
+    "options": [
+      "Ionic",
+      "Covalent",
+      "Metallic",
+      "Hydrogen"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_146",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The atomic mass of Sodium (Na) is approximately:",
+    "options": [
+      "11",
+      "12",
+      "23",
+      "24"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_147",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "In an electrolytic cell, oxidation occurs at the:",
+    "options": [
+      "Cathode",
+      "Anode",
+      "Electrolyte",
+      "Salt bridge"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_148",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which hybridisation is present in methane (CH\u2084)?",
+    "options": [
+      "sp",
+      "sp\u00b2",
+      "sp\u00b3",
+      "sp\u00b3d"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_149",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The equilibrium constant Kc for a reaction is 1000. This means:",
+    "options": [
+      "Reactants favoured",
+      "Products favoured",
+      "Equal amounts",
+      "Reaction is slow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_150",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Enthalpy change (\u0394H) for exothermic reactions is:",
+    "options": [
+      "Positive",
+      "Negative",
+      "Zero",
+      "Undefined"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part1_151",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which law states PV = nRT?",
+    "options": [
+      "Boyle's Law",
+      "Charles's Law",
+      "Ideal Gas Law",
+      "Dalton's Law"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part1_152",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part1",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The IUPAC name of CH\u2083-CH\u2082-OH is:",
+    "options": [
+      "Methanol",
+      "Ethanol",
+      "Propanol",
+      "Butanol"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part1_153",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "The basic unit of life is:",
+    "options": [
+      "Atom",
+      "Molecule",
+      "Cell",
+      "Tissue"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_154",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Photosynthesis occurs in:",
+    "options": [
+      "Mitochondria",
+      "Ribosome",
+      "Chloroplast",
+      "Nucleus"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_155",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "DNA stands for:",
+    "options": [
+      "Deoxyribose Nucleic Acid",
+      "Diribose Nucleic Acid",
+      "Deoxyribonucleic Acid",
+      "Diribonucleic Acid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_156",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "How many chambers does the human heart have?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_157",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Which vitamin is produced by sunlight?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B",
+      "Vitamin C",
+      "Vitamin D"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part1_158",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Mitosis results in:",
+    "options": [
+      "2 identical cells",
+      "4 identical cells",
+      "2 different cells",
+      "4 different cells"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "biol_inter_part1_159",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The powerhouse of the cell is:",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Golgi body"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_160",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which blood group is the universal donor?",
+    "options": [
+      "A",
+      "B",
+      "AB",
+      "O"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part1_161",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Insulin is produced by the:",
+    "options": [
+      "Liver",
+      "Kidney",
+      "Pancreas",
+      "Thyroid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_162",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The process of breaking down food in the absence of oxygen is:",
+    "options": [
+      "Aerobic respiration",
+      "Anaerobic respiration",
+      "Photosynthesis",
+      "Transpiration"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part1_163",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which part of the brain controls balance?",
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Medulla",
+      "Thalamus"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part1_164",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "DNA replication is:",
+    "options": [
+      "Conservative",
+      "Semi-conservative",
+      "Dispersive",
+      "Non-conservative"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part1_165",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The role of lymphocytes is:",
+    "options": [
+      "Carry oxygen",
+      "Clot blood",
+      "Fight infection",
+      "Digest food"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_166",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "In meiosis, the chromosome number:",
+    "options": [
+      "Doubles",
+      "Stays same",
+      "Halves",
+      "Quadruples"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_167",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The Hardy-Weinberg equilibrium requires:",
+    "options": [
+      "Natural selection",
+      "No mutation",
+      "Small population",
+      "Gene flow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part1_168",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Which molecule carries amino acids to ribosomes?",
+    "options": [
+      "mRNA",
+      "rRNA",
+      "tRNA",
+      "DNA"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_169",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Enzyme activity is affected by:",
+    "options": [
+      "Temperature and pH only",
+      "pH only",
+      "Temperature only",
+      "Temperature, pH, and substrate concentration"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part1_170",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The lac operon is an example of:",
+    "options": [
+      "Post-translational regulation",
+      "Translational regulation",
+      "Transcriptional regulation",
+      "Epigenetic regulation"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part1_171",
+    "subject": "biology",
+    "curriculum_level": "inter_part1",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "CRISPR-Cas9 is used for:",
+    "options": [
+      "DNA sequencing",
+      "Gene editing",
+      "Protein synthesis",
+      "Cell division"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_172",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which is a noun?",
+    "options": [
+      "Run",
+      "Beautiful",
+      "Book",
+      "Quickly"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_173",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "The plural of 'child' is:",
+    "options": [
+      "Childs",
+      "Childes",
+      "Children",
+      "Childrens"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_174",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which sentence is correct?",
+    "options": [
+      "He don't like it",
+      "He doesn't likes it",
+      "He doesn't like it",
+      "He not like it"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_175",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "A word that describes a verb is called an:",
+    "options": [
+      "Adjective",
+      "Adverb",
+      "Pronoun",
+      "Conjunction"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_176",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "'The sun rises in the east' is a:",
+    "options": [
+      "Complex sentence",
+      "Compound sentence",
+      "Simple sentence",
+      "Compound-complex sentence"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_177",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the passive voice: ",
+    "options": [
+      "She writes a letter",
+      "A letter is written by her",
+      "She is writing",
+      "She wrote"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_178",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a compound sentence?",
+    "options": [
+      "She sings.",
+      "She sings and he dances.",
+      "Although she sings.",
+      "She sings beautifully."
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_179",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The antonym of 'benevolent' is:",
+    "options": [
+      "Kind",
+      "Generous",
+      "Malevolent",
+      "Helpful"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_180",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "A metaphor is:",
+    "options": [
+      "A direct comparison using like/as",
+      "A direct comparison without like/as",
+      "An exaggeration",
+      "A play on words"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_181",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which tense is 'He had eaten before she arrived'?",
+    "options": [
+      "Simple past",
+      "Past continuous",
+      "Past perfect",
+      "Present perfect"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_182",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the figure of speech: 'The wind whispered through the trees'",
+    "options": [
+      "Simile",
+      "Metaphor",
+      "Personification",
+      "Hyperbole"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_183",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The word 'affect' is a:",
+    "options": [
+      "Noun",
+      "Verb",
+      "Adjective",
+      "Adverb"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_184",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is correct? 'Neither the boys nor the girl ___ present.'",
+    "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_185",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "In 'To Kill a Mockingbird', Atticus Finch represents:",
+    "options": [
+      "Prejudice",
+      "Moral courage",
+      "Cowardice",
+      "Ambition"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_186",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "The literary device where the end of one clause begins the next is:",
+    "options": [
+      "Anaphora",
+      "Anadiplosis",
+      "Antithesis",
+      "Assonance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_187",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Identify the mood: 'If I were rich, I would travel.'",
+    "options": [
+      "Indicative",
+      "Imperative",
+      "Subjunctive",
+      "Infinitive"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_188",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Which rhetorical device appeals to emotion?",
+    "options": [
+      "Logos",
+      "Ethos",
+      "Pathos",
+      "Kairos"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part1_189",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "A Petrarchan sonnet has the rhyme scheme:",
+    "options": [
+      "ABAB CDCD EFEF GG",
+      "ABBAABBA CDECDE",
+      "ABAB CDCD EFEF EE",
+      "AABB CCDD EEFF GG"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part1_190",
+    "subject": "english",
+    "curriculum_level": "inter_part1",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Stream of consciousness is a narrative technique associated with:",
+    "options": [
+      "Ernest Hemingway",
+      "Virginia Woolf",
+      "Charles Dickens",
+      "Jane Austen"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_191",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is 15% of 200?",
+    "options": [
+      "25",
+      "30",
+      "35",
+      "40"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_192",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the value of 2\u00b3?",
+    "options": [
+      "6",
+      "8",
+      "9",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_193",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "If x + 5 = 12, what is x?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part2_194",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the area of a square with side 4?",
+    "options": [
+      "12",
+      "14",
+      "16",
+      "18"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part2_195",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the LCM of 4 and 6?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "16"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_196",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Solve: 2x\u00b2 - 5x + 3 = 0. Find x.",
+    "options": [
+      "1 and 3/2",
+      "2 and 1",
+      "3 and 1/2",
+      "1 and 2"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_inter_part2_197",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is sin(90\u00b0)?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "0.5"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_198",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "If a triangle has angles 60\u00b0, 60\u00b0, and 60\u00b0, it is:",
+    "options": [
+      "Scalene",
+      "Isosceles",
+      "Equilateral",
+      "Right-angled"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part2_199",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is the slope of y = 3x + 7?",
+    "options": [
+      "7",
+      "3",
+      "1/3",
+      "3/7"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_200",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Simplify: (x\u00b2-4)/(x-2)",
+    "options": [
+      "x+2",
+      "x-2",
+      "x\u00b2+2",
+      "2x"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "math_inter_part2_201",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "The sum of interior angles of a hexagon is:",
+    "options": [
+      "540\u00b0",
+      "720\u00b0",
+      "900\u00b0",
+      "360\u00b0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_202",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "Find the derivative of x\u00b3.",
+    "options": [
+      "x\u00b2",
+      "3x\u00b2",
+      "3x",
+      "x\u2074"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_203",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "medium",
+    "question": "What is log\u2081\u2080(1000)?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "10"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_204",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Evaluate: \u222bx\u00b2dx from 0 to 3",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "27"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_205",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "If f(x) = x\u00b3 - 3x, find f'(2).",
+    "options": [
+      "6",
+      "9",
+      "12",
+      "3"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_206",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Solve: sin\u00b2x + cos\u00b2x = ?",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "x"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_207",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "The number of ways to arrange 4 items is:",
+    "options": [
+      "12",
+      "16",
+      "24",
+      "48"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "math_inter_part2_208",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "What is the sum of the infinite series 1 + 1/2 + 1/4 + ...?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "math_inter_part2_209",
+    "subject": "mathematics",
+    "curriculum_level": "inter_part2",
+    "topic": "mathematics_fundamentals",
+    "difficulty": "hard",
+    "question": "Find the value of i\u00b2 where i = \u221a(-1).",
+    "options": [
+      "1",
+      "-1",
+      "i",
+      "0"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_210",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the SI unit of force?",
+    "options": [
+      "Watt",
+      "Joule",
+      "Newton",
+      "Pascal"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_211",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Speed = Distance / ?",
+    "options": [
+      "Mass",
+      "Time",
+      "Force",
+      "Energy"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_212",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "Which colour of light has the highest frequency?",
+    "options": [
+      "Red",
+      "Green",
+      "Violet",
+      "Yellow"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_213",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the acceleration due to gravity on Earth?",
+    "options": [
+      "8.9 m/s\u00b2",
+      "9.8 m/s\u00b2",
+      "10.8 m/s\u00b2",
+      "11 m/s\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_214",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "easy",
+    "question": "An object at rest has which type of energy?",
+    "options": [
+      "Kinetic",
+      "Potential",
+      "Thermal",
+      "Chemical"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_215",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "A car travels 120 km in 2 hours. Its average speed is:",
+    "options": [
+      "40 km/h",
+      "60 km/h",
+      "80 km/h",
+      "100 km/h"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_216",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Ohm's Law states V = ?",
+    "options": [
+      "IR",
+      "I/R",
+      "R/I",
+      "I\u00b2R"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "phys_inter_part2_217",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The wavelength of visible light is approximately:",
+    "options": [
+      "1-10 nm",
+      "400-700 nm",
+      "1-10 mm",
+      "700-1000 nm"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_218",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which law states F = ma?",
+    "options": [
+      "Newton's 1st",
+      "Newton's 2nd",
+      "Newton's 3rd",
+      "Hooke's Law"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_219",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The unit of electric resistance is:",
+    "options": [
+      "Ampere",
+      "Volt",
+      "Ohm",
+      "Watt"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_220",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Pressure = Force / ?",
+    "options": [
+      "Volume",
+      "Area",
+      "Mass",
+      "Distance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_221",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "The speed of light in vacuum is approximately:",
+    "options": [
+      "3\u00d710\u2076 m/s",
+      "3\u00d710\u2078 m/s",
+      "3\u00d710\u00b9\u2070 m/s",
+      "3\u00d710\u2074 m/s"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_222",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "medium",
+    "question": "Which type of mirror is used in car headlights?",
+    "options": [
+      "Plane",
+      "Concave",
+      "Convex",
+      "Parabolic"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_223",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "A 5 kg object is accelerated at 4 m/s\u00b2. The force applied is:",
+    "options": [
+      "10 N",
+      "15 N",
+      "20 N",
+      "25 N"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_224",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The half-life of a radioactive element is 10 years. After 30 years, the fraction remaining is:",
+    "options": [
+      "1/2",
+      "1/4",
+      "1/8",
+      "1/16"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_225",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "Which equation relates energy and mass?",
+    "options": [
+      "F=ma",
+      "E=mc\u00b2",
+      "V=IR",
+      "P=IV"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_226",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The magnetic force on a moving charge is given by:",
+    "options": [
+      "F=qE",
+      "F=qvB",
+      "F=mv\u00b2/r",
+      "F=kq\u00b2/r\u00b2"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "phys_inter_part2_227",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "In simple harmonic motion, the restoring force is proportional to:",
+    "options": [
+      "Velocity",
+      "Acceleration",
+      "Displacement",
+      "Mass"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "phys_inter_part2_228",
+    "subject": "physics",
+    "curriculum_level": "inter_part2",
+    "topic": "physics_fundamentals",
+    "difficulty": "hard",
+    "question": "The de Broglie wavelength of a particle is \u03bb = h/p. If momentum doubles, wavelength:",
+    "options": [
+      "Doubles",
+      "Halves",
+      "Stays same",
+      "Quadruples"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_229",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "The atomic number of Carbon is:",
+    "options": [
+      "4",
+      "6",
+      "8",
+      "12"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_230",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Water is made of:",
+    "options": [
+      "HO",
+      "H\u2082O",
+      "H\u2082O\u2082",
+      "OH"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_231",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "What is the pH of pure water?",
+    "options": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_232",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "Which gas is released during photosynthesis?",
+    "options": [
+      "CO\u2082",
+      "N\u2082",
+      "O\u2082",
+      "H\u2082"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_233",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "easy",
+    "question": "NaCl is the chemical formula for:",
+    "options": [
+      "Sugar",
+      "Salt",
+      "Baking soda",
+      "Vinegar"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_234",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Avogadro's number is approximately:",
+    "options": [
+      "6.02\u00d710\u00b2\u00b2",
+      "6.02\u00d710\u00b2\u00b3",
+      "6.02\u00d710\u00b2\u2074",
+      "6.02\u00d710\u00b2\u2075"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_235",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "An acid has a pH:",
+    "options": [
+      "Greater than 7",
+      "Equal to 7",
+      "Less than 7",
+      "Zero"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_236",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The valency of Oxygen is:",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_237",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a noble gas?",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Argon",
+      "Hydrogen"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_238",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Rusting of iron is an example of:",
+    "options": [
+      "Physical change",
+      "Chemical change",
+      "Nuclear change",
+      "Phase change"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_239",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Benzene has the molecular formula:",
+    "options": [
+      "C\u2086H\u2086",
+      "C\u2086H\u2081\u2082",
+      "C\u2086H\u2081\u2084",
+      "C\u2086H\u2081\u2080"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "chem_inter_part2_240",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "Which bond results from sharing of electrons?",
+    "options": [
+      "Ionic",
+      "Covalent",
+      "Metallic",
+      "Hydrogen"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_241",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "medium",
+    "question": "The atomic mass of Sodium (Na) is approximately:",
+    "options": [
+      "11",
+      "12",
+      "23",
+      "24"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_242",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "In an electrolytic cell, oxidation occurs at the:",
+    "options": [
+      "Cathode",
+      "Anode",
+      "Electrolyte",
+      "Salt bridge"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_243",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which hybridisation is present in methane (CH\u2084)?",
+    "options": [
+      "sp",
+      "sp\u00b2",
+      "sp\u00b3",
+      "sp\u00b3d"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_244",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The equilibrium constant Kc for a reaction is 1000. This means:",
+    "options": [
+      "Reactants favoured",
+      "Products favoured",
+      "Equal amounts",
+      "Reaction is slow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_245",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Enthalpy change (\u0394H) for exothermic reactions is:",
+    "options": [
+      "Positive",
+      "Negative",
+      "Zero",
+      "Undefined"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "chem_inter_part2_246",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "Which law states PV = nRT?",
+    "options": [
+      "Boyle's Law",
+      "Charles's Law",
+      "Ideal Gas Law",
+      "Dalton's Law"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "chem_inter_part2_247",
+    "subject": "chemistry",
+    "curriculum_level": "inter_part2",
+    "topic": "chemistry_fundamentals",
+    "difficulty": "hard",
+    "question": "The IUPAC name of CH\u2083-CH\u2082-OH is:",
+    "options": [
+      "Methanol",
+      "Ethanol",
+      "Propanol",
+      "Butanol"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part2_248",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "The basic unit of life is:",
+    "options": [
+      "Atom",
+      "Molecule",
+      "Cell",
+      "Tissue"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_249",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Photosynthesis occurs in:",
+    "options": [
+      "Mitochondria",
+      "Ribosome",
+      "Chloroplast",
+      "Nucleus"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_250",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "DNA stands for:",
+    "options": [
+      "Deoxyribose Nucleic Acid",
+      "Diribose Nucleic Acid",
+      "Deoxyribonucleic Acid",
+      "Diribonucleic Acid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_251",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "How many chambers does the human heart have?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_252",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "easy",
+    "question": "Which vitamin is produced by sunlight?",
+    "options": [
+      "Vitamin A",
+      "Vitamin B",
+      "Vitamin C",
+      "Vitamin D"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part2_253",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Mitosis results in:",
+    "options": [
+      "2 identical cells",
+      "4 identical cells",
+      "2 different cells",
+      "4 different cells"
+    ],
+    "correct_index": 0
+  },
+  {
+    "id": "biol_inter_part2_254",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The powerhouse of the cell is:",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Golgi body"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_255",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which blood group is the universal donor?",
+    "options": [
+      "A",
+      "B",
+      "AB",
+      "O"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part2_256",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Insulin is produced by the:",
+    "options": [
+      "Liver",
+      "Kidney",
+      "Pancreas",
+      "Thyroid"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_257",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The process of breaking down food in the absence of oxygen is:",
+    "options": [
+      "Aerobic respiration",
+      "Anaerobic respiration",
+      "Photosynthesis",
+      "Transpiration"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part2_258",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "Which part of the brain controls balance?",
+    "options": [
+      "Cerebrum",
+      "Cerebellum",
+      "Medulla",
+      "Thalamus"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part2_259",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "DNA replication is:",
+    "options": [
+      "Conservative",
+      "Semi-conservative",
+      "Dispersive",
+      "Non-conservative"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part2_260",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "medium",
+    "question": "The role of lymphocytes is:",
+    "options": [
+      "Carry oxygen",
+      "Clot blood",
+      "Fight infection",
+      "Digest food"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_261",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "In meiosis, the chromosome number:",
+    "options": [
+      "Doubles",
+      "Stays same",
+      "Halves",
+      "Quadruples"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_262",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The Hardy-Weinberg equilibrium requires:",
+    "options": [
+      "Natural selection",
+      "No mutation",
+      "Small population",
+      "Gene flow"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "biol_inter_part2_263",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Which molecule carries amino acids to ribosomes?",
+    "options": [
+      "mRNA",
+      "rRNA",
+      "tRNA",
+      "DNA"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_264",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "Enzyme activity is affected by:",
+    "options": [
+      "Temperature and pH only",
+      "pH only",
+      "Temperature only",
+      "Temperature, pH, and substrate concentration"
+    ],
+    "correct_index": 3
+  },
+  {
+    "id": "biol_inter_part2_265",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "The lac operon is an example of:",
+    "options": [
+      "Post-translational regulation",
+      "Translational regulation",
+      "Transcriptional regulation",
+      "Epigenetic regulation"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "biol_inter_part2_266",
+    "subject": "biology",
+    "curriculum_level": "inter_part2",
+    "topic": "biology_fundamentals",
+    "difficulty": "hard",
+    "question": "CRISPR-Cas9 is used for:",
+    "options": [
+      "DNA sequencing",
+      "Gene editing",
+      "Protein synthesis",
+      "Cell division"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_267",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which is a noun?",
+    "options": [
+      "Run",
+      "Beautiful",
+      "Book",
+      "Quickly"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_268",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "The plural of 'child' is:",
+    "options": [
+      "Childs",
+      "Childes",
+      "Children",
+      "Childrens"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_269",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "Which sentence is correct?",
+    "options": [
+      "He don't like it",
+      "He doesn't likes it",
+      "He doesn't like it",
+      "He not like it"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_270",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "A word that describes a verb is called an:",
+    "options": [
+      "Adjective",
+      "Adverb",
+      "Pronoun",
+      "Conjunction"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_271",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "easy",
+    "question": "'The sun rises in the east' is a:",
+    "options": [
+      "Complex sentence",
+      "Compound sentence",
+      "Simple sentence",
+      "Compound-complex sentence"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_272",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the passive voice: ",
+    "options": [
+      "She writes a letter",
+      "A letter is written by her",
+      "She is writing",
+      "She wrote"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_273",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is a compound sentence?",
+    "options": [
+      "She sings.",
+      "She sings and he dances.",
+      "Although she sings.",
+      "She sings beautifully."
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_274",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The antonym of 'benevolent' is:",
+    "options": [
+      "Kind",
+      "Generous",
+      "Malevolent",
+      "Helpful"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_275",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "A metaphor is:",
+    "options": [
+      "A direct comparison using like/as",
+      "A direct comparison without like/as",
+      "An exaggeration",
+      "A play on words"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_276",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which tense is 'He had eaten before she arrived'?",
+    "options": [
+      "Simple past",
+      "Past continuous",
+      "Past perfect",
+      "Present perfect"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_277",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Identify the figure of speech: 'The wind whispered through the trees'",
+    "options": [
+      "Simile",
+      "Metaphor",
+      "Personification",
+      "Hyperbole"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_278",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "The word 'affect' is a:",
+    "options": [
+      "Noun",
+      "Verb",
+      "Adjective",
+      "Adverb"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_279",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "medium",
+    "question": "Which is correct? 'Neither the boys nor the girl ___ present.'",
+    "options": [
+      "are",
+      "were",
+      "is",
+      "have been"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_280",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "In 'To Kill a Mockingbird', Atticus Finch represents:",
+    "options": [
+      "Prejudice",
+      "Moral courage",
+      "Cowardice",
+      "Ambition"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_281",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "The literary device where the end of one clause begins the next is:",
+    "options": [
+      "Anaphora",
+      "Anadiplosis",
+      "Antithesis",
+      "Assonance"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_282",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Identify the mood: 'If I were rich, I would travel.'",
+    "options": [
+      "Indicative",
+      "Imperative",
+      "Subjunctive",
+      "Infinitive"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_283",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Which rhetorical device appeals to emotion?",
+    "options": [
+      "Logos",
+      "Ethos",
+      "Pathos",
+      "Kairos"
+    ],
+    "correct_index": 2
+  },
+  {
+    "id": "engl_inter_part2_284",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "A Petrarchan sonnet has the rhyme scheme:",
+    "options": [
+      "ABAB CDCD EFEF GG",
+      "ABBAABBA CDECDE",
+      "ABAB CDCD EFEF EE",
+      "AABB CCDD EEFF GG"
+    ],
+    "correct_index": 1
+  },
+  {
+    "id": "engl_inter_part2_285",
+    "subject": "english",
+    "curriculum_level": "inter_part2",
+    "topic": "english_fundamentals",
+    "difficulty": "hard",
+    "question": "Stream of consciousness is a narrative technique associated with:",
+    "options": [
+      "Ernest Hemingway",
+      "Virginia Woolf",
+      "Charles Dickens",
+      "Jane Austen"
+    ],
+    "correct_index": 1
+  }
+]
