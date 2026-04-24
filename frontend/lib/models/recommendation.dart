@@ -19,8 +19,9 @@ class Recommendation {
   final double aggregateUsed;
   final List<String> softFlags;
   final String lifecycleStatus;
-  final double riskFactor;
+  final String riskFactor;
   final int? rozeeLiveCount;
+  final String? rozeeLastUpdated;
   final bool policyPendingVerification;
 
   const Recommendation({
@@ -42,6 +43,7 @@ class Recommendation {
     required this.lifecycleStatus,
     required this.riskFactor,
     this.rozeeLiveCount,
+    this.rozeeLastUpdated,
     required this.policyPendingVerification,
   });
 
@@ -63,8 +65,9 @@ class Recommendation {
       aggregateUsed: (json['aggregate_used'] as num).toDouble(),
       softFlags: List<String>.from(json['soft_flags'] as List? ?? []),
       lifecycleStatus: json['lifecycle_status'] as String,
-      riskFactor: (json['risk_factor'] as num).toDouble(),
+      riskFactor: json['risk_factor'] as String? ?? 'Low',
       rozeeLiveCount: json['rozee_live_count'] as int?,
+      rozeeLastUpdated: json['rozee_last_updated'] as String?,
       policyPendingVerification: json['policy_pending_verification'] as bool,
     );
   }
