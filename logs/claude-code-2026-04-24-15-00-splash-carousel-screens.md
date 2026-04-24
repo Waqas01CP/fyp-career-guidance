@@ -135,3 +135,30 @@ No issues found! (ran in 6.3s)
 
 ### flutter run result
 Not executed in this session — main.dart wiring still pending.
+
+---
+
+## Frontend Chat Fix — routing + colour — 2026-04-25
+
+### Fix 1 — 'complete' stage added to _routeForStage() (splash_screen.dart)
+
+**File:** `frontend/lib/screens/splash_screen.dart`
+**Change:** Added `case 'complete': return '/chat';` before `default` in `_routeForStage()`.
+**Reason:** `onboarding_stage = 'complete'` is set after the first chat session. Without this case, every returning user after their first use is routed back to RIASEC quiz instead of chat — critical routing bug.
+
+### Fix 2 — Bento label colour and font size (carousel_screen.dart)
+
+**File:** `frontend/lib/screens/onboarding/carousel_screen.dart`
+**Change:** In `_buildAptitudeVisual()` label `TextStyle`:
+- `color: Color(0xFF6E7977)` → `color: Color(0xFF515F74)`
+- `fontSize: 7` → `fontSize: 10`
+**Reason:** `0xFF6E7977` is the outline/border token — never used for text per the accessibility pass. `fontSize: 7` is below the 9px accessibility minimum.
+
+### flutter analyze output
+
+```
+Analyzing frontend...
+No issues found! (ran in 9.6s)
+```
+
+**Zero errors. Zero warnings.**

@@ -376,9 +376,9 @@ class _CarouselScreenState extends State<CarouselScreen> {
           child: Text(
             label,
             style: const TextStyle(
-              fontSize: 7,
+              fontSize: 10,
               fontWeight: FontWeight.w700,
-              color: Color(0xFF6E7977),
+              color: Color(0xFF515F74),
               letterSpacing: 1.0,
             ),
           ),
