@@ -92,10 +92,26 @@ flutter pub get
 
 ## Review Loop
 
-Same as backend — Architecture Chat reviews first, Frontend Chat reviews second.
+**Full process — do not skip any step:**
 
-Claude Code → Architecture Chat (design fidelity, API contract) →
-Frontend Chat (Dart code quality, Riverpod patterns) → GREEN → next screen
+```
+Architecture Chat produces Claude Code prompt
+↓
+Frontend Chat reviews the PROMPT (before execution) — catches wrong Riverpod patterns, bad API usage, design deviations — GREEN or issues to fix
+↓
+Claude Code executes the prompt (VS Code, Sonnet 4.6, Medium effort)
+↓
+Commit and sync repo
+↓
+Architecture Chat reviews the LOG — design fidelity, routing correctness, API contract
+↓
+Frontend Chat reviews the CODE — Dart quality, Riverpod patterns, null safety, performance — GREEN or RED with issues
+↓
+GREEN → next screen
+```
+
+Frontend Chat reviews TWICE — once before execution (prompt review)
+and once after (code review). This matches the backend flow exactly.
 
 ---
 
