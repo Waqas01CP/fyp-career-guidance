@@ -162,21 +162,25 @@ class _CarouselScreenState extends State<CarouselScreen> {
   }
 
   Widget _buildSlide(Map<String, String> slide, int index) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
-      child: Column(
-        children: [
-          AspectRatio(
-            aspectRatio: 1.0,
-            child: Container(
-              decoration: BoxDecoration(
-                color: _cardBg,
-                borderRadius: BorderRadius.circular(40),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          children: [
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 280, maxWidth: 280),
+              child: AspectRatio(
+                aspectRatio: 1.0,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: _cardBg,
+                    borderRadius: BorderRadius.circular(40),
+                  ),
+                  padding: const EdgeInsets.all(20),
+                  child: _buildBentoGrid(index),
+                ),
               ),
-              padding: const EdgeInsets.all(20),
-              child: _buildBentoGrid(index),
             ),
-          ),
           const SizedBox(height: 32),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,6 +202,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
           ),
         ],
       ),
+    ),
     );
   }
 

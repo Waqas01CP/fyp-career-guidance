@@ -110,3 +110,28 @@ Alternatively, test the carousel immediately: temporarily replace the '/onboardi
 ## Rule Deviation — Two Screens in One Session
 
 Justified per FRONTEND_SPRINT_BUILD_PROCESS.md "Splash + Carousel can be one session (no API calls)". Both screens are pre-auth with no SSE or complex state. Combined session reduces overhead with no quality risk.
+
+---
+
+## Fix — Carousel web viewport overflow — 2026-04-24
+
+### Root cause
+`AspectRatio(aspectRatio: 1.0)` inside `_buildSlide()` uses the full available width as its constraint. On Chrome at 1472px wide, the unconstrained `PageView` offers ~1472px width, making the card 1472×1472px — overflowing the column by ~1087px. On mobile (390dp) this does not trigger because the card fits within screen height.
+
+### Fix 1 — ConstrainedBox cap at 280×280
+Wrapped `AspectRatio` in `ConstrainedBox(constraints: BoxConstraints(maxHeight: 280, maxWidth: 280))`. The card now never exceeds 280px regardless of viewport width.
+
+### Fix 2 — SingleChildScrollView safety net
+Wrapped the entire `_buildSlide()` return in `SingleChildScrollView`. If any future content (longer body text, accessibility font sizes) causes the slide column to exceed the available `PageView` height, it scrolls instead of overflowing.
+
+### File changed
+`frontend/lib/screens/onboarding/carousel_screen.dart` — `_buildSlide()` method only.
+
+### flutter analyze output
+```
+Analyzing frontend...
+No issues found! (ran in 6.3s)
+```
+
+### flutter run result
+Not executed in this session — main.dart wiring still pending.
