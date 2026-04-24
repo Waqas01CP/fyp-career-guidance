@@ -41,7 +41,10 @@
       "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8003 --loop asyncio --reload)",
       "Bash(venv/Scripts/python.exe -m uvicorn app.main:app --port 8004 --loop asyncio --reload)",
       "Bash(venv/Scripts/python.exe -m pytest tests/ -v --timeout=30)",
-      "Bash(venv/Scripts/python.exe -m pytest tests/ -v)"
+      "Bash(venv/Scripts/python.exe -m pytest tests/ -v)",
+      "Bash(flutter clean *)",
+      "Bash(flutter pub *)",
+      "Bash(flutter build *)"
     ]
   }
 }

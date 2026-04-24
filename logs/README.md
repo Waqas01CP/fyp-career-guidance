@@ -114,7 +114,8 @@ Claude.ai Opus chat after discussion with the user.
 
 | File | Date | Scope | Summary | Findings count |
 |---|---|---|---|---|
-| (none yet) | — | — | — | — |
+| 2026-04-24-opus-gate-check-part1-backend.md | 2026-04-24 | Pre-demo gate check Session 1: state contract, integration boundaries, end-to-end flow, known failure modes. | All 6 state-contract checks PASS. All 4 integration boundaries PASS. End-to-end Steps 1-5, 7-8 PASS; Step 6 CONCERN (Point 2 says profiler entered "regardless of intent" when profiling_complete is False, but code only forces it for get_recommendation/profile_update). No DEMO BLOCKING items. Session 2 must verify affinity_matrix.json and lag_model.json population. | 1 CONCERN (routing) |
+| 2026-04-24-opus-gate-check-part2-data-sse.md | 2026-04-24 | Pre-demo gate check Session 2: SSE contract (event types, 7 status states, university_card 20 fields, roadmap_timeline 4 steps, chunk streaming, write timing) + data completeness (affinity_matrix/lag_model/universities). | SSE contract PASS structurally (all 20 card fields present; 4/7 status states emitted; done-in-finally ✓; rich_ui ordering correct). affinity_matrix.json is `[]` — collapses total_score to constant 0.5 across all degrees, discards future_value via OR-branched fallback in scoring_node.py. lag_model has all 32 computed.future_value populated; rozee fields null for all 32; pakistan_now stubs repeat 180/0.08 for 28/32. universities.json: 1 of 20 universities (NED only, 33 degrees) all required fields present. Verdict AMBER — demo can proceed YES with condition Fazal populates affinity_matrix.json before Apr 29. | 1 BLOCKING (affinity_matrix empty), 4 DEGRADES, 4 ACCEPTABLE, 1 latent CONCERN (scoring fallback OR branch), 1 CONCERN (policy_pending_verification hardcoded) |
 
 ---
 
