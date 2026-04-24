@@ -5,6 +5,8 @@ import 'providers/auth_provider.dart';
 import 'providers/profile_provider.dart';
 import 'screens/splash_screen.dart';
 import 'screens/onboarding/carousel_screen.dart';
+import 'screens/onboarding/riasec_quiz_screen.dart';
+import 'screens/onboarding/riasec_complete_screen.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
 
@@ -35,8 +37,8 @@ class FypApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/forgot-password': (context) => const _PlaceholderScreen('Forgot Password'),
-        '/riasec-quiz': (context) => const _PlaceholderScreen('RIASEC Quiz'),
-        '/riasec-complete': (context) => const _PlaceholderScreen('RIASEC Complete'),
+        '/riasec-quiz': (context) => const RiasecQuizScreen(),
+        '/riasec-complete': (context) => const RiasecCompleteScreen(),
         '/grades-input': (context) => const _PlaceholderScreen('Grades Input'),
         '/grades-complete': (context) => const _PlaceholderScreen('Grades Complete'),
         '/assessment': (context) => const _PlaceholderScreen('Assessment'),
