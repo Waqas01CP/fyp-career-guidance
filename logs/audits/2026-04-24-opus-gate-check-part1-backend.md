@@ -307,3 +307,25 @@ No DEMO BLOCKING items identified in this audit.
 - logs/README.md updated — new row added to OPUS AUDIT LOGS table.
 - No code changes made.
 - No data files changed.
+
+---
+
+## POST-AUDIT CORRECTION — Architecture Chat review 2026-04-24
+
+### Area 3 Step 6 — CONCERN WITHDRAWN
+
+Opus flagged that `route_by_intent` only forces ProfilerNode for
+`get_recommendation` and `profile_update` intents when
+`profiling_complete` is False, and suggested widening the rule to
+all intents.
+
+**This concern is incorrect.** The chat screen is only reachable
+after `onboarding_stage = "assessment_complete"` — the Flutter app
+gates navigation to chat on completed onboarding. A student who has
+not completed profiling cannot reach the chat screen. Therefore the
+scenario of `fee_query` or `follow_up` arriving on a fresh unprofiled
+session cannot occur in production.
+
+The current routing is correct as designed. No code change needed.
+This correction is logged here so future audit sessions do not
+re-raise this as a finding.
