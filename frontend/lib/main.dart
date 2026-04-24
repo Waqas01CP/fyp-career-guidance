@@ -3,6 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'providers/auth_provider.dart';
 import 'providers/profile_provider.dart';
+import 'screens/splash_screen.dart';
+import 'screens/onboarding/carousel_screen.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/auth/signup_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: FypApp()));
@@ -26,10 +30,10 @@ class FypApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const AppRouter(),
-        '/onboarding': (context) => const _PlaceholderScreen('Onboarding Carousel'),
-        '/login': (context) => const _PlaceholderScreen('Login'),
-        '/signup': (context) => const _PlaceholderScreen('Signup'),
+        '/': (context) => const SplashScreen(),
+        '/onboarding': (context) => const CarouselScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignupScreen(),
         '/forgot-password': (context) => const _PlaceholderScreen('Forgot Password'),
         '/riasec-quiz': (context) => const _PlaceholderScreen('RIASEC Quiz'),
         '/riasec-complete': (context) => const _PlaceholderScreen('RIASEC Complete'),

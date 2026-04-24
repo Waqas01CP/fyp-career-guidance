@@ -8,16 +8,21 @@ class AuthService {
   static const _storage = FlutterSecureStorage();
   static const _tokenKey = 'access_token';
 
-  static Future<String?> register(String email, String password) async {
+  static Future<String?> register(
+      String email, String password, String fullName) async {
     final response = await ApiService.post('/auth/register', {
       'email': email,
       'password': password,
+      'full_name': fullName,
     });
     if (response.statusCode == 201) {
       final data = jsonDecode(response.body);
       final token = data['access_token'] as String;
       await _storage.write(key: _tokenKey, value: token);
       return token;
+    }
+    if (response.statusCode == 409) {
+      throw Exception('email_exists');
     }
     return null;
   }

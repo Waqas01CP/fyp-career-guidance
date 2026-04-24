@@ -40,10 +40,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
     }
   }
 
-  Future<bool> register(String email, String password) async {
+  Future<bool> register(
+      String email, String password, String fullName) async {
     state = state.copyWith(isLoading: true, clearError: true);
     try {
-      final token = await AuthService.register(email, password);
+      final token = await AuthService.register(email, password, fullName);
       if (token != null) {
         state = state.copyWith(token: token, isLoading: false);
         return true;
@@ -53,10 +54,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
         error: 'Registration failed. Please try again.',
       );
       return false;
-    } catch (_) {
+    } on Exception catch (e) {
+      final isEmailExists = e.toString().contains('email_exists');
       state = state.copyWith(
         isLoading: false,
-        error: 'Could not connect. Check your internet and try again.',
+        error: isEmailExists
+            ? 'An account with this email already exists.'
+            : 'Registration failed. Please try again.',
       );
       return false;
     }
