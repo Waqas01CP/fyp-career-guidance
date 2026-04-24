@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "version": "1.1",
+    "source": "Adapted from O*NET Interest Profiler Short Form (Rounds, Su, Lewis & Rivkin, 2010) for Pakistani secondary school student context",
+    "citation": "Following Holland's (1997) RIASEC typology construct definitions as documented in the O*NET Interest Profiler Manual (Rounds, Hoff & Lewis, 2021)",
+    "total_questions": 60,
+    "dimensions": ["R", "I", "A", "S", "E", "C"],
+    "questions_per_dimension": 10,
+    "scale_min": 1,
+    "scale_max": 5,
+    "instruction_en": "For each activity below, indicate how much you would enjoy doing it — regardless of whether you know how to do it or not.",
+    "instruction_ur": "Neeche diye gaye har kaam ke liye batao ke aap isko kitna karna chahein ge — chahe aapko woh kaam aata ho ya nahi.",
+    "scale_labels": {
+      "1": { "en": "Strongly Dislike", "ur": "Bilkul Pasand Nahin" },
+      "2": { "en": "Dislike",          "ur": "Pasand Nahin" },
+      "3": { "en": "Unsure",           "ur": "Pata Nahin" },
+      "4": { "en": "Like",             "ur": "Pasand Hai" },
+      "5": { "en": "Strongly Like",    "ur": "Bohot Pasand Hai" }
+    },
+    "scoring_note": "Sum all responses per dimension. Range 10-50 per dimension. Higher = stronger interest."
+  },
+  "questions": [
+    {
+      "id": 1,
+      "dimension": "R",
+      "text_en": "Fix or repair electronic devices — like a phone, laptop, or household appliance.",
+      "text_ur": "Electronic cheezein theek karna — jaise phone, laptop, ya ghar ka koi kaam aane wala device.",
+      "onet_ref": "Repair and maintain electronic equipment"
+    },
+    {
+      "id": 2,
+      "dimension": "R",
+      "text_en": "Build something physical with your hands — like assembling a model, making a shelf, or constructing a project for school.",
+      "text_ur": "Apne haathon se kuch banana — jaise ek model banana, shelf banana, ya school project assemble karna.",
+      "onet_ref": "Build or construct things"
+    },
+    {
+      "id": 3,
+      "dimension": "R",
+      "text_en": "Take apart a machine or device to understand how it works inside.",
+      "text_ur": "Kisi machine ya device ko kholna taake andar se samjho ke woh kaise kaam karta hai.",
+      "onet_ref": "Operate and maintain machinery"
+    },
+    {
+      "id": 4,
+      "dimension": "R",
+      "text_en": "Set up technical equipment for an event — like speakers, a projector, or lighting.",
+      "text_ur": "Kisi event ke liye technical cheezein lagana — jaise speakers, projector, ya lights.",
+      "onet_ref": "Set up and operate equipment"
+    },
+    {
+      "id": 5,
+      "dimension": "R",
+      "text_en": "Do outdoor physical work — like planting, construction, or maintaining a space.",
+      "text_ur": "Bahar physical kaam karna — jaise planting, construction, ya kisi jagah ki dekh bhaal.",
+      "onet_ref": "Do outdoor physical work"
+    },
+    {
+      "id": 6,
+      "dimension": "R",
+      "text_en": "Wire or connect electrical components — like setting up a circuit, extension board, or basic wiring.",
+      "text_ur": "Electrical cheezein joRna — jaise circuit banana, extension board lagana, ya basic wiring karna.",
+      "onet_ref": "Install and connect electrical components"
+    },
+    {
+      "id": 7,
+      "dimension": "R",
+      "text_en": "Operate and control a vehicle, machine, or heavy equipment with skill and precision.",
+      "text_ur": "Kisi vehicle, machine, ya bhari equipment ko skill ke saath chalana.",
+      "onet_ref": "Operate vehicles or heavy equipment"
+    },
+    {
+      "id": 8,
+      "dimension": "R",
+      "text_en": "Grow plants, tend a garden, or work with animals as part of a practical task or project.",
+      "text_ur": "Podey lagana, baghbani karna, ya kisi practical kaam ya project ke taur par janwaron ke saath kaam karna.",
+      "onet_ref": "Agriculture, outdoors, working with plants and animals"
+    },
+    {
+      "id": 9,
+      "dimension": "R",
+      "text_en": "Read technical diagrams, blueprints, or maps to understand how something is physically built.",
+      "text_ur": "Technical diagrams, blueprints, ya maps paRhna taake samjho ke kuch cheez physically kaise bani hai.",
+      "onet_ref": "Read technical drawings and blueprints"
+    },
+    {
+      "id": 10,
+      "dimension": "R",
+      "text_en": "Inspect, test, or check whether something is physically working correctly — like checking a machine, plumbing, or structure.",
+      "text_ur": "Dekhna ke koi cheez theek se kaam kar rahi hai ya nahi — jaise machine, paani ki pipe, ya building check karna.",
+      "onet_ref": "Inspect structures, machines, or equipment"
+    },
+    {
+      "id": 11,
+      "dimension": "I",
+      "text_en": "Solve a difficult mathematics or logical reasoning problem.",
+      "text_ur": "Ek mushkil mathematics ya logical reasoning problem solve karna.",
+      "onet_ref": "Solve mathematical problems"
+    },
+    {
+      "id": 12,
+      "dimension": "I",
+      "text_en": "Read articles or books to deeply understand why something in the world works the way it does.",
+      "text_ur": "Articles ya kitabein paRhna taake samjho ke koi cheez duniya mein isi tarah kyun kaam karti hai.",
+      "onet_ref": "Read scientific or technical material"
+    },
+    {
+      "id": 13,
+      "dimension": "I",
+      "text_en": "Conduct a science experiment — set it up, observe what happens, and analyze the results.",
+      "text_ur": "Science experiment karna — setup karo, dekhte raho kya hota hai, aur results analyze karo.",
+      "onet_ref": "Conduct scientific experiments"
+    },
+    {
+      "id": 14,
+      "dimension": "I",
+      "text_en": "Look for hidden patterns or trends in data, numbers, or survey results.",
+      "text_ur": "Data, numbers, ya survey results mein chuppe patterns ya trends dhundna.",
+      "onet_ref": "Analyze data or information"
+    },
+    {
+      "id": 15,
+      "dimension": "I",
+      "text_en": "Research a topic thoroughly from multiple sources before forming your own opinion.",
+      "text_ur": "Kisi topic par kai sources se research karna pehle apni raay banana se.",
+      "onet_ref": "Do research to gather information"
+    },
+    {
+      "id": 16,
+      "dimension": "I",
+      "text_en": "Write code or build a program to test a hypothesis, investigate how something works, or solve a complex problem through logic.",
+      "text_ur": "Code likhna ya program banana taake koi hypothesis test karo, pata karo ke koi cheez kaise kaam karti hai, ya mushkil masla logically solve karo.",
+      "onet_ref": "Use technology to research, analyse, and solve complex problems"
+    },
+    {
+      "id": 17,
+      "dimension": "I",
+      "text_en": "Study how diseases spread, how medicines work, or how the human body functions.",
+      "text_ur": "Parhai karna ke bimariyan kaise phailti hain, dawaiyan kaise kaam karti hain, ya insaan ka jism kaise chalta hai.",
+      "onet_ref": "Study biology, medicine, or health sciences"
+    },
+    {
+      "id": 18,
+      "dimension": "I",
+      "text_en": "Diagnose why a system is failing — whether it is a technical problem, a social issue, or a broken process — and figure out the root cause.",
+      "text_ur": "Pata lagana ke koi system kyun fail ho raha hai — technical masla ho, social issue ho, ya koi process kharaab ho — aur asli wajah nikalna.",
+      "onet_ref": "Diagnose problems in complex systems"
+    },
+    {
+      "id": 19,
+      "dimension": "I",
+      "text_en": "Test different approaches or strategies to find out which one works best, using evidence rather than guesswork.",
+      "text_ur": "Alag alag tareeqe aazmaana taake pata chale konsa sab se behtar hai — andaze se nahi, saboot se.",
+      "onet_ref": "Test and evaluate solutions or methods"
+    },
+    {
+      "id": 20,
+      "dimension": "I",
+      "text_en": "Explore a theory or big idea through reading, questioning, and discussion — even if it has no immediate practical use.",
+      "text_ur": "Koi theory ya bari soch ko paRhne, sawaal karne, aur behas karne ke zariye samajhna — chahe uska turant koi fayda na ho.",
+      "onet_ref": "Study theoretical concepts"
+    },
+    {
+      "id": 21,
+      "dimension": "A",
+      "text_en": "Write a short story, poem, or creative essay that expresses something personal.",
+      "text_ur": "Ek choti kahani, nazm, ya creative essay likhna jo kuch personal baat kahe.",
+      "onet_ref": "Write stories, poems, or creative content"
+    },
+    {
+      "id": 22,
+      "dimension": "A",
+      "text_en": "Draw, sketch, or paint something — whether realistic or abstract.",
+      "text_ur": "Kuch draw, sketch, ya paint karna — chahe realistic ho ya abstract.",
+      "onet_ref": "Draw, paint, or create visual art"
+    },
+    {
+      "id": 23,
+      "dimension": "A",
+      "text_en": "Design a poster, brochure, or social media graphic from scratch.",
+      "text_ur": "Ek poster, brochure, ya social media graphic khud se design karna.",
+      "onet_ref": "Design graphic materials"
+    },
+    {
+      "id": 24,
+      "dimension": "A",
+      "text_en": "Play a musical instrument, compose a melody, or arrange a piece of music.",
+      "text_ur": "Koi musical instrument bajaana, dhun banana, ya koi music piece arrange karna.",
+      "onet_ref": "Play a musical instrument or compose music"
+    },
+    {
+      "id": 25,
+      "dimension": "A",
+      "text_en": "Act in a play, record a short film, or perform in front of an audience.",
+      "text_ur": "Kisi play mein act karna, short film banaa ke usme kaam karna, ya audience ke saamne perform karna.",
+      "onet_ref": "Perform on stage or screen"
+    },
+    {
+      "id": 26,
+      "dimension": "A",
+      "text_en": "Decorate a room, arrange a display, or design a space to make it look visually appealing.",
+      "text_ur": "Kamra sajana, koi display arrange karna, ya jagah ko sundar banana.",
+      "onet_ref": "Design or decorate interior spaces"
+    },
+    {
+      "id": 27,
+      "dimension": "A",
+      "text_en": "Take photographs or create videos that tell a story or convey an emotion.",
+      "text_ur": "Tasveerein lena ya videos banana jo koi kahani sunaaye ya koi feeling dikhaye.",
+      "onet_ref": "Photograph subjects or produce video content"
+    },
+    {
+      "id": 28,
+      "dimension": "A",
+      "text_en": "Create a visual concept or aesthetic — like designing a logo, developing a brand look, or illustrating an idea or emotion through artwork.",
+      "text_ur": "Koi visual concept ya aesthetic banana — jaise logo design karna, kisi brand ka look develop karna, ya artwork ke zariye koi idea ya feeling dikhana.",
+      "onet_ref": "Create visual concepts and aesthetic designs"
+    },
+    {
+      "id": 29,
+      "dimension": "A",
+      "text_en": "Design or customize clothes, accessories, or everyday objects to match a specific style or aesthetic.",
+      "text_ur": "Kapde, accessories, ya rozanah use honay wali cheezein kisi khaas style ya aesthetic ke mutabiq design karna ya customize karna.",
+      "onet_ref": "Design fashion or textile products"
+    },
+    {
+      "id": 30,
+      "dimension": "A",
+      "text_en": "Write the script or dialogue for a play, film, or web series.",
+      "text_ur": "Kisi play, film, ya web series ke liye script ya dialogue likhna.",
+      "onet_ref": "Write scripts or screenplays"
+    },
+    {
+      "id": 31,
+      "dimension": "S",
+      "text_en": "Explain a concept or subject to a classmate or younger student who is struggling to understand.",
+      "text_ur": "Kisi classmate ya chote student ko koi concept ya subject samjhaana jo unhe mushkil lag raha ho.",
+      "onet_ref": "Teach or tutor others"
+    },
+    {
+      "id": 32,
+      "dimension": "S",
+      "text_en": "Help a friend or family member work through a personal problem or difficult decision.",
+      "text_ur": "Kisi dost ya ghar wale ki madad karna unki personal problem ya mushkil decision mein.",
+      "onet_ref": "Counsel or advise others"
+    },
+    {
+      "id": 33,
+      "dimension": "S",
+      "text_en": "Volunteer for community service — visiting a hospital, helping at a shelter, or working with an NGO.",
+      "text_ur": "Community service ke liye volunteer karna — hospital jaana, shelter mein madad karna, ya NGO ke saath kaam karna.",
+      "onet_ref": "Perform community service or volunteer work"
+    },
+    {
+      "id": 34,
+      "dimension": "S",
+      "text_en": "Take care of someone who is sick, elderly, or needs support — making sure they are comfortable and well.",
+      "text_ur": "Kisi beemar, bujurg, ya zarooratmand insaan ki dekhbhaal karna — unka khayal rakhna.",
+      "onet_ref": "Provide care for individuals in need"
+    },
+    {
+      "id": 35,
+      "dimension": "S",
+      "text_en": "Coordinate a community gathering or initiative whose main purpose is to help or support the people who attend — such as a health awareness session, a tutoring programme, or a neighbourhood support drive.",
+      "text_ur": "Koi community gathering ya initiative coordinate karna jiska maqsad shirkat karne walon ki madad karna ho — jaise health awareness session, tutoring programme, ya mohalle mein support drive.",
+      "onet_ref": "Organize community programs focused on helping others"
+    },
+    {
+      "id": 36,
+      "dimension": "S",
+      "text_en": "Coach or train someone — helping them improve a skill through regular guidance and feedback.",
+      "text_ur": "Kisi ko coach ya train karna — unhe regular guidance aur feedback de ke unki skill behtar karna.",
+      "onet_ref": "Coach or train individuals"
+    },
+    {
+      "id": 37,
+      "dimension": "S",
+      "text_en": "Sit with someone who is upset and listen carefully until they feel heard and understood.",
+      "text_ur": "Kisi pareshan insaan ke paas baithna aur dhyan se sunna jab tak woh khud ko samjha hua mehsoos na kare.",
+      "onet_ref": "Provide emotional support to others"
+    },
+    {
+      "id": 38,
+      "dimension": "S",
+      "text_en": "Stay with a struggling student, junior, or friend and patiently guide them through a difficult concept or skill until they genuinely understand it.",
+      "text_ur": "Kisi mushkil mein paDe student, junior, ya dost ke saath raho aur unhe sabr ke saath ek mushkil concept ya skill mein tab tak guide karo jab tak woh sahi mein samajh na jayein.",
+      "onet_ref": "Teach, tutor, or guide individuals to full understanding"
+    },
+    {
+      "id": 39,
+      "dimension": "S",
+      "text_en": "Mediate between two people or groups who are having a conflict and help them reach an agreement.",
+      "text_ur": "Do logon ya groups ke beech mein jo jhagRa ho raha ho, usme bich mein aa ke unhe samjhauta karana.",
+      "onet_ref": "Mediate conflicts and facilitate resolution"
+    },
+    {
+      "id": 40,
+      "dimension": "S",
+      "text_en": "Work regularly with children — teaching, playing, or guiding them.",
+      "text_ur": "Bachon ke saath regular kaam karna — paRhaana, khelna, ya unhe guide karna.",
+      "onet_ref": "Work with children in educational or care settings"
+    },
+    {
+      "id": 41,
+      "dimension": "E",
+      "text_en": "Lead a group project — assign tasks, keep everyone motivated, and make sure it gets done.",
+      "text_ur": "Group project mein lead karna — kaam taqseem karna, sabko motivated rakhna, aur kaam complete karana.",
+      "onet_ref": "Lead and manage a group or team"
+    },
+    {
+      "id": 42,
+      "dimension": "E",
+      "text_en": "Convince someone to support your idea or change their mind about something important.",
+      "text_ur": "Kisi ko apna idea support karwana ya kisi zaroori baat par unka zihn badalna.",
+      "onet_ref": "Persuade or influence others"
+    },
+    {
+      "id": 43,
+      "dimension": "E",
+      "text_en": "Start a small business or side project — come up with the idea, plan it, and make it happen.",
+      "text_ur": "Ek chota business ya side project shuru karna — idea sochna, plan banana, aur usse execute karna.",
+      "onet_ref": "Develop and start a business or enterprise"
+    },
+    {
+      "id": 44,
+      "dimension": "E",
+      "text_en": "Negotiate to get a better deal — whether buying something, settling a disagreement, or arranging a partnership.",
+      "text_ur": "Negotiate karna taake behtar deal mile — chahe kuch khareed rahe ho, koi jhagRa sulajhana ho, ya partnership arrange karni ho.",
+      "onet_ref": "Negotiate agreements or contracts"
+    },
+    {
+      "id": 45,
+      "dimension": "E",
+      "text_en": "Give a confident speech or presentation to a large group — to inform, persuade, or inspire them.",
+      "text_ur": "Bari gathering ke saamne confidently speech ya presentation dena — unhe batana, convince karna, ya inspire karna.",
+      "onet_ref": "Give speeches or presentations"
+    },
+    {
+      "id": 46,
+      "dimension": "E",
+      "text_en": "Run for a leadership position — like class monitor, student council, team captain, or club president — and actively campaign for it.",
+      "text_ur": "Koi leadership position ke liye khud ko aage karna — jaise class monitor, student council, team captain, ya club president — aur uske liye actively campaign karna.",
+      "onet_ref": "Seek and hold leadership roles, campaign for positions"
+    },
+    {
+      "id": 47,
+      "dimension": "E",
+      "text_en": "Manage a budget, plan expenses, or allocate resources for a project or event.",
+      "text_ur": "Budget manage karna, kharche plan karna, ya kisi project ya event ke liye resources taqseem karna.",
+      "onet_ref": "Manage budgets and resources"
+    },
+    {
+      "id": 48,
+      "dimension": "E",
+      "text_en": "Step up and take charge in a situation where everyone is confused and no one knows what to do next.",
+      "text_ur": "Aisi situation mein aage aana aur charge lena jahan sab confuse hon aur kisi ko samajh na aaye ke aage kya karna hai.",
+      "onet_ref": "Take initiative in ambiguous or crisis situations"
+    },
+    {
+      "id": 49,
+      "dimension": "E",
+      "text_en": "Sell a product, service, or idea to someone who was initially not interested.",
+      "text_ur": "Kisi ko koi product, service, ya idea bechna jo pehle interested nahi tha.",
+      "onet_ref": "Sell products, services, or ideas"
+    },
+    {
+      "id": 50,
+      "dimension": "E",
+      "text_en": "Build a network of contacts — meeting new people strategically who can help you grow personally or professionally.",
+      "text_ur": "Logon ka network banana — strategically naye log milna jo aapki personal ya professional growth mein madad kar sakein.",
+      "onet_ref": "Build professional networks and relationships"
+    },
+    {
+      "id": 51,
+      "dimension": "C",
+      "text_en": "Organize and maintain a filing system for documents, notes, or records — making sure everything is easy to find.",
+      "text_ur": "Documents, notes, ya records ka filing system banana aur maintain karna — taake sab kuch aasaani se mil sake.",
+      "onet_ref": "Maintain files and records"
+    },
+    {
+      "id": 52,
+      "dimension": "C",
+      "text_en": "Enter data accurately into a spreadsheet, form, or database — making sure there are no mistakes.",
+      "text_ur": "Data ko accurately spreadsheet, form, ya database mein daalna — bilkul bina ghalti ke.",
+      "onet_ref": "Enter data into records or databases"
+    },
+    {
+      "id": 53,
+      "dimension": "C",
+      "text_en": "Follow a precise checklist or step-by-step procedure to complete a task correctly every time.",
+      "text_ur": "Koi kaam sahi se karne ke liye ek precise checklist ya step-by-step procedure follow karna — har baar.",
+      "onet_ref": "Follow standard procedures and guidelines"
+    },
+    {
+      "id": 54,
+      "dimension": "C",
+      "text_en": "Manage a timetable or schedule for yourself or a team — making sure nothing is missed or delayed.",
+      "text_ur": "Apne liye ya team ke liye timetable ya schedule manage karna — taake kuch bhi miss ya late na ho.",
+      "onet_ref": "Develop and maintain schedules"
+    },
+    {
+      "id": 55,
+      "dimension": "C",
+      "text_en": "Proofread a document carefully to find and fix spelling, grammar, or numerical errors.",
+      "text_ur": "Kisi document ko carefully paRhna taake spelling, grammar, ya number ki ghaltiyan dhoondh kar theek ki ja sakein.",
+      "onet_ref": "Proofread and edit documents"
+    },
+    {
+      "id": 56,
+      "dimension": "C",
+      "text_en": "Create and manage a budget — tracking every rupee coming in and going out.",
+      "text_ur": "Budget banana aur manage karna — har ek rupaya jo aata aur jaata hai uska hisaab rakhna.",
+      "onet_ref": "Manage financial accounts and budgets"
+    },
+    {
+      "id": 57,
+      "dimension": "C",
+      "text_en": "Sort, label, and categorize a large collection of items, files, or information.",
+      "text_ur": "Bohot saari cheezein, files, ya information ko sort karna, label karna, aur categories mein rakhna.",
+      "onet_ref": "Classify and sort information or materials"
+    },
+    {
+      "id": 58,
+      "dimension": "C",
+      "text_en": "Verify that a set of numbers, calculations, or accounts are correct and balanced.",
+      "text_ur": "Check karna ke numbers, calculations, ya accounts sahi aur balanced hain.",
+      "onet_ref": "Verify calculations and check numerical accuracy"
+    },
+    {
+      "id": 59,
+      "dimension": "C",
+      "text_en": "Write a structured report or document that follows a specific format or template precisely.",
+      "text_ur": "Ek structured report ya document likhna jo bilkul ek khaas format ya template ke mutabiq ho.",
+      "onet_ref": "Prepare structured reports and documentation"
+    },
+    {
+      "id": 60,
+      "dimension": "C",
+      "text_en": "Set up a tracking system — for inventory, tasks, attendance, or any ongoing process — and keep it updated consistently.",
+      "text_ur": "Koi tracking system banana — inventory, tasks, attendance, ya koi ongoing process ke liye — aur use regularly update karte rehna.",
+      "onet_ref": "Develop and maintain tracking systems"
+    }
+  ]
+}
