@@ -518,6 +518,8 @@ then password features.
 | 8 | _load_lag_model() and _load_affinity_matrix() caching | Both functions re-read JSON files from disk on every pipeline call. Add module-level caching once Fazal populates real data files. |
 | 9 | Alembic migration missing curriculum_level | Migration file missing this column. Supabase has it. Fresh local DB setup via alembic upgrade head will fail on grades endpoint. Fix: generate new migration and apply to Supabase via SQL Editor. |
 | 10 | Credential rotation | Supabase password, Gemini API key, and SECRET_KEY appeared in conversation plaintext during setup sessions. Rotate all three after demo. Details in logs/render-deployment-log-2026-04-21.md. |
+| Google SSO | Removed from Login and Signup UI entirely — no placeholder button. Requires google_sign_in package + backend OAuth endpoint. Post-demo. |
+| Forgot Password screen | Not built. Link present on Login as greyed no-op (onPressed: null, slate colour). OTP flow requires backend endpoint. Post-demo Sprint 4. |
 
 ---
 
@@ -616,6 +618,7 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 | LLM model per node | SupervisorNode, ProfilerNode, AnswerNode → Haiku 4.5 in production. ExplanationNode → Sonnet 4.6 in production. Dev uses gemini-3.1-flash-lite-preview (free tier, 500 RPD, outperforms 2.5 Flash on benchmarks). Opus never used for inference. See LLM NODE MODEL ASSIGNMENTS section. |
 | Model abstraction | Prompts must work at minimum model and above without code changes. Model swap = config.py change only. |
 | Token optimization | Every LLM node prompt balances output quality against token efficiency. Find the minimum prompt length that delivers excellent, reliable output — do not cut tokens that degrade quality, do not add tokens that produce no improvement. Output format explicitly constrained. User input passed as variable. See TOKEN OPTIMIZATION section in BACKEND_CHAT_INSTRUCTIONS.md. |
+| Remember Me checkbox | UI-only — token always stored in flutter_secure_storage regardless of checkbox state. No backend remember_device field exists. Post-demo if needed. |
 
 ---
 
