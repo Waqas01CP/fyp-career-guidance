@@ -116,28 +116,42 @@ def scoring_node(state: AgentState) -> AgentState:
             effective_marks.get(s) != subject_marks[s] for s in subject_marks
         )
 
-        # ── RIASEC dot product and FutureValue ────────────────────────────
-        if field_id not in affinity_matrix or field_id not in lag_model:
-            logger.warning(
-                "%s — field_id %s not found in affinity_matrix/lag_model. "
-                "Scoring with defaults.",
-                degree_label,
-                field_id,
-            )
-            state["thought_trace"].append(
-                f"{degree_label} — field_id {field_id} not found in "
-                "affinity_matrix/lag_model. Scoring with defaults."
-            )
-            match_score_normalised = 0.5
-            future_score = 5.0
-        else:
+        # ── RIASEC match score ────────────────────────────────────────────
+        if field_id in affinity_matrix:
             riasec_affinity = affinity_matrix[field_id]["riasec_affinity"]
             degree_vector = [
                 riasec_affinity.get(dim, 1) for dim in ("R", "I", "A", "S", "E", "C")
             ]
             raw_match = sum(s * d for s, d in zip(student_vector, degree_vector))
-            match_score_normalised = raw_match / theoretical_max if theoretical_max > 0 else 0.0
+            match_score_normalised = (
+                raw_match / theoretical_max if theoretical_max > 0 else 0.0
+            )
+        else:
+            logger.warning(
+                "%s — field_id %s not in affinity_matrix. Using default match=0.5.",
+                degree_label,
+                field_id,
+            )
+            state["thought_trace"].append(
+                f"{degree_label} — field_id {field_id} not in affinity_matrix. "
+                "match_score_normalised defaulted to 0.5."
+            )
+            match_score_normalised = 0.5
+
+        # ── FutureValue ───────────────────────────────────────────────────
+        if field_id in lag_model:
             future_score = float(lag_model[field_id]["computed"]["future_value"])
+        else:
+            logger.warning(
+                "%s — field_id %s not in lag_model. Using default future_score=5.0.",
+                degree_label,
+                field_id,
+            )
+            state["thought_trace"].append(
+                f"{degree_label} — field_id {field_id} not in lag_model. "
+                "future_score defaulted to 5.0."
+            )
+            future_score = 5.0
 
         # ── Total score ───────────────────────────────────────────────────
         total_score = (

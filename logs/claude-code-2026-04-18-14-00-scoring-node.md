@@ -312,3 +312,97 @@ All 18 tests pass. The existing `test_missing_field_id_fallback` test
 verified the degree still appears in output with neutral scoring defaults —
 that behaviour is unchanged. The mismatch skip only affects the detection
 loop, not degree scoring or sorting.
+
+---
+
+## Fix — Independent OR-branch fallback — 2026-04-24
+
+**Triggered by:** Opus pre-demo gate check Session 2 (2026-04-24) — latent CONCERN
+(scoring fallback OR branch discards real data when one source is missing).
+
+### Lines changed
+
+`backend/app/agents/nodes/scoring_node.py` — lines 119–154 (post-fix line numbers).
+No test files changed. No other files changed.
+
+### Before
+
+```python
+# ── RIASEC match score + FutureValue ──────────────────────────────
+if field_id not in affinity_matrix or field_id not in lag_model:
+    match_score_normalised = 0.5
+    future_score = 5.0
+else:
+    riasec_affinity = affinity_matrix[field_id]["riasec_affinity"]
+    degree_vector = [
+        riasec_affinity.get(dim, 1) for dim in ("R", "I", "A", "S", "E", "C")
+    ]
+    raw_match = sum(s * d for s, d in zip(student_vector, degree_vector))
+    match_score_normalised = (
+        raw_match / theoretical_max if theoretical_max > 0 else 0.0
+    )
+    future_score = float(lag_model[field_id]["computed"]["future_value"])
+```
+
+### After
+
+```python
+# ── RIASEC match score ────────────────────────────────────────────
+if field_id in affinity_matrix:
+    riasec_affinity = affinity_matrix[field_id]["riasec_affinity"]
+    degree_vector = [
+        riasec_affinity.get(dim, 1) for dim in ("R", "I", "A", "S", "E", "C")
+    ]
+    raw_match = sum(s * d for s, d in zip(student_vector, degree_vector))
+    match_score_normalised = (
+        raw_match / theoretical_max if theoretical_max > 0 else 0.0
+    )
+else:
+    logger.warning(
+        "%s — field_id %s not in affinity_matrix. Using default match=0.5.",
+        degree_label, field_id,
+    )
+    state["thought_trace"].append(
+        f"{degree_label} — field_id {field_id} not in affinity_matrix. "
+        "match_score_normalised defaulted to 0.5."
+    )
+    match_score_normalised = 0.5
+
+# ── FutureValue ───────────────────────────────────────────────────
+if field_id in lag_model:
+    future_score = float(lag_model[field_id]["computed"]["future_value"])
+else:
+    logger.warning(
+        "%s — field_id %s not in lag_model. Using default future_score=5.0.",
+        degree_label, field_id,
+    )
+    state["thought_trace"].append(
+        f"{degree_label} — field_id {field_id} not in lag_model. "
+        "future_score defaulted to 5.0."
+    )
+    future_score = 5.0
+```
+
+### Why
+
+The OR-branch coupled two independent data sources into one condition. When
+`affinity_matrix.json` was empty (as it is pre-Fazal population) but
+`lag_model.json` was fully populated, the `or` short-circuited on the first
+missing source and discarded the real `future_value` from lag_model, replacing
+it with the neutral 5.0 default. The inverse was also true: a missing lag_model
+entry discarded the real RIASEC match and forced 0.5. The Opus audit identified
+this as the mechanism collapsing `total_score` to a constant 0.5×0.6 + 0.5×0.4
+= 0.5 across all degrees when `affinity_matrix.json` was `[]`.
+
+Two independent lookups with independent defaults fix this. Each source reads
+what it can; a missing entry in one source never contaminates the other.
+
+### Test result
+
+```
+pytest tests/test_scoring_node.py -v
+18 passed in 1.65s
+
+pytest tests/ -v -m "not slow"
+62 passed, 3 deselected in 14.51s
+```
