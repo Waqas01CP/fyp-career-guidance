@@ -1,17 +1,26 @@
-# frontend_app
+# FYP Career Guidance — Flutter Frontend
 
-A new Flutter project.
+AI-Assisted Academic Career Guidance System for Pakistani secondary school students in Karachi.
 
-## Getting Started
+## Targets
 
-This project is a starting point for a Flutter application.
+- Android (primary mobile target)
+- Web
 
-A few resources to get you started if this is your first Flutter project:
+## Package name
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+`com.fyp.career_guidance`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Getting started
+
+```bash
+flutter pub get
+flutter run                        # Android device / emulator
+flutter run -d chrome              # Web
+flutter build apk --debug          # Android debug APK
+flutter build web                  # Web release build
+```
+
+Backend API: https://fyp-career-guidance-api.onrender.com
+
+Cold start ~50s after inactivity — send a warm-up request before demo.

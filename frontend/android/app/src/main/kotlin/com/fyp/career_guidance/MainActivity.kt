@@ -1,4 +1,4 @@
-package com.example.frontend_app
+package com.fyp.career_guidance
 
 import io.flutter.embedding.android.FlutterActivity
 

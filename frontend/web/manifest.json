@@ -1,11 +1,11 @@
 {
-    "name": "frontend_app",
-    "short_name": "frontend_app",
+    "name": "Career Guidance",
+    "short_name": "Career Guidance",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "AI-Assisted Academic Career Guidance System for Karachi students.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
