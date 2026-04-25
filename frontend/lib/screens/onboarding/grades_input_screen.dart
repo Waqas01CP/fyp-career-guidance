@@ -525,9 +525,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     value: opt['value'],
                     child: Text(
                       opt['label']!,
+                      overflow: TextOverflow.visible,
+                      softWrap: true,
                       style: TextStyle(
-                          fontSize: 13.sp, color: _onSurface),
-                      overflow: TextOverflow.ellipsis,
+                          fontSize: 14.sp, color: _onSurface),
                     ),
                   ))
               .toList(),
@@ -590,8 +591,9 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     value: s,
                     child: Text(
                       _streamDisplayNames[s] ?? s,
-                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
-                      overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.visible,
+                      softWrap: true,
+                      style: TextStyle(fontSize: 14.sp, color: _onSurface),
                     ),
                   ))
               .toList(),
@@ -673,6 +675,8 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                   fontSize: 13.sp,
                   color: _secondary,
                 ),
+                errorMaxLines: 2,
+                errorStyle: TextStyle(fontSize: 11.sp),
               ),
               validator: (v) {
                 if (v == null || v.isEmpty) return 'Required';

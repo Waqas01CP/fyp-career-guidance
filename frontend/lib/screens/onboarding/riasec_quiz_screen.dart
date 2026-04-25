@@ -319,7 +319,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           label.toUpperCase(),
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 9.sp,
+            fontSize: 14.sp,
             fontWeight: FontWeight.w600,
             color: isSelected ? Colors.white : _secondary,
             letterSpacing: 0.02,
@@ -365,7 +365,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
               padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
               child: Text(insightText,
                   style: TextStyle(
-                      fontSize: 13.sp,
+                      fontSize: 14.sp,
                       color: _onTertiaryFixed,
                       height: 1.6)),
             ),
@@ -414,7 +414,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                 child: Text(
                   dimName.toUpperCase(),
                   style: TextStyle(
-                    fontSize: 10.sp,
+                    fontSize: 11.sp,
                     fontWeight: FontWeight.w700,
                     color: _primary,
                     letterSpacing: 0.06,
@@ -436,7 +436,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                       Text(
                         'Q${_currentIndex + 1} OF ${_questions.length}',
                         style: TextStyle(
-                          fontSize: 11.sp,
+                          fontSize: 13.sp,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xFF515F74),
                           letterSpacing: 0.88,
@@ -455,7 +455,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           Text(
             _showRomanUrdu ? (textUr ?? textEn) : textEn,
             style: TextStyle(
-              fontSize: 16.sp,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w500,
               color: _onSurface,
               height: 1.6,
@@ -727,13 +727,13 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                 SizedBox(width: 6.w),
                 Text('Answered',
                     style: TextStyle(
-                        fontSize: 11.sp, color: const Color(0xFF515F74))),
+                        fontSize: 13.sp, color: const Color(0xFF515F74))),
                 SizedBox(width: 16.w),
                 _buildLegendDot(const Color(0xFFE6E8EA)),
                 SizedBox(width: 6.w),
                 Text('Unanswered',
                     style: TextStyle(
-                        fontSize: 11.sp, color: const Color(0xFF515F74))),
+                        fontSize: 13.sp, color: const Color(0xFF515F74))),
               ],
             ),
           ],

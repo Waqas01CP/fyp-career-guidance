@@ -58,7 +58,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
                 child: Text(
                   'PROFILE COMPLETE',
                   style: TextStyle(
-                    fontSize: 9.sp,
+                    fontSize: 11.sp,
                     fontWeight: FontWeight.w700,
                     color: const Color(0xFF515F74),
                     letterSpacing: 0.9,
@@ -124,7 +124,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
                     Text(
                       'SUBJECT SCORES',
                       style: TextStyle(
-                        fontSize: 11.sp,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w700,
                         color: const Color(0xFF515F74),
                         letterSpacing: 0.8,
@@ -156,7 +156,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
                       child: Text(
                         'Your AI career guidance is now ready. These results, combined with your interests and academic grades, will power your personalised degree recommendations.',
                         style: TextStyle(
-                          fontSize: 13.sp,
+                          fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
                           color: const Color(0xFF25005A),
                           height: 1.5,
@@ -212,7 +212,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
             child: Text(
               name,
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: const Color(0xFF191C1E),
               ),
@@ -235,7 +235,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
             child: Text(
               '${score.toStringAsFixed(0)}%',
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w700,
                 color: color,
               ),

@@ -107,7 +107,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                     child: Text(
                       'STEP 2 OF 3 COMPLETE',
                       style: TextStyle(
-                        fontSize: 9.sp,
+                        fontSize: 11.sp,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.1 * 9,
                         color: const Color(0xFF515F74),
@@ -169,7 +169,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                         Text(
                           'MARKS SUMMARY',
                           style: TextStyle(
-                            fontSize: 10.sp,
+                            fontSize: 11.sp,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.1 * 10,
                             color: const Color(0xFF515F74),
@@ -231,7 +231,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                           Text(
                             'Overall Aggregate',
                             style: TextStyle(
-                              fontSize: 12.sp,
+                              fontSize: 13.sp,
                               fontWeight: FontWeight.w600,
                               color: const Color(0xFF515F74),
                             ),
@@ -274,7 +274,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                         Text(
                           'AI INSIGHT',
                           style: TextStyle(
-                            fontSize: 9.sp,
+                            fontSize: 11.sp,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.1 * 9,
                             color: const Color(0xFF5A00C6),
@@ -288,7 +288,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                       'Strong performance in technical subjects '
                       'supports engineering and CS pathways.',
                       style: TextStyle(
-                        fontSize: 13.sp,
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
                         color: const Color(0xFF25005A),
                         height: 1.6,

@@ -171,20 +171,30 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return Scaffold(
       backgroundColor: _bgColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(height: 32.h),
-              _buildGradientBar(),
-              _buildFormCard(authState),
-              SizedBox(height: 24.h),
-              _buildSignUpRow(),
-              SizedBox(height: 32.h),
-            ],
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final isCompact = constraints.maxHeight < 680;
+            final vGap = isCompact ? 12.h : 20.h;
+            final cardPadding = isCompact ? 20.r : 28.r;
+            final topPadding = isCompact ? 16.h : 32.h;
+
+            return SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(height: topPadding),
+                  _buildGradientBar(),
+                  _buildFormCard(authState, cardPadding),
+                  SizedBox(height: vGap),
+                  _buildSignUpRow(),
+                  SizedBox(height: vGap),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );
@@ -202,7 +212,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildFormCard(AuthState authState) {
+  Widget _buildFormCard(AuthState authState, double cardPadding) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -215,7 +225,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           ),
         ],
       ),
-      padding: EdgeInsets.all(28.r),
+      padding: EdgeInsets.all(cardPadding),
       child: Form(
         key: _formKey,
         child: Column(

@@ -41,23 +41,42 @@ class FypApp extends StatelessWidget {
         useMaterial3: true,
       ),
       initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/onboarding': (context) => const CarouselScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/signup': (context) => const SignupScreen(),
-        '/forgot-password': (context) => const _PlaceholderScreen('Forgot Password'),
-        '/riasec-quiz': (context) => const RiasecQuizScreen(),
-        '/riasec-complete': (context) => const RiasecCompleteScreen(),
-        '/grades-input':    (context) => const GradesInputScreen(),
-        '/grades-complete': (context) => const GradesCompleteScreen(),
-        '/assessment':          (context) => const AssessmentScreen(),
-        '/assessment-complete': (context) => const AssessmentCompleteScreen(),
-        '/chat': (context) => const _PlaceholderScreen('Chat'),
-        '/dashboard': (context) => const _PlaceholderScreen('Dashboard'),
-        '/profile': (context) => const _PlaceholderScreen('Student Profile'),
-        '/settings': (context) => const _PlaceholderScreen('Settings'),
-        '/error': (context) => const _PlaceholderScreen('Network Error'),
+      onGenerateRoute: (settings) {
+        final Map<String, WidgetBuilder> routes = {
+          '/': (context) => const SplashScreen(),
+          '/onboarding': (context) => const CarouselScreen(),
+          '/login': (context) => const LoginScreen(),
+          '/signup': (context) => const SignupScreen(),
+          '/forgot-password': (context) =>
+              const _PlaceholderScreen('Forgot Password'),
+          '/riasec-quiz': (context) => const RiasecQuizScreen(),
+          '/riasec-complete': (context) => const RiasecCompleteScreen(),
+          '/grades-input': (context) => const GradesInputScreen(),
+          '/grades-complete': (context) => const GradesCompleteScreen(),
+          '/assessment': (context) => const AssessmentScreen(),
+          '/assessment-complete': (context) => const AssessmentCompleteScreen(),
+          '/chat': (context) => const _PlaceholderScreen('Chat'),
+          '/dashboard': (context) => const _PlaceholderScreen('Dashboard'),
+          '/profile': (context) => const _PlaceholderScreen('Student Profile'),
+          '/settings': (context) => const _PlaceholderScreen('Settings'),
+          '/error': (context) => const _PlaceholderScreen('Network Error'),
+        };
+
+        final builder = routes[settings.name];
+        if (builder == null) return null;
+
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (context, animation, _) => builder(context),
+          transitionsBuilder: (context, animation, _, child) => FadeTransition(
+            opacity: CurvedAnimation(
+              parent: animation,
+              curve: Curves.easeInOut,
+            ),
+            child: child,
+          ),
+          transitionDuration: const Duration(milliseconds: 220),
+        );
       },
         );
       },

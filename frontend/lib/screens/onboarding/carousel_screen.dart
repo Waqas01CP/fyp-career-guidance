@@ -222,7 +222,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
           Text(
             label,
             style: TextStyle(
-              fontSize: 10.sp,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w700,
               color: _tertiaryColor,
               letterSpacing: 1.2,
@@ -279,7 +279,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                       Text(
                         _bentoLabels[slideIndex][0],
                         style: TextStyle(
-                          fontSize: 9.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w700,
                           color: _secondaryColor,
                           letterSpacing: 1.2,
@@ -313,7 +313,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                       Text(
                         _bentoLabels[slideIndex][1],
                         style: TextStyle(
-                          fontSize: 9.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w700,
                           color: _tertiaryColor,
                           letterSpacing: 1.2,
@@ -377,7 +377,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 10.sp,
+              fontSize: 12.sp,
               fontWeight: FontWeight.w700,
               color: Color(0xFF515F74),
               letterSpacing: 1.0,

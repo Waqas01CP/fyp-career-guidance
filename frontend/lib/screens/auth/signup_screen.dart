@@ -205,19 +205,29 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     return Scaffold(
       backgroundColor: _bgColor,
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(24.r),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(height: 32.h),
-              _buildGradientBar(),
-              _buildFormCard(authState),
-              SizedBox(height: 24.h),
-              _buildSignInRow(),
-              SizedBox(height: 32.h),
-            ],
-          ),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final isCompact = constraints.maxHeight < 680;
+            final vGap = isCompact ? 10.h : 16.h;
+            final cardPadding = isCompact ? 16.r : 24.r;
+            final topPadding = isCompact ? 12.h : 24.h;
+
+            return SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(height: topPadding),
+                  _buildGradientBar(),
+                  _buildFormCard(authState, cardPadding),
+                  SizedBox(height: vGap),
+                  _buildSignInRow(),
+                  SizedBox(height: vGap),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );
@@ -235,7 +245,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     );
   }
 
-  Widget _buildFormCard(AuthState authState) {
+  Widget _buildFormCard(AuthState authState, double cardPadding) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -248,7 +258,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           ),
         ],
       ),
-      padding: EdgeInsets.all(28.r),
+      padding: EdgeInsets.all(cardPadding),
       child: Form(
         key: _formKey,
         child: Column(

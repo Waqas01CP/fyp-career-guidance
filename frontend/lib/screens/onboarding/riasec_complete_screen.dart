@@ -89,7 +89,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
         Text(
           'RIASEC PROFILE COMPLETE',
           style: TextStyle(
-            fontSize: 9.sp,
+            fontSize: 11.sp,
             fontWeight: FontWeight.w700,
             letterSpacing: 0.1,
             color: const Color(0xFF515F74),
@@ -140,7 +140,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
           Text(
             'INTEREST RADAR',
             style: TextStyle(
-              fontSize: 9.sp,
+              fontSize: 11.sp,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.1,
               color: const Color(0xFF515F74),
@@ -178,7 +178,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
           child: Text(
             '$name · $pct%',
             style: TextStyle(
-              fontSize: 12.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w600,
               color: const Color(0xFF006B62),
             ),
@@ -211,7 +211,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
                   Text(
                     'AI INSIGHT',
                     style: TextStyle(
-                      fontSize: 9.sp,
+                      fontSize: 11.sp,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 0.1,
                       color: const Color(0xFF5A00C6),
@@ -221,7 +221,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
                   Text(
                     'Your RIASEC profile captures how you naturally engage with the world. The top dimensions shown above will guide our university and degree recommendations — programs where students with similar profiles tend to thrive.',
                     style: TextStyle(
-                      fontSize: 13.sp,
+                      fontSize: 14.sp,
                       color: const Color(0xFF25005A),
                       height: 1.6,
                     ),

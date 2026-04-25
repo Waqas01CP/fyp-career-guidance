@@ -329,7 +329,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
               child: Text(
                 text,
                 style: TextStyle(
-                  fontSize: 14.sp,
+                  fontSize: 15.sp,
                   fontWeight: FontWeight.w400,
                   color: textColor,
                 ),
@@ -381,7 +381,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             child: Text(
               subject.toUpperCase(),
               style: TextStyle(
-                fontSize: 9.sp,
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w700,
                 color: const Color(0xFF5A00C6),
                 letterSpacing: 0.9,
@@ -393,7 +393,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
           Text(
             'QUESTION ${_currentIndex + 1} OF ${_questions.length}',
             style: TextStyle(
-              fontSize: 11.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w700,
               color: const Color(0xFF515F74),
               letterSpacing: 0.5,
@@ -404,7 +404,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
           Text(
             questionText,
             style: TextStyle(
-              fontSize: 17.sp,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w600,
               color: const Color(0xFF191C1E),
               height: 1.5,
