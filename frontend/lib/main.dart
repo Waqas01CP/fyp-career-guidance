@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'providers/auth_provider.dart';
 import 'providers/profile_provider.dart';
@@ -23,7 +24,12 @@ class FypApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ScreenUtilInit(
+      designSize: const Size(390, 844),
+      minTextAdapt: true,
+      splitScreenMode: false,
+      builder: (context, child) {
+        return MaterialApp(
       title: 'AI Career Guidance',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -52,6 +58,8 @@ class FypApp extends StatelessWidget {
         '/profile': (context) => const _PlaceholderScreen('Student Profile'),
         '/settings': (context) => const _PlaceholderScreen('Settings'),
         '/error': (context) => const _PlaceholderScreen('Network Error'),
+      },
+        );
       },
     );
   }

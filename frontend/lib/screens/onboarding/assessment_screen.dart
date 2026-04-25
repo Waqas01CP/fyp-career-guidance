@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
@@ -253,22 +254,22 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
         textColor = _primary;
         badgeBg = const Color(0x26006B62);
         badgeColor = _primary;
-        trailing = const Icon(Icons.check_circle,
-            color: Color(0xFF006B62), size: 18);
+        trailing = Icon(Icons.check_circle,
+            color: const Color(0xFF006B62), size: 18.r);
       } else if (isSelected) {
         bg = const Color(0xFFFFEDEA);
         textColor = _error;
         badgeBg = const Color(0x26BA1A1A);
         badgeColor = _error;
-        trailing = const Icon(Icons.cancel,
-            color: Color(0xFFBA1A1A), size: 18);
+        trailing = Icon(Icons.cancel,
+            color: const Color(0xFFBA1A1A), size: 18.r);
       }
     } else if (isSelected) {
       bg = const Color(0x0D006B62);
       badgeBg = _primary;
       badgeColor = Colors.white;
-      trailing = const Icon(Icons.check_circle,
-          color: Color(0xFF006B62), size: 18);
+      trailing = Icon(Icons.check_circle,
+          color: const Color(0xFF006B62), size: 18.r);
     }
 
     final letter = String.fromCharCode(65 + index);
@@ -279,11 +280,11 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
           : () => _onOptionSelected(index),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
-        margin: const EdgeInsets.only(bottom: 10),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        margin: EdgeInsets.only(bottom: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
         decoration: BoxDecoration(
           color: bg,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
           border: (isSelected && !showFeedback)
               ? const Border(
                   left: BorderSide(color: Color(0xFF006B62), width: 3))
@@ -292,35 +293,35 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
         child: Row(
           children: [
             Container(
-              width: 32,
-              height: 32,
+              width: 32.w,
+              height: 32.h,
               decoration: BoxDecoration(
                 color: badgeBg,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               alignment: Alignment.center,
               child: Text(
                 letter,
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.w700,
                   color: badgeColor,
                 ),
               ),
             ),
-            const SizedBox(width: 12),
+            SizedBox(width: 12.w),
             Expanded(
               child: Text(
                 text,
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
                   color: textColor,
                 ),
               ),
             ),
             if (trailing != null) ...[
-              const SizedBox(width: 8),
+              SizedBox(width: 8.w),
               trailing,
             ],
           ],
@@ -338,11 +339,11 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
 
     return Container(
       key: key,
-      margin: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-      padding: const EdgeInsets.all(20),
+      margin: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 0),
+      padding: EdgeInsets.all(20.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         boxShadow: const [
           BoxShadow(
             color: Color(0x0F191C1E),
@@ -357,44 +358,44 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
           // Subject badge
           Container(
             padding:
-                const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
             decoration: BoxDecoration(
               color: const Color(0xFFEADDFF),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
             ),
             child: Text(
               subject.toUpperCase(),
-              style: const TextStyle(
-                fontSize: 9,
+              style: TextStyle(
+                fontSize: 9.sp,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF5A00C6),
+                color: const Color(0xFF5A00C6),
                 letterSpacing: 0.9,
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           // Counter
           Text(
             'QUESTION ${_currentIndex + 1} OF ${_questions.length}',
-            style: const TextStyle(
-              fontSize: 11,
+            style: TextStyle(
+              fontSize: 11.sp,
               fontWeight: FontWeight.w700,
-              color: Color(0xFF515F74),
+              color: const Color(0xFF515F74),
               letterSpacing: 0.5,
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           // Question text
           Text(
             questionText,
-            style: const TextStyle(
-              fontSize: 17,
+            style: TextStyle(
+              fontSize: 17.sp,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF191C1E),
+              color: const Color(0xFF191C1E),
               height: 1.5,
             ),
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24.h),
           // Options A–D
           ...options.asMap().entries.map((entry) => _buildOption(
                 entry.key,
@@ -424,7 +425,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
       child: Scaffold(
         backgroundColor: const Color(0xFFF2F4F6),
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(52),
+          preferredSize: Size.fromHeight(52.h),
           child: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
@@ -432,26 +433,26 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             titleSpacing: 12,
             title: Row(
               children: [
-                const Icon(Icons.school, color: _primary, size: 20),
-                const SizedBox(width: 8),
-                const Text(
+                Icon(Icons.school, color: _primary, size: 20.r),
+                SizedBox(width: 8.w),
+                Text(
                   'Academic Intelligence',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                     color: _primary,
                   ),
                 ),
                 const Spacer(),
-                const Text(
+                Text(
                   'Step 3 of 3',
                   style: TextStyle(
-                    fontSize: 13,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w500,
                     color: _secondary,
                   ),
                 ),
-                const SizedBox(width: 4),
+                SizedBox(width: 4.w),
               ],
             ),
           ),
@@ -462,7 +463,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
               // Sticky progress bar
               LinearProgressIndicator(
                 value: progress,
-                minHeight: 6,
+                minHeight: 6.h,
                 backgroundColor: const Color(0xFFE6E8EA),
                 valueColor:
                     const AlwaysStoppedAnimation<Color>(_primary),
@@ -474,16 +475,16 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
                         child: CircularProgressIndicator(color: _primary),
                       )
                     : _isSubmitting
-                        ? const Center(
+                        ? Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                CircularProgressIndicator(color: _primary),
-                                SizedBox(height: 16),
+                                const CircularProgressIndicator(color: _primary),
+                                SizedBox(height: 16.h),
                                 Text(
                                   'Submitting assessment…',
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                     color: _secondary,
                                   ),
                                 ),
@@ -515,7 +516,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
                                     key: ValueKey(_currentIndex),
                                   ),
                                 ),
-                                const SizedBox(height: 32),
+                                SizedBox(height: 32.h),
                               ],
                             ),
                           ),

@@ -619,6 +619,7 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 | Model abstraction | Prompts must work at minimum model and above without code changes. Model swap = config.py change only. |
 | Token optimization | Every LLM node prompt balances output quality against token efficiency. Find the minimum prompt length that delivers excellent, reliable output — do not cut tokens that degrade quality, do not add tokens that produce no improvement. Output format explicitly constrained. User input passed as variable. See TOKEN OPTIMIZATION section in BACKEND_CHAT_INSTRUCTIONS.md. |
 | Remember Me checkbox | UI-only — token always stored in flutter_secure_storage regardless of checkbox state. No backend remember_device field exists. Post-demo if needed. |
+| flutter_screenutil | Added post-build for responsive scaling. Version ^5.9.3. Baseline 390×844. All fontSize → .sp, SizedBox heights → .h, widths → .w, icons → .r, BorderRadius → .r, EdgeInsets → .r/.h/.w. Approved April 2026. |
 
 ---
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 
@@ -102,8 +103,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           textInputAction: textInputAction,
           autofillHints: autofillHints,
           obscureText: obscureText,
-          style: const TextStyle(
-            fontSize: 15,
+          style: TextStyle(
+            fontSize: 15.sp,
             fontWeight: FontWeight.w400,
             color: _onSurface,
           ),
@@ -111,35 +112,35 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             filled: true,
             fillColor: _fieldFill,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             labelText: label,
-            labelStyle: const TextStyle(
-              fontSize: 12,
+            labelStyle: TextStyle(
+              fontSize: 12.sp,
               fontWeight: FontWeight.w600,
               color: _secondaryColor,
               letterSpacing: 0.48,
             ),
             suffixIcon: suffixIcon,
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
           ),
           validator: validator,
         ),
@@ -150,11 +151,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             width: focusNode.hasFocus ? 2 : 0,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: _primaryColor,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
+                topLeft: Radius.circular(12.r),
+                bottomLeft: Radius.circular(12.r),
               ),
             ),
           ),
@@ -171,17 +172,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       backgroundColor: _bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24.r),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
               _buildGradientBar(),
               _buildFormCard(authState),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               _buildSignUpRow(),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
             ],
           ),
         ),
@@ -191,7 +192,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   Widget _buildGradientBar() {
     return Container(
-      height: 3,
+      height: 3.h,
       width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -214,32 +215,32 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           ),
         ],
       ),
-      padding: const EdgeInsets.all(28),
+      padding: EdgeInsets.all(28.r),
       child: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            Text(
               'Welcome Back',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 28.sp,
                 fontWeight: FontWeight.w700,
                 color: _onSurface,
                 letterSpacing: -0.56,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
+            SizedBox(height: 8.h),
+            Text(
               'Enter your email and password to continue.',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: _secondaryColor,
                 height: 1.6,
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
             AutofillGroup(
               child: Column(
                 children: [
@@ -256,7 +257,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   _buildField(
                     controller: _passwordController,
                     focusNode: _passwordFocus,
@@ -272,7 +273,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: _secondaryColor,
-                        size: 20,
+                        size: 20.r,
                       ),
                     ),
                     validator: (v) {
@@ -283,15 +284,15 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
                     SizedBox(
-                      width: 24,
-                      height: 24,
+                      width: 24.w,
+                      height: 24.h,
                       child: Checkbox(
                         value: _rememberMe,
                         onChanged: (v) =>
@@ -300,11 +301,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         materialTapTargetSize: MaterialTapTargetSize.padded,
                       ),
                     ),
-                    const SizedBox(width: 8),
-                    const Text(
+                    SizedBox(width: 8.w),
+                    Text(
                       'Remember this device',
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
                         color: _secondaryColor,
                       ),
@@ -313,10 +314,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 TextButton(
                   onPressed: null,
-                  child: const Text(
+                  child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       fontWeight: FontWeight.w600,
                       color: _secondaryColor,
                     ),
@@ -324,31 +325,31 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
             ElevatedButton(
               onPressed: _isLoading ? null : _onSubmit,
               style: ElevatedButton.styleFrom(
                 backgroundColor: _primaryColor,
                 disabledBackgroundColor: _primaryColor.withValues(alpha: 0.7),
-                minimumSize: const Size(double.infinity, 52),
+                minimumSize: Size(double.infinity, 52.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(14.r),
                 ),
                 elevation: 0,
               ),
               child: _isLoading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(
+                  ? SizedBox(
+                      height: 20.r,
+                      width: 20.r,
+                      child: const CircularProgressIndicator(
                         strokeWidth: 2,
                         color: Colors.white,
                       ),
                     )
-                  : const Text(
+                  : Text(
                       'Sign In',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
@@ -356,11 +357,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             ),
             if (authState.error != null)
               Padding(
-                padding: const EdgeInsets.only(top: 12),
+                padding: EdgeInsets.only(top: 12.h),
                 child: Text(
                   authState.error!,
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: TextStyle(
+                    fontSize: 12.sp,
                     color: _errorColor,
                   ),
                   textAlign: TextAlign.center,
@@ -376,10 +377,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           "Don't have an account yet? ",
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 14.sp,
             fontWeight: FontWeight.w400,
             color: _secondaryColor,
           ),
@@ -389,10 +390,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             if (!mounted) return;
             Navigator.pushReplacementNamed(context, '/signup');
           },
-          child: const Text(
+          child: Text(
             'Sign Up',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w700,
               color: _primaryColor,
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../providers/auth_provider.dart';
 import '../providers/profile_provider.dart';
 import '../services/auth_service.dart';
@@ -97,33 +98,33 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _buildLogo(),
-                  const SizedBox(height: 20),
-                  const Text(
+                  SizedBox(height: 20.h),
+                  Text(
                     'Academic Intelligence',
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 22.sp,
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
                       letterSpacing: -0.44,
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
+                  SizedBox(height: 8.h),
+                  Text(
                     'Your Career Companion',
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 13.sp,
                       fontWeight: FontWeight.w400,
                       color: _taglineColor,
                       height: 1.6,
                     ),
                   ),
-                  const SizedBox(height: 48),
+                  SizedBox(height: 48.h),
                   _buildLoadingBar(),
                 ],
               ),
             ),
             if (kDebugMode)
-              const Positioned(
+              Positioned(
                 bottom: 20,
                 left: 0,
                 right: 0,
@@ -131,7 +132,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                   'DEBUG BUILD',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 9,
+                    fontSize: 9.sp,
                     fontWeight: FontWeight.w700,
                     color: _taglineColor,
                     letterSpacing: 0.72,
@@ -147,29 +148,29 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   Widget _buildLogo() {
     return SizedBox(
-      width: 80,
-      height: 80,
+      width: 80.w,
+      height: 80.h,
       child: Stack(
         children: [
           Container(
-            width: 80,
-            height: 80,
+            width: 80.w,
+            height: 80.h,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.15),
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(20.r),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.auto_stories,
-              size: 40,
+              size: 40.r,
               color: Colors.white,
             ),
           ),
-          const Positioned(
+          Positioned(
             bottom: 4,
             right: 4,
             child: Icon(
               Icons.auto_awesome,
-              size: 16,
+              size: 16.r,
               color: Colors.white,
             ),
           ),
@@ -180,11 +181,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   Widget _buildLoadingBar() {
     return Container(
-      width: 120,
-      height: 3,
+      width: 120.w,
+      height: 3.h,
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.2),
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: BorderRadius.circular(2.r),
       ),
       child: AnimatedBuilder(
         animation: _barWidth,
@@ -192,10 +193,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
           alignment: Alignment.centerLeft,
           child: Container(
             width: _barWidth.value,
-            height: 3,
+            height: 3.h,
             decoration: BoxDecoration(
               color: _barFillColor,
-              borderRadius: BorderRadius.circular(2),
+              borderRadius: BorderRadius.circular(2.r),
             ),
           ),
         ),

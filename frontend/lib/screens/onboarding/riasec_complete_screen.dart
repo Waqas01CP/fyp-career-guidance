@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/profile_provider.dart';
 
 class RiasecCompleteScreen extends ConsumerWidget {
@@ -37,18 +38,18 @@ class RiasecCompleteScreen extends ConsumerWidget {
       backgroundColor: const Color(0xFFF7F9FB),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 32, 20, 32),
+          padding: EdgeInsets.fromLTRB(20.w, 32.h, 20.w, 32.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               _buildHeroBlock(),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
               _buildResultsCard(scores),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               _buildTopThreePills(topThree),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               _buildInsightPanel(),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
               _buildContinueButton(context),
             ],
           ),
@@ -61,8 +62,8 @@ class RiasecCompleteScreen extends ConsumerWidget {
     return Column(
       children: [
         Container(
-          width: 80,
-          height: 80,
+          width: 80.w,
+          height: 80.h,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: const LinearGradient(
@@ -78,41 +79,41 @@ class RiasecCompleteScreen extends ConsumerWidget {
               ),
             ],
           ),
-          child: const Icon(
+          child: Icon(
             Icons.psychology,
-            size: 40,
+            size: 40.r,
             color: Colors.white,
           ),
         ),
-        const SizedBox(height: 20),
-        const Text(
+        SizedBox(height: 20.h),
+        Text(
           'RIASEC PROFILE COMPLETE',
           style: TextStyle(
-            fontSize: 9,
+            fontSize: 9.sp,
             fontWeight: FontWeight.w700,
             letterSpacing: 0.1,
-            color: Color(0xFF515F74),
+            color: const Color(0xFF515F74),
           ),
         ),
-        const SizedBox(height: 12),
-        const Text(
+        SizedBox(height: 12.h),
+        Text(
           'Your Interest Profile',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 28.sp,
             fontWeight: FontWeight.w700,
             letterSpacing: -0.02 * 28,
-            color: Color(0xFF191C1E),
+            color: const Color(0xFF191C1E),
           ),
         ),
-        const SizedBox(height: 8),
-        const Text(
+        SizedBox(height: 8.h),
+        Text(
           'Here\'s how your interests map across the six RIASEC dimensions.',
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 15,
+            fontSize: 15.sp,
             fontWeight: FontWeight.w400,
-            color: Color(0xFF515F74),
+            color: const Color(0xFF515F74),
             height: 1.6,
           ),
         ),
@@ -122,10 +123,10 @@ class RiasecCompleteScreen extends ConsumerWidget {
 
   Widget _buildResultsCard(Map<String, int> scores) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
@@ -136,16 +137,16 @@ class RiasecCompleteScreen extends ConsumerWidget {
       ),
       child: Column(
         children: [
-          const Text(
+          Text(
             'INTEREST RADAR',
             style: TextStyle(
-              fontSize: 9,
+              fontSize: 9.sp,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.1,
-              color: Color(0xFF515F74),
+              color: const Color(0xFF515F74),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Semantics(
             label: 'RIASEC radar chart showing your interest profile',
             child: AspectRatio(
@@ -169,17 +170,17 @@ class RiasecCompleteScreen extends ConsumerWidget {
         final name = _dimensionNames[entry.key] ?? entry.key;
         final pct  = _scoreToPercent(entry.value);
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
           decoration: BoxDecoration(
             color: const Color(0xFF006B62).withValues(alpha: 0.1),
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
           ),
           child: Text(
             '$name · $pct%',
-            style: const TextStyle(
-              fontSize: 12,
+            style: TextStyle(
+              fontSize: 12.sp,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF006B62),
+              color: const Color(0xFF006B62),
             ),
           ),
         );
@@ -189,7 +190,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
 
   Widget _buildInsightPanel() {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(16.r),
       child: Container(
         decoration: const BoxDecoration(
           color: Color(0xFFEADDFF),
@@ -197,12 +198,12 @@ class RiasecCompleteScreen extends ConsumerWidget {
             left: BorderSide(color: Color(0xFF6616D7), width: 4),
           ),
         ),
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20.r),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            Icon(Icons.auto_awesome, color: Color(0xFF6616D7), size: 18),
-            SizedBox(width: 10),
+          children: [
+            Icon(Icons.auto_awesome, color: const Color(0xFF6616D7), size: 18.r),
+            SizedBox(width: 10.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,18 +211,18 @@ class RiasecCompleteScreen extends ConsumerWidget {
                   Text(
                     'AI INSIGHT',
                     style: TextStyle(
-                      fontSize: 9,
+                      fontSize: 9.sp,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 0.1,
-                      color: Color(0xFF5A00C6),
+                      color: const Color(0xFF5A00C6),
                     ),
                   ),
-                  SizedBox(height: 6),
+                  SizedBox(height: 6.h),
                   Text(
                     'Your RIASEC profile captures how you naturally engage with the world. The top dimensions shown above will guide our university and degree recommendations — programs where students with similar profiles tend to thrive.',
                     style: TextStyle(
-                      fontSize: 13,
-                      color: Color(0xFF25005A),
+                      fontSize: 13.sp,
+                      color: const Color(0xFF25005A),
                       height: 1.6,
                     ),
                   ),
@@ -240,17 +241,17 @@ class RiasecCompleteScreen extends ConsumerWidget {
           Navigator.pushReplacementNamed(context, '/grades-input'),
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF006B62),
-        minimumSize: const Size(double.infinity, 56),
+        minimumSize: Size(double.infinity, 56.h),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(16.r),
         ),
-        padding: const EdgeInsets.all(18),
+        padding: EdgeInsets.all(18.r),
         elevation: 0,
       ),
-      child: const Text(
+      child: Text(
         'Continue to Academic Grades',
         style: TextStyle(
-          fontSize: 15,
+          fontSize: 15.sp,
           fontWeight: FontWeight.w700,
           color: Colors.white,
         ),

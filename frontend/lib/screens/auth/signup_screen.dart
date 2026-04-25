@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/auth_provider.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
@@ -108,8 +109,8 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           autofillHints: autofillHints,
           obscureText: obscureText,
           onChanged: onChanged,
-          style: const TextStyle(
-            fontSize: 15,
+          style: TextStyle(
+            fontSize: 15.sp,
             fontWeight: FontWeight.w400,
             color: _onSurface,
           ),
@@ -117,38 +118,38 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
             filled: true,
             fillColor: _fieldFill,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
             ),
             labelText: label,
-            labelStyle: const TextStyle(
-              fontSize: 12,
+            labelStyle: TextStyle(
+              fontSize: 12.sp,
               fontWeight: FontWeight.w600,
               color: _secondaryColor,
               letterSpacing: 0.48,
             ),
             prefixIcon: prefixIcon != null
-                ? Icon(prefixIcon, color: _secondaryColor, size: 20)
+                ? Icon(prefixIcon, color: _secondaryColor, size: 20.r)
                 : null,
             suffixIcon: suffixIcon,
             contentPadding:
-                const EdgeInsets.symmetric(horizontal: 16, vertical: 18),
+                EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
           ),
           validator: validator,
         ),
@@ -159,11 +160,11 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             width: focusNode.hasFocus ? 2 : 0,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: _primaryColor,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
+                topLeft: Radius.circular(12.r),
+                bottomLeft: Radius.circular(12.r),
               ),
             ),
           ),
@@ -180,15 +181,15 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           child: Icon(
             passes ? Icons.check_circle : Icons.radio_button_unchecked,
             key: ValueKey(passes),
-            size: 16,
+            size: 16.r,
             color: passes ? _primaryColor : _secondaryColor,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8.w),
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 11,
+          style: TextStyle(
+            fontSize: 11.sp,
             fontWeight: FontWeight.w400,
             color: _secondaryColor,
           ),
@@ -205,16 +206,16 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
       backgroundColor: _bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(24),
+          padding: EdgeInsets.all(24.r),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
               _buildGradientBar(),
               _buildFormCard(authState),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               _buildSignInRow(),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
             ],
           ),
         ),
@@ -224,7 +225,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
   Widget _buildGradientBar() {
     return Container(
-      height: 3,
+      height: 3.h,
       width: double.infinity,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -247,32 +248,32 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           ),
         ],
       ),
-      padding: const EdgeInsets.all(28),
+      padding: EdgeInsets.all(28.r),
       child: Form(
         key: _formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text(
+            Text(
               'Create Account',
               style: TextStyle(
-                fontSize: 28,
+                fontSize: 28.sp,
                 fontWeight: FontWeight.w700,
                 color: _onSurface,
                 letterSpacing: -0.56,
               ),
             ),
-            const SizedBox(height: 8),
-            const Text(
+            SizedBox(height: 8.h),
+            Text(
               'Fill in your details to begin your guided experience.',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: _secondaryColor,
                 height: 1.6,
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
             AutofillGroup(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -292,7 +293,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                               v == null || v.trim().isEmpty ? 'Required' : null,
                         ),
                       ),
-                      const SizedBox(width: 12),
+                      SizedBox(width: 12.w),
                       Expanded(
                         child: _buildField(
                           controller: _lastNameController,
@@ -307,7 +308,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   _buildField(
                     controller: _emailController,
                     focusNode: _emailFocus,
@@ -322,7 +323,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   _buildField(
                     controller: _passwordController,
                     focusNode: _passwordFocus,
@@ -339,7 +340,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: _secondaryColor,
-                        size: 20,
+                        size: 20.r,
                       ),
                     ),
                     onChanged: (value) {
@@ -355,7 +356,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8.h),
                   _buildField(
                     controller: _confirmPasswordController,
                     focusNode: _confirmFocus,
@@ -372,7 +373,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                             ? Icons.visibility_off
                             : Icons.visibility,
                         color: _secondaryColor,
-                        size: 20,
+                        size: 20.r,
                       ),
                     ),
                     validator: (v) {
@@ -383,46 +384,46 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       return null;
                     },
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   // Password rule indicators
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildRule('At least 8 characters', _hasMinLength),
-                      const SizedBox(height: 6),
+                      SizedBox(height: 6.h),
                       _buildRule('One number', _hasNumber),
-                      const SizedBox(height: 6),
+                      SizedBox(height: 6.h),
                       _buildRule('One uppercase letter', _hasUppercase),
                     ],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            SizedBox(height: 24.h),
             ElevatedButton(
               onPressed: _isLoading ? null : _onSubmit,
               style: ElevatedButton.styleFrom(
                 backgroundColor: _primaryColor,
                 disabledBackgroundColor: _primaryColor.withValues(alpha: 0.7),
-                minimumSize: const Size(double.infinity, 52),
+                minimumSize: Size(double.infinity, 52.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(14.r),
                 ),
                 elevation: 0,
               ),
               child: _isLoading
-                  ? const SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: CircularProgressIndicator(
+                  ? SizedBox(
+                      height: 20.r,
+                      width: 20.r,
+                      child: const CircularProgressIndicator(
                         strokeWidth: 2,
                         color: Colors.white,
                       ),
                     )
-                  : const Text(
+                  : Text(
                       'Create Account',
                       style: TextStyle(
-                        fontSize: 15,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w700,
                         color: Colors.white,
                       ),
@@ -430,11 +431,11 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
             ),
             if (authState.error != null)
               Padding(
-                padding: const EdgeInsets.only(top: 12),
+                padding: EdgeInsets.only(top: 12.h),
                 child: Text(
                   authState.error!,
-                  style: const TextStyle(
-                    fontSize: 12,
+                  style: TextStyle(
+                    fontSize: 12.sp,
                     color: _errorColor,
                   ),
                   textAlign: TextAlign.center,
@@ -450,10 +451,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(
+        Text(
           'Already have an account? ',
           style: TextStyle(
-            fontSize: 14,
+            fontSize: 14.sp,
             fontWeight: FontWeight.w400,
             color: _secondaryColor,
           ),
@@ -463,10 +464,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
             if (!mounted) return;
             Navigator.pushReplacementNamed(context, '/login');
           },
-          child: const Text(
+          child: Text(
             'Sign In',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w700,
               color: _primaryColor,
             ),

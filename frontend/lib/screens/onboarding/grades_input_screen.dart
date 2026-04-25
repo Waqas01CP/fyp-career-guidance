@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
@@ -180,13 +181,13 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: _secondary),
+          icon: Icon(Icons.arrow_back, color: _secondary, size: 24.r),
           onPressed: () => Navigator.maybePop(context),
         ),
-        title: const Text(
+        title: Text(
           'Academic Profile',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w700,
             color: _onSurface,
           ),
@@ -194,7 +195,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 40),
+          padding: EdgeInsets.fromLTRB(20.w, 16.h, 20.w, 40.h),
           child: Form(
             key: _formKey,
             child: Column(
@@ -202,81 +203,81 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
               children: [
                 // Step badge
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
                   decoration: BoxDecoration(
                     color: _fieldFill,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
-                  child: const Text(
+                  child: Text(
                     'STEP 2 OF 3',
                     style: TextStyle(
-                      fontSize: 9,
+                      fontSize: 9.sp,
                       fontWeight: FontWeight.w700,
                       letterSpacing: 0.1 * 9,
                       color: _secondary,
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12.h),
 
                 // Title
-                const Text(
+                Text(
                   'Academic Grades',
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 28.sp,
                     fontWeight: FontWeight.w700,
                     color: _onSurface,
                     letterSpacing: -0.02 * 28,
                     height: 1.2,
                   ),
                 ),
-                const SizedBox(height: 8),
+                SizedBox(height: 8.h),
 
-                const Text(
+                Text(
                   'Enter your subject marks to calculate eligibility at each university.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                     color: _secondary,
                     height: 1.6,
                   ),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
 
                 // Scan Marksheet — disabled, OCR deferred (image_picker not in pubspec)
                 ElevatedButton.icon(
                   onPressed: null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF515F74),
-                    minimumSize: const Size(double.infinity, 56),
+                    minimumSize: Size(double.infinity, 56.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.r),
                     ),
                   ),
                   icon: const Icon(Icons.document_scanner, color: Colors.white54),
                   label: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
+                      Text(
                         'Scan Marksheet',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w700,
                           color: Colors.white54,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8.w),
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 6, vertical: 2),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 6.w, vertical: 2.h),
                         decoration: BoxDecoration(
                           color: Colors.white24,
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(4.r),
                         ),
-                        child: const Text(
+                        child: Text(
                           'Soon',
                           style: TextStyle(
-                            fontSize: 9,
+                            fontSize: 9.sp,
                             fontWeight: FontWeight.w700,
                             color: Colors.white70,
                           ),
@@ -285,13 +286,13 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
 
                 // Form card
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(32),
+                    borderRadius: BorderRadius.circular(32.r),
                     boxShadow: const [
                       BoxShadow(
                         color: Color(0x0F334155),
@@ -300,7 +301,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                       ),
                     ],
                   ),
-                  padding: const EdgeInsets.all(24),
+                  padding: EdgeInsets.all(24.r),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -309,11 +310,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(child: _buildLevelDropdown()),
-                          const SizedBox(width: 12),
+                          SizedBox(width: 12.w),
                           Expanded(child: _buildYearDropdown()),
                         ],
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Row 2: Stream + Board (hidden for O/A Level)
                       Visibility(
@@ -325,23 +326,23 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(child: _buildStreamDropdown()),
-                                const SizedBox(width: 12),
+                                SizedBox(width: 12.w),
                                 Expanded(child: _buildBoardDropdown()),
                               ],
                             ),
-                            const SizedBox(height: 16),
+                            SizedBox(height: 16.h),
                           ],
                         ),
                       ),
 
                       if (_currentSubjects.isEmpty)
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16.h),
                           child: Text(
                             'Select your education level to enter marks.',
                             style: TextStyle(
-                              fontSize: 13,
-                              color: Color(0xFF515F74),
+                              fontSize: 13.sp,
+                              color: const Color(0xFF515F74),
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -352,29 +353,29 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         // Header row
                         Row(
                           children: [
-                            const Expanded(
+                            Expanded(
                               child: Text(
                                 'SUBJECT',
                                 style: TextStyle(
-                                  fontSize: 10,
+                                  fontSize: 10.sp,
                                   fontWeight: FontWeight.w700,
                                   letterSpacing: 0.07 * 10,
-                                  color: Color(0xFF6E7977),
+                                  color: const Color(0xFF6E7977),
                                 ),
                               ),
                             ),
-                            const Text(
+                            Text(
                               'PERCENTAGE',
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.w700,
                                 letterSpacing: 0.07 * 10,
-                                color: Color(0xFF6E7977),
+                                color: const Color(0xFF6E7977),
                               ),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 4),
+                        SizedBox(height: 4.h),
 
                         // Marks rows
                         for (int i = 0; i < _currentSubjects.length; i++) ...[
@@ -387,22 +388,22 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         ],
 
                         // Aggregate row
-                        const SizedBox(height: 16),
+                        SizedBox(height: 16.h),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Text(
+                            Text(
                               'Overall Aggregate',
                               style: TextStyle(
-                                fontSize: 12,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.w600,
                                 color: _secondary,
                               ),
                             ),
                             Text(
                               '${_computeAggregate().toStringAsFixed(1)}%',
-                              style: const TextStyle(
-                                fontSize: 18,
+                              style: TextStyle(
+                                fontSize: 18.sp,
                                 fontWeight: FontWeight.w800,
                                 color: _primary,
                                 letterSpacing: -0.02 * 18,
@@ -412,17 +413,17 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         ),
                       ] else ...[
                         Container(
-                          padding: const EdgeInsets.all(20),
+                          padding: EdgeInsets.all(20.r),
                           decoration: BoxDecoration(
                             color: _fieldFill,
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                           ),
-                          child: const Center(
+                          child: Center(
                             child: Text(
                               'Select education level and stream to enter marks',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 13.sp,
                                 color: _secondary,
                               ),
                             ),
@@ -432,34 +433,34 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
 
                 // Save My Grades button
                 ElevatedButton(
                   onPressed: _isSubmitting ? null : _onSubmit,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _primary,
-                    minimumSize: const Size(double.infinity, 56),
+                    minimumSize: Size(double.infinity, 56.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(16.r),
                     ),
-                    padding: const EdgeInsets.all(18),
+                    padding: EdgeInsets.all(18.r),
                     shadowColor: const Color(0x40006B62),
                     elevation: 8,
                   ),
                   child: _isSubmitting
-                      ? const SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
+                      ? SizedBox(
+                          width: 20.r,
+                          height: 20.r,
+                          child: const CircularProgressIndicator(
                             strokeWidth: 2,
                             color: Colors.white,
                           ),
                         )
-                      : const Text(
+                      : Text(
                           'Save My Grades',
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             fontWeight: FontWeight.w700,
                             color: Colors.white,
                           ),
@@ -475,11 +476,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
 
   Widget _buildLabelText(String label) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8, left: 4),
+      padding: EdgeInsets.only(bottom: 8.h, left: 4.w),
       child: Text(
         label,
-        style: const TextStyle(
-          fontSize: 11,
+        style: TextStyle(
+          fontSize: 11.sp,
           fontWeight: FontWeight.w700,
           letterSpacing: 0.08 * 11,
           color: _secondary,
@@ -493,15 +494,15 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       filled: true,
       fillColor: _fieldFill,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         borderSide: BorderSide.none,
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         borderSide: BorderSide.none,
       ),
       contentPadding:
-          const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          EdgeInsets.symmetric(horizontal: 16.w, vertical: 14.h),
     );
   }
 
@@ -515,17 +516,17 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
           initialValue: _selectedLevel,
           decoration: _dropdownDecoration(),
           isExpanded: true,
-          hint: const Text(
+          hint: Text(
             'Select level…',
-            style: TextStyle(fontSize: 13, color: Color(0xFF6E7977)),
+            style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
           items: _levelOptions
               .map((opt) => DropdownMenuItem<String>(
                     value: opt['value'],
                     child: Text(
                       opt['label']!,
-                      style: const TextStyle(
-                          fontSize: 13, color: _onSurface),
+                      style: TextStyle(
+                          fontSize: 13.sp, color: _onSurface),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ))
@@ -551,16 +552,16 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
           initialValue: _selectedYear,
           decoration: _dropdownDecoration(),
           isExpanded: true,
-          hint: const Text(
+          hint: Text(
             'Year',
-            style: TextStyle(fontSize: 13, color: Color(0xFF6E7977)),
+            style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
           items: years
               .map((y) => DropdownMenuItem<int>(
                     value: y,
                     child: Text(
                       '$y',
-                      style: const TextStyle(fontSize: 13, color: _onSurface),
+                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
                     ),
                   ))
               .toList(),
@@ -580,16 +581,16 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
           initialValue: _selectedStream,
           decoration: _dropdownDecoration(),
           isExpanded: true,
-          hint: const Text(
+          hint: Text(
             'Stream',
-            style: TextStyle(fontSize: 13, color: Color(0xFF6E7977)),
+            style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
           items: _streamOptions
               .map((s) => DropdownMenuItem<String>(
                     value: s,
                     child: Text(
                       _streamDisplayNames[s] ?? s,
-                      style: const TextStyle(fontSize: 13, color: _onSurface),
+                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ))
@@ -613,16 +614,16 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
           initialValue: _selectedBoard,
           decoration: _dropdownDecoration(),
           isExpanded: true,
-          hint: const Text(
+          hint: Text(
             'Board',
-            style: TextStyle(fontSize: 13, color: Color(0xFF6E7977)),
+            style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
           items: _boardOptions
               .map((b) => DropdownMenuItem<String>(
                     value: b,
                     child: Text(
                       b,
-                      style: const TextStyle(fontSize: 13, color: _onSurface),
+                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
                     ),
                   ))
               .toList(),
@@ -635,21 +636,21 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   Widget _buildSubjectRow(String subject) {
     final ctrl = _markControllers[subject]!;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Row(
         children: [
           Expanded(
             child: Text(
               subject,
-              style: const TextStyle(
-                fontSize: 14,
+              style: TextStyle(
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
                 color: _onSurface,
               ),
             ),
           ),
           SizedBox(
-            width: 72,
+            width: 72.w,
             child: TextFormField(
               controller: ctrl,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -658,18 +659,18 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                 FilteringTextInputFormatter.allow(
                     RegExp(r'^\d{0,3}\.?\d{0,1}')),
               ],
-              style: const TextStyle(
-                fontSize: 15,
+              style: TextStyle(
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w500,
                 color: _onSurface,
               ),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: '—',
-                hintStyle: TextStyle(color: Color(0xFF6E7977)),
+                hintStyle: const TextStyle(color: Color(0xFF6E7977)),
                 suffixText: '%',
                 suffixStyle: TextStyle(
-                  fontSize: 13,
+                  fontSize: 13.sp,
                   color: _secondary,
                 ),
               ),

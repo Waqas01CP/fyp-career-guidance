@@ -44,7 +44,17 @@
       "Bash(venv/Scripts/python.exe -m pytest tests/ -v)",
       "Bash(flutter clean *)",
       "Bash(flutter pub *)",
-      "Bash(flutter build *)"
+      "Bash(flutter build *)",
+      "Bash(flutter analyze *)",
+      "Bash(flutter run *)",
+      "Bash(taskkill /F /IM chrome.exe)",
+      "Bash(exit 0)",
+      "Bash(date /t)",
+      "Bash(time /t)",
+      "Bash(flutter --version)",
+      "Bash(flutter emulators *)",
+      "Bash(flutter devices *)",
+      "Bash(adb devices *)"
     ]
   }
 }

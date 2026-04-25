@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
@@ -299,22 +300,22 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
         setState(() => _selectedAnswer = score);
         _scheduleDraftSave();
       },
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.r),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
         width: double.infinity,
-        height: 52,
+        height: 52.h,
         decoration: BoxDecoration(
           color: isSelected ? _primary : _unselected,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(12.r),
         ),
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(horizontal: 2),
+        padding: EdgeInsets.symmetric(horizontal: 2.w),
         child: Text(
           label.toUpperCase(),
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: 9,
+            fontSize: 9.sp,
             fontWeight: FontWeight.w600,
             color: isSelected ? Colors.white : _secondary,
             letterSpacing: 0.02,
@@ -326,10 +327,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   Widget _buildInsightPanel(String insightText) {
     return Container(
-      margin: const EdgeInsets.only(top: 20),
+      margin: EdgeInsets.only(top: 20.h),
       decoration: BoxDecoration(
         color: _tertiaryFixed,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
       ),
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -339,28 +340,28 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           initiallyExpanded: false,
           tilePadding: EdgeInsets.zero,
           childrenPadding: EdgeInsets.zero,
-          leading: const Icon(Icons.info_outline,
-              size: 16, color: _tertiary),
-          title: const Text('GUIDANCE',
+          leading: Icon(Icons.info_outline,
+              size: 16.r, color: _tertiary),
+          title: Text('GUIDANCE',
               style: TextStyle(
-                  fontSize: 9,
+                  fontSize: 9.sp,
                   fontWeight: FontWeight.w700,
                   color: _onTertiaryFixedVar,
-                  letterSpacing: 0.9)),
+                  letterSpacing: 0.9.sp)),
           iconColor: _tertiary,
           collapsedIconColor: _tertiary,
           backgroundColor: _tertiaryFixed,
           collapsedBackgroundColor: _tertiaryFixed,
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16)),
+              borderRadius: BorderRadius.circular(16.r)),
           collapsedShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16)),
+              borderRadius: BorderRadius.circular(16.r)),
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 16.h),
               child: Text(insightText,
-                  style: const TextStyle(
-                      fontSize: 13,
+                  style: TextStyle(
+                      fontSize: 13.sp,
                       color: _onTertiaryFixed,
                       height: 1.6)),
             ),
@@ -380,11 +381,11 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
     return Container(
       key: key,
-      margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
-      padding: const EdgeInsets.all(24),
+      margin: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 16.h),
+      padding: EdgeInsets.all(24.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
@@ -400,16 +401,16 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 12, vertical: 4),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 12.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF2F4F6),
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 child: Text(
                   dimName.toUpperCase(),
-                  style: const TextStyle(
-                    fontSize: 10,
+                  style: TextStyle(
+                    fontSize: 10.sp,
                     fontWeight: FontWeight.w700,
                     color: _primary,
                     letterSpacing: 0.06,
@@ -419,44 +420,44 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
               GestureDetector(
                 onTap: _showQuestionPicker,
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12, vertical: 6),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: 12.w, vertical: 6.h),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF2F4F6),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
                         'Q${_currentIndex + 1} OF ${_questions.length}',
-                        style: const TextStyle(
-                          fontSize: 11,
+                        style: TextStyle(
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xFF515F74),
+                          color: const Color(0xFF515F74),
                           letterSpacing: 0.88,
                         ),
                       ),
-                      const SizedBox(width: 4),
-                      const Icon(Icons.keyboard_arrow_down,
-                          size: 14, color: Color(0xFF515F74)),
+                      SizedBox(width: 4.w),
+                      Icon(Icons.keyboard_arrow_down,
+                          size: 14.r, color: const Color(0xFF515F74)),
                     ],
                   ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Text(
             _showRomanUrdu ? (textUr ?? textEn) : textEn,
-            style: const TextStyle(
-              fontSize: 16,
+            style: TextStyle(
+              fontSize: 16.sp,
               fontWeight: FontWeight.w500,
               color: _onSurface,
               height: 1.6,
             ),
           ),
-          const SizedBox(height: 24),
+          SizedBox(height: 24.h),
           Column(
             children: [
               for (int i = 1; i <= 5; i++) ...[
@@ -465,7 +466,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   _scaleLabels['$i'] ?? '$i',
                   _selectedAnswer == i,
                 ),
-                if (i < 5) const SizedBox(height: 8),
+                if (i < 5) SizedBox(height: 8.h),
               ],
             ],
           ),
@@ -477,33 +478,33 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   Widget _buildAppBar() {
     return Container(
-      height: 52,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      height: 52.h,
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
       color: const Color(0xFFF7F9FB),
       child: Row(
         children: [
           SizedBox(
-            width: 48,
-            height: 48,
+            width: 48.w,
+            height: 48.h,
             child: InkWell(
               onTap: _onBackPressed,
-              borderRadius: BorderRadius.circular(8),
-              child: const Icon(
+              borderRadius: BorderRadius.circular(8.r),
+              child: Icon(
                 Icons.arrow_back,
                 color: _secondary,
-                size: 24,
+                size: 24.r,
               ),
             ),
           ),
-          const SizedBox(width: 4),
-          const Icon(Icons.school, color: _primary, size: 22),
-          const SizedBox(width: 6),
-          const Flexible(
+          SizedBox(width: 4.w),
+          Icon(Icons.school, color: _primary, size: 22.r),
+          SizedBox(width: 6.w),
+          Flexible(
             child: Text(
               'Academic Intelligence',
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 17,
+                fontSize: 17.sp,
                 fontWeight: FontWeight.w700,
                 color: _primary,
               ),
@@ -515,32 +516,32 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                 setState(() => _showRomanUrdu = !_showRomanUrdu),
             child: Text(
               _showRomanUrdu ? 'EN' : 'UR',
-              style: const TextStyle(
-                fontSize: 12,
+              style: TextStyle(
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF006B62),
+                color: const Color(0xFF006B62),
               ),
             ),
           ),
-          const Text(
+          Text(
             'Step 1 of 3',
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w500,
               color: _secondary,
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: 10.w),
           Container(
-            width: 32,
-            height: 32,
+            width: 32.w,
+            height: 32.h,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: _unselected,
             ),
-            child: const Icon(Icons.person, size: 16, color: _secondary),
+            child: Icon(Icons.person, size: 16.r, color: _secondary),
           ),
-          const SizedBox(width: 8),
+          SizedBox(width: 8.w),
         ],
       ),
     );
@@ -552,7 +553,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     final isSubmitEnabled = _selectedAnswer != null && !_isSubmitting;
 
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 16.h),
       decoration: const BoxDecoration(
         color: Color(0xFFF7F9FB),
         border: Border(
@@ -564,15 +565,15 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
         children: [
           TextButton.icon(
             onPressed: isPrevDisabled ? null : _onPrevious,
-            icon: const Icon(Icons.arrow_back, size: 18),
+            icon: Icon(Icons.arrow_back, size: 18.r),
             label: const Text('Previous'),
             style: TextButton.styleFrom(
               foregroundColor: _secondary,
               disabledForegroundColor: const Color(0xFFBDC9C6),
-              padding: const EdgeInsets.symmetric(
-                  horizontal: 16, vertical: 14),
-              textStyle: const TextStyle(
-                fontSize: 14,
+              padding: EdgeInsets.symmetric(
+                  horizontal: 16.w, vertical: 14.h),
+              textStyle: TextStyle(
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -583,20 +584,20 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
             ElevatedButton.icon(
               onPressed: _selectedAnswer == null ? null : _onNext,
               icon: const Text('Next'),
-              label: const Icon(Icons.arrow_forward, size: 18),
+              label: Icon(Icons.arrow_forward, size: 18.r),
               style: ElevatedButton.styleFrom(
                 backgroundColor: _primary,
                 disabledBackgroundColor: const Color(0xFFE0E3E5),
                 foregroundColor: Colors.white,
                 disabledForegroundColor: const Color(0xFF6E7977),
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 24, vertical: 14),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 24.w, vertical: 14.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 elevation: 0,
-                textStyle: const TextStyle(
-                  fontSize: 14,
+                textStyle: TextStyle(
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -611,10 +612,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       color: Colors.transparent,
       child: InkWell(
         onTap: isEnabled ? _onSubmit : null,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(14.r),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 150),
-          height: 52,
+          height: 52.h,
           decoration: BoxDecoration(
             gradient: isEnabled
                 ? const LinearGradient(
@@ -622,15 +623,15 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   )
                 : null,
             color: isEnabled ? null : const Color(0xFFE0E3E5),
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(14.r),
           ),
           alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: _isSubmitting
-              ? const SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: CircularProgressIndicator(
+              ? SizedBox(
+                  height: 20.r,
+                  width: 20.r,
+                  child: const CircularProgressIndicator(
                     strokeWidth: 2,
                     color: Colors.white,
                   ),
@@ -638,7 +639,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
               : Text(
                   'View My Results',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w700,
                     color: isEnabled
                         ? Colors.white
@@ -654,21 +655,21 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
           borderRadius:
-              BorderRadius.vertical(top: Radius.circular(24))),
+              BorderRadius.vertical(top: Radius.circular(24.r))),
       builder: (ctx) => Padding(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24.r),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Jump to Question',
+            Text('Jump to Question',
                 style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xFF191C1E))),
-            const SizedBox(height: 16),
+                    color: const Color(0xFF191C1E))),
+            SizedBox(height: 16.h),
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -714,7 +715,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                     alignment: Alignment.center,
                     child: Text('${i + 1}',
                         style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.sp,
                             fontWeight: FontWeight.w600,
                             color: isAnswered
                                 ? Colors.white
@@ -723,20 +724,20 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                 );
               },
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Row(
               children: [
                 _buildLegendDot(const Color(0xFF006B62)),
-                const SizedBox(width: 6),
-                const Text('Answered',
+                SizedBox(width: 6.w),
+                Text('Answered',
                     style: TextStyle(
-                        fontSize: 11, color: Color(0xFF515F74))),
-                const SizedBox(width: 16),
+                        fontSize: 11.sp, color: const Color(0xFF515F74))),
+                SizedBox(width: 16.w),
                 _buildLegendDot(const Color(0xFFE6E8EA)),
-                const SizedBox(width: 6),
-                const Text('Unanswered',
+                SizedBox(width: 6.w),
+                Text('Unanswered',
                     style: TextStyle(
-                        fontSize: 11, color: Color(0xFF515F74))),
+                        fontSize: 11.sp, color: const Color(0xFF515F74))),
               ],
             ),
           ],
@@ -746,8 +747,8 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Widget _buildLegendDot(Color color) => Container(
-        width: 12,
-        height: 12,
+        width: 12.r,
+        height: 12.r,
         decoration:
             BoxDecoration(shape: BoxShape.circle, color: color),
       );
@@ -779,7 +780,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                       backgroundColor: const Color(0xFFE6E8EA),
                       valueColor: const AlwaysStoppedAnimation<Color>(
                           _primary),
-                      minHeight: 6,
+                      minHeight: 6.h,
                     ),
                     Expanded(
                       child: SingleChildScrollView(

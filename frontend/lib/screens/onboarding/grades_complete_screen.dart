@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/profile_provider.dart';
 
 class GradesCompleteScreen extends ConsumerWidget {
@@ -50,21 +51,21 @@ class GradesCompleteScreen extends ConsumerWidget {
         elevation: 0,
         scrolledUnderElevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Color(0xFF515F74)),
+          icon: Icon(Icons.arrow_back, color: const Color(0xFF515F74), size: 24.r),
           onPressed: () => Navigator.maybePop(context),
         ),
-        title: const Text(
+        title: Text(
           'Academic Profile',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w700,
-            color: Color(0xFF191C1E),
+            color: const Color(0xFF191C1E),
           ),
         ),
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(20, 24, 20, 40),
+          padding: EdgeInsets.fromLTRB(20.w, 24.h, 20.w, 40.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -73,8 +74,8 @@ class GradesCompleteScreen extends ConsumerWidget {
                 children: [
                   // Icon circle
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 80.w,
+                    height: 80.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: const LinearGradient(
@@ -90,65 +91,65 @@ class GradesCompleteScreen extends ConsumerWidget {
                         ),
                       ],
                     ),
-                    child: const Icon(Icons.school,
-                        size: 40, color: Colors.white),
+                    child: Icon(Icons.school,
+                        size: 40.r, color: Colors.white),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Step badge
                   Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 4),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 14.w, vertical: 4.h),
                     decoration: BoxDecoration(
                       color: const Color(0xFFF2F4F6),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: const Text(
+                    child: Text(
                       'STEP 2 OF 3 COMPLETE',
                       style: TextStyle(
-                        fontSize: 9,
+                        fontSize: 9.sp,
                         fontWeight: FontWeight.w700,
                         letterSpacing: 0.1 * 9,
-                        color: Color(0xFF515F74),
+                        color: const Color(0xFF515F74),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
 
                   // Title
-                  const Text(
+                  Text(
                     'Academic Grades\nCaptured',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 28.sp,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFF191C1E),
+                      color: const Color(0xFF191C1E),
                       letterSpacing: -0.02 * 28,
                       height: 1.2,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: 10.h),
 
                   // Subtitle
-                  const Text(
+                  Text(
                     'Your marks have been saved. These will be used to calculate eligibility at each university.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF515F74),
+                      color: const Color(0xFF515F74),
                       height: 1.6,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
 
               // ── Grades summary card ─────────────────────────
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                   boxShadow: const [
                     BoxShadow(
                       color: Color(0x0F334155),
@@ -157,7 +158,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
-                padding: const EdgeInsets.all(24),
+                padding: EdgeInsets.all(24.r),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -165,34 +166,34 @@ class GradesCompleteScreen extends ConsumerWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'MARKS SUMMARY',
                           style: TextStyle(
-                            fontSize: 10,
+                            fontSize: 10.sp,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.1 * 10,
-                            color: Color(0xFF515F74),
+                            color: const Color(0xFF515F74),
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 3),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.w, vertical: 3.h),
                           decoration: BoxDecoration(
                             color: const Color(0xFFF2F4F6),
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(20.r),
                           ),
                           child: Text(
                             _formatEducationLevel(profile.educationLevel),
-                            style: const TextStyle(
-                              fontSize: 11,
+                            style: TextStyle(
+                              fontSize: 11.sp,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF515F74),
+                              color: const Color(0xFF515F74),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    SizedBox(height: 20.h),
 
                     // Subject rows
                     ...marks.entries.toList().asMap().entries.map((entry) {
@@ -214,8 +215,8 @@ class GradesCompleteScreen extends ConsumerWidget {
 
                     // Aggregate row (gradient separator)
                     Container(
-                      margin: const EdgeInsets.only(top: 16),
-                      padding: const EdgeInsets.only(top: 16),
+                      margin: EdgeInsets.only(top: 16.h),
+                      padding: EdgeInsets.only(top: 16.h),
                       decoration: const BoxDecoration(
                         border: Border(
                           top: BorderSide(
@@ -227,20 +228,20 @@ class GradesCompleteScreen extends ConsumerWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
+                          Text(
                             'Overall Aggregate',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w600,
-                              color: Color(0xFF515F74),
+                              color: const Color(0xFF515F74),
                             ),
                           ),
                           Text(
                             '${aggregate.toStringAsFixed(0)}%',
-                            style: const TextStyle(
-                              fontSize: 22,
+                            style: TextStyle(
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w800,
-                              color: Color(0xFF006B62),
+                              color: const Color(0xFF006B62),
                               letterSpacing: -0.02 * 22,
                             ),
                           ),
@@ -250,53 +251,53 @@ class GradesCompleteScreen extends ConsumerWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // ── AI Insight panel ────────────────────────────
               Container(
                 decoration: BoxDecoration(
                   color: const Color(0xFFEADDFF),
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16.r),
                   border: const Border(
                     left: BorderSide(color: Color(0xFF6616D7), width: 4),
                   ),
                 ),
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16.r),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Icon(Icons.auto_awesome,
-                            size: 14, color: Color(0xFF6616D7)),
-                        SizedBox(width: 6),
+                            size: 14.r, color: const Color(0xFF6616D7)),
+                        SizedBox(width: 6.w),
                         Text(
                           'AI INSIGHT',
                           style: TextStyle(
-                            fontSize: 9,
+                            fontSize: 9.sp,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.1 * 9,
-                            color: Color(0xFF5A00C6),
+                            color: const Color(0xFF5A00C6),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 8),
-                    const Text(
+                    SizedBox(height: 8.h),
+                    Text(
                       'Your grades have been captured. '
                       'Strong performance in technical subjects '
                       'supports engineering and CS pathways.',
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xFF25005A),
+                        color: const Color(0xFF25005A),
                         height: 1.6,
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 32),
+              SizedBox(height: 32.h),
 
               // ── Continue button ─────────────────────────────
               ElevatedButton(
@@ -304,18 +305,18 @@ class GradesCompleteScreen extends ConsumerWidget {
                     Navigator.pushReplacementNamed(context, '/assessment'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF006B62),
-                  minimumSize: const Size(double.infinity, 56),
+                  minimumSize: Size(double.infinity, 56.h),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                   ),
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.all(18.r),
                   shadowColor: const Color(0x40006B62),
                   elevation: 8,
                 ),
-                child: const Text(
+                child: Text(
                   'Continue to Capability Assessment',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w700,
                     color: Colors.white,
                   ),
@@ -335,36 +336,36 @@ class GradesCompleteScreen extends ConsumerWidget {
         : const Color(0xFF515F74);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      padding: EdgeInsets.symmetric(vertical: 12.h),
       child: Row(
         children: [
           Expanded(
             child: Text(
               subject,
-              style: const TextStyle(
-                fontSize: 14,
+              style: TextStyle(
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w500,
-                color: Color(0xFF191C1E),
+                color: const Color(0xFF191C1E),
               ),
             ),
           ),
           SizedBox(
-            width: 80,
+            width: 80.w,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(2),
+              borderRadius: BorderRadius.circular(2.r),
               child: LinearProgressIndicator(
                 value: percentage / 100,
-                minHeight: 4,
+                minHeight: 4.h,
                 backgroundColor: const Color(0xFFE6E8EA),
                 valueColor: AlwaysStoppedAnimation<Color>(barColor),
               ),
             ),
           ),
-          const SizedBox(width: 12),
+          SizedBox(width: 12.w),
           Text(
             '${percentage.toStringAsFixed(0)}%',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w700,
               color: barColor,
             ),

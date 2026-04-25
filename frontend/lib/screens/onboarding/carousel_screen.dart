@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CarouselScreen extends StatefulWidget {
   const CarouselScreen({super.key});
@@ -115,26 +116,26 @@ class _CarouselScreenState extends State<CarouselScreen> {
 
   Widget _buildHeader() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 24.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               Container(
-                width: 32,
-                height: 32,
+                width: 32.w,
+                height: 32.h,
                 decoration: BoxDecoration(
                   color: _primaryColor,
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(8.r),
                 ),
-                child: const Icon(Icons.school, color: Colors.white, size: 18),
+                child: Icon(Icons.school, color: Colors.white, size: 18.r),
               ),
-              const SizedBox(width: 8),
-              const Text(
+              SizedBox(width: 8.w),
+              Text(
                 'Academic Intelligence',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   fontWeight: FontWeight.w700,
                   color: _primaryColor,
                 ),
@@ -148,10 +149,10 @@ class _CarouselScreenState extends State<CarouselScreen> {
               foregroundColor: _secondaryColor,
               minimumSize: const Size(48, 48),
             ),
-            child: const Text(
+            child: Text(
               'Skip',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -164,7 +165,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
   Widget _buildSlide(Map<String, String> slide, int index) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: EdgeInsets.symmetric(horizontal: 32.w),
         child: Column(
           children: [
             ConstrainedBox(
@@ -174,25 +175,25 @@ class _CarouselScreenState extends State<CarouselScreen> {
                 child: Container(
                   decoration: BoxDecoration(
                     color: _cardBg,
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(40.r),
                   ),
-                  padding: const EdgeInsets.all(20),
+                  padding: EdgeInsets.all(20.r),
                   child: _buildBentoGrid(index),
                 ),
               ),
             ),
-          const SizedBox(height: 32),
+          SizedBox(height: 32.h),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildChip(slide['chip']!),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               _buildHeadline(slide['headline']!, slide['emphasis']!),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               Text(
                 slide['body']!,
-                style: const TextStyle(
-                  fontSize: 16,
+                style: TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                   color: _secondaryColor,
                   height: 1.6,
@@ -208,20 +209,20 @@ class _CarouselScreenState extends State<CarouselScreen> {
 
   Widget _buildChip(String label) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
       decoration: BoxDecoration(
         color: _tertiaryFixed,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.auto_awesome, size: 12, color: _tertiaryColor),
-          const SizedBox(width: 4),
+          Icon(Icons.auto_awesome, size: 12.r, color: _tertiaryColor),
+          SizedBox(width: 4.w),
           Text(
             label,
-            style: const TextStyle(
-              fontSize: 10,
+            style: TextStyle(
+              fontSize: 10.sp,
               fontWeight: FontWeight.w700,
               color: _tertiaryColor,
               letterSpacing: 1.2,
@@ -235,8 +236,8 @@ class _CarouselScreenState extends State<CarouselScreen> {
   Widget _buildHeadline(String text, String emphasis) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(
-          fontSize: 30,
+        style: TextStyle(
+          fontSize: 30.sp,
           fontWeight: FontWeight.w700,
           color: _onSurface,
           letterSpacing: -0.6,
@@ -272,13 +273,13 @@ class _CarouselScreenState extends State<CarouselScreen> {
                       Icon(
                         _bentoIcons[slideIndex][0],
                         color: _tertiaryColor,
-                        size: 28,
+                        size: 28.r,
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         _bentoLabels[slideIndex][0],
-                        style: const TextStyle(
-                          fontSize: 9,
+                        style: TextStyle(
+                          fontSize: 9.sp,
                           fontWeight: FontWeight.w700,
                           color: _secondaryColor,
                           letterSpacing: 1.2,
@@ -289,7 +290,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Expanded(
                 child: _BentoCell(
                   bg: _tertiaryFixed,
@@ -297,22 +298,22 @@ class _CarouselScreenState extends State<CarouselScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(6),
+                        padding: EdgeInsets.all(6.r),
                         decoration: const BoxDecoration(
                           color: _tertiaryColor,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.auto_awesome,
-                          size: 14,
+                          size: 14.r,
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         _bentoLabels[slideIndex][1],
-                        style: const TextStyle(
-                          fontSize: 9,
+                        style: TextStyle(
+                          fontSize: 9.sp,
                           fontWeight: FontWeight.w700,
                           color: _tertiaryColor,
                           letterSpacing: 1.2,
@@ -326,7 +327,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
             ],
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: 8.w),
         Expanded(
           child: _BentoCell(
             bg: const Color(0xFFECEEF0),
@@ -342,8 +343,8 @@ class _CarouselScreenState extends State<CarouselScreen> {
       alignment: Alignment.center,
       children: [
         Container(
-          width: 72,
-          height: 72,
+          width: 72.w,
+          height: 72.h,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -353,8 +354,8 @@ class _CarouselScreenState extends State<CarouselScreen> {
           ),
         ),
         Container(
-          width: 46,
-          height: 46,
+          width: 46.w,
+          height: 46.h,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
@@ -364,8 +365,8 @@ class _CarouselScreenState extends State<CarouselScreen> {
           ),
         ),
         Container(
-          width: 18,
-          height: 18,
+          width: 18.w,
+          height: 18.h,
           decoration: const BoxDecoration(
             color: _tertiaryFixed,
             shape: BoxShape.circle,
@@ -375,8 +376,8 @@ class _CarouselScreenState extends State<CarouselScreen> {
           bottom: 14,
           child: Text(
             label,
-            style: const TextStyle(
-              fontSize: 10,
+            style: TextStyle(
+              fontSize: 10.sp,
               fontWeight: FontWeight.w700,
               color: Color(0xFF515F74),
               letterSpacing: 1.0,
@@ -390,7 +391,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
   Widget _buildFooter() {
     final isLastSlide = _currentPage == _slides.length - 1;
     return Padding(
-      padding: const EdgeInsets.fromLTRB(32, 32, 32, 48),
+      padding: EdgeInsets.fromLTRB(32.w, 32.h, 32.w, 48.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -406,14 +407,14 @@ class _CarouselScreenState extends State<CarouselScreen> {
       children: List.generate(_slides.length, (index) {
         final isActive = index == _currentPage;
         return Padding(
-          padding: const EdgeInsets.only(right: 6),
+          padding: EdgeInsets.only(right: 6.w),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
             width: isActive ? 28.0 : 6.0,
-            height: 3,
+            height: 3.h,
             decoration: BoxDecoration(
               color: isActive ? _dotActive : _dotInactive,
-              borderRadius: BorderRadius.circular(2),
+              borderRadius: BorderRadius.circular(2.r),
             ),
           ),
         );
@@ -424,7 +425,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
   Widget _buildNextButton(bool isLastSlide) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         boxShadow: const [
           BoxShadow(
             color: Color(0x40006B62),
@@ -438,16 +439,16 @@ class _CarouselScreenState extends State<CarouselScreen> {
         style: ElevatedButton.styleFrom(
           backgroundColor: _primaryColor,
           foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
+          padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 16.h),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
           ),
           elevation: 0,
         ),
         child: Text(
           isLastSlide ? 'Get Started' : 'Next',
-          style: const TextStyle(
-            fontSize: 15,
+          style: TextStyle(
+            fontSize: 15.sp,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -467,7 +468,7 @@ class _BentoCell extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: bg,
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
             color: const Color(0xFF334155).withValues(alpha: 0.04),
