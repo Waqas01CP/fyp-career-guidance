@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
@@ -640,6 +641,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
               controller: ctrl,
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
               textAlign: TextAlign.right,
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(
+                    RegExp(r'^\d{0,3}\.?\d{0,1}')),
+              ],
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
@@ -656,9 +661,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                 ),
               ),
               validator: (v) {
-                if (v == null || v.isEmpty) return '';
+                if (v == null || v.isEmpty) return 'Required';
                 final n = double.tryParse(v);
-                if (n == null || n < 0 || n > 100) return '';
+                if (n == null) return 'Invalid number';
+                if (n < 0 || n > 100) return 'Must be 0–100';
                 return null;
               },
             ),

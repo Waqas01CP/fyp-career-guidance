@@ -52,6 +52,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   int? _selectedAnswer;
   bool _isSubmitting = false;
   bool _isGoingForward = true;
+  bool _showRomanUrdu = false;
 
   late final AnimationController _animController;
 
@@ -199,75 +200,72 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Widget _buildLikertButton(int score, String label, bool isSelected) {
-    return Expanded(
-      child: InkWell(
-        onTap: () => setState(() => _selectedAnswer = score),
-        borderRadius: BorderRadius.circular(12),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 150),
-          height: 52,
-          decoration: BoxDecoration(
-            color: isSelected ? _primary : _unselected,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 2),
-          child: Text(
-            label.toUpperCase(),
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 9,
-              fontWeight: FontWeight.w600,
-              color: isSelected ? Colors.white : _secondary,
-              letterSpacing: 0.02,
-            ),
+    return InkWell(
+      onTap: () => setState(() => _selectedAnswer = score),
+      borderRadius: BorderRadius.circular(12),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 150),
+        width: double.infinity,
+        height: 52,
+        decoration: BoxDecoration(
+          color: isSelected ? _primary : _unselected,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        child: Text(
+          label.toUpperCase(),
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 9,
+            fontWeight: FontWeight.w600,
+            color: isSelected ? Colors.white : _secondary,
+            letterSpacing: 0.02,
           ),
         ),
       ),
     );
   }
 
-  Widget _buildInsightPanel(String insight) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
-      child: Container(
-        margin: const EdgeInsets.only(top: 20),
-        decoration: const BoxDecoration(
-          color: _tertiaryFixed,
-          border: Border(
-            left: BorderSide(color: _tertiary, width: 4),
-          ),
+  Widget _buildInsightPanel(String insightText) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      decoration: BoxDecoration(
+        color: _tertiaryFixed,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          dividerColor: Colors.transparent,
         ),
-        padding: const EdgeInsets.all(18),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ExpansionTile(
+          initiallyExpanded: false,
+          tilePadding: EdgeInsets.zero,
+          childrenPadding: EdgeInsets.zero,
+          leading: const Icon(Icons.info_outline,
+              size: 16, color: _tertiary),
+          title: const Text('GUIDANCE',
+              style: TextStyle(
+                  fontSize: 9,
+                  fontWeight: FontWeight.w700,
+                  color: _onTertiaryFixedVar,
+                  letterSpacing: 0.9)),
+          iconColor: _tertiary,
+          collapsedIconColor: _tertiary,
+          backgroundColor: _tertiaryFixed,
+          collapsedBackgroundColor: _tertiaryFixed,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16)),
+          collapsedShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16)),
           children: [
-            const Icon(Icons.auto_awesome, color: _tertiary, size: 18),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'AI INSIGHT',
-                    style: TextStyle(
-                      fontSize: 9,
-                      fontWeight: FontWeight.w700,
-                      letterSpacing: 0.1,
-                      color: _onTertiaryFixedVar,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    insight,
-                    style: const TextStyle(
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: Text(insightText,
+                  style: const TextStyle(
                       fontSize: 13,
                       color: _onTertiaryFixed,
-                      height: 1.6,
-                    ),
-                  ),
-                ],
-              ),
+                      height: 1.6)),
             ),
           ],
         ),
@@ -277,10 +275,11 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   Widget _buildQuestionCard({required Key key}) {
     final q = _questions[_currentIndex];
-    final dimension  = q['dimension'] as String;
-    final questionText = q['text_en'] as String;
-    final dimName    = _dimensionNames[dimension] ?? dimension;
-    final insight    = _dimensionInsights[dimension];
+    final dimension = q['dimension'] as String;
+    final textEn    = q['text_en'] as String;
+    final textUr    = q['text_ur'] as String?;
+    final dimName   = _dimensionNames[dimension] ?? dimension;
+    final insight   = _dimensionInsights[dimension];
 
     return Container(
       key: key,
@@ -320,29 +319,48 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   ),
                 ),
               ),
-              Text(
-                'Q${_currentIndex + 1} OF ${_questions.length}',
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w700,
-                  color: _secondary,
-                  letterSpacing: 0.08,
+              GestureDetector(
+                onTap: _showQuestionPicker,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFF2F4F6),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Q${_currentIndex + 1} OF ${_questions.length}',
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF515F74),
+                          letterSpacing: 0.88,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      const Icon(Icons.keyboard_arrow_down,
+                          size: 14, color: Color(0xFF515F74)),
+                    ],
+                  ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 20),
           Text(
-            questionText,
+            _showRomanUrdu ? (textUr ?? textEn) : textEn,
             style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
               color: _onSurface,
-              height: 1.5,
+              height: 1.6,
             ),
           ),
           const SizedBox(height: 24),
-          Row(
+          Column(
             children: [
               for (int i = 1; i <= 5; i++) ...[
                 _buildLikertButton(
@@ -350,7 +368,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   _scaleLabels['$i'] ?? '$i',
                   _selectedAnswer == i,
                 ),
-                if (i < 5) const SizedBox(width: 8),
+                if (i < 5) const SizedBox(height: 8),
               ],
             ],
           ),
@@ -395,6 +413,18 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
             ),
           ),
           const Spacer(),
+          TextButton(
+            onPressed: () =>
+                setState(() => _showRomanUrdu = !_showRomanUrdu),
+            child: Text(
+              _showRomanUrdu ? 'EN' : 'UR',
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF006B62),
+              ),
+            ),
+          ),
           const Text(
             'Step 1 of 3',
             style: TextStyle(
@@ -522,6 +552,107 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       ),
     );
   }
+
+  void _showQuestionPicker() {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+          borderRadius:
+              BorderRadius.vertical(top: Radius.circular(24))),
+      builder: (ctx) => Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Jump to Question',
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF191C1E))),
+            const SizedBox(height: 16),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate:
+                  const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 10,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                childAspectRatio: 1,
+              ),
+              itemCount: _questions.length,
+              itemBuilder: (ctx, i) {
+                final isAnswered = _answers.containsKey(
+                    _questions[i]['id'] as int);
+                final isCurrent = i == _currentIndex;
+                return GestureDetector(
+                  onTap: () {
+                    if (_selectedAnswer != null) {
+                      _answers[_questions[_currentIndex]['id']
+                          as int] = _selectedAnswer!;
+                    }
+                    setState(() {
+                      _isGoingForward = i > _currentIndex;
+                      _currentIndex = i;
+                      _selectedAnswer =
+                          _answers[_questions[i]['id'] as int];
+                    });
+                    Navigator.pop(ctx);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: isAnswered
+                          ? const Color(0xFF006B62)
+                          : const Color(0xFFE6E8EA),
+                      border: isCurrent
+                          ? Border.all(
+                              color: const Color(0xFF006B62),
+                              width: 2)
+                          : null,
+                    ),
+                    alignment: Alignment.center,
+                    child: Text('${i + 1}',
+                        style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w600,
+                            color: isAnswered
+                                ? Colors.white
+                                : const Color(0xFF515F74))),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                _buildLegendDot(const Color(0xFF006B62)),
+                const SizedBox(width: 6),
+                const Text('Answered',
+                    style: TextStyle(
+                        fontSize: 11, color: Color(0xFF515F74))),
+                const SizedBox(width: 16),
+                _buildLegendDot(const Color(0xFFE6E8EA)),
+                const SizedBox(width: 6),
+                const Text('Unanswered',
+                    style: TextStyle(
+                        fontSize: 11, color: Color(0xFF515F74))),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLegendDot(Color color) => Container(
+        width: 12,
+        height: 12,
+        decoration:
+            BoxDecoration(shape: BoxShape.circle, color: color),
+      );
 
   @override
   Widget build(BuildContext context) {
