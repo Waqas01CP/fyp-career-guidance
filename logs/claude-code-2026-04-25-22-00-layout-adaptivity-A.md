@@ -146,3 +146,36 @@ Not executed this session — `flutter run` requires Android device/emulator. `f
 - `splash_screen.dart`: no changes required — not affected by any of the 8 changes
 - CustomPainter canvas `TextStyle` in `riasec_complete_screen.dart` left unconverted (canvas context — `.sp` cannot be applied there, already noted in prior screenutil session)
 - `letterSpacing` values left as raw doubles — not scaled with `.sp` (consistent with prior session convention)
+
+---
+
+## Fix — Grades dropdown and validation — 2026-04-25
+
+**File:** `frontend/lib/screens/onboarding/grades_input_screen.dart`
+
+### Fix 1: selectedItemBuilder approach for dropdown truncation
+
+Applied to all four dropdowns (education level, year, stream, board).
+
+- `selectedItemBuilder` added: returns `Text(..., overflow: TextOverflow.ellipsis)` — selected value always single-line inside the field, never overflows the field width.
+- `DropdownMenuItem` children wrapped in `ConstrainedBox(maxWidth: screenWidth - 80)` — popup items have bounded width and can wrap with `softWrap: true`.
+- Previously level and stream items had `overflow: TextOverflow.visible` but no `ConstrainedBox` — the popup overlay was still unconstrained. Board and year had no fix at all. All four now consistent.
+
+### Fix 2: mainAxisSize.min on form card Column
+
+Added `mainAxisSize: MainAxisSize.min` to the Column inside the form card container. This ensures the Column shrinks to fit its children rather than expanding to `MainAxisSize.max`. Prevents selected dropdown values from displacing adjacent widgets by constraining the Column's intrinsic height to its content.
+
+### Fix 3: Validation moved to SnackBar in _onSubmit
+
+- Removed `validator` from subject mark `TextFormField` entirely — no inline error text under the field.
+- Removed `errorMaxLines: 2` and `errorStyle` from the field's `InputDecoration` (no longer needed).
+- Removed `_formKey.currentState!.validate()` call from `_onSubmit()`.
+- Added explicit mark validation loop at the start of `_onSubmit()`: iterates `_markControllers.entries`, shows a floating `SnackBar` on first empty or out-of-range value, returns early. Field layout is completely stable — no field shifts on error.
+- Education level null check (SnackBar) already present, unchanged.
+
+### flutter analyze output (post-fix)
+
+```
+Analyzing frontend...
+No issues found! (ran in 10.7s)
+```

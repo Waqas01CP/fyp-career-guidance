@@ -109,7 +109,40 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   }
 
   Future<void> _onSubmit() async {
-    if (!_formKey.currentState!.validate()) return;
+    // Validate all subject marks via SnackBar — no inline validator errors
+    for (final entry in _markControllers.entries) {
+      final text = entry.value.text.trim();
+      if (text.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('${entry.key}: mark is required'),
+            backgroundColor: const Color(0xFFBA1A1A),
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(16.r),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r)),
+          ),
+        );
+        return;
+      }
+      final n = double.tryParse(text);
+      if (n == null || n < 0 || n > 100) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+                '${entry.key}: enter a value between 0 and 100'),
+            backgroundColor: const Color(0xFFBA1A1A),
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(16.r),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.r)),
+          ),
+        );
+        return;
+      }
+    }
     if (_selectedLevel == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -304,6 +337,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                   padding: EdgeInsets.all(24.r),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       // Row 1: Education Level + Examination Year
                       Row(
@@ -520,15 +554,26 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Select level…',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
+          selectedItemBuilder: (context) => _levelOptions
+              .map((opt) => Text(
+                    opt['label']!,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                  ))
+              .toList(),
           items: _levelOptions
               .map((opt) => DropdownMenuItem<String>(
                     value: opt['value'],
-                    child: Text(
-                      opt['label']!,
-                      overflow: TextOverflow.visible,
-                      softWrap: true,
-                      style: TextStyle(
-                          fontSize: 14.sp, color: _onSurface),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 80,
+                      ),
+                      child: Text(
+                        opt['label']!,
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                      ),
                     ),
                   ))
               .toList(),
@@ -557,12 +602,26 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Year',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
+          selectedItemBuilder: (context) => years
+              .map((y) => Text(
+                    '$y',
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                  ))
+              .toList(),
           items: years
               .map((y) => DropdownMenuItem<int>(
                     value: y,
-                    child: Text(
-                      '$y',
-                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 80,
+                      ),
+                      child: Text(
+                        '$y',
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                      ),
                     ),
                   ))
               .toList(),
@@ -586,14 +645,26 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Stream',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
+          selectedItemBuilder: (context) => _streamOptions
+              .map((s) => Text(
+                    _streamDisplayNames[s] ?? s,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                  ))
+              .toList(),
           items: _streamOptions
               .map((s) => DropdownMenuItem<String>(
                     value: s,
-                    child: Text(
-                      _streamDisplayNames[s] ?? s,
-                      overflow: TextOverflow.visible,
-                      softWrap: true,
-                      style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 80,
+                      ),
+                      child: Text(
+                        _streamDisplayNames[s] ?? s,
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                      ),
                     ),
                   ))
               .toList(),
@@ -620,12 +691,26 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Board',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
+          selectedItemBuilder: (context) => _boardOptions
+              .map((b) => Text(
+                    b,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                  ))
+              .toList(),
           items: _boardOptions
               .map((b) => DropdownMenuItem<String>(
                     value: b,
-                    child: Text(
-                      b,
-                      style: TextStyle(fontSize: 13.sp, color: _onSurface),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width - 80,
+                      ),
+                      child: Text(
+                        b,
+                        softWrap: true,
+                        overflow: TextOverflow.visible,
+                        style: TextStyle(fontSize: 14.sp, color: _onSurface),
+                      ),
                     ),
                   ))
               .toList(),
@@ -675,16 +760,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                   fontSize: 13.sp,
                   color: _secondary,
                 ),
-                errorMaxLines: 2,
-                errorStyle: TextStyle(fontSize: 11.sp),
               ),
-              validator: (v) {
-                if (v == null || v.isEmpty) return 'Required';
-                final n = double.tryParse(v);
-                if (n == null) return 'Invalid number';
-                if (n < 0 || n > 100) return 'Enter a value between 1 and 100';
-                return null;
-              },
             ),
           ),
         ],
