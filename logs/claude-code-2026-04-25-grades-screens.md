@@ -139,3 +139,9 @@ Wasm dry-run notices are pre-existing (flutter_secure_storage_web uses dart:html
 ## Known Issues
 
 None. `flutter analyze` passes zero issues. Build succeeds.
+
+---
+
+## Minor Fix — empty state helper text — 2026-04-25
+
+Added a `if (_currentSubjects.isEmpty)` conditional widget inside the form card Column in `grades_input_screen.dart`, immediately before the `// Subject marks section` comment (before the `if (_currentSubjects.isNotEmpty)` block). The widget is a `Padding(EdgeInsets.symmetric(vertical: 16))` wrapping a centred `Text('Select your education level to enter marks.', fontSize: 13, color: 0xFF515F74)`. It renders when no education level has been selected yet, giving the user a clear prompt rather than a blank card area. The existing `else` branch Container was left untouched per the insert-only hard rule. `flutter analyze`: No issues found (ran in 10.5s).

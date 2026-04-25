@@ -334,6 +334,19 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         ),
                       ),
 
+                      if (_currentSubjects.isEmpty)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Text(
+                            'Select your education level to enter marks.',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Color(0xFF515F74),
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+
                       // Subject marks section
                       if (_currentSubjects.isNotEmpty) ...[
                         // Header row
