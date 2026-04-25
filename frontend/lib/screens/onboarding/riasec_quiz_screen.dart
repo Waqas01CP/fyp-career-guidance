@@ -1,10 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
+import '../../services/auth_service.dart';
 
 class RiasecQuizScreen extends ConsumerStatefulWidget {
   const RiasecQuizScreen({super.key});
@@ -54,6 +57,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   bool _isGoingForward = true;
   bool _showRomanUrdu = false;
 
+  final _storage = const FlutterSecureStorage();
+  Timer? _saveTimer;
+  String? _userId;
+
   late final AnimationController _animController;
 
   @override
@@ -63,13 +70,97 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       vsync: this,
       duration: const Duration(milliseconds: 300),
     );
-    _loadQuestions();
+    _initQuiz();
   }
 
   @override
   void dispose() {
+    _saveTimer?.cancel();
     _animController.dispose();
     super.dispose();
+  }
+
+  String _draftKey(String userId) => 'riasec_draft_$userId';
+
+  Future<void> _saveDraft() async {
+    if (_userId == null) return;
+    try {
+      final draft = jsonEncode({
+        'currentIndex': _currentIndex,
+        'answers': _answers.map((k, v) => MapEntry(k.toString(), v)),
+      });
+      await _storage.write(key: _draftKey(_userId!), value: draft);
+    } catch (e) {
+      debugPrint('Draft save failed: $e');
+    }
+  }
+
+  Future<void> _loadDraft() async {
+    if (_userId == null) return;
+    try {
+      final stored = await _storage.read(key: _draftKey(_userId!));
+      if (stored == null) return;
+
+      final data = jsonDecode(stored) as Map<String, dynamic>;
+      final savedIndex = data['currentIndex'] as int? ?? 0;
+      final savedAnswers =
+          (data['answers'] as Map<String, dynamic>? ?? {})
+              .map((k, v) => MapEntry(int.parse(k), v as int));
+
+      if (_questions.isEmpty) return;
+      if (savedIndex >= _questions.length) return;
+
+      if (mounted) {
+        setState(() {
+          _currentIndex = savedIndex;
+          _answers.clear();
+          _answers.addAll(savedAnswers);
+          _selectedAnswer = _answers[_questions[savedIndex]['id'] as int];
+        });
+      }
+    } catch (e) {
+      debugPrint('Draft restore failed: $e — clearing draft');
+      await _clearDraft();
+    }
+  }
+
+  Future<void> _clearDraft() async {
+    if (_userId == null) return;
+    try {
+      await _storage.delete(key: _draftKey(_userId!));
+    } catch (e) {
+      debugPrint('Draft clear failed: $e');
+    }
+  }
+
+  void _scheduleDraftSave() {
+    _saveTimer?.cancel();
+    _saveTimer = Timer(const Duration(milliseconds: 500), _saveDraft);
+  }
+
+  Future<void> _initQuiz() async {
+    final token = await AuthService.getToken();
+    if (token != null) {
+      _userId = token.substring(0, 16);
+    }
+
+    final stage = ref.read(profileProvider).onboardingStage;
+    const completedStages = [
+      'riasec_complete',
+      'grades_complete',
+      'assessment_complete',
+      'complete',
+    ];
+    if (completedStages.contains(stage)) {
+      await _clearDraft();
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/grades-input');
+      }
+      return;
+    }
+
+    await _loadQuestions();
+    await _loadDraft();
   }
 
   Future<void> _loadQuestions() async {
@@ -128,6 +219,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       _selectedAnswer =
           _answers[_questions[_currentIndex]['id'] as int];
     });
+    _scheduleDraftSave();
   }
 
   void _onPrevious() {
@@ -142,6 +234,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       _selectedAnswer =
           _answers[_questions[_currentIndex]['id'] as int];
     });
+    _scheduleDraftSave();
   }
 
   Future<void> _onSubmit() async {
@@ -174,6 +267,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
         token: token,
       );
       if (response.statusCode == 200) {
+        await _clearDraft();
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
         Navigator.pushReplacementNamed(context, '/riasec-complete');
@@ -201,7 +295,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   Widget _buildLikertButton(int score, String label, bool isSelected) {
     return InkWell(
-      onTap: () => setState(() => _selectedAnswer = score),
+      onTap: () {
+        setState(() => _selectedAnswer = score);
+        _scheduleDraftSave();
+      },
       borderRadius: BorderRadius.circular(12),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 150),
@@ -599,6 +696,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                       _selectedAnswer =
                           _answers[_questions[i]['id'] as int];
                     });
+                    _scheduleDraftSave();
                     Navigator.pop(ctx);
                   },
                   child: Container(
