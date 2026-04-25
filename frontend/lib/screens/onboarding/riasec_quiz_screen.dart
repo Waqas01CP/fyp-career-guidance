@@ -297,7 +297,11 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   Widget _buildLikertButton(int score, String label, bool isSelected) {
     return InkWell(
       onTap: () {
-        setState(() => _selectedAnswer = score);
+        final qId = _questions[_currentIndex]['id'] as int;
+        setState(() {
+          _selectedAnswer = score;
+          _answers[qId] = score;
+        });
         _scheduleDraftSave();
       },
       borderRadius: BorderRadius.circular(12.r),
@@ -341,13 +345,13 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           tilePadding: EdgeInsets.zero,
           childrenPadding: EdgeInsets.zero,
           leading: Icon(Icons.info_outline,
-              size: 16.r, color: _tertiary),
+              size: 18.r, color: _tertiary),
           title: Text('GUIDANCE',
               style: TextStyle(
-                  fontSize: 9.sp,
+                  fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
                   color: _onTertiaryFixedVar,
-                  letterSpacing: 0.9.sp)),
+                  letterSpacing: 1.0.sp)),
           iconColor: _tertiary,
           collapsedIconColor: _tertiary,
           backgroundColor: _tertiaryFixed,
@@ -498,18 +502,6 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           ),
           SizedBox(width: 4.w),
           Icon(Icons.school, color: _primary, size: 22.r),
-          SizedBox(width: 6.w),
-          Flexible(
-            child: Text(
-              'Academic Intelligence',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 17.sp,
-                fontWeight: FontWeight.w700,
-                color: _primary,
-              ),
-            ),
-          ),
           const Spacer(),
           TextButton(
             onPressed: () =>
@@ -548,9 +540,11 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Widget _buildNavRow() {
-    final isLast      = _currentIndex == _questions.length - 1;
+    final isLast         = _currentIndex == _questions.length - 1;
     final isPrevDisabled = _currentIndex <= 0;
-    final isSubmitEnabled = _selectedAnswer != null && !_isSubmitting;
+    final unansweredCount = _questions.length - _answers.length;
+    final allAnswered     = unansweredCount == 0;
+    final isSubmitEnabled = _selectedAnswer != null && !_isSubmitting && allAnswered;
 
     return Container(
       padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 16.h),
@@ -579,7 +573,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
             ),
           ),
           if (isLast)
-            _buildViewResultsButton(isSubmitEnabled)
+            _buildViewResultsButton(isSubmitEnabled, unansweredCount)
           else
             ElevatedButton.icon(
               onPressed: _selectedAnswer == null ? null : _onNext,
@@ -607,7 +601,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     );
   }
 
-  Widget _buildViewResultsButton(bool isEnabled) {
+  Widget _buildViewResultsButton(bool isEnabled, int unansweredCount) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
@@ -637,7 +631,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   ),
                 )
               : Text(
-                  'View My Results',
+                  unansweredCount > 0
+                      ? '$unansweredCount left to answer'
+                      : 'View My Results',
                   style: TextStyle(
                     fontSize: 15.sp,
                     fontWeight: FontWeight.w700,

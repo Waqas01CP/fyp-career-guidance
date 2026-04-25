@@ -147,6 +147,21 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   }
 
   Future<void> _onSubmit() async {
+    if (_answers.length < _questions.length) {
+      final unanswered = _questions.length - _answers.length;
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+              '$unanswered question${unanswered == 1 ? '' : 's'} '
+              'still unanswered. Please complete all questions.'),
+          backgroundColor: const Color(0xFFBA1A1A),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+
     final token = ref.read(authProvider).token;
     if (token == null) return;
 
@@ -434,15 +449,6 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             title: Row(
               children: [
                 Icon(Icons.school, color: _primary, size: 20.r),
-                SizedBox(width: 8.w),
-                Text(
-                  'Academic Intelligence',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w700,
-                    color: _primary,
-                  ),
-                ),
                 const Spacer(),
                 Text(
                   'Step 3 of 3',

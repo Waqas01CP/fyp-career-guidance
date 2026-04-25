@@ -678,7 +678,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                 if (v == null || v.isEmpty) return 'Required';
                 final n = double.tryParse(v);
                 if (n == null) return 'Invalid number';
-                if (n < 0 || n > 100) return 'Must be 0–100';
+                if (n < 0 || n > 100) return 'Enter a value between 1 and 100';
                 return null;
               },
             ),

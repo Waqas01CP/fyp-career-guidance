@@ -172,7 +172,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       backgroundColor: _bgColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(24.r),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
