@@ -26,3 +26,4 @@ flutter:
     - assets/images/
     - assets/fonts/
     - assets/riasec_questions.json
+    - assets/assessment_questions.json

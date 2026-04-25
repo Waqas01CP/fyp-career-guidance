@@ -11,6 +11,8 @@ import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
 import 'screens/onboarding/grades_input_screen.dart';
 import 'screens/onboarding/grades_complete_screen.dart';
+import 'screens/onboarding/assessment_screen.dart';
+import 'screens/onboarding/assessment_complete_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: FypApp()));
@@ -43,8 +45,8 @@ class FypApp extends StatelessWidget {
         '/riasec-complete': (context) => const RiasecCompleteScreen(),
         '/grades-input':    (context) => const GradesInputScreen(),
         '/grades-complete': (context) => const GradesCompleteScreen(),
-        '/assessment': (context) => const _PlaceholderScreen('Assessment'),
-        '/assessment-complete': (context) => const _PlaceholderScreen('Assessment Complete'),
+        '/assessment':          (context) => const AssessmentScreen(),
+        '/assessment-complete': (context) => const AssessmentCompleteScreen(),
         '/chat': (context) => const _PlaceholderScreen('Chat'),
         '/dashboard': (context) => const _PlaceholderScreen('Dashboard'),
         '/profile': (context) => const _PlaceholderScreen('Student Profile'),
