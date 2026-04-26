@@ -52,7 +52,8 @@ class GradesCompleteScreen extends ConsumerWidget {
         scrolledUnderElevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: const Color(0xFF515F74), size: 24.r),
-          onPressed: () => Navigator.maybePop(context),
+          onPressed: () =>
+              Navigator.pushReplacementNamed(context, '/grades-input'),
         ),
         title: Text(
           'Academic Profile',
@@ -268,11 +269,11 @@ class GradesCompleteScreen extends ConsumerWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.auto_awesome,
+                        Icon(Icons.info_outline,
                             size: 14.r, color: const Color(0xFF6616D7)),
                         SizedBox(width: 6.w),
                         Text(
-                          'AI INSIGHT',
+                          'GUIDANCE',
                           style: TextStyle(
                             fontSize: 11.sp,
                             fontWeight: FontWeight.w700,

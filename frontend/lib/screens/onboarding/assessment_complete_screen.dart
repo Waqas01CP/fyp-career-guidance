@@ -39,6 +39,17 @@ class AssessmentCompleteScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFFF2F4F6),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF2F4F6),
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,
+              color: const Color(0xFF515F74), size: 24.r),
+          onPressed: () =>
+              Navigator.pushReplacementNamed(context, '/assessment'),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(20.w, 40.h, 20.w, 40.h),
@@ -149,7 +160,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.auto_awesome,
+                    Icon(Icons.info_outline,
                         size: 16.r, color: const Color(0xFF6616D7)),
                     SizedBox(width: 12.w),
                     Expanded(

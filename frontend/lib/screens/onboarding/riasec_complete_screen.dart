@@ -36,6 +36,17 @@ class RiasecCompleteScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFFF7F9FB),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF7F9FB),
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,
+              color: const Color(0xFF515F74), size: 24.r),
+          onPressed: () =>
+              Navigator.pushReplacementNamed(context, '/riasec-quiz'),
+        ),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.fromLTRB(20.w, 32.h, 20.w, 32.h),
@@ -202,14 +213,14 @@ class RiasecCompleteScreen extends ConsumerWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.auto_awesome, color: const Color(0xFF6616D7), size: 18.r),
+            Icon(Icons.info_outline, color: const Color(0xFF6616D7), size: 18.r),
             SizedBox(width: 10.w),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'AI INSIGHT',
+                    'GUIDANCE',
                     style: TextStyle(
                       fontSize: 11.sp,
                       fontWeight: FontWeight.w700,
