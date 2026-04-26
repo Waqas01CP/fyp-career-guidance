@@ -112,6 +112,11 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     final level =
         _getCurriculumLevel(ref.read(profileProvider).educationLevel);
 
+    // Check for existing draft BEFORE shuffling
+    final token = ref.read(authProvider).token;
+    final hasDraft = token != null &&
+        await _storage.containsKey(key: _draftKey(token));
+
     const difficultyCount = {'easy': 3, 'medium': 5, 'hard': 4};
     final drawn = <Map<String, dynamic>>[];
 
@@ -124,10 +129,10 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
                 q['curriculum_level'] == level &&
                 q['difficulty'] == entry.key)
             .toList();
-        pool.shuffle();
+        if (!hasDraft) pool.shuffle();
         subjectQs.addAll(pool.take(entry.value));
       }
-      subjectQs.shuffle();
+      if (!hasDraft) subjectQs.shuffle();
       drawn.addAll(subjectQs);
     }
 
@@ -406,39 +411,6 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
       backgroundColor: Colors.transparent,
       builder: (ctx) => _buildQuestionMapSheet(ctx),
     );
-  }
-
-  Future<void> _onBackPressed() async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text(
-          'Leave assessment?',
-          style: TextStyle(
-              fontSize: 18.sp, fontWeight: FontWeight.w700),
-        ),
-        content: Text(
-          'Your answers are saved and will be restored when you return.',
-          style: TextStyle(fontSize: 14.sp),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, false),
-            child: Text('Stay', style: TextStyle(fontSize: 14.sp)),
-          ),
-          TextButton(
-            onPressed: () => Navigator.pop(ctx, true),
-            child: Text(
-              'Leave',
-              style: TextStyle(fontSize: 14.sp, color: _errorColor),
-            ),
-          ),
-        ],
-      ),
-    );
-    if (confirmed == true && mounted) {
-      Navigator.pop(context);
-    }
   }
 
   // ── Build: Subject tabs ───────────────────────────────────────────────────
@@ -934,13 +906,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     final progress =
         totalQuestions > 0 ? answeredCount / totalQuestions : 0.0;
 
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, _) async {
-        if (didPop) return;
-        await _onBackPressed();
-      },
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: _surfaceLow,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(52.h),
@@ -950,7 +916,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             automaticallyImplyLeading: false,
             leading: IconButton(
               icon: Icon(Icons.arrow_back, size: 20.r),
-              onPressed: _onBackPressed,
+              onPressed: () => Navigator.pop(context),
             ),
             titleSpacing: 0,
             title: Row(
@@ -1055,7 +1021,6 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             ],
           ),
         ),
-      ),
     );
   }
 }

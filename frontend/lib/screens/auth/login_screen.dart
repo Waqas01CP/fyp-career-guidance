@@ -182,28 +182,24 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           return SafeArea(
             child: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
-              child: ConstrainedBox(
-                constraints:
-                    BoxConstraints(minHeight: constraints.maxHeight),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                    left: 24.w,
-                    right: 24.w,
-                    top: isCompact ? 12.h : 24.h,
-                    bottom: keyboardHeight > 0
-                        ? keyboardHeight + 16.h
-                        : 24.h,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _buildGradientBar(),
-                      _buildFormCard(authState, cardPadding),
-                      SizedBox(height: vGap),
-                      _buildSignUpRow(),
-                    ],
-                  ),
+              child: Padding(
+                padding: EdgeInsets.only(
+                  left: 24.w,
+                  right: 24.w,
+                  top: isCompact ? 12.h : 24.h,
+                  bottom: keyboardHeight > 0
+                      ? keyboardHeight + 16.h
+                      : 24.h,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildGradientBar(),
+                    _buildFormCard(authState, cardPadding),
+                    SizedBox(height: vGap),
+                    _buildSignUpRow(),
+                  ],
                 ),
               ),
             ),
