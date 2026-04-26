@@ -16,7 +16,8 @@ class AssessmentScreen extends ConsumerStatefulWidget {
   ConsumerState<AssessmentScreen> createState() => _AssessmentScreenState();
 }
 
-class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
+class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
+    with WidgetsBindingObserver {
   // ── Colour constants ──────────────────────────────────────────────────────
   static const Color _primary = Color(0xFF006B62);
   static const Color _secondary = Color(0xFF515F74);
@@ -58,15 +59,26 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _tabScrollController = ScrollController();
     _loadAssessment();
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _draftDebounce?.cancel();
     _tabScrollController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached) {
+      _draftDebounce?.cancel();
+      _saveDraft();
+    }
   }
 
   // ── Computed getters ──────────────────────────────────────────────────────
@@ -131,14 +143,27 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
     final token = ref.read(authProvider).token;
     if (token == null) return;
 
-    final stage = ref.read(profileProvider).onboardingStage;
-    if (stage != 'grades_complete') {
+    // Ensure profile is loaded before checking stage
+    var profile = ref.read(profileProvider);
+    if (profile.onboardingStage.isEmpty) {
+      await ref.read(profileProvider.notifier).loadProfile(token);
+      profile = ref.read(profileProvider);
+    }
+
+    final stage = profile.onboardingStage;
+
+    // If assessment already completed, clear stale draft and navigate forward
+    if (stage == 'assessment_complete') {
       try {
         await _storage.delete(key: _draftKey(token));
       } catch (_) {}
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/assessment-complete');
+      }
       return;
     }
 
+    // For any pre-assessment stage, attempt to restore draft
     try {
       final raw = await _storage.read(key: _draftKey(token));
       if (raw == null || !mounted) return;
@@ -154,7 +179,10 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
         }
       });
     } catch (_) {
-      // Corrupt draft — ignore silently
+      // Corrupt draft — clear and start fresh
+      try {
+        await _storage.delete(key: _draftKey(token));
+      } catch (_) {}
     }
   }
 
@@ -363,7 +391,8 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
         subjectLabels: _subjectLabels,
         onViewFullReport: () {
           Navigator.pop(ctx);
-          Navigator.pushReplacementNamed(context, '/assessment-complete');
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/assessment-complete', (route) => false);
         },
       ),
     );
@@ -919,7 +948,11 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen> {
             backgroundColor: Colors.white,
             elevation: 0,
             automaticallyImplyLeading: false,
-            titleSpacing: 12,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back, size: 20.r),
+              onPressed: _onBackPressed,
+            ),
+            titleSpacing: 0,
             title: Row(
               children: [
                 Icon(Icons.school, color: _primary, size: 20.r),

@@ -50,11 +50,7 @@ class GradesCompleteScreen extends ConsumerWidget {
         backgroundColor: const Color(0xFFF7F9FB),
         elevation: 0,
         scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: const Color(0xFF515F74), size: 24.r),
-          onPressed: () =>
-              Navigator.pushReplacementNamed(context, '/grades-input'),
-        ),
+        automaticallyImplyLeading: true,
         title: Text(
           'Academic Profile',
           style: TextStyle(
@@ -303,7 +299,7 @@ class GradesCompleteScreen extends ConsumerWidget {
               // ── Continue button ─────────────────────────────
               ElevatedButton(
                 onPressed: () =>
-                    Navigator.pushReplacementNamed(context, '/assessment'),
+                    Navigator.pushNamed(context, '/assessment'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF006B62),
                   minimumSize: Size(double.infinity, 56.h),

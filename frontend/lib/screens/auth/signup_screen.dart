@@ -204,31 +204,44 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
     return Scaffold(
       backgroundColor: _bgColor,
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final isCompact = constraints.maxHeight < 680;
-            final vGap = isCompact ? 10.h : 16.h;
-            final cardPadding = isCompact ? 16.r : 24.r;
-            final topPadding = isCompact ? 12.h : 24.h;
+      resizeToAvoidBottomInset: false,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+          final availableHeight = constraints.maxHeight - keyboardHeight;
+          final isCompact = availableHeight < 600;
+          final vGap = isCompact ? 10.h : 16.h;
+          final cardPadding = isCompact ? 16.r : 24.r;
 
-            return SingleChildScrollView(
+          return SafeArea(
+            child: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  SizedBox(height: topPadding),
-                  _buildGradientBar(),
-                  _buildFormCard(authState, cardPadding),
-                  SizedBox(height: vGap),
-                  _buildSignInRow(),
-                  SizedBox(height: vGap),
-                ],
+              child: ConstrainedBox(
+                constraints:
+                    BoxConstraints(minHeight: constraints.maxHeight),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 24.w,
+                    right: 24.w,
+                    top: isCompact ? 12.h : 24.h,
+                    bottom: keyboardHeight > 0
+                        ? keyboardHeight + 16.h
+                        : 24.h,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _buildGradientBar(),
+                      _buildFormCard(authState, cardPadding),
+                      SizedBox(height: vGap),
+                      _buildSignInRow(),
+                    ],
+                  ),
+                ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

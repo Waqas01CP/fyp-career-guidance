@@ -178,7 +178,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       if (response.statusCode == 200) {
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
-        Navigator.pushReplacementNamed(context, '/grades-complete');
+        Navigator.pushNamed(context, '/grades-complete');
       } else if (response.statusCode == 401) {
         ref.read(authProvider.notifier).handleUnauthorized();
         if (!mounted) return;

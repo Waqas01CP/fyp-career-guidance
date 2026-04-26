@@ -43,12 +43,7 @@ class AssessmentCompleteScreen extends ConsumerWidget {
         backgroundColor: const Color(0xFFF2F4F6),
         elevation: 0,
         scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back,
-              color: const Color(0xFF515F74), size: 24.r),
-          onPressed: () =>
-              Navigator.pushReplacementNamed(context, '/assessment'),
-        ),
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -180,8 +175,8 @@ class AssessmentCompleteScreen extends ConsumerWidget {
               SizedBox(height: 32.h),
               // Continue button
               ElevatedButton(
-                onPressed: () =>
-                    Navigator.pushReplacementNamed(context, '/chat'),
+                onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                    context, '/chat', (route) => false),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF006B62),
                   minimumSize: Size(double.infinity, 56.h),

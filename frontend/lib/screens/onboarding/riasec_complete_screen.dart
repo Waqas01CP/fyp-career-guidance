@@ -40,12 +40,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
         backgroundColor: const Color(0xFFF7F9FB),
         elevation: 0,
         scrolledUnderElevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back,
-              color: const Color(0xFF515F74), size: 24.r),
-          onPressed: () =>
-              Navigator.pushReplacementNamed(context, '/riasec-quiz'),
-        ),
+        automaticallyImplyLeading: true,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -249,7 +244,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
   Widget _buildContinueButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () =>
-          Navigator.pushReplacementNamed(context, '/grades-input'),
+          Navigator.pushNamed(context, '/grades-input'),
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF006B62),
         minimumSize: Size(double.infinity, 56.h),

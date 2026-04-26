@@ -170,32 +170,45 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     return Scaffold(
       backgroundColor: _bgColor,
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final isCompact = constraints.maxHeight < 680;
-            final vGap = isCompact ? 12.h : 20.h;
-            final cardPadding = isCompact ? 20.r : 28.r;
-            final topPadding = isCompact ? 16.h : 32.h;
+      resizeToAvoidBottomInset: false,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
+          final availableHeight = constraints.maxHeight - keyboardHeight;
+          final isCompact = availableHeight < 600;
+          final vGap = isCompact ? 12.h : 20.h;
+          final cardPadding = isCompact ? 20.r : 28.r;
 
-            return SingleChildScrollView(
+          return SafeArea(
+            child: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
-              padding: EdgeInsets.symmetric(horizontal: 24.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: topPadding),
-                  _buildGradientBar(),
-                  _buildFormCard(authState, cardPadding),
-                  SizedBox(height: vGap),
-                  _buildSignUpRow(),
-                  SizedBox(height: vGap),
-                ],
+              child: ConstrainedBox(
+                constraints:
+                    BoxConstraints(minHeight: constraints.maxHeight),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: 24.w,
+                    right: 24.w,
+                    top: isCompact ? 12.h : 24.h,
+                    bottom: keyboardHeight > 0
+                        ? keyboardHeight + 16.h
+                        : 24.h,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _buildGradientBar(),
+                      _buildFormCard(authState, cardPadding),
+                      SizedBox(height: vGap),
+                      _buildSignUpRow(),
+                    ],
+                  ),
+                ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -398,7 +411,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         GestureDetector(
           onTap: () {
             if (!mounted) return;
-            Navigator.pushReplacementNamed(context, '/signup');
+            Navigator.pushNamed(context, '/signup');
           },
           child: Text(
             'Sign Up',

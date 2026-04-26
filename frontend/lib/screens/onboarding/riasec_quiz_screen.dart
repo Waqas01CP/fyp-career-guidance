@@ -18,7 +18,7 @@ class RiasecQuizScreen extends ConsumerStatefulWidget {
 }
 
 class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
-    with SingleTickerProviderStateMixin {
+    with SingleTickerProviderStateMixin, WidgetsBindingObserver {
   static const Color _primary           = Color(0xFF006B62);
   static const Color _secondary         = Color(0xFF515F74);
   static const Color _onSurface         = Color(0xFF191C1E);
@@ -67,6 +67,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _animController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 300),
@@ -76,9 +77,19 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _saveTimer?.cancel();
     _animController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached) {
+      _saveTimer?.cancel();
+      _saveDraft();
+    }
   }
 
   String _draftKey(String userId) => 'riasec_draft_$userId';
@@ -206,8 +217,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       ),
     );
     if (confirmed == true && mounted) {
-      Navigator.pushNamedAndRemoveUntil(
-          context, '/login', (route) => false);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.of(context, rootNavigator: true)
+            .pushNamedAndRemoveUntil('/login', (route) => false);
+      });
     }
   }
 
@@ -271,7 +284,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
         await _clearDraft();
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
-        Navigator.pushReplacementNamed(context, '/riasec-complete');
+        Navigator.pushNamed(context, '/riasec-complete');
       } else {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
