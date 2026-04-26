@@ -161,7 +161,6 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       'riasec_complete',
       'grades_complete',
       'assessment_complete',
-      'complete',
     ];
     if (completedStages.contains(stage)) {
       await _clearDraft();
@@ -199,8 +198,8 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       context: context,
       builder: (ctx) => AlertDialog(
         title: const Text('Leave quiz?'),
-        content:
-            const Text('Your progress will be lost if you leave now.'),
+        content: const Text(
+            'Your progress has been saved automatically and will be restored when you return.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
@@ -364,7 +363,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
                   color: _onTertiaryFixedVar,
-                  letterSpacing: 1.0.sp)),
+                  letterSpacing: 1.0)),
           iconColor: _tertiary,
           collapsedIconColor: _tertiary,
           backgroundColor: _tertiaryFixed,

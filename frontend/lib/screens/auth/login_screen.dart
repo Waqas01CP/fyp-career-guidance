@@ -56,8 +56,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         return '/assessment';
       case 'assessment_complete':
         return '/chat';
-      case 'complete':
-        return '/chat';
       default:
         return '/riasec-quiz';
     }

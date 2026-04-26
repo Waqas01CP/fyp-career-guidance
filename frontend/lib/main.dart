@@ -14,6 +14,10 @@ import 'screens/onboarding/grades_input_screen.dart';
 import 'screens/onboarding/grades_complete_screen.dart';
 import 'screens/onboarding/assessment_screen.dart';
 import 'screens/onboarding/assessment_complete_screen.dart';
+import 'screens/chat/main_chat_screen.dart';
+import 'screens/dashboard/recommendation_dashboard.dart';
+import 'screens/profile/settings_screen.dart';
+import 'screens/error_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: FypApp()));
@@ -30,54 +34,63 @@ class FypApp extends StatelessWidget {
       splitScreenMode: false,
       builder: (context, child) {
         return MaterialApp(
-      title: 'AI Career Guidance',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF6616D7),
-          brightness: Brightness.light,
-        ),
-        textTheme: GoogleFonts.interTextTheme(),
-        useMaterial3: true,
-      ),
-      initialRoute: '/',
-      onGenerateRoute: (settings) {
-        final Map<String, WidgetBuilder> routes = {
-          '/': (context) => const SplashScreen(),
-          '/onboarding': (context) => const CarouselScreen(),
-          '/login': (context) => const LoginScreen(),
-          '/signup': (context) => const SignupScreen(),
-          '/forgot-password': (context) =>
-              const _PlaceholderScreen('Forgot Password'),
-          '/riasec-quiz': (context) => const RiasecQuizScreen(),
-          '/riasec-complete': (context) => const RiasecCompleteScreen(),
-          '/grades-input': (context) => const GradesInputScreen(),
-          '/grades-complete': (context) => const GradesCompleteScreen(),
-          '/assessment': (context) => const AssessmentScreen(),
-          '/assessment-complete': (context) => const AssessmentCompleteScreen(),
-          '/chat': (context) => const _PlaceholderScreen('Chat'),
-          '/dashboard': (context) => const _PlaceholderScreen('Dashboard'),
-          '/profile': (context) => const _PlaceholderScreen('Student Profile'),
-          '/settings': (context) => const _PlaceholderScreen('Settings'),
-          '/error': (context) => const _PlaceholderScreen('Network Error'),
-        };
-
-        final builder = routes[settings.name];
-        if (builder == null) return null;
-
-        return PageRouteBuilder(
-          settings: settings,
-          pageBuilder: (context, animation, _) => builder(context),
-          transitionsBuilder: (context, animation, _, child) => FadeTransition(
-            opacity: CurvedAnimation(
-              parent: animation,
-              curve: Curves.easeInOut,
+          title: 'AI Career Guidance',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color(0xFF006B62),
+              brightness: Brightness.light,
             ),
-            child: child,
+            textTheme: GoogleFonts.interTextTheme(),
+            useMaterial3: true,
           ),
-          transitionDuration: const Duration(milliseconds: 220),
-        );
-      },
+          initialRoute: '/',
+          onGenerateRoute: (settings) {
+            final Map<String, WidgetBuilder> routes = {
+              '/': (context) => const SplashScreen(),
+              '/onboarding': (context) => const CarouselScreen(),
+              '/login': (context) => const LoginScreen(),
+              '/signup': (context) => const SignupScreen(),
+              '/forgot-password': (context) =>
+                  const _PlaceholderScreen('Forgot Password'),
+              '/riasec-quiz': (context) => const RiasecQuizScreen(),
+              '/riasec-complete': (context) => const RiasecCompleteScreen(),
+              '/grades-input': (context) => const GradesInputScreen(),
+              '/grades-complete': (context) => const GradesCompleteScreen(),
+              '/assessment': (context) => const AssessmentScreen(),
+              '/assessment-complete': (context) =>
+                  const AssessmentCompleteScreen(),
+              '/chat': (context) => const MainChatScreen(),
+              '/dashboard': (context) => const RecommendationDashboard(),
+              '/profile': (context) =>
+                  const _PlaceholderScreen('Student Profile'),
+              '/settings': (context) => const SettingsScreen(),
+              '/error': (context) {
+                final args =
+                    settings.arguments as Map<String, dynamic>?;
+                final errorType =
+                    args?['errorType'] as ErrorType? ?? ErrorType.noNetwork;
+                return ErrorScreen(errorType: errorType);
+              },
+            };
+
+            final builder = routes[settings.name];
+            if (builder == null) return null;
+
+            return PageRouteBuilder(
+              settings: settings,
+              pageBuilder: (context, animation, _) => builder(context),
+              transitionsBuilder: (context, animation, _, child) =>
+                  FadeTransition(
+                opacity: CurvedAnimation(
+                  parent: animation,
+                  curve: Curves.easeInOut,
+                ),
+                child: child,
+              ),
+              transitionDuration: const Duration(milliseconds: 220),
+            );
+          },
         );
       },
     );
@@ -148,7 +161,7 @@ class _AppRouterState extends ConsumerState<AppRouter> {
   Widget build(BuildContext context) {
     // Show loading spinner while resolving route
     return const Scaffold(
-      backgroundColor: Color(0xFF6616D7),
+      backgroundColor: Color(0xFF006B62),
       body: Center(
         child: CircularProgressIndicator(color: Colors.white),
       ),

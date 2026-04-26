@@ -29,7 +29,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       vsync: this,
       duration: const Duration(milliseconds: 1800),
     );
-    _barWidth = Tween<double>(begin: 0, end: 120).animate(
+    _barWidth = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
     _controller.forward();
@@ -73,8 +73,6 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       case 'grades_complete':
         return '/assessment';
       case 'assessment_complete':
-        return '/chat';
-      case 'complete':
         return '/chat';
       default:
         return '/riasec-quiz';
@@ -192,7 +190,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         builder: (context, _) => Align(
           alignment: Alignment.centerLeft,
           child: Container(
-            width: _barWidth.value,
+            width: _barWidth.value * 120.w,
             height: 3.h,
             decoration: BoxDecoration(
               color: _barFillColor,

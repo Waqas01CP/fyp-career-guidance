@@ -495,15 +495,15 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 4.h),
             decoration: BoxDecoration(
-              color: const Color(0xFFEADDFF),
+              color: const Color(0xFFF2F4F6),
               borderRadius: BorderRadius.circular(20.r),
             ),
             child: Text(
               subject.toUpperCase(),
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w700,
-                color: const Color(0xFF5A00C6),
+                color: const Color(0xFF006B62),
                 letterSpacing: 0.9,
               ),
             ),

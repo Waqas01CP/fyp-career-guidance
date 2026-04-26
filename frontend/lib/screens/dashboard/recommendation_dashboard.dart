@@ -1,0 +1,340 @@
+import 'dart:convert';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../models/recommendation.dart';
+import '../../providers/auth_provider.dart';
+import '../../providers/chat_provider.dart';
+import '../../services/api_service.dart';
+import '../../widgets/university_card.dart';
+
+class RecommendationDashboard extends ConsumerStatefulWidget {
+  const RecommendationDashboard({super.key});
+
+  @override
+  ConsumerState<RecommendationDashboard> createState() =>
+      _RecommendationDashboardState();
+}
+
+class _RecommendationDashboardState
+    extends ConsumerState<RecommendationDashboard> {
+  // ── Colours ───────────────────────────────────────────────────────────────
+  static const Color _primary = Color(0xFF006B62);
+  static const Color _secondary = Color(0xFF515F74);
+  static const Color _onSurface = Color(0xFF191C1E);
+  static const Color _surface = Color(0xFFF7F9FB);
+  static const Color _surfaceLow = Color(0xFFF2F4F6);
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  List<Recommendation> _recommendations = [];
+  String? _mismatchNotice;
+  bool _isLoading = true;
+  String? _error;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadRecommendations();
+  }
+
+  Future<void> _loadRecommendations() async {
+    setState(() {
+      _isLoading = true;
+      _error = null;
+    });
+
+    final token = ref.read(authProvider).token;
+    if (token == null) {
+      if (mounted) {
+        ref.read(authProvider.notifier).handleUnauthorized();
+        Navigator.pushNamedAndRemoveUntil(context, '/login', (_) => false);
+      }
+      return;
+    }
+
+    try {
+      final response =
+          await ApiService.get('/recommendations', token: token);
+
+      if (!mounted) return;
+
+      if (response.statusCode == 200) {
+        final data =
+            jsonDecode(response.body) as Map<String, dynamic>;
+        final recs = (data['recommendations'] as List? ?? [])
+            .map((e) =>
+                Recommendation.fromJson(e as Map<String, dynamic>))
+            .toList();
+        final mismatch = data['mismatch_notice'] as String?;
+        setState(() {
+          _recommendations = recs;
+          _mismatchNotice = mismatch;
+          _isLoading = false;
+        });
+      } else if (response.statusCode == 401) {
+        ref.read(authProvider.notifier).handleUnauthorized();
+        Navigator.pushNamedAndRemoveUntil(context, '/login', (_) => false);
+      } else {
+        setState(() {
+          _error = 'Could not load recommendations. Try again.';
+          _isLoading = false;
+        });
+      }
+    } catch (_) {
+      if (!mounted) return;
+      setState(() {
+        _error = 'No connection. Check your internet and try again.';
+        _isLoading = false;
+      });
+    }
+  }
+
+  void _navigateToChat({String? prefill}) {
+    if (prefill != null) {
+      ref.read(chatProvider.notifier).addUserMessage(prefill);
+    }
+    Navigator.pushReplacementNamed(context, '/chat');
+  }
+
+  // ── Build: Mismatch banner ─────────────────────────────────────────────────
+  Widget _buildMismatchBanner(String notice) {
+    return Container(
+      margin: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 0),
+      padding: EdgeInsets.all(16.r),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF8E1),
+        borderRadius: BorderRadius.circular(12.r),
+        border: const Border(
+          left: BorderSide(color: Color(0xFFF59E0B), width: 4),
+        ),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Icon(Icons.warning_amber_rounded,
+              color: Color(0xFFB45309), size: 18),
+          SizedBox(width: 10.w),
+          Expanded(
+            child: Text(
+              notice,
+              style: TextStyle(
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w400,
+                color: _onSurface,
+                height: 1.5,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ── Build: Empty / error state ─────────────────────────────────────────────
+  Widget _buildEmptyState() {
+    final hasError = _error != null;
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 32.w),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 80.r,
+              height: 80.r,
+              decoration: BoxDecoration(
+                color: _surfaceLow,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                hasError ? Icons.cloud_off : Icons.school_outlined,
+                size: 36.r,
+                color: _secondary,
+              ),
+            ),
+            SizedBox(height: 24.h),
+            Text(
+              hasError ? 'Could Not Load' : 'No Recommendations Yet',
+              style: TextStyle(
+                fontSize: 22.sp,
+                fontWeight: FontWeight.w700,
+                color: _onSurface,
+                letterSpacing: -0.44,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              hasError
+                  ? (_error ?? '')
+                  : 'Complete your profile to receive personalised university recommendations.',
+              style: TextStyle(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w400,
+                color: _secondary,
+                height: 1.65,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 32.h),
+            SizedBox(
+              width: 240.w,
+              height: 52.h,
+              child: ElevatedButton(
+                onPressed: hasError
+                    ? _loadRecommendations
+                    : () => _navigateToChat(),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _primary,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14.r),
+                  ),
+                  elevation: 0,
+                ),
+                child: Text(
+                  hasError ? 'Try Again' : 'Go to Chat',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: _surface,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(52.h),
+        child: AppBar(
+          backgroundColor: _primary,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Recommendations',
+            style: TextStyle(
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.chat_bubble_outline,
+                  color: Colors.white, size: 22.r),
+              onPressed: () => _navigateToChat(),
+              tooltip: 'Chat',
+            ),
+            IconButton(
+              icon: Icon(Icons.settings_outlined,
+                  color: Colors.white, size: 22.r),
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              tooltip: 'Settings',
+            ),
+            SizedBox(width: 4.w),
+          ],
+        ),
+      ),
+      body: _isLoading
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CircularProgressIndicator(
+                      color: _primary),
+                  SizedBox(height: 16.h),
+                  Text(
+                    'Loading your recommendations…',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      color: _secondary,
+                    ),
+                  ),
+                ],
+              ),
+            )
+          : _recommendations.isEmpty
+              ? _buildEmptyState()
+              : RefreshIndicator(
+                  color: _primary,
+                  onRefresh: _loadRecommendations,
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount:
+                        _recommendations.length + (_mismatchNotice != null ? 1 : 0),
+                    itemBuilder: (context, index) {
+                      // Mismatch banner as first item
+                      if (_mismatchNotice != null && index == 0) {
+                        return _buildMismatchBanner(_mismatchNotice!);
+                      }
+                      final recIndex =
+                          _mismatchNotice != null ? index - 1 : index;
+                      final rec = _recommendations[recIndex];
+                      return UniversityCard(
+                        recommendation: rec,
+                        onAskAbout: () => _navigateToChat(
+                          prefill:
+                              'Tell me more about ${rec.universityName} — ${rec.degreeName}',
+                        ),
+                        onMoreDetails: () => _navigateToChat(
+                          prefill:
+                              'Give me detailed information about ${rec.universityName} ${rec.degreeName}, including admission requirements and fees.',
+                        ),
+                      );
+                    },
+                  ),
+                ),
+      // ── Bottom padding for last card ─────────────────────────────────────
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: _primary,
+        unselectedItemColor: _secondary,
+        selectedLabelStyle: TextStyle(
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w600,
+        ),
+        currentIndex: 1,
+        elevation: 16,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              Navigator.pushReplacementNamed(context, '/chat');
+            case 1:
+              // Already on dashboard
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/settings');
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            activeIcon: Icon(Icons.chat_bubble),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard_outlined),
+            activeIcon: Icon(Icons.dashboard),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            activeIcon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
+    );
+  }
+}
