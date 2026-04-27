@@ -33,6 +33,10 @@ class Settings(BaseSettings):
     # Rate limiting
     CHAT_RATE_LIMIT: str = "10/minute"
 
+    # SSE keepalive (prevents Render 30s proxy timeout)
+    STREAM_KEEPALIVE_INTERVAL: int = 15  # seconds between keepalive comments
+    STREAM_TIMEOUT_SECONDS: int = 300    # 5-minute hard limit on stream duration
+
     # Assessment quiz draw config (capability assessment — NOT RIASEC)
     ASSESSMENT_QUESTIONS_PER_SESSION: dict = Field(
         default_factory=lambda: {"easy": 3, "medium": 5, "hard": 4}

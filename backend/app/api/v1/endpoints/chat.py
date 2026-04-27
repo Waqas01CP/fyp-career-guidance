@@ -3,6 +3,7 @@ chat.py — SSE streaming chat endpoint.
 POST /api/v1/chat/stream
 Rate limited: 10 requests/minute per IP via slowapi.
 """
+import asyncio
 import json
 import logging
 import uuid as uuid_mod
@@ -262,15 +263,38 @@ async def chat_stream(
     # ── Streaming generator ───────────────────────────────────────────────────
 
     async def real_stream():
+        keepalive_queue: asyncio.Queue = asyncio.Queue()
+        stop_keepalive = asyncio.Event()
+
+        async def _keepalive_sender():
+            while not stop_keepalive.is_set():
+                try:
+                    await asyncio.wait_for(
+                        stop_keepalive.wait(),
+                        timeout=settings.STREAM_KEEPALIVE_INTERVAL,
+                    )
+                except asyncio.TimeoutError:
+                    await keepalive_queue.put(": keepalive\n\n")
+
+        keepalive_task = asyncio.create_task(_keepalive_sender())
+
         try:
             # Status events — one per node start (SupervisorNode and AnswerNode omitted)
             async for event in request.app.state.graph.astream_events(
                 initial_state, config=config, version="v2"
             ):
+                # Drain keepalives accumulated while graph was blocked on LLM
+                while not keepalive_queue.empty():
+                    yield await keepalive_queue.get()
+
                 kind = event["event"]
                 name = event.get("name", "")
                 if kind == "on_chain_start" and name in NODE_STATUS_MAP:
                     yield _sse("status", {"state": NODE_STATUS_MAP[name]})
+
+            # Drain any remaining keepalives after the graph loop completes
+            while not keepalive_queue.empty():
+                yield await keepalive_queue.get()
 
             # Get complete final state after all nodes have run
             checkpoint = await request.app.state.graph.aget_state(config)
@@ -317,7 +341,10 @@ async def chat_stream(
         except Exception as e:
             logger.error("chat_stream error: %s", e, exc_info=True)
         finally:
-            # done is always the last event — even on exception
+            stop_keepalive.set()
+            keepalive_task.cancel()
+            # Do NOT await — unsafe during CancelledError propagation
+            # Task is garbage-collected after cancellation, no leak
             yield _sse("status", {"state": "done"})
 
     return StreamingResponse(real_stream(), media_type="text/event-stream")
