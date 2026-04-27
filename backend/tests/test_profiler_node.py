@@ -72,28 +72,30 @@ def _make_state(
 # ── Unit test 1: missing any single required field returns False ──────────────
 
 def test_check_profiling_complete_requires_all_fields():
-    """Missing any one required field must return False."""
+    """PROFILER_REQUIRED_FIELDS is now empty — profiling_complete is True from first message.
+    budget_per_semester/transport_willing/home_zone are collected via the Step 4 screen."""
+    # Empty constraints + no required fields → True immediately
+    assert check_profiling_complete({}, "percentage", stream_confirmed=True) is True
+    assert check_profiling_complete({}, "percentage", stream_confirmed=False) is True
+
+    # Fields provided (now optional) — still True
     complete_constraints = {
         "budget_per_semester": 50000,
         "transport_willing": True,
         "home_zone": 2,
     }
-    # All present → True
     assert check_profiling_complete(complete_constraints, "percentage", stream_confirmed=True) is True
 
-    # Remove each required field one at a time → False
+    # O/A Level stream confirmation still required even with no other required fields
+    assert check_profiling_complete({}, "olevel_alevel", stream_confirmed=False) is False
+    assert check_profiling_complete({}, "olevel_alevel", stream_confirmed=True) is True
+
+    # Loop is a no-op now (PROFILER_REQUIRED_FIELDS=[]) — kept for future-proofing
     for field in settings.PROFILER_REQUIRED_FIELDS:
         partial = dict(complete_constraints)
         del partial[field]
         result = check_profiling_complete(partial, "percentage", stream_confirmed=True)
         assert result is False, f"Missing '{field}' should return False, got True"
-
-    # Null value instead of missing key → also False
-    for field in settings.PROFILER_REQUIRED_FIELDS:
-        partial = dict(complete_constraints)
-        partial[field] = None
-        result = check_profiling_complete(partial, "percentage", stream_confirmed=True)
-        assert result is False, f"Null '{field}' should return False, got True"
 
 
 # ── Unit test 2: O/A Level requires stream confirmed ─────────────────────────

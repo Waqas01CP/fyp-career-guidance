@@ -1,5 +1,5 @@
 """Profile schemas — request/response shapes for all profile endpoints."""
-from typing import Optional
+from typing import List, Optional
 from uuid import UUID
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict
@@ -35,6 +35,14 @@ class MarksheetUploadResponse(BaseModel):
     confidence_score: float              # 0.0 - 1.0
     requires_manual_verification: bool
     # Always True when confidence_score < 0.80 — no exceptions
+
+
+class PreferencesSubmission(BaseModel):
+    budget_per_semester: Optional[int] = None      # PKR per semester
+    transport_willing: Optional[bool] = None
+    home_zone: Optional[int] = None                # Karachi zone 1-5
+    career_goal: Optional[str] = None
+    stated_preferences: Optional[List[str]] = None
 
 
 class ProfileOut(BaseModel):

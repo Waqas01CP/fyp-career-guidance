@@ -20,7 +20,7 @@ from app.models.profile_history import ProfileHistory
 from app.models.session import ChatSession
 from app.schemas.profile import (
     ProfileOut, QuizSubmission, GradesSubmission,
-    AssessmentSubmission, MarksheetUploadResponse
+    AssessmentSubmission, MarksheetUploadResponse, PreferencesSubmission
 )
 from app.api.v1.dependencies import get_current_user, require_admin
 from app.services.ocr_service import extract_marks_from_image
@@ -230,6 +230,51 @@ async def submit_assessment(
     profile.onboarding_stage  = "assessment_complete"
     await db.commit()
     return {"onboarding_stage": "assessment_complete", "capability_scores": capability_scores}
+
+
+# ── POST /profile/preferences ───────────────────────────────────────────────
+@router.post("/profile/preferences", status_code=200)
+async def submit_preferences(
+    payload: PreferencesSubmission,
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Save student preferences collected during onboarding Step 4.
+    Called by the Step 4 screen before the student reaches chat.
+    All fields optional — only provided fields are updated.
+    """
+    result = await db.execute(
+        select(StudentProfile).where(StudentProfile.user_id == current_user.id)
+    )
+    profile = result.scalar_one_or_none()
+    if profile is None:
+        raise HTTPException(status_code=404, detail={"error_code": "NOT_FOUND",
+                                                      "message": "Profile not found.",
+                                                      "details": []})
+
+    if payload.budget_per_semester is not None:
+        profile.budget_per_semester = payload.budget_per_semester
+    if payload.transport_willing is not None:
+        profile.transport_willing = payload.transport_willing
+    if payload.home_zone is not None:
+        profile.home_zone = payload.home_zone
+    if payload.career_goal is not None:
+        profile.career_goal = payload.career_goal
+    if payload.stated_preferences is not None:
+        profile.stated_preferences = payload.stated_preferences
+
+    await db.commit()
+    await db.refresh(profile)
+
+    return {
+        "status": "ok",
+        "budget_per_semester": profile.budget_per_semester,
+        "transport_willing": profile.transport_willing,
+        "home_zone": profile.home_zone,
+        "career_goal": profile.career_goal,
+        "stated_preferences": profile.stated_preferences or [],
+    }
 
 
 # ── POST /admin/seed-knowledge ──────────────────────────────────────────────

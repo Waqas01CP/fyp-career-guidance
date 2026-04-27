@@ -94,11 +94,22 @@ class Settings(BaseSettings):
     ROADMAP_SIGNIFICANT_CHANGE_COUNT: int = 2    # min top-5 changes to show "What Changed"
 
     # Profiler required fields
+    # Empty — budget_per_semester, transport_willing, home_zone are collected
+    # in Step 4 onboarding screen, not conversationally. profiling_complete
+    # becomes True on first chat message so the pipeline runs immediately.
     PROFILER_REQUIRED_FIELDS: list = Field(
-        default_factory=lambda: ["budget_per_semester", "transport_willing", "home_zone"]
+        default_factory=lambda: []
     )
     PROFILER_OPTIONAL_FIELDS: list = Field(
-        default_factory=lambda: ["stated_preferences", "family_constraints", "career_goal", "student_notes"]
+        default_factory=lambda: [
+            "budget_per_semester",
+            "transport_willing",
+            "home_zone",
+            "stated_preferences",
+            "family_constraints",
+            "career_goal",
+            "student_notes",
+        ]
     )
 
 
