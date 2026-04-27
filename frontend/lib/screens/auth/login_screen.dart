@@ -21,14 +21,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   bool _obscurePassword = true;
   bool _rememberMe = false;
   bool _isLoading = false;
+  bool _signInPressed = false;
+  bool _signUpPressed = false;
 
-  static const Color _bgColor = Color(0xFFF7F9FB);
-  static const Color _primaryColor = Color(0xFF006B62);
-  static const Color _gradientEnd = Color(0xFF00857A);
-  static const Color _fieldFill = Color(0xFFF2F4F6);
+  // Design system tokens
+  static const Color _bgColor       = Color(0xFFF7F9FB);
+  static const Color _primaryColor   = Color(0xFF006B62);
+  static const Color _gradientEnd    = Color(0xFF00857A);
+  static const Color _fieldFill      = Color(0xFFF2F4F6);
   static const Color _secondaryColor = Color(0xFF515F74);
-  static const Color _onSurface = Color(0xFF191C1E);
-  static const Color _errorColor = Color(0xFFBA1A1A);
+  static const Color _onSurface      = Color(0xFF191C1E);
+  static const Color _errorColor     = Color(0xFFBA1A1A);
 
   @override
   void initState() {
@@ -55,6 +58,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       case 'grades_complete':
         return '/assessment';
       case 'assessment_complete':
+      case 'complete':
         return '/chat';
       default:
         return '/riasec-quiz';
@@ -71,6 +75,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     if (!mounted) return;
     if (!success) {
       setState(() => _isLoading = false);
+      // Error is shown via ref.listen below — do not set inline state here
       return;
     }
     final authState = ref.read(authProvider);
@@ -81,123 +86,78 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         context, _routeForStage(profile.onboardingStage));
   }
 
-  Widget _buildField({
-    required TextEditingController controller,
-    required FocusNode focusNode,
-    required String label,
-    TextInputType keyboardType = TextInputType.text,
-    TextInputAction textInputAction = TextInputAction.next,
-    List<String>? autofillHints,
-    bool obscureText = false,
-    Widget? suffixIcon,
-    String? Function(String?)? validator,
-  }) {
-    return Stack(
-      children: [
-        TextFormField(
-          controller: controller,
-          focusNode: focusNode,
-          keyboardType: keyboardType,
-          textInputAction: textInputAction,
-          autofillHints: autofillHints,
-          obscureText: obscureText,
-          style: TextStyle(
-            fontSize: 15.sp,
-            fontWeight: FontWeight.w400,
-            color: _onSurface,
-          ),
-          decoration: InputDecoration(
-            filled: true,
-            fillColor: _fieldFill,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide.none,
-            ),
-            labelText: label,
-            labelStyle: TextStyle(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.w600,
-              color: _secondaryColor,
-              letterSpacing: 0.48,
-            ),
-            suffixIcon: suffixIcon,
-            contentPadding:
-                EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
-          ),
-          validator: validator,
-        ),
-        Positioned(
-          left: 0,
-          top: 0,
-          bottom: 0,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            width: focusNode.hasFocus ? 2 : 0,
-            decoration: BoxDecoration(
-              color: _primaryColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12.r),
-                bottomLeft: Radius.circular(12.r),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    // Show SnackBar on auth error — never inline text that shifts layout
+    ref.listen<AuthState>(authProvider, (previous, next) {
+      if (next.error != null &&
+          next.error != previous?.error &&
+          mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(next.error!),
+            backgroundColor: const Color(0xFF2D3133),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+          ),
+        );
+      }
+    });
 
     return Scaffold(
       backgroundColor: _bgColor,
+      // Never use resizeToAvoidBottomInset: true — that shrinks the scaffold
+      // and creates jank. We handle keyboard manually via viewInsets.bottom.
       resizeToAvoidBottomInset: false,
       body: LayoutBuilder(
         builder: (context, constraints) {
           final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
           final availableHeight = constraints.maxHeight - keyboardHeight;
-          final isCompact = availableHeight < 600;
-          final vGap = isCompact ? 12.h : 20.h;
-          final cardPadding = isCompact ? 20.r : 28.r;
+          final isCompact = availableHeight < 580;
+          final vGap = isCompact ? 10.h : 20.h;
+          final cardPadding = isCompact ? 18.r : 28.r;
+          final topPadding = isCompact ? 8.h : 24.h;
 
-          return SafeArea(
-            child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
-              child: Padding(
+          // MediaQuery.removePadding strips SafeArea's bottom inset so that
+          // our manual keyboard padding on the scroll view is not doubled.
+          return MediaQuery.removePadding(
+            context: context,
+            removeBottom: true,
+            child: SafeArea(
+              bottom: false, // We handle bottom manually
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                // Bottom padding = keyboard height + buffer so last field
+                // scrolls above the keyboard with breathing room.
                 padding: EdgeInsets.only(
                   left: 24.w,
                   right: 24.w,
-                  top: isCompact ? 12.h : 24.h,
+                  top: topPadding,
                   bottom: keyboardHeight > 0
-                      ? keyboardHeight + 16.h
+                      ? keyboardHeight + 24.h
                       : 24.h,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    _buildGradientBar(),
-                    _buildFormCard(authState, cardPadding),
-                    SizedBox(height: vGap),
-                    _buildSignUpRow(),
-                  ],
+                child: ConstrainedBox(
+                  // minHeight ensures short content fills screen (no top-stacking)
+                  // This does NOT cause overflow: the scroll view is outside it,
+                  // so content can grow beyond minHeight by scrolling.
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight - topPadding - 24.h,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildGradientBar(),
+                      _buildFormCard(cardPadding),
+                      SizedBox(height: vGap),
+                      _buildSignUpRow(),
+                      SizedBox(height: 16.h),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -219,12 +179,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     );
   }
 
-  Widget _buildFormCard(AuthState authState, double cardPadding) {
+  Widget _buildFormCard(double cardPadding) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(32)),
-        boxShadow: [
+        borderRadius: BorderRadius.circular(32.r),
+        boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
             blurRadius: 40,
@@ -238,13 +198,16 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Welcome Back',
-              style: TextStyle(
-                fontSize: 28.sp,
-                fontWeight: FontWeight.w700,
-                color: _onSurface,
-                letterSpacing: -0.56,
+            Semantics(
+              header: true,
+              child: Text(
+                'Welcome Back',
+                style: TextStyle(
+                  fontSize: 28.sp,
+                  fontWeight: FontWeight.w700,
+                  color: _onSurface,
+                  letterSpacing: -0.56,
+                ),
               ),
             ),
             SizedBox(height: 8.h),
@@ -265,6 +228,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     controller: _emailController,
                     focusNode: _emailFocus,
                     label: 'Email Address',
+                    semanticsLabel: 'Email address input',
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     autofillHints: const [AutofillHints.email],
@@ -279,18 +243,26 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     controller: _passwordController,
                     focusNode: _passwordFocus,
                     label: 'Password',
+                    semanticsLabel: 'Password input',
                     textInputAction: TextInputAction.done,
                     autofillHints: const [AutofillHints.password],
                     obscureText: _obscurePassword,
-                    suffixIcon: IconButton(
-                      onPressed: () =>
-                          setState(() => _obscurePassword = !_obscurePassword),
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: _secondaryColor,
-                        size: 20.r,
+                    onFieldSubmitted: (_) => _onSubmit(),
+                    suffixIcon: Semantics(
+                      label: _obscurePassword
+                          ? 'Show password'
+                          : 'Hide password',
+                      button: true,
+                      child: IconButton(
+                        onPressed: () => setState(
+                            () => _obscurePassword = !_obscurePassword),
+                        icon: Icon(
+                          _obscurePassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: _secondaryColor,
+                          size: 20.r,
+                        ),
                       ),
                     ),
                     validator: (v) {
@@ -305,87 +277,196 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 24.w,
-                      height: 24.h,
-                      child: Checkbox(
-                        value: _rememberMe,
-                        onChanged: (v) =>
-                            setState(() => _rememberMe = v ?? false),
-                        activeColor: _primaryColor,
-                        materialTapTargetSize: MaterialTapTargetSize.padded,
+                Semantics(
+                  label: 'Remember this device checkbox',
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 24.w,
+                        height: 24.h,
+                        child: Checkbox(
+                          value: _rememberMe,
+                          onChanged: (v) =>
+                              setState(() => _rememberMe = v ?? false),
+                          activeColor: _primaryColor,
+                          materialTapTargetSize:
+                              MaterialTapTargetSize.padded,
+                        ),
                       ),
-                    ),
-                    SizedBox(width: 8.w),
-                    Text(
-                      'Remember this device',
+                      SizedBox(width: 8.w),
+                      Text(
+                        'Remember this device',
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w400,
+                          color: _secondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Forgot Password — permanently disabled (no backend endpoint).
+                // Per CLAUDE.md: "Forgot Password (demo) = Static coming soon.
+                // No backend endpoint for demo."
+                Semantics(
+                  label: 'Forgot password — coming soon',
+                  button: true,
+                  child: TextButton(
+                    onPressed: null, // Never enable — no backend endpoint
+                    child: Text(
+                      'Forgot Password?',
                       style: TextStyle(
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w400,
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w600,
+                        // Slate color (disabled) — not primary teal
                         color: _secondaryColor,
                       ),
-                    ),
-                  ],
-                ),
-                TextButton(
-                  onPressed: null,
-                  child: Text(
-                    'Forgot Password?',
-                    style: TextStyle(
-                      fontSize: 12.sp,
-                      fontWeight: FontWeight.w600,
-                      color: _secondaryColor,
                     ),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 24.h),
-            ElevatedButton(
-              onPressed: _isLoading ? null : _onSubmit,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _primaryColor,
-                disabledBackgroundColor: _primaryColor.withValues(alpha: 0.7),
-                minimumSize: Size(double.infinity, 52.h),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.r),
-                ),
-                elevation: 0,
-              ),
-              child: _isLoading
-                  ? SizedBox(
-                      height: 20.r,
-                      width: 20.r,
-                      child: const CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: Colors.white,
+            // Sign In button with 0.97 scale press animation (Task 5a)
+            Semantics(
+              label: 'Sign in',
+              button: true,
+              child: GestureDetector(
+                onTapDown: (_) => setState(() => _signInPressed = true),
+                onTapUp: (_) => setState(() => _signInPressed = false),
+                onTapCancel: () => setState(() => _signInPressed = false),
+                child: AnimatedScale(
+                  scale: _signInPressed ? 0.97 : 1.0,
+                  duration: const Duration(milliseconds: 150),
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _onSubmit,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: _primaryColor,
+                      disabledBackgroundColor:
+                          _primaryColor.withValues(alpha: 0.7),
+                      minimumSize: Size(double.infinity, 52.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14.r),
                       ),
-                    )
-                  : Text(
-                      'Sign In',
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
+                      elevation: 0,
                     ),
-            ),
-            if (authState.error != null)
-              Padding(
-                padding: EdgeInsets.only(top: 12.h),
-                child: Text(
-                  authState.error!,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: _errorColor,
+                    child: _isLoading
+                        ? SizedBox(
+                            height: 20.r,
+                            width: 20.r,
+                            child: const CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(
+                            'Sign In',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
+            ),
+            // No inline error text — errors are shown via SnackBar in ref.listen above.
+            // This prevents form card height shifting when errors appear/disappear.
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildField({
+    required TextEditingController controller,
+    required FocusNode focusNode,
+    required String label,
+    required String semanticsLabel,
+    TextInputType keyboardType = TextInputType.text,
+    TextInputAction textInputAction = TextInputAction.next,
+    List<String>? autofillHints,
+    bool obscureText = false,
+    Widget? suffixIcon,
+    ValueChanged<String>? onFieldSubmitted,
+    String? Function(String?)? validator,
+  }) {
+    return Semantics(
+      label: semanticsLabel,
+      textField: true,
+      child: Stack(
+        children: [
+          TextFormField(
+            controller: controller,
+            focusNode: focusNode,
+            keyboardType: keyboardType,
+            textInputAction: textInputAction,
+            autofillHints: autofillHints,
+            obscureText: obscureText,
+            onFieldSubmitted: onFieldSubmitted,
+            style: TextStyle(
+              fontSize: 15.sp,
+              fontWeight: FontWeight.w400,
+              color: _onSurface,
+            ),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: _fieldFill,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide.none,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide.none,
+              ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide.none,
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12.r),
+                borderSide: BorderSide.none,
+              ),
+              labelText: label,
+              labelStyle: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w600,
+                color: _secondaryColor,
+                letterSpacing: 0.48,
+              ),
+              errorStyle: TextStyle(fontSize: 11.sp, color: _errorColor),
+              suffixIcon: suffixIcon,
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 16.w, vertical: 18.h),
+            ),
+            validator: validator,
+          ),
+          // Left-border focus indicator (DESIGN_HANDOFF spec)
+          // Flutter InputDecoration has no native left-border-only focus.
+          // Solution: Positioned overlay that appears on FocusNode.hasFocus.
+          Positioned(
+            left: 0,
+            top: 0,
+            bottom: 0,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: focusNode.hasFocus ? 2 : 0,
+              decoration: BoxDecoration(
+                color: _primaryColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(12.r),
+                  bottomLeft: Radius.circular(12.r),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -402,17 +483,27 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             color: _secondaryColor,
           ),
         ),
-        GestureDetector(
-          onTap: () {
-            if (!mounted) return;
-            Navigator.pushNamed(context, '/signup');
-          },
-          child: Text(
-            'Sign Up',
-            style: TextStyle(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w700,
-              color: _primaryColor,
+        Semantics(
+          label: 'Sign up for a new account',
+          button: true,
+          child: GestureDetector(
+            onTapDown: (_) => setState(() => _signUpPressed = true),
+            onTapUp: (_) {
+              setState(() => _signUpPressed = false);
+              if (mounted) Navigator.pushNamed(context, '/signup');
+            },
+            onTapCancel: () => setState(() => _signUpPressed = false),
+            child: AnimatedScale(
+              scale: _signUpPressed ? 0.97 : 1.0,
+              duration: const Duration(milliseconds: 150),
+              child: Text(
+                'Sign Up',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w700,
+                  color: _primaryColor,
+                ),
+              ),
             ),
           ),
         ),

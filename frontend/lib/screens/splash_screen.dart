@@ -46,40 +46,83 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     await Future.delayed(const Duration(milliseconds: 300));
     final token = await AuthService.getToken();
     if (token == null) {
-      _navigate('/onboarding');
+      _navigateSingle('/onboarding');
       return;
     }
     await ref.read(profileProvider.notifier).loadProfile(token);
     final profile = ref.read(profileProvider);
     if (profile.error == 'session_expired') {
       ref.read(authProvider.notifier).handleUnauthorized();
-      _navigate('/onboarding');
+      _navigateSingle('/onboarding');
       return;
     }
     if (profile.error != null) {
       // Network or server error — safe fallback to onboarding
-      _navigate('/onboarding');
+      _navigateSingle('/onboarding');
       return;
     }
-    _navigate(_routeForStage(profile.onboardingStage));
+    _reconstructStack(profile.onboardingStage);
   }
 
-  String _routeForStage(String stage) {
-    switch (stage) {
-      case 'not_started':
-        return '/riasec-quiz';
-      case 'riasec_complete':
-        return '/grades-input';
-      case 'grades_complete':
-        return '/assessment';
-      case 'assessment_complete':
-        return '/chat';
-      default:
-        return '/riasec-quiz';
-    }
+  /// Rebuilds the full Navigator back-stack for the current onboarding_stage.
+  ///
+  /// Without this, killing and relaunching the app mid-onboarding gives a
+  /// Navigator stack with only the destination screen. Pressing back → black.
+  ///
+  /// Strategy:
+  /// - pushReplacementNamed removes the Splash route before building the stack.
+  /// - Each subsequent pushNamed adds a screen to the back-stack.
+  /// - The student can press back naturally through the screens they already
+  ///   completed, matching the expected UX of a fresh forward-navigation session.
+  ///
+  /// All navigation wrapped in addPostFrameCallback to avoid calling
+  /// Navigator during the build phase.
+  void _reconstructStack(String stage) {
+    if (!mounted) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      switch (stage) {
+        case 'not_started':
+          // At start of onboarding — just go to quiz, no prior screens.
+          Navigator.pushReplacementNamed(context, '/riasec-quiz');
+
+        case 'riasec_complete':
+          // Completed RIASEC, now on grades input.
+          // Back from grades-input should return to riasec-complete.
+          Navigator.pushReplacementNamed(context, '/riasec-quiz');
+          Navigator.pushNamed(context, '/riasec-complete');
+
+        case 'grades_complete':
+          // Completed grades, now on assessment.
+          // Full back-stack: riasec → riasec-complete → grades → grades-complete.
+          Navigator.pushReplacementNamed(context, '/riasec-quiz');
+          Navigator.pushNamed(context, '/riasec-complete');
+          Navigator.pushNamed(context, '/grades-input');
+          Navigator.pushNamed(context, '/grades-complete');
+
+        case 'assessment_complete':
+        case 'complete':
+          // Chat is the terminal authenticated state.
+          // Assessment Complete auto-navigates to chat via pushNamedAndRemoveUntil.
+          // No back-stack needed — cannot go back from chat to onboarding.
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/chat', (route) => false);
+
+        default:
+          // Unknown or future stage — default to assessment entry point
+          // with full onboarding back-stack intact.
+          Navigator.pushReplacementNamed(context, '/riasec-quiz');
+          Navigator.pushNamed(context, '/riasec-complete');
+          Navigator.pushNamed(context, '/grades-input');
+          Navigator.pushNamed(context, '/grades-complete');
+          Navigator.pushNamed(context, '/assessment');
+      }
+    });
   }
 
-  void _navigate(String route) {
+  /// Used for pre-auth navigation (no token, errors) where no back-stack
+  /// reconstruction is needed — just replace splash with the target screen.
+  void _navigateSingle(String route) {
     if (!mounted) return;
     Navigator.pushReplacementNamed(context, route);
   }

@@ -27,17 +27,17 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
   bool _obscurePassword = true;
   bool _obscureConfirm = true;
   bool _isLoading = false;
+  bool _submitPressed = false;
   bool _hasMinLength = false;
   bool _hasNumber = false;
   bool _hasUppercase = false;
 
-  static const Color _bgColor = Color(0xFFF7F9FB);
-  static const Color _primaryColor = Color(0xFF006B62);
-  static const Color _gradientEnd = Color(0xFF00857A);
-  static const Color _fieldFill = Color(0xFFF2F4F6);
+  static const Color _bgColor       = Color(0xFFF7F9FB);
+  static const Color _primaryColor   = Color(0xFF006B62);
+  static const Color _gradientEnd    = Color(0xFF00857A);
+  static const Color _fieldFill      = Color(0xFFF2F4F6);
   static const Color _secondaryColor = Color(0xFF515F74);
-  static const Color _onSurface = Color(0xFF191C1E);
-  static const Color _errorColor = Color(0xFFBA1A1A);
+  static const Color _onSurface      = Color(0xFF191C1E);
 
   @override
   void initState() {
@@ -200,7 +200,22 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authProvider);
+    ref.listen<AuthState>(authProvider, (previous, next) {
+      if (next.error != null &&
+          next.error != previous?.error &&
+          mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(next.error!),
+            backgroundColor: const Color(0xFF2D3133),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+          ),
+        );
+      }
+    });
 
     return Scaffold(
       backgroundColor: _bgColor,
@@ -209,30 +224,42 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
         builder: (context, constraints) {
           final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
           final availableHeight = constraints.maxHeight - keyboardHeight;
-          final isCompact = availableHeight < 600;
+          final isCompact = availableHeight < 580;
           final vGap = isCompact ? 10.h : 16.h;
           final cardPadding = isCompact ? 16.r : 24.r;
+          final topPadding = isCompact ? 8.h : 24.h;
 
-          return SafeArea(
-            child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
-              child: Padding(
+          return MediaQuery.removePadding(
+            context: context,
+            removeBottom: true,
+            child: SafeArea(
+              bottom: false,
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
                 padding: EdgeInsets.only(
                   left: 24.w,
                   right: 24.w,
-                  top: isCompact ? 12.h : 24.h,
+                  top: topPadding,
                   bottom: keyboardHeight > 0
-                      ? keyboardHeight + 16.h
+                      ? keyboardHeight + 24.h
                       : 24.h,
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _buildGradientBar(),
-                    _buildFormCard(authState, cardPadding),
-                    SizedBox(height: vGap),
-                    _buildSignInRow(),
-                  ],
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: constraints.maxHeight - topPadding - 24.h,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildGradientBar(),
+                      _buildFormCard(cardPadding),
+                      SizedBox(height: vGap),
+                      _buildSignInRow(),
+                      SizedBox(height: 16.h),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -254,7 +281,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     );
   }
 
-  Widget _buildFormCard(AuthState authState, double cardPadding) {
+  Widget _buildFormCard(double cardPadding) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -419,47 +446,51 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
               ),
             ),
             SizedBox(height: 24.h),
-            ElevatedButton(
-              onPressed: _isLoading ? null : _onSubmit,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: _primaryColor,
-                disabledBackgroundColor: _primaryColor.withValues(alpha: 0.7),
-                minimumSize: Size(double.infinity, 52.h),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14.r),
-                ),
-                elevation: 0,
-              ),
-              child: _isLoading
-                  ? SizedBox(
-                      height: 20.r,
-                      width: 20.r,
-                      child: const CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: Colors.white,
+            // Create Account button with 0.97 scale press animation (Task 5a)
+            Semantics(
+              label: 'Create account',
+              button: true,
+              child: GestureDetector(
+                onTapDown: (_) => setState(() => _submitPressed = true),
+                onTapUp: (_) => setState(() => _submitPressed = false),
+                onTapCancel: () => setState(() => _submitPressed = false),
+                child: AnimatedScale(
+                  scale: _submitPressed ? 0.97 : 1.0,
+                  duration: const Duration(milliseconds: 150),
+                  child: ElevatedButton(
+                    onPressed: _isLoading ? null : _onSubmit,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: _primaryColor,
+                      disabledBackgroundColor:
+                          _primaryColor.withValues(alpha: 0.7),
+                      minimumSize: Size(double.infinity, 52.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14.r),
                       ),
-                    )
-                  : Text(
-                      'Create Account',
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white,
-                      ),
+                      elevation: 0,
                     ),
-            ),
-            if (authState.error != null)
-              Padding(
-                padding: EdgeInsets.only(top: 12.h),
-                child: Text(
-                  authState.error!,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    color: _errorColor,
+                    child: _isLoading
+                        ? SizedBox(
+                            height: 20.r,
+                            width: 20.r,
+                            child: const CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(
+                            'Create Account',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                            ),
+                          ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
+            ),
+            // Errors shown via SnackBar via ref.listen above—not inline
           ],
         ),
       ),

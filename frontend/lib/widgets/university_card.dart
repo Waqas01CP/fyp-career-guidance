@@ -64,12 +64,13 @@ class UniversityCard extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 0),
       decoration: BoxDecoration(
         color: _surfaceLowest,
-        borderRadius: BorderRadius.circular(20.r),
+        borderRadius: BorderRadius.circular(16.r),
+        // Task 5d: standardized content card shadow token
         boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
-            blurRadius: 40,
-            offset: Offset(0, 12),
+            blurRadius: 24,
+            offset: Offset(0, 8),
           ),
         ],
       ),

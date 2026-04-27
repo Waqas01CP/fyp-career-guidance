@@ -16,6 +16,146 @@ class RecommendationDashboard extends ConsumerStatefulWidget {
       _RecommendationDashboardState();
 }
 
+/// Shimmer loading placeholder — no external package required.
+/// Uses a repeating AnimationController to shift a LinearGradient left-to-right
+/// over placeholder shapes that match the university card skeleton.
+class _ShimmerCard extends StatefulWidget {
+  const _ShimmerCard();
+
+  @override
+  State<_ShimmerCard> createState() => _ShimmerCardState();
+}
+
+class _ShimmerCardState extends State<_ShimmerCard>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController _ctrl;
+  late final Animation<double> _anim;
+
+  @override
+  void initState() {
+    super.initState();
+    _ctrl = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat();
+    _anim = Tween<double>(begin: -1.0, end: 2.0).animate(
+      CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _ctrl.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _anim,
+      builder: (context, _) {
+        return Container(
+          margin: EdgeInsets.fromLTRB(16.w, 12.h, 16.w, 0),
+          height: 160.h,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x0F334155),
+                blurRadius: 24,
+                offset: Offset(0, 8),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.r),
+            child: ShaderMask(
+              blendMode: BlendMode.srcATop,
+              shaderCallback: (bounds) => LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                stops: const [0.0, 0.5, 1.0],
+                colors: const [
+                  Color(0xFFECEEF0),
+                  Color(0xFFF7F9FB),
+                  Color(0xFFECEEF0),
+                ],
+                transform: GradientRotation(_anim.value),
+              ).createShader(bounds),
+              child: Container(
+                color: const Color(0xFFECEEF0),
+                padding: EdgeInsets.all(16.r),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: 40.r,
+                          height: 40.r,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFD8DADC),
+                            borderRadius: BorderRadius.circular(8.r),
+                          ),
+                        ),
+                        SizedBox(width: 12.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                width: 180.w,
+                                height: 14.h,
+                                color: const Color(0xFFD8DADC)),
+                            SizedBox(height: 6.h),
+                            Container(
+                                width: 120.w,
+                                height: 11.h,
+                                color: const Color(0xFFD8DADC)),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 16.h),
+                    Container(
+                        width: double.infinity,
+                        height: 10.h,
+                        color: const Color(0xFFD8DADC)),
+                    SizedBox(height: 8.h),
+                    Container(
+                        width: 220.w,
+                        height: 10.h,
+                        color: const Color(0xFFD8DADC)),
+                    SizedBox(height: 16.h),
+                    Row(
+                      children: [
+                        Container(
+                            width: 70.w,
+                            height: 28.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFD8DADC),
+                              borderRadius: BorderRadius.circular(8.r),
+                            )),
+                        SizedBox(width: 8.w),
+                        Container(
+                            width: 70.w,
+                            height: 28.h,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFD8DADC),
+                              borderRadius: BorderRadius.circular(8.r),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
 class _RecommendationDashboardState
     extends ConsumerState<RecommendationDashboard> {
   // ── Colours ───────────────────────────────────────────────────────────────
@@ -23,7 +163,6 @@ class _RecommendationDashboardState
   static const Color _secondary = Color(0xFF515F74);
   static const Color _onSurface = Color(0xFF191C1E);
   static const Color _surface = Color(0xFFF7F9FB);
-  static const Color _surfaceLow = Color(0xFFF2F4F6);
 
   // ── State ─────────────────────────────────────────────────────────────────
   List<Recommendation> _recommendations = [];
@@ -139,22 +278,19 @@ class _RecommendationDashboardState
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 80.r,
-              height: 80.r,
-              decoration: BoxDecoration(
-                color: _surfaceLow,
-                shape: BoxShape.circle,
-              ),
+            Semantics(
+              label: hasError ? 'Error loading recommendations' : 'No recommendations yet',
               child: Icon(
-                hasError ? Icons.cloud_off : Icons.school_outlined,
-                size: 36.r,
-                color: _secondary,
+                hasError ? Icons.cloud_off_outlined : Icons.school_outlined,
+                // Task 5c spec: 64.r, Color(0xFF515F74)
+                size: 64.r,
+                color: const Color(0xFF515F74),
               ),
             ),
             SizedBox(height: 24.h),
+            // Task 5f: prominent headline per screen (22-28.sp, w700)
             Text(
-              hasError ? 'Could Not Load' : 'No Recommendations Yet',
+              hasError ? 'Could Not Load' : 'No recommendations yet',
               style: TextStyle(
                 fontSize: 22.sp,
                 fontWeight: FontWeight.w700,
@@ -164,12 +300,13 @@ class _RecommendationDashboardState
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 10.h),
+            // Task 5c spec: exact body copy for no-recs state
             Text(
               hasError
                   ? (_error ?? '')
-                  : 'Complete your profile to receive personalised university recommendations.',
+                  : 'Start a conversation to get your personalised degree recommendations',
               style: TextStyle(
-                fontSize: 14.sp,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
                 color: _secondary,
                 height: 1.65,
@@ -177,26 +314,30 @@ class _RecommendationDashboardState
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32.h),
-            SizedBox(
-              width: 240.w,
-              height: 52.h,
-              child: ElevatedButton(
-                onPressed: hasError
-                    ? _loadRecommendations
-                    : () => _navigateToChat(),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: _primary,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14.r),
+            Semantics(
+              label: hasError ? 'Try loading again' : 'Go to chat',
+              button: true,
+              child: SizedBox(
+                width: 240.w,
+                height: 52.h,
+                child: ElevatedButton(
+                  onPressed: hasError
+                      ? _loadRecommendations
+                      : () => _navigateToChat(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: _primary,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14.r),
+                    ),
+                    elevation: 0,
                   ),
-                  elevation: 0,
-                ),
-                child: Text(
-                  hasError ? 'Try Again' : 'Go to Chat',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w700,
+                  child: Text(
+                    hasError ? 'Try Again' : 'Start Chat',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
@@ -204,6 +345,20 @@ class _RecommendationDashboardState
           ],
         ),
       ),
+    );
+  }
+
+  // ── Build: Shimmer loading skeleton ────────────────────────────────────────
+  Widget _buildShimmerLoading() {
+    return ListView(
+      physics: const NeverScrollableScrollPhysics(),
+      children: [
+        SizedBox(height: 8.h),
+        const _ShimmerCard(),
+        const _ShimmerCard(),
+        const _ShimmerCard(),
+        SizedBox(height: 16.h),
+      ],
     );
   }
 
@@ -243,23 +398,7 @@ class _RecommendationDashboardState
         ),
       ),
       body: _isLoading
-          ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const CircularProgressIndicator(
-                      color: _primary),
-                  SizedBox(height: 16.h),
-                  Text(
-                    'Loading your recommendations…',
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      color: _secondary,
-                    ),
-                  ),
-                ],
-              ),
-            )
+          ? _buildShimmerLoading()
           : _recommendations.isEmpty
               ? _buildEmptyState()
               : RefreshIndicator(

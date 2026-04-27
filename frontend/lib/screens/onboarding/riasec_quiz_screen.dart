@@ -8,7 +8,6 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
-import '../../services/auth_service.dart';
 
 class RiasecQuizScreen extends ConsumerStatefulWidget {
   const RiasecQuizScreen({super.key});
@@ -60,7 +59,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   final _storage = const FlutterSecureStorage();
   Timer? _saveTimer;
-  String? _userId;
+  // NOTE: No _userId field — draft key uses sessionId from profileProvider.
+  // sessionId is a stable UUID per user account (GET /profile/me → session_id).
+  // This survives logout/login because it's tied to the account, not the JWT.
 
   late final AnimationController _animController;
 
@@ -92,25 +93,36 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     }
   }
 
-  String _draftKey(String userId) => 'riasec_draft_$userId';
+  /// Returns a stable storage key for this user's RIASEC draft.
+  ///
+  /// Primary: sessionId (stable UUID per user account — survives logout/login).
+  /// Fallback: token.hashCode (stable within a single login session).
+  /// Last resort: 'anonymous' (prevents crash; draft won't persist across logins).
+  String _draftKey() {
+    final sessionId = ref.read(profileProvider).sessionId;
+    if (sessionId != null) return 'draft_riasec_$sessionId';
+    // Fallback: token hash — better than a shared key, worse than sessionId
+    final token = ref.read(authProvider).token;
+    return token != null
+        ? 'draft_riasec_${token.hashCode}'
+        : 'draft_riasec_anonymous';
+  }
 
   Future<void> _saveDraft() async {
-    if (_userId == null) return;
     try {
       final draft = jsonEncode({
         'currentIndex': _currentIndex,
         'answers': _answers.map((k, v) => MapEntry(k.toString(), v)),
       });
-      await _storage.write(key: _draftKey(_userId!), value: draft);
+      await _storage.write(key: _draftKey(), value: draft);
     } catch (e) {
       debugPrint('Draft save failed: $e');
     }
   }
 
   Future<void> _loadDraft() async {
-    if (_userId == null) return;
     try {
-      final stored = await _storage.read(key: _draftKey(_userId!));
+      final stored = await _storage.read(key: _draftKey());
       if (stored == null) return;
 
       final data = jsonDecode(stored) as Map<String, dynamic>;
@@ -137,9 +149,8 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Future<void> _clearDraft() async {
-    if (_userId == null) return;
     try {
-      await _storage.delete(key: _draftKey(_userId!));
+      await _storage.delete(key: _draftKey());
     } catch (e) {
       debugPrint('Draft clear failed: $e');
     }
@@ -151,10 +162,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Future<void> _initQuiz() async {
-    final token = await AuthService.getToken();
-    if (token != null) {
-      _userId = token.substring(0, 16);
-    }
+    // sessionId is already in profileProvider if splash loaded the profile.
+    // If not (edge case: direct navigation), it will be populated after quiz init.
+    // _draftKey() reads from profileProvider at call time — always current.
 
     final stage = ref.read(profileProvider).onboardingStage;
     const completedStages = [

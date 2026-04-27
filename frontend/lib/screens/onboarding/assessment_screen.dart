@@ -113,9 +113,8 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
         _getCurriculumLevel(ref.read(profileProvider).educationLevel);
 
     // Check for existing draft BEFORE shuffling
-    final token = ref.read(authProvider).token;
-    final hasDraft = token != null &&
-        await _storage.containsKey(key: _draftKey(token));
+    final hasDraft =
+        await _storage.containsKey(key: _draftKey());
 
     const difficultyCount = {'easy': 3, 'medium': 5, 'hard': 4};
     final drawn = <Map<String, dynamic>>[];
@@ -142,15 +141,28 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   }
 
   // ── Draft persistence ─────────────────────────────────────────────────────
-  String _draftKey(String token) => 'assessment_draft_${token.hashCode}';
+
+  /// Returns a stable storage key for this user's assessment draft.
+  ///
+  /// Primary: sessionId (stable UUID per user account — survives logout/login).
+  /// Fallback: token.hashCode (stable within a single login session).
+  /// Last resort: 'anonymous' (prevents crash; draft won't persist across logins).
+  String _draftKey() {
+    final sessionId = ref.read(profileProvider).sessionId;
+    if (sessionId != null) return 'draft_assessment_$sessionId';
+    // Fallback: token hash — better than a shared key, worse than sessionId
+    final token = ref.read(authProvider).token;
+    return token != null
+        ? 'draft_assessment_${token.hashCode}'
+        : 'draft_assessment_anonymous';
+  }
 
   Future<void> _initDraft() async {
     final token = ref.read(authProvider).token;
-    if (token == null) return;
 
     // Ensure profile is loaded before checking stage
     var profile = ref.read(profileProvider);
-    if (profile.onboardingStage.isEmpty) {
+    if (profile.onboardingStage.isEmpty && token != null) {
       await ref.read(profileProvider.notifier).loadProfile(token);
       profile = ref.read(profileProvider);
     }
@@ -160,7 +172,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     // If assessment already completed, clear stale draft and navigate forward
     if (stage == 'assessment_complete') {
       try {
-        await _storage.delete(key: _draftKey(token));
+        await _storage.delete(key: _draftKey());
       } catch (_) {}
       if (mounted) {
         Navigator.pushReplacementNamed(context, '/assessment-complete');
@@ -170,7 +182,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
 
     // For any pre-assessment stage, attempt to restore draft
     try {
-      final raw = await _storage.read(key: _draftKey(token));
+      final raw = await _storage.read(key: _draftKey());
       if (raw == null || !mounted) return;
       final data = jsonDecode(raw) as Map<String, dynamic>;
       final savedIndex = ((data['currentIndex'] as int?) ?? 0)
@@ -186,17 +198,15 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     } catch (_) {
       // Corrupt draft — clear and start fresh
       try {
-        await _storage.delete(key: _draftKey(token));
+        await _storage.delete(key: _draftKey());
       } catch (_) {}
     }
   }
 
   Future<void> _saveDraft() async {
-    final token = ref.read(authProvider).token;
-    if (token == null) return;
     try {
       await _storage.write(
-        key: _draftKey(token),
+        key: _draftKey(),
         value: jsonEncode({
           'currentIndex': _currentIndex,
           'answers': _answers,
@@ -206,10 +216,8 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   }
 
   Future<void> _clearDraft() async {
-    final token = ref.read(authProvider).token;
-    if (token == null) return;
     try {
-      await _storage.delete(key: _draftKey(token));
+      await _storage.delete(key: _draftKey());
     } catch (_) {}
   }
 

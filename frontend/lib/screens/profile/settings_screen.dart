@@ -96,34 +96,6 @@ class SettingsScreen extends ConsumerWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 16.h),
-
-              // ── Notifications section ──────────────────────────────────
-              _SectionTitle(label: 'NOTIFICATIONS'),
-              SizedBox(height: 8.h),
-              _SectionCard(
-                children: [
-                  _ToggleTile(
-                    id: 'settings_toggle_recommendations',
-                    label: 'Recommendation updates',
-                    subtitle: 'Get notified when new recommendations arrive',
-                    value: true,
-                    onChanged: (_) {
-                      // Coming soon — notification system not in scope
-                    },
-                  ),
-                  const Divider(height: 1, color: Color(0xFFE6E8EA)),
-                  _ToggleTile(
-                    id: 'settings_toggle_policy',
-                    label: 'Policy change alerts',
-                    subtitle:
-                        'Know when university admission policies update',
-                    value: false,
-                    onChanged: (_) {},
-                  ),
-                ],
-              ),
-              SizedBox(height: 16.h),
 
               // ── Account section ────────────────────────────────────────
               _SectionTitle(label: 'ACCOUNT'),
@@ -366,78 +338,6 @@ class _LabelValue extends StatelessWidget {
   }
 }
 
-class _ToggleTile extends StatefulWidget {
-  final String id;
-  final String label;
-  final String subtitle;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-
-  const _ToggleTile({
-    required this.id,
-    required this.label,
-    required this.subtitle,
-    required this.value,
-    required this.onChanged,
-  });
-
-  @override
-  State<_ToggleTile> createState() => _ToggleTileState();
-}
-
-class _ToggleTileState extends State<_ToggleTile> {
-  late bool _value;
-
-  @override
-  void initState() {
-    super.initState();
-    _value = widget.value;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 6.h),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  widget.label,
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF191C1E),
-                  ),
-                ),
-                SizedBox(height: 2.h),
-                Text(
-                  widget.subtitle,
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w400,
-                    color: const Color(0xFF515F74),
-                    height: 1.4,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Switch(
-            value: _value,
-            activeThumbColor: const Color(0xFF006B62),
-            onChanged: (v) {
-              setState(() => _value = v);
-              widget.onChanged(v);
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
 
 class _ActionTile extends StatelessWidget {
   final String id;
