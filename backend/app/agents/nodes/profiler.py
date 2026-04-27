@@ -153,6 +153,10 @@ def _build_system_prompt(state: AgentState) -> str:
     human_messages = [m for m in messages if isinstance(m, HumanMessage)]
     conversation_turn = len(human_messages)
 
+    # Recent messages for language detection
+    recent_human = human_messages[-3:] if len(human_messages) >= 3 else human_messages
+    recent_text = " | ".join(m.content for m in recent_human) or "no messages yet"
+
     # RIASEC interpretation (never expose raw scores)
     riasec_summary = _interpret_riasec(riasec)
 
@@ -244,8 +248,13 @@ def _build_system_prompt(state: AgentState) -> str:
         "  - Never ask more than one question per response\n"
         "  - Never mention RIASEC scores, capability scores, or "
         "    any numerical data from the profile\n"
-        "  - Respond in the same language the student uses — "
-        "    English, Roman Urdu, or Urdu script\n"
+        "  - LANGUAGE DETECTION: The student's recent messages "
+        "    are shown below. Detect their language and respond "
+        "    entirely in that language. Roman Urdu (Urdu in "
+        "    English letters), Urdu script, or English — match "
+        "    exactly. Do not mix languages.\n"
+        f"  - Student's recent messages for language detection: "
+        f"    {recent_text}\n"
         "  - If student asks for recommendations directly: briefly "
         "    acknowledge, say you're building their profile, ask the "
         "    most important missing question\n"

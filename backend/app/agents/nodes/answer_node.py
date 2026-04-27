@@ -155,6 +155,22 @@ def answer_node(state: AgentState) -> AgentState:
     intent = state["last_intent"]
     user_input = _get_user_input(state)
 
+    # Build language rule from last 3 student messages — appended to every system prompt at call time
+    messages = state.get("messages", [])
+    human_msgs = [m for m in messages if isinstance(m, HumanMessage)]
+    recent_human = human_msgs[-3:] if len(human_msgs) >= 3 else human_msgs
+    recent_text = " | ".join(m.content for m in recent_human)
+    language_rule = (
+        "\n\nLANGUAGE RULE: Detect the language of the "
+        "student's recent messages and respond entirely "
+        "in that language. If messages contain Roman Urdu "
+        "(Urdu written in English letters), respond in "
+        "Roman Urdu. If Urdu script, respond in Urdu script. "
+        "If English, respond in English. Do not mix languages "
+        "unless the student mixes them.\n"
+        f"Student's recent messages: {recent_text}\n"
+    )
+
     # ── fee_query ─────────────────────────────────────────────────────────────
     if intent == "fee_query":
         university_id = _extract_entity(user_input, FEE_EXTRACTION_SYSTEM_PROMPT)
@@ -188,7 +204,7 @@ def answer_node(state: AgentState) -> AgentState:
         if budget:
             fee_section += f"\nStudent's stated budget: Rs. {budget:,}/semester"
 
-        system_prompt = FEE_ANSWER_SYSTEM_PROMPT.format(fee_data_section=fee_section)
+        system_prompt = FEE_ANSWER_SYSTEM_PROMPT.format(fee_data_section=fee_section) + language_rule
         try:
             response = llm.invoke([
                 SystemMessage(content=system_prompt),
@@ -242,7 +258,7 @@ def answer_node(state: AgentState) -> AgentState:
         if career_paths:
             market_section += f"\nCareer paths: {', '.join(career_paths)}"
 
-        system_prompt = MARKET_ANSWER_SYSTEM_PROMPT.format(market_data_section=market_section)
+        system_prompt = MARKET_ANSWER_SYSTEM_PROMPT.format(market_data_section=market_section) + language_rule
         try:
             response = llm.invoke([
                 SystemMessage(content=system_prompt),
@@ -259,7 +275,7 @@ def answer_node(state: AgentState) -> AgentState:
     elif intent == "out_of_scope":
         try:
             response = llm.invoke([
-                SystemMessage(content=OUT_OF_SCOPE_SYSTEM_PROMPT),
+                SystemMessage(content=OUT_OF_SCOPE_SYSTEM_PROMPT + language_rule),
                 HumanMessage(content=user_input),
             ])
             content = _flatten_content(response.content)
@@ -314,7 +330,7 @@ def answer_node(state: AgentState) -> AgentState:
         )
         if not current_roadmap:
             roadmap_section = "No recommendations available yet."
-        system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_section)
+        system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_section) + language_rule
         try:
             response = llm.invoke([
                 SystemMessage(content=system_prompt),

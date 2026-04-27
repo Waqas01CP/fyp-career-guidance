@@ -378,13 +378,17 @@ def explanation_node(state: AgentState) -> AgentState:
 
     messages = state.get("messages") or []
 
-    # Extract last 2-3 student messages for LLM-native language detection
-    recent_messages = [
-        m.content for m in messages[-3:]
-        if hasattr(m, "content") and isinstance(m.content, str)
-        and not isinstance(m, AIMessage)
-    ]
-    recent_text = " | ".join(_scrub_pii(m) for m in recent_messages) if recent_messages else ""
+    # Extract messages for language detection:
+    # always include first student message (establishes language preference)
+    # plus last 2 for current context; deduplicate if first is among the last 2
+    human_msgs = [m for m in messages if isinstance(m, HumanMessage)]
+    if not human_msgs:
+        recent_text = ""
+    else:
+        first_msg = [human_msgs[0]]
+        last_msgs = human_msgs[-2:] if len(human_msgs) > 1 else []
+        combined = first_msg + [m for m in last_msgs if m is not human_msgs[0]]
+        recent_text = " | ".join(_scrub_pii(m.content) for m in combined)
 
     # Thought trace trimming — match on degree_name and university_name
     # FilterNode traces: "{university_name} {degree_name}" format
