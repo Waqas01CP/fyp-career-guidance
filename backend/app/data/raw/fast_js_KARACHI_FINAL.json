@@ -1,0 +1,814 @@
+[
+  {
+    "university_id": "fast_nuces",
+    "name": "National University of Computer & Emerging Sciences (FAST-NUCES) – Karachi",
+    "type": "private",
+    "zone": 4,
+    "location": {
+      "area": "Shah Latif Town, National Highway, Malir, Karachi",
+      "zone": 4
+    },
+    "scholarships": [
+      {
+        "name": "FAST Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top scorers in NU Admission Test merit list"
+      },
+      {
+        "name": "FAST Need-Based Financial Assistance",
+        "coverage": "Up to 100% tuition fee",
+        "criteria": "Demonstrated financial need; annual income-based evaluation"
+      },
+      {
+        "name": "PEEF Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Punjab Education Endowment Fund – Punjab-domicile students with financial need"
+      },
+      {
+        "name": "Sindh Endowment Fund Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Sindh-domicile students with financial need"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "hard",
+    "degrees": [
+      {
+        "degree_id": "fast_nuces_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible to apply. No bridge course required — Mathematics must already be part of studies or equivalence. Confirmed: nu.edu.pk/Admissions/EligibilityCriteria (Aug 2025)."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC/FSc Part-1 + 10% SSC/Matric. HSSC Part-1 only is used if Part-2 result is not yet available. Source: nu.edu.pk official eligibility page. The uploaded merit file shows a simplified '50% Inter + 50% NU Test' which is an approximation; the 3-component formula is authoritative."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 67.43
+          },
+          {
+            "year": 2025,
+            "cutoff": 68.26
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.0,
+          "max": 68.26
+        },
+        "confidence_band": 5.26,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_se",
+        "name": "BS Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.52
+          },
+          {
+            "year": 2025,
+            "cutoff": 66.37
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.0,
+          "max": 66.52
+        },
+        "confidence_band": 3.52,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ai",
+        "name": "BS Artificial Intelligence",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 67.43
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.47
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.0,
+          "max": 67.43
+        },
+        "confidence_band": 4.43,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ds",
+        "name": "BS Data Science",
+        "field_id": "data_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 62.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 64.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 67.76
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.5,
+          "max": 67.76
+        },
+        "confidence_band": 5.26,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_cys",
+        "name": "BS Cyber Security",
+        "field_id": "cybersecurity",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 62.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.08
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.5,
+          "max": 66.14
+        },
+        "confidence_band": 3.64,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ee",
+        "name": "BS Electrical Engineering",
+        "field_id": "electrical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.17,
+          "inter_weight": 0.5,
+          "entry_test_weight": 0.33,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Engineering formula (PEC-mandated): 33% NU/NAT Test + 50% HSSC/FSc + 17% SSC/Matric. Different from computing programs. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 195000,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1560000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 57.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 58.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 60.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 61.33
+          }
+        ],
+        "cutoff_range": {
+          "min": 57.0,
+          "max": 61.33
+        },
+        "confidence_band": 4.33,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bba",
+        "name": "BBA",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. Merit data for Karachi campus shows 'Data N/A' for 2025 — program offered but enrollment data not published. Merit estimates based on regional trend. policy_pending_verification set to true due to absence of confirmed Karachi-specific merit data."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 44.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 46.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 48.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 49.67
+          }
+        ],
+        "cutoff_range": {
+          "min": 44.0,
+          "max": 49.67
+        },
+        "confidence_band": 5.67,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ft",
+        "name": "BS Financial Technologies",
+        "field_id": "fintech",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. 2022-2023 merit history is estimated. 2024 and 2025 are confirmed from official Karachi campus data. NEW FIELD_ID: 'fintech' — Waqas must add to canonical list in DATA_CHAT_INSTRUCTIONS.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Matching lag_model.json and affinity_matrix.json entries required in this same commit. Add alias mapping in answer_node.py. min_percentage_hssc set to 45.0 (HEC general floor, Business category); verify if NCEAC governs this degree instead (would be 50.0)."
+        },
+        "fee_per_semester": 181250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1450000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 51.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 54.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.62
+          },
+          {
+            "year": 2025,
+            "cutoff": 49.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 49.3,
+          "max": 56.62
+        },
+        "confidence_band": 7.32,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ba",
+        "name": "BS Business Analytics",
+        "field_id": "business_analytics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. 2022-2023 merit history is estimated. 2024 is confirmed (56.62). 2025 data not published for Karachi in official file — possible low enrollment or merged with BBA merit list. NEW FIELD_ID: 'business_analytics' — Waqas must add to canonical list in DATA_CHAT_INSTRUCTIONS.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Matching lag_model.json and affinity_matrix.json entries required in this same commit. Add alias mapping in answer_node.py. min_percentage_hssc set to 45.0 (HEC general floor, Business category); verify if NCEAC governs this degree instead (would be 50.0)."
+        },
+        "fee_per_semester": 188125,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1505000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 51.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 54.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.62
+          },
+          {
+            "year": 2025,
+            "cutoff": 56.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.5,
+          "max": 56.62
+        },
+        "confidence_band": 5.12,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+    ],
+    "notes": "MERIT CUTOFF CONTEXT: All historical merit cutoffs and aggregate formulas provided in this dataset apply strictly to the NU (National University) Entry Test track. These cutoffs are community-sourced estimates. FAST-NUCES does not officially publish closing aggregates. Cutoffs for NAT and SAT applicant tracks are calculated separately and are subject to different, typically much higher, merit benchmarks due to limited seat quotas."
+  }
+]
