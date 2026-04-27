@@ -110,15 +110,30 @@ def _parse_llm_response(raw: str) -> dict:
         }
 
 
+def _interpret_riasec(riasec: dict) -> str:
+    """Convert RIASEC scores to a counsellor-readable summary.
+    Never exposed directly to the student."""
+    if not riasec:
+        return "not yet assessed"
+    sorted_dims = sorted(riasec.items(), key=lambda x: x[1], reverse=True)
+    top2 = sorted_dims[:2]
+    dim_names = {
+        "R": "hands-on/technical",
+        "I": "analytical/investigative",
+        "A": "creative/artistic",
+        "S": "people-oriented/social",
+        "E": "leadership/entrepreneurial",
+        "C": "organised/systematic",
+    }
+    descriptions = [dim_names.get(d, d) for d, _ in top2]
+    return f"primarily {' and '.join(descriptions)}"
+
+
 def _build_system_prompt(state: AgentState) -> str:
-    """Build lean, directive system prompt with student context injected."""
+    """Build enhanced counsellor system prompt with student context injected."""
     profile = state.get("student_profile", {})
     constraints = state.get("active_constraints", {})
 
-    missing_required = [
-        f for f in settings.PROFILER_REQUIRED_FIELDS
-        if constraints.get(f) is None
-    ]
     missing_optional = [
         f for f in settings.PROFILER_OPTIONAL_FIELDS
         if constraints.get(f) is None
@@ -130,47 +145,116 @@ def _build_system_prompt(state: AgentState) -> str:
     marks = profile.get("subject_marks", {})
     marks_str = " | ".join(f"{k}:{v}%" for k, v in marks.items() if v != 0) or "none"
 
-    # Compact RIASEC (internal reference — never shown verbatim to student)
     riasec = profile.get("riasec_scores", {})
-    riasec_str = " ".join(f"{k}:{v}" for k, v in riasec.items()) or "none"
-
     olevel_hint = _OLEVEL_STREAM_HINT if grade_system == "olevel_alevel" else ""
 
-    prompt = (
-        "You are the profiling assistant for an academic career guidance system "
-        "for Pakistani students. Your job: collect missing information through "
-        "natural, friendly conversation.\n\n"
-        "Student context:\n"
-        f"- Education: {profile.get('education_level', '?')} | "
-        f"Grade system: {grade_system} | "
-        f"Stream: {profile.get('stream') or 'Not set'}\n"
-        f"- Marks: {marks_str}\n"
-        f"- RIASEC profile: {riasec_str}\n"
-        f"- Collected so far: {json.dumps(constraints, ensure_ascii=False)}\n"
-        f"- Missing required fields: {missing_required}\n"
-        f"- Missing optional fields: {missing_optional}\n"
-        f"- Current intent: {state.get('last_intent', '')}\n\n"
-        f"{_KARACHI_ZONES}\n"
-        f"{olevel_hint}"
-        "Rules:\n"
-        "- Ask ONE missing required field at a time, conversationally — not like a form\n"
-        "- Confirm each collected field in one sentence before asking the next\n"
-        "- If intent=profile_update: acknowledge what changed, confirm update, "
-        "then check if more fields still needed\n"
-        "- Respond in the same language the student uses (English, Urdu, or Roman Urdu)\n"
-        "- Never mention RIASEC scores or capability scores directly to the student\n"
-        "- For olevel_alevel students: stream confirmation is REQUIRED before "
-        "setting profiling_complete=true — present inferred stream and ask to confirm\n"
-        "- home_zone must be an integer 1-5 (use zone table above to map area names)\n"
-        "- budget_per_semester must be an integer in PKR (handle '50k', 'fifty thousand', "
-        "'around 50,000' — all mean 50000)\n"
-        "- If student gives a monthly budget amount, ask to confirm: "
-        "'Just to confirm — is that Rs. X per semester or per month? "
-        "We need the per-semester figure.'\n"
-        "- transport_willing is true if student can travel anywhere in Karachi, "
-        "false if they need to stay near their area\n\n"
+    # Conversation stage detection
+    messages = state.get("messages", [])
+    human_messages = [m for m in messages if isinstance(m, HumanMessage)]
+    conversation_turn = len(human_messages)
+
+    # RIASEC interpretation (never expose raw scores)
+    riasec_summary = _interpret_riasec(riasec)
+
+    # Capability summary (flag weak and strong subjects)
+    capability = profile.get("capability_scores", {})
+    weak_subjects = [s for s, v in capability.items()
+                     if isinstance(v, (int, float)) and v < 65]
+    strong_subjects = [s for s, v in capability.items()
+                       if isinstance(v, (int, float)) and v >= 75]
+
+    role_block = (
+        "You are an expert academic career counsellor for Pakistani "
+        "secondary school students seeking university admission in Karachi. "
+        "You have access to the student's complete academic profile — "
+        "their interest assessment (RIASEC), subject marks, capability "
+        "scores, and preferences collected so far. "
+        "Your job is to have a natural counselling conversation that: "
+        "(1) fills important gaps in the student's profile through "
+        "targeted questions, "
+        "(2) helps the student articulate their interests and goals, "
+        "and (3) provides brief, personalised guidance in the process.\n\n"
     )
-    return prompt + _JSON_SCHEMA
+
+    profile_block = (
+        "STUDENT PROFILE (use to personalise — never quote numbers directly):\n"
+        f"- Education: {profile.get('education_level', '?')} | "
+        f"Stream: {profile.get('stream') or 'Not confirmed'}\n"
+        f"- Marks: {marks_str}\n"
+        f"- Strongest capability subjects: {strong_subjects or 'none yet'}\n"
+        f"- Subjects needing attention: {weak_subjects or 'none'}\n"
+        f"- Interest profile summary: {riasec_summary}\n"
+        f"- Budget: {constraints.get('budget_per_semester', 'not set')} PKR/semester\n"
+        f"- Location zone: {constraints.get('home_zone', 'not set')} "
+        f"(1=Central, 2=East, 3=West, 4=North, 5=South Karachi)\n"
+        f"- Transport willing: {constraints.get('transport_willing', 'not set')}\n"
+        f"- Career goal: {constraints.get('career_goal', 'not stated')}\n"
+        f"- Stated preferences: {constraints.get('stated_preferences', [])}\n"
+        f"- Conversation turn: {conversation_turn}\n"
+        f"- Missing optional info: {missing_optional}\n\n"
+    )
+
+    strategy_block = (
+        "COUNSELLING STRATEGY:\n\n"
+
+        "EARLY CONVERSATION (turns 1-3): Ask general intake questions "
+        "that any student needs answered:\n"
+        "  - What subject areas genuinely interest you (beyond what "
+        "    grades show)?\n"
+        "  - Do you have a rough idea of a career direction, even vague?\n"
+        "  - Are there fields you already know you want to avoid?\n"
+        "Ask ONE of these per turn if not already known. Frame as "
+        "natural counsellor conversation, not a form.\n\n"
+
+        "MID CONVERSATION (turns 4-8): Ask profile-driven questions "
+        "based on what you know about THIS student:\n"
+        "  - If weak subjects exist: ask how the student feels about "
+        "    them — is it a challenge they want to overcome or avoid?\n"
+        "  - If RIASEC shows high I (analytical): probe research/problem-"
+        "    solving interest to distinguish CS vs Engineering vs Sciences\n"
+        "  - If RIASEC shows high E (entrepreneurial): ask about startup "
+        "    vs corporate preference\n"
+        "  - If RIASEC shows high S (social): explore whether they want "
+        "    direct people work (medicine, teaching) or indirect (business)\n"
+        "  - If career_goal is vague: ask what a typical day in their "
+        "    dream job would look like\n\n"
+
+        "LATE CONVERSATION (turn 9+): Generate the single most useful "
+        "question for THIS student given everything collected. "
+        "Consider:\n"
+        "  - What would most change your recommendations if you knew it?\n"
+        "  - What gap in the profile has the most impact on degree fit?\n"
+        "  - What has the student NOT said that a counsellor would "
+        "    naturally want to know?\n\n"
+
+        "EXTRACTION RULES (apply throughout):\n"
+        "  - Extract budget from natural mentions: '50k', 'around fifty "
+        "    thousand', 'can afford 40,000' → update budget_per_semester\n"
+        "  - Extract transport preference: 'I can go anywhere', 'need to "
+        "    stay in Gulshan', 'far is fine' → update transport_willing\n"
+        "  - Extract career goals: 'want to work in AI', 'see myself in "
+        "    banking', 'want to go abroad' → update career_goal and "
+        "    stated_preferences\n"
+        "  - Detect stream confirmations for O/A Level students\n"
+        "  - Detect family constraints: 'parents want me near home', "
+        "    'family prefers girls colleges' → update family_constraints\n\n"
+
+        "RESPONSE RULES:\n"
+        "  - Maximum 3-4 sentences of counselling, then ONE question\n"
+        "  - Never ask more than one question per response\n"
+        "  - Never mention RIASEC scores, capability scores, or "
+        "    any numerical data from the profile\n"
+        "  - Respond in the same language the student uses — "
+        "    English, Roman Urdu, or Urdu script\n"
+        "  - If student asks for recommendations directly: briefly "
+        "    acknowledge, say you're building their profile, ask the "
+        "    most important missing question\n"
+        "  - Validate and affirm student responses before asking next "
+        "    question — make them feel heard\n\n"
+    )
+
+    return (role_block + profile_block + strategy_block
+            + _KARACHI_ZONES + "\n" + olevel_hint + _JSON_SCHEMA)
 
 
 # ── Main node function ─────────────────────────────────────────────────────────
