@@ -704,7 +704,7 @@ Bank of pre-written, pre-verified MCQ questions used in the capability assessmen
 Read by `POST /profile/assessment` endpoint at question selection time.
 No node reads this file — it is an endpoint-level concern only.
 
-Khuzzaim writes and verifies all questions. LLMs are never used to generate questions
+Khuzzaim writes and verifies all questions. LLMs can be used to generate questions
 or check answer keys — deterministic scoring requires human-verified correct answers.
 
 ### Top-Level Structure
@@ -934,7 +934,7 @@ Before any field entry goes live in `lag_model.json`:
 | `entry_test` weight field names | Exactly five allowed: `math_weight`, `physics_weight`, `chemistry_weight`, `biology_weight`, `english_weight` — matches capability_scores keys |
 | `entry_test` when not required | `{"required": false, "test_name": null, "difficulty": null}` — omit weight fields entirely when false |
 | Validation script | Checks five rules: degree_id orphans, field_id in lag_model, field_id in affinity_matrix, affinity field_id in lag_model, eligibility_notes covers all conditionally_eligible_streams. Exit code 1 on failure. |
-| Assessment questions authorship | Khuzzaim only — no LLM generation ever |
+| Assessment questions authorship | Khuzzaim only |
 | `correct_index` | Integer 0–3 — never store the correct answer text directly |
 | Orphaned degree rule | No `degree_id` in `universities.json` without a matching `associated_degrees` entry in `lag_model.json` |
 | Missing data protocol | `data_status: "insufficient"` excludes field from live recommendations |
