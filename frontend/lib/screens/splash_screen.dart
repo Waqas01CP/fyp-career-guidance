@@ -62,7 +62,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     if (profile.error != null) {
       // Network or server error while a valid token exists — go to error screen
       // so the user can retry. Do NOT reset to /login (that causes a "false logout").
-      _navigateSingle('/error', arguments: {'errorType': ErrorType.serverTimeout});
+      _navigateSingle('/error', arguments: <String, dynamic>{'errorType': ErrorType.serverTimeout});
       return;
     }
     _reconstructStack(profile.onboardingStage);

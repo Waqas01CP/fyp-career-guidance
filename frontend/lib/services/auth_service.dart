@@ -47,7 +47,9 @@ class AuthService {
     } catch (e) {
       // If the Android Keystore becomes out of sync (e.g. user cleared app data),
       // read() throws a PlatformException. We must clear corrupted storage to prevent app freeze.
-      await _storage.deleteAll();
+      try {
+        await _storage.deleteAll();
+      } catch (_) {}
       return null;
     }
   }
