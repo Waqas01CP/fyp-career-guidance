@@ -219,11 +219,11 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
     return Scaffold(
       backgroundColor: _bgColor,
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final isCompact = MediaQuery.of(context).size.height < 600;
+            final isCompact = (constraints.maxHeight - MediaQuery.of(context).viewInsets.bottom) < 600;
             final vGap = isCompact ? 10.h : 16.h;
             final cardPadding = isCompact ? 16.r : 24.r;
             final topPadding = isCompact ? 8.h : 24.h;
@@ -238,7 +238,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                       left: 24.w,
                       right: 24.w,
                       top: topPadding,
-                      bottom: 24.h,
+                      bottom: 24.h + MediaQuery.of(context).viewInsets.bottom,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,

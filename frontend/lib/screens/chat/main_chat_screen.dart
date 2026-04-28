@@ -217,6 +217,15 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
         ),
         actions: [
           IconButton(
+            tooltip: 'My Profile',
+            icon: Icon(
+              Icons.person_outline_rounded,
+              size: 22.r,
+              color: Colors.white,
+            ),
+            onPressed: () => Navigator.pushNamed(context, '/profile'),
+          ),
+          IconButton(
             icon: Icon(Icons.dashboard_outlined,
                 color: Colors.white, size: 22.r),
             onPressed: () =>

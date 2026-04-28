@@ -123,6 +123,16 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               icon: Icons.auto_awesome,
               onTap: () => Navigator.pushNamed(context, '/assessment', arguments: {'isRetake': true}),
             ),
+            SizedBox(height: 12.h),
+            _buildRetakeCard(
+              title: 'Update Preferences',
+              description: 'Budget, area, transport, career goal',
+              icon: Icons.tune_outlined,
+              onTap: () => Navigator.pushNamed(
+                context, '/preferences',
+                arguments: {'isRetake': true},
+              ),
+            ),
             SizedBox(height: 48.h),
 
             // Settings link
