@@ -58,6 +58,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       case 'grades_complete':
         return '/assessment';
       case 'assessment_complete':
+        return '/preferences';
       case 'complete':
         return '/chat';
       default:

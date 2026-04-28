@@ -6,7 +6,8 @@ import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
 
 class PreferencesScreen extends ConsumerStatefulWidget {
-  const PreferencesScreen({super.key});
+  final bool isRetake;
+  const PreferencesScreen({super.key, this.isRetake = false});
 
   @override
   ConsumerState<PreferencesScreen> createState() => _PreferencesScreenState();
@@ -43,7 +44,11 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
     final bool hasData = budget != null || _selectedZone != null || _transportWilling != null || career != null;
 
     if (skip || !hasData) {
-      Navigator.pushNamedAndRemoveUntil(context, '/chat', (route) => false);
+      if (widget.isRetake) {
+        Navigator.pop(context);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(context, '/chat', (route) => false);
+      }
       return;
     }
 
@@ -67,7 +72,11 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
       if (response.statusCode == 200) {
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
-        Navigator.pushNamedAndRemoveUntil(context, '/chat', (route) => false);
+        if (widget.isRetake) {
+          Navigator.pop(context);
+        } else {
+          Navigator.pushNamedAndRemoveUntil(context, '/chat', (route) => false);
+        }
       } else {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(

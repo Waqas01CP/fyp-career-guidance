@@ -52,6 +52,8 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   final Map<String, int> _answers = {};
   bool _isSubmitting = false;
   bool _isGoingForward = true;
+  bool _canPop = false;
+
   Timer? _draftDebounce;
   late final ScrollController _tabScrollController;
 
@@ -261,6 +263,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
       ),
     );
     if (confirmed == true && mounted) {
+      setState(() => _canPop = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (widget.isRetake) {
           Navigator.of(context).pop();

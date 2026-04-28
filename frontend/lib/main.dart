@@ -71,7 +71,10 @@ class FypApp extends StatelessWidget {
               },
               '/assessment-complete': (context) =>
                   const AssessmentCompleteScreen(),
-              '/preferences': (context) => const PreferencesScreen(),
+              '/preferences': (context) {
+                final args = settings.arguments as Map<String, dynamic>?;
+                return PreferencesScreen(isRetake: args?['isRetake'] == true);
+              },
               '/chat': (context) => const MainChatScreen(),
               '/dashboard': (context) => const RecommendationDashboard(),
               '/profile': (context) => const ProfileScreen(),
@@ -162,6 +165,8 @@ class _AppRouterState extends ConsumerState<AppRouter> {
       case 'grades_complete':
         return '/assessment';
       case 'assessment_complete':
+        return '/preferences';
+      case 'complete':
         return '/chat';
       default:
         return '/riasec-quiz';
