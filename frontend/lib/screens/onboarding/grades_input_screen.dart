@@ -21,16 +21,19 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   static const Color _fieldFill = Color(0xFFF2F4F6);
 
   static const List<Map<String, String>> _levelOptions = [
-    {'label': 'Matric (Class 10)',       'value': 'matric'},
-    {'label': 'Inter Part 1 (Class 11)', 'value': 'inter_part1'},
-    {'label': 'Inter Part 2 (Class 12)', 'value': 'inter_part2'},
-    {'label': 'Completed Inter',         'value': 'completed_inter'},
-    {'label': 'O Level',                 'value': 'o_level'},
-    {'label': 'A Level',                 'value': 'a_level'},
+    {'label': 'Matric (Class 10)', 'value': 'matric'},
+    {'label': 'Intermediate Part 1 (Class 11)', 'value': 'inter_part1'},
+    {'label': 'Intermediate Part 2 (Class 12 - In Progress)', 'value': 'inter_part2'},
+    {'label': 'Completed Intermediate (Final Results)', 'value': 'completed_inter'},
+    {'label': 'O Level (Class 10 Equivalent)', 'value': 'o_level'},
+    {'label': 'A Level (Class 12 Equivalent)', 'value': 'a_level'},
   ];
 
-  // Dropdown values are backend-compatible; display names shown to user
-  static const List<String> _streamOptions = [
+  static const List<String> _matricStreams = [
+    'Science (Biology)', 'Science (Computer)', 'General (Arts)'
+  ];
+
+  static const List<String> _interStreams = [
     'Pre-Engineering', 'Pre-Medical', 'ICS', 'Commerce', 'Humanities',
   ];
 
@@ -40,19 +43,43 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     'ICS':             'ICS (Computer Science)',
     'Commerce':        'Commerce',
     'Humanities':      'Humanities',
+    'Science (Biology)': 'Science (Biology)',
+    'Science (Computer)': 'Science (Computer)',
+    'General (Arts)': 'General (Arts)',
   };
 
-  static const List<String> _boardOptions = [
-    'Karachi Board', 'Federal Board', 'AKU', 'Cambridge', 'Other',
+  static const List<String> _localBoards = [
+    'Karachi Board (BSEK/BIEK)', 'Federal Board (FBISE)', 'Aga Khan Board (AKU-EB)', 'Other',
+  ];
+
+  static const List<String> _cambridgeBoards = [
+    'Cambridge (CAIE)', 'Edexcel', 'Oxford AQA', 'Other',
   ];
 
   static const Map<String, List<String>> _streamSubjects = {
-    'Pre-Engineering': ['Mathematics', 'Physics', 'Chemistry', 'English', 'Computer Science'],
-    'Pre-Medical':     ['Biology', 'Chemistry', 'Physics', 'English', 'Urdu'],
-    'ICS':             ['Mathematics', 'Physics', 'Computer Science', 'English', 'Urdu'],
-    'Commerce':        ['Accounting', 'Economics', 'Business Studies', 'English', 'Mathematics'],
-    'Humanities':      ['Urdu', 'English', 'Pakistan Studies', 'Islamiyat', 'Elective'],
+    'Science (Biology)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Biology'],
+    'Science (Computer)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science'],
+    'General (Arts)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Elective 1', 'Elective 2'],
+    'Pre-Engineering': ['Mathematics', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
+    'Pre-Medical':     ['Biology', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
+    'ICS':             ['Mathematics', 'Physics', 'Computer Science', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
+    'Commerce':        ['Accounting', 'Economics', 'Business Studies', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
+    'Humanities':      ['Elective 1', 'Elective 2', 'Elective 3', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
   };
+
+  static const List<String> _oLevelCompulsory = [
+    'English Language', 'Urdu', 'Islamiyat', 'Pakistan Studies', 'Mathematics'
+  ];
+
+  static const List<String> _oLevelOptionalPool = [
+    'Physics', 'Chemistry', 'Biology', 'Computer Science', 'Additional Mathematics', 
+    'Economics', 'Business Studies', 'Accounting', 'Sociology', 'Environmental Management'
+  ];
+
+  static const List<String> _aLevelSubjectPool = [
+    'Physics', 'Chemistry', 'Biology', 'Mathematics', 'Further Mathematics', 
+    'Computer Science', 'Economics', 'Business', 'Accounting', 'Law', 'Psychology', 'Sociology'
+  ];
 
   final _formKey = GlobalKey<FormState>();
   String? _selectedLevel;
@@ -60,24 +87,79 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   String? _selectedBoard;
   int?    _selectedYear;
   final Map<String, TextEditingController> _markControllers = {};
+  
+  // Dynamic subjects for O/A Levels
+  final List<String> _dynamicSubjectKeys = [];
+  final Map<String, String?> _dynamicSubjectSelections = {};
+  final Map<String, TextEditingController> _dynamicMarkControllers = {};
+
   bool _isSubmitting = false;
 
   bool get _showStreamBoard =>
       !['o_level', 'a_level'].contains(_selectedLevel);
 
+  List<String> get _currentStreamOptions {
+    if (_selectedLevel == 'matric') return _matricStreams;
+    return _interStreams;
+  }
+
+  List<String> get _currentBoardOptions {
+    if (_showStreamBoard) return _localBoards;
+    return _cambridgeBoards;
+  }
+
   List<String> get _currentSubjects {
     if (_selectedLevel == null) return [];
-    if (_selectedLevel == 'o_level' || _selectedLevel == 'a_level') {
-      return _streamSubjects['Pre-Engineering']!;
+    if (_selectedLevel == 'o_level') return _oLevelCompulsory;
+    if (_selectedLevel == 'a_level') return [];
+    
+    if (_selectedLevel == 'matric') {
+      return _streamSubjects[_selectedStream] ?? _streamSubjects['Science (Biology)']!;
     }
-    return _streamSubjects[_selectedStream] ??
-        _streamSubjects['Pre-Engineering']!;
+    return _streamSubjects[_selectedStream] ?? _streamSubjects['Pre-Engineering']!;
   }
 
   @override
   void initState() {
     super.initState();
     _rebuildSubjectControllers();
+  }
+
+  void _onLevelChanged(String? newLevel) {
+    if (newLevel != _selectedLevel) {
+      setState(() {
+        _selectedLevel = newLevel;
+        _selectedStream = null;
+        _selectedBoard = null;
+        _dynamicSubjectKeys.clear();
+        _dynamicSubjectSelections.clear();
+        for (final c in _dynamicMarkControllers.values) {
+          c.dispose();
+        }
+        _dynamicMarkControllers.clear();
+        _rebuildSubjectControllers();
+      });
+    }
+  }
+
+  void _addDynamicSubject() {
+    setState(() {
+      final key = DateTime.now().millisecondsSinceEpoch.toString();
+      _dynamicSubjectKeys.add(key);
+      _dynamicSubjectSelections[key] = null;
+      final ctrl = TextEditingController();
+      ctrl.addListener(() => setState(() {}));
+      _dynamicMarkControllers[key] = ctrl;
+    });
+  }
+
+  void _removeDynamicSubject(String key) {
+    setState(() {
+      _dynamicSubjectKeys.remove(key);
+      _dynamicSubjectSelections.remove(key);
+      _dynamicMarkControllers[key]?.dispose();
+      _dynamicMarkControllers.remove(key);
+    });
   }
 
   void _rebuildSubjectControllers() {
@@ -97,13 +179,25 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
         .where((c) => c.text.isNotEmpty)
         .map((c) => double.tryParse(c.text) ?? 0.0)
         .toList();
-    if (values.isEmpty) return 0.0;
-    return values.reduce((a, b) => a + b) / values.length;
+    
+    final dynamicValues = _dynamicMarkControllers.values
+        .where((c) => c.text.isNotEmpty)
+        .map((c) => double.tryParse(c.text) ?? 0.0)
+        .toList();
+
+    final totalCount = values.length + dynamicValues.length;
+    if (totalCount == 0) return 0.0;
+    
+    final totalSum = values.fold(0.0, (a, b) => a + b) + dynamicValues.fold(0.0, (a, b) => a + b);
+    return totalSum / totalCount;
   }
 
   @override
   void dispose() {
     for (final c in _markControllers.values) {
+      c.dispose();
+    }
+    for (final c in _dynamicMarkControllers.values) {
       c.dispose();
     }
     super.dispose();
@@ -144,6 +238,55 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
         return;
       }
     }
+    
+    // Validate dynamic subjects
+    for (final key in _dynamicSubjectKeys) {
+      final selectedSubj = _dynamicSubjectSelections[key];
+      final markText = _dynamicMarkControllers[key]?.text.trim() ?? '';
+      
+      if (selectedSubj == null || selectedSubj.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Please select an optional subject.'),
+            backgroundColor: const Color(0xFFBA1A1A),
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(16.r),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          ),
+        );
+        return;
+      }
+      
+      if (markText.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('$selectedSubj: mark is required'),
+            backgroundColor: const Color(0xFFBA1A1A),
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(16.r),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          ),
+        );
+        return;
+      }
+      final n = double.tryParse(markText);
+      if (n == null || n < 0 || n > 100) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('$selectedSubj: enter a value between 0 and 100'),
+            backgroundColor: const Color(0xFFBA1A1A),
+            duration: const Duration(seconds: 3),
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(16.r),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          ),
+        );
+        return;
+      }
+    }
+
     if (_selectedLevel == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -160,6 +303,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       final key = subject.toLowerCase();
       subjectMarks[key] =
           double.tryParse(_markControllers[subject]?.text ?? '0') ?? 0.0;
+    }
+    for (final key in _dynamicSubjectKeys) {
+      final subj = _dynamicSubjectSelections[key]!.toLowerCase();
+      subjectMarks[subj] = double.tryParse(_dynamicMarkControllers[key]?.text ?? '0') ?? 0.0;
     }
 
     final body = <String, dynamic>{
@@ -419,11 +566,39 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         // Marks rows
                         for (int i = 0; i < _currentSubjects.length; i++) ...[
                           _buildSubjectRow(_currentSubjects[i]),
-                          if (i < _currentSubjects.length - 1)
+                          if (i < _currentSubjects.length - 1 || _dynamicSubjectKeys.isNotEmpty)
                             Container(
                               height: 1,
                               color: const Color(0xFFF2F4F6),
                             ),
+                        ],
+
+                        // Dynamic rows
+                        for (int i = 0; i < _dynamicSubjectKeys.length; i++) ...[
+                          _buildDynamicSubjectRow(_dynamicSubjectKeys[i]),
+                          if (i < _dynamicSubjectKeys.length - 1)
+                            Container(
+                              height: 1,
+                              color: const Color(0xFFF2F4F6),
+                            ),
+                        ],
+                        
+                        if (_selectedLevel == 'o_level' || _selectedLevel == 'a_level') ...[
+                          SizedBox(height: 12.h),
+                          Center(
+                            child: TextButton.icon(
+                              onPressed: _addDynamicSubject,
+                              icon: Icon(Icons.add_circle_outline, color: _primary, size: 20.r),
+                              label: Text(
+                                _selectedLevel == 'o_level' ? '+ Add Optional Subject' : '+ Add A-Level Subject',
+                                style: TextStyle(
+                                  color: _primary,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
 
                         // Aggregate row
@@ -582,10 +757,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     ),
                   ))
               .toList(),
-          onChanged: (v) => setState(() {
-            _selectedLevel = v;
-            _rebuildSubjectControllers();
-          }),
+          onChanged: _onLevelChanged,
           validator: (v) => v == null ? '' : null,
         ),
       ],
@@ -593,7 +765,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   }
 
   Widget _buildYearDropdown() {
-    final years = List.generate(7, (i) => 2026 - i);
+    final years = List.generate(2026 - 1980 + 1, (i) => 2026 - i);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -650,14 +822,14 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Stream',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
-          selectedItemBuilder: (context) => _streamOptions
+          selectedItemBuilder: (context) => _currentStreamOptions
               .map((s) => Text(
                     _streamDisplayNames[s] ?? s,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 14.sp, color: _onSurface),
                   ))
               .toList(),
-          items: _streamOptions
+          items: _currentStreamOptions
               .map((s) => DropdownMenuItem<String>(
                     value: s,
                     child: ConstrainedBox(
@@ -696,14 +868,14 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
             'Board',
             style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977)),
           ),
-          selectedItemBuilder: (context) => _boardOptions
+          selectedItemBuilder: (context) => _currentBoardOptions
               .map((b) => Text(
                     b,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 14.sp, color: _onSurface),
                   ))
               .toList(),
-          items: _boardOptions
+          items: _currentBoardOptions
               .map((b) => DropdownMenuItem<String>(
                     value: b,
                     child: ConstrainedBox(
@@ -767,6 +939,60 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                 ),
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDynamicSubjectRow(String key) {
+    final ctrl = _dynamicMarkControllers[key]!;
+    final currentSelection = _dynamicSubjectSelections[key];
+    final options = _selectedLevel == 'o_level' ? _oLevelOptionalPool : _aLevelSubjectPool;
+    
+    // Check if selected value is not in options (could happen if they change level)
+    final validSelection = currentSelection != null && options.contains(currentSelection) ? currentSelection : null;
+    
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.h),
+      child: Row(
+        children: [
+          Expanded(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton<String>(
+                isExpanded: true,
+                hint: Text('Select subject', style: TextStyle(fontSize: 13.sp, color: const Color(0xFF6E7977))),
+                value: validSelection,
+                items: options.map((s) => DropdownMenuItem(value: s, child: Text(s, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 14.sp, color: _onSurface)))).toList(),
+                onChanged: (v) => setState(() => _dynamicSubjectSelections[key] = v),
+              ),
+            ),
+          ),
+          SizedBox(width: 8.w),
+          SizedBox(
+            width: 72.w,
+            child: TextFormField(
+              controller: ctrl,
+              keyboardType: const TextInputType.numberWithOptions(decimal: true),
+              textAlign: TextAlign.right,
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'^\d{0,3}\.?\d{0,1}')),
+              ],
+              style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500, color: _onSurface),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: '—',
+                hintStyle: const TextStyle(color: Color(0xFF6E7977)),
+                suffixText: '%',
+                suffixStyle: TextStyle(fontSize: 13.sp, color: _secondary),
+              ),
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.close, color: const Color(0xFFBA1A1A), size: 20.r),
+            onPressed: () => _removeDynamicSubject(key),
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(),
           ),
         ],
       ),
