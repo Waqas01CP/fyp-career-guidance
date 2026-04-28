@@ -420,7 +420,12 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
 
     setState(() => _isSubmitting = true);
     final token = ref.read(authProvider).token;
-    if (token == null) return;
+    if (token == null) {
+      setState(() => _isSubmitting = false);
+      ref.read(authProvider.notifier).handleUnauthorized();
+      if (mounted) Navigator.pushReplacementNamed(context, '/login');
+      return;
+    }
 
     try {
       final response =
