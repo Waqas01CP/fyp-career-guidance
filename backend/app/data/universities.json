@@ -3343,15 +3343,15 @@
         "merit_history": [
           {
             "year": 2022,
-            "cutoff": 63.0
+            "cutoff": 62.5
           },
           {
             "year": 2023,
-            "cutoff": 65.5
+            "cutoff": 63.8
           },
           {
             "year": 2024,
-            "cutoff": 67.43
+            "cutoff": 66.14
           },
           {
             "year": 2025,
@@ -3359,10 +3359,10 @@
           }
         ],
         "cutoff_range": {
-          "min": 63.0,
+          "min": 62.5,
           "max": 68.26
         },
-        "confidence_band": 5.26,
+        "confidence_band": 5.76,
         "location": {
           "area": "Shah Latif Town, National Highway, Malir, Karachi",
           "zone": 4
@@ -3620,7 +3620,7 @@
           },
           {
             "year": 2023,
-            "cutoff": 64.0
+            "cutoff": 63.8
           },
           {
             "year": 2024,
@@ -3628,14 +3628,14 @@
           },
           {
             "year": 2025,
-            "cutoff": 67.76
+            "cutoff": 65.08
           }
         ],
         "cutoff_range": {
           "min": 62.5,
-          "max": 67.76
+          "max": 66.14
         },
-        "confidence_band": 5.26,
+        "confidence_band": 3.64,
         "location": {
           "area": "Shah Latif Town, National Highway, Malir, Karachi",
           "zone": 4
