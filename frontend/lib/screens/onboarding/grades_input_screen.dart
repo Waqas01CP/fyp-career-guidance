@@ -33,7 +33,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   ];
 
   static const List<String> _matricStreams = [
-    'Science (Biology)', 'Science (Computer)', 'General (Arts)'
+    'Science (Biology)', 'Science (Computer)', 'Commerce (Matric)', 'General (Arts)'
   ];
 
   static const List<String> _interStreams = [
@@ -48,6 +48,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     'Humanities':      'Humanities',
     'Science (Biology)': 'Science (Biology)',
     'Science (Computer)': 'Science (Computer)',
+    'Commerce (Matric)': 'Commerce',
     'General (Arts)': 'General (Arts)',
   };
 
@@ -60,9 +61,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   ];
 
   static const Map<String, List<String>> _streamSubjects = {
-    'Science (Biology)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Biology'],
-    'Science (Computer)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science'],
-    'General (Arts)': ['English (Compulsory)', 'Urdu / Sindhi (Compulsory)', 'Islamiyat/Ethics', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Elective 1', 'Elective 2'],
+    'Science (Biology)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Biology'],
+    'Science (Computer)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science'],
+    'Commerce (Matric)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Commercial Geography', 'Economics'],
+    'General (Arts)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Elective 1', 'Elective 2'],
     'Pre-Engineering': ['Mathematics', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
     'Pre-Medical':     ['Biology', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
     'ICS':             ['Mathematics', 'Physics', 'Computer Science', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
