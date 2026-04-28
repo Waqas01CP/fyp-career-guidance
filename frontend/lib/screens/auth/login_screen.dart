@@ -108,61 +108,44 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
     return Scaffold(
       backgroundColor: _bgColor,
-      // Never use resizeToAvoidBottomInset: true — that shrinks the scaffold
-      // and creates jank. We handle keyboard manually via viewInsets.bottom.
-      resizeToAvoidBottomInset: false,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-          final availableHeight = constraints.maxHeight - keyboardHeight;
-          final isCompact = availableHeight < 580;
-          final vGap = isCompact ? 10.h : 20.h;
-          final cardPadding = isCompact ? 18.r : 28.r;
-          final topPadding = isCompact ? 8.h : 24.h;
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            // Use full screen height to determine compact mode, ignoring keyboard
+            final isCompact = MediaQuery.of(context).size.height < 600;
+            final vGap = isCompact ? 10.h : 20.h;
+            final cardPadding = isCompact ? 18.r : 28.r;
+            final topPadding = isCompact ? 8.h : 24.h;
 
-          // MediaQuery.removePadding strips SafeArea's bottom inset so that
-          // our manual keyboard padding on the scroll view is not doubled.
-          return MediaQuery.removePadding(
-            context: context,
-            removeBottom: true,
-            child: SafeArea(
-              bottom: false, // We handle bottom manually
-              child: SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                // Bottom padding = keyboard height + buffer so last field
-                // scrolls above the keyboard with breathing room.
-                padding: EdgeInsets.only(
-                  left: 24.w,
-                  right: 24.w,
-                  top: topPadding,
-                  bottom: keyboardHeight > 0
-                      ? keyboardHeight + 24.h
-                      : 24.h,
-                ),
-                child: ConstrainedBox(
-                  // minHeight ensures short content fills screen (no top-stacking)
-                  // This does NOT cause overflow: the scroll view is outside it,
-                  // so content can grow beyond minHeight by scrolling.
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight - topPadding - 24.h,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildGradientBar(),
-                      _buildFormCard(cardPadding),
-                      SizedBox(height: vGap),
-                      _buildSignUpRow(),
-                      SizedBox(height: 16.h),
-                    ],
+            return CustomScrollView(
+              physics: const ClampingScrollPhysics(),
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 24.w,
+                      right: 24.w,
+                      top: topPadding,
+                      bottom: 24.h,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _buildGradientBar(),
+                        _buildFormCard(cardPadding),
+                        SizedBox(height: vGap),
+                        _buildSignUpRow(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -277,32 +260,38 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Semantics(
-                  label: 'Remember this device checkbox',
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 24.w,
-                        height: 24.h,
-                        child: Checkbox(
-                          value: _rememberMe,
-                          onChanged: (v) =>
-                              setState(() => _rememberMe = v ?? false),
-                          activeColor: _primaryColor,
-                          materialTapTargetSize:
-                              MaterialTapTargetSize.padded,
+                Expanded(
+                  child: Semantics(
+                    label: 'Remember this device checkbox',
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 24.w,
+                          height: 24.h,
+                          child: Checkbox(
+                            value: _rememberMe,
+                            onChanged: (v) =>
+                                setState(() => _rememberMe = v ?? false),
+                            activeColor: _primaryColor,
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.padded,
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 8.w),
-                      Text(
-                        'Remember this device',
-                        style: TextStyle(
-                          fontSize: 13.sp,
-                          fontWeight: FontWeight.w400,
-                          color: _secondaryColor,
+                        SizedBox(width: 8.w),
+                        Expanded(
+                          child: Text(
+                            'Remember this device',
+                            style: TextStyle(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400,
+                              color: _secondaryColor,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 // Forgot Password — permanently disabled (no backend endpoint).

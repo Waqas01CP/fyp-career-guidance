@@ -1,11 +1,8 @@
-import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../models/recommendation.dart';
-import '../../providers/auth_provider.dart';
 import '../../providers/chat_provider.dart';
-import '../../services/api_service.dart';
 import '../../widgets/university_card.dart';
 
 class RecommendationDashboard extends ConsumerStatefulWidget {
@@ -164,70 +161,6 @@ class _RecommendationDashboardState
   static const Color _onSurface = Color(0xFF191C1E);
   static const Color _surface = Color(0xFFF7F9FB);
 
-  // ── State ─────────────────────────────────────────────────────────────────
-  List<Recommendation> _recommendations = [];
-  String? _mismatchNotice;
-  bool _isLoading = true;
-  String? _error;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadRecommendations();
-  }
-
-  Future<void> _loadRecommendations() async {
-    setState(() {
-      _isLoading = true;
-      _error = null;
-    });
-
-    final token = ref.read(authProvider).token;
-    if (token == null) {
-      if (mounted) {
-        ref.read(authProvider.notifier).handleUnauthorized();
-        Navigator.pushNamedAndRemoveUntil(context, '/login', (_) => false);
-      }
-      return;
-    }
-
-    try {
-      final response =
-          await ApiService.get('/recommendations', token: token);
-
-      if (!mounted) return;
-
-      if (response.statusCode == 200) {
-        final data =
-            jsonDecode(response.body) as Map<String, dynamic>;
-        final recs = (data['recommendations'] as List? ?? [])
-            .map((e) =>
-                Recommendation.fromJson(e as Map<String, dynamic>))
-            .toList();
-        final mismatch = data['mismatch_notice'] as String?;
-        setState(() {
-          _recommendations = recs;
-          _mismatchNotice = mismatch;
-          _isLoading = false;
-        });
-      } else if (response.statusCode == 401) {
-        ref.read(authProvider.notifier).handleUnauthorized();
-        Navigator.pushNamedAndRemoveUntil(context, '/login', (_) => false);
-      } else {
-        setState(() {
-          _error = 'Could not load recommendations. Try again.';
-          _isLoading = false;
-        });
-      }
-    } catch (_) {
-      if (!mounted) return;
-      setState(() {
-        _error = 'No connection. Check your internet and try again.';
-        _isLoading = false;
-      });
-    }
-  }
-
   void _navigateToChat({String? prefill}) {
     if (prefill != null) {
       ref.read(chatProvider.notifier).addUserMessage(prefill);
@@ -269,9 +202,8 @@ class _RecommendationDashboardState
     );
   }
 
-  // ── Build: Empty / error state ─────────────────────────────────────────────
+  // ── Build: Empty state ─────────────────────────────────────────────────────
   Widget _buildEmptyState() {
-    final hasError = _error != null;
     return Center(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 32.w),
@@ -279,18 +211,16 @@ class _RecommendationDashboardState
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Semantics(
-              label: hasError ? 'Error loading recommendations' : 'No recommendations yet',
+              label: 'No recommendations yet',
               child: Icon(
-                hasError ? Icons.cloud_off_outlined : Icons.school_outlined,
-                // Task 5c spec: 64.r, Color(0xFF515F74)
+                Icons.school_outlined,
                 size: 64.r,
                 color: const Color(0xFF515F74),
               ),
             ),
             SizedBox(height: 24.h),
-            // Task 5f: prominent headline per screen (22-28.sp, w700)
             Text(
-              hasError ? 'Could Not Load' : 'No recommendations yet',
+              'No recommendations yet',
               style: TextStyle(
                 fontSize: 22.sp,
                 fontWeight: FontWeight.w700,
@@ -300,11 +230,8 @@ class _RecommendationDashboardState
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 10.h),
-            // Task 5c spec: exact body copy for no-recs state
             Text(
-              hasError
-                  ? (_error ?? '')
-                  : 'Start a conversation to get your personalised degree recommendations',
+              'Start a conversation to get your personalised degree recommendations',
               style: TextStyle(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
@@ -315,15 +242,13 @@ class _RecommendationDashboardState
             ),
             SizedBox(height: 32.h),
             Semantics(
-              label: hasError ? 'Try loading again' : 'Go to chat',
+              label: 'Go to chat',
               button: true,
               child: SizedBox(
                 width: 240.w,
                 height: 52.h,
                 child: ElevatedButton(
-                  onPressed: hasError
-                      ? _loadRecommendations
-                      : () => _navigateToChat(),
+                  onPressed: () => _navigateToChat(),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _primary,
                     foregroundColor: Colors.white,
@@ -333,7 +258,7 @@ class _RecommendationDashboardState
                     elevation: 0,
                   ),
                   child: Text(
-                    hasError ? 'Try Again' : 'Start Chat',
+                    'Start Chat',
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w700,
@@ -348,22 +273,15 @@ class _RecommendationDashboardState
     );
   }
 
-  // ── Build: Shimmer loading skeleton ────────────────────────────────────────
-  Widget _buildShimmerLoading() {
-    return ListView(
-      physics: const NeverScrollableScrollPhysics(),
-      children: [
-        SizedBox(height: 8.h),
-        const _ShimmerCard(),
-        const _ShimmerCard(),
-        const _ShimmerCard(),
-        SizedBox(height: 16.h),
-      ],
-    );
-  }
+
 
   @override
   Widget build(BuildContext context) {
+    final chatState = ref.watch(chatProvider);
+    final recommendations = chatState.recommendations;
+    final timelineData = chatState.roadmapTimeline;
+    final mismatchNotice = timelineData?['mismatch_notice'] as String?;
+
     return Scaffold(
       backgroundColor: _surface,
       appBar: PreferredSize(
@@ -397,39 +315,33 @@ class _RecommendationDashboardState
           ],
         ),
       ),
-      body: _isLoading
-          ? _buildShimmerLoading()
-          : _recommendations.isEmpty
-              ? _buildEmptyState()
-              : RefreshIndicator(
-                  color: _primary,
-                  onRefresh: _loadRecommendations,
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    itemCount:
-                        _recommendations.length + (_mismatchNotice != null ? 1 : 0),
-                    itemBuilder: (context, index) {
-                      // Mismatch banner as first item
-                      if (_mismatchNotice != null && index == 0) {
-                        return _buildMismatchBanner(_mismatchNotice!);
-                      }
-                      final recIndex =
-                          _mismatchNotice != null ? index - 1 : index;
-                      final rec = _recommendations[recIndex];
-                      return UniversityCard(
-                        recommendation: rec,
-                        onAskAbout: () => _navigateToChat(
-                          prefill:
-                              'Tell me more about ${rec.universityName} — ${rec.degreeName}',
-                        ),
-                        onMoreDetails: () => _navigateToChat(
-                          prefill:
-                              'Give me detailed information about ${rec.universityName} ${rec.degreeName}, including admission requirements and fees.',
-                        ),
-                      );
-                    },
+      body: recommendations.isEmpty
+          ? _buildEmptyState()
+          : ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount:
+                  recommendations.length + (mismatchNotice != null ? 1 : 0),
+              itemBuilder: (context, index) {
+                // Mismatch banner as first item
+                if (mismatchNotice != null && index == 0) {
+                  return _buildMismatchBanner(mismatchNotice);
+                }
+                final recIndex =
+                    mismatchNotice != null ? index - 1 : index;
+                final rec = recommendations[recIndex];
+                return UniversityCard(
+                  recommendation: rec,
+                  onAskAbout: () => _navigateToChat(
+                    prefill:
+                        'Tell me more about ${rec.universityName} — ${rec.degreeName}',
                   ),
-                ),
+                  onMoreDetails: () => _navigateToChat(
+                    prefill:
+                        'Give me detailed information about ${rec.universityName} ${rec.degreeName}, including admission requirements and fees.',
+                  ),
+                );
+              },
+            ),
       // ── Bottom padding for last card ─────────────────────────────────────
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,

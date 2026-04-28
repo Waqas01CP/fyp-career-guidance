@@ -10,7 +10,8 @@ import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
 
 class RiasecQuizScreen extends ConsumerStatefulWidget {
-  const RiasecQuizScreen({super.key});
+  final bool isRetake;
+  const RiasecQuizScreen({super.key, this.isRetake = false});
 
   @override
   ConsumerState<RiasecQuizScreen> createState() => _RiasecQuizScreenState();
@@ -59,9 +60,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
 
   final _storage = const FlutterSecureStorage();
   Timer? _saveTimer;
-  // NOTE: No _userId field — draft key uses sessionId from profileProvider.
-  // sessionId is a stable UUID per user account (GET /profile/me → session_id).
-  // This survives logout/login because it's tied to the account, not the JWT.
+  bool _canPop = false;
 
   late final AnimationController _animController;
 
@@ -101,10 +100,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   String _draftKey() {
     final sessionId = ref.read(profileProvider).sessionId;
     if (sessionId != null) return 'draft_riasec_$sessionId';
-    // Fallback: token hash — better than a shared key, worse than sessionId
     final token = ref.read(authProvider).token;
     return token != null
-        ? 'draft_riasec_${token.hashCode}'
+        ? 'draft_riasec_${token.length > 32 ? token.substring(0, 32) : token}'
         : 'draft_riasec_anonymous';
   }
 
@@ -162,22 +160,20 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Future<void> _initQuiz() async {
-    // sessionId is already in profileProvider if splash loaded the profile.
-    // If not (edge case: direct navigation), it will be populated after quiz init.
-    // _draftKey() reads from profileProvider at call time — always current.
-
-    final stage = ref.read(profileProvider).onboardingStage;
-    const completedStages = [
-      'riasec_complete',
-      'grades_complete',
-      'assessment_complete',
-    ];
-    if (completedStages.contains(stage)) {
-      await _clearDraft();
-      if (mounted) {
-        Navigator.pushReplacementNamed(context, '/grades-input');
+    if (!widget.isRetake) {
+      final stage = ref.read(profileProvider).onboardingStage;
+      const completedStages = [
+        'riasec_complete',
+        'grades_complete',
+        'assessment_complete',
+      ];
+      if (completedStages.contains(stage)) {
+        await _clearDraft();
+        if (mounted) {
+          Navigator.pushReplacementNamed(context, '/grades-input');
+        }
+        return;
       }
-      return;
     }
 
     await _loadQuestions();
@@ -226,9 +222,13 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       ),
     );
     if (confirmed == true && mounted) {
+      setState(() => _canPop = true);
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.of(context, rootNavigator: true)
-            .pushNamedAndRemoveUntil('/login', (route) => false);
+        if (widget.isRetake) {
+          Navigator.of(context).pop();
+        } else {
+          Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
+        }
       });
     }
   }
@@ -236,6 +236,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   void _onNext() {
     if (_selectedAnswer == null || _questions.isEmpty) return;
     _answers[_questions[_currentIndex]['id'] as int] = _selectedAnswer!;
+    
+    if (_currentIndex >= _questions.length - 1) return;
+
     setState(() {
       _isGoingForward = true;
       _currentIndex++;
@@ -293,7 +296,11 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
         await _clearDraft();
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
-        Navigator.pushNamed(context, '/riasec-complete');
+        if (widget.isRetake) {
+          Navigator.pop(context);
+        } else {
+          Navigator.pushNamed(context, '/riasec-complete');
+        }
       } else {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
@@ -774,7 +781,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: false,
+      canPop: _canPop,
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
         await _onBackPressed();

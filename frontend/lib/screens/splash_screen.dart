@@ -53,12 +53,16 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
     final profile = ref.read(profileProvider);
     if (profile.error == 'session_expired') {
       ref.read(authProvider.notifier).handleUnauthorized();
-      _navigateSingle('/onboarding');
+      // Token was revoked — go to login (not carousel) so the user can
+      // log back in without losing their onboarding progress context.
+      _navigateSingle('/login');
       return;
     }
     if (profile.error != null) {
-      // Network or server error — safe fallback to onboarding
-      _navigateSingle('/onboarding');
+      // Network or server error while a valid token exists — go to login
+      // so the user can retry. Do NOT reset to /onboarding (that would
+      // force a new account creation flow for an existing user).
+      _navigateSingle('/login');
       return;
     }
     _reconstructStack(profile.onboardingStage);
@@ -69,62 +73,94 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   /// Without this, killing and relaunching the app mid-onboarding gives a
   /// Navigator stack with only the destination screen. Pressing back → black.
   ///
-  /// Strategy:
-  /// - pushReplacementNamed removes the Splash route before building the stack.
-  /// - Each subsequent pushNamed adds a screen to the back-stack.
-  /// - The student can press back naturally through the screens they already
-  ///   completed, matching the expected UX of a fresh forward-navigation session.
-  ///
-  /// All navigation wrapped in addPostFrameCallback to avoid calling
-  /// Navigator during the build phase.
+  /// CRITICAL FIX: Each Navigator call is in its own addPostFrameCallback
+  /// (via _pushAfterFrame/_pushChain) so each push is processed in a separate
+  /// frame. The old approach stacked all pushes in one callback, causing a race
+  /// on slower devices — the "black screen on restore" bug.
   void _reconstructStack(String stage) {
+    if (!mounted) return;
+    switch (stage) {
+      case 'not_started':
+        // Start of onboarding — quiz is the only screen.
+        _pushAfterFrame('/riasec-quiz', replace: true);
+
+      case 'riasec_complete':
+        // Back from grades-input → riasec-complete.
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+        ]);
+
+      case 'grades_complete':
+        // Full back-stack: riasec → riasec-complete → grades → grades-complete.
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+          '/grades-input',
+          '/grades-complete',
+        ]);
+
+      case 'assessment_complete':
+      case 'complete':
+        // Chat is the terminal authenticated state — clear entire stack.
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/chat', (route) => false);
+        });
+
+      default:
+        // Unknown/future stage — restore to assessment with full back-stack.
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+          '/grades-input',
+          '/grades-complete',
+          '/assessment',
+        ]);
+    }
+  }
+
+  /// Pushes [route] after the current frame, then chains [then] routes each
+  /// in their own subsequent frame.
+  ///
+  /// Using [replace] = true removes the Splash entry (pushReplacementNamed).
+  /// Chaining via nested addPostFrameCallback guarantees each Navigator.push
+  /// call is processed in a separate frame, preventing the race condition
+  /// where back-stack routes are lost when multiple pushes happen in one frame.
+  void _pushAfterFrame(
+    String route, {
+    bool replace = false,
+    List<String> then = const [],
+  }) {
     if (!mounted) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
-      switch (stage) {
-        case 'not_started':
-          // At start of onboarding — just go to quiz, no prior screens.
-          Navigator.pushReplacementNamed(context, '/riasec-quiz');
-
-        case 'riasec_complete':
-          // Completed RIASEC, now on grades input.
-          // Back from grades-input should return to riasec-complete.
-          Navigator.pushReplacementNamed(context, '/riasec-quiz');
-          Navigator.pushNamed(context, '/riasec-complete');
-
-        case 'grades_complete':
-          // Completed grades, now on assessment.
-          // Full back-stack: riasec → riasec-complete → grades → grades-complete.
-          Navigator.pushReplacementNamed(context, '/riasec-quiz');
-          Navigator.pushNamed(context, '/riasec-complete');
-          Navigator.pushNamed(context, '/grades-input');
-          Navigator.pushNamed(context, '/grades-complete');
-
-        case 'assessment_complete':
-        case 'complete':
-          // Chat is the terminal authenticated state.
-          // Assessment Complete auto-navigates to chat via pushNamedAndRemoveUntil.
-          // No back-stack needed — cannot go back from chat to onboarding.
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/chat', (route) => false);
-
-        default:
-          // Unknown or future stage — default to assessment entry point
-          // with full onboarding back-stack intact.
-          Navigator.pushReplacementNamed(context, '/riasec-quiz');
-          Navigator.pushNamed(context, '/riasec-complete');
-          Navigator.pushNamed(context, '/grades-input');
-          Navigator.pushNamed(context, '/grades-complete');
-          Navigator.pushNamed(context, '/assessment');
+      if (replace) {
+        Navigator.pushReplacementNamed(context, route);
+      } else {
+        Navigator.pushNamed(context, route);
       }
+      _pushChain(then, 0);
     });
   }
 
-  /// Used for pre-auth navigation (no token, errors) where no back-stack
-  /// reconstruction is needed — just replace splash with the target screen.
+  /// Recursively pushes each route in [routes] starting at [index], one per
+  /// frame, ensuring each Navigator push is isolated to its own render cycle.
+  void _pushChain(List<String> routes, int index) {
+    if (index >= routes.length) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Navigator.pushNamed(context, routes[index]);
+      _pushChain(routes, index + 1);
+    });
+  }
+
+  /// Used for pre-auth navigation where no back-stack reconstruction is
+  /// needed — just replace splash with the target screen.
   void _navigateSingle(String route) {
     if (!mounted) return;
-    Navigator.pushReplacementNamed(context, route);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, route);
+    });
   }
 
   @override

@@ -219,52 +219,43 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
     return Scaffold(
       backgroundColor: _bgColor,
-      resizeToAvoidBottomInset: false,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-          final availableHeight = constraints.maxHeight - keyboardHeight;
-          final isCompact = availableHeight < 580;
-          final vGap = isCompact ? 10.h : 16.h;
-          final cardPadding = isCompact ? 16.r : 24.r;
-          final topPadding = isCompact ? 8.h : 24.h;
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final isCompact = MediaQuery.of(context).size.height < 600;
+            final vGap = isCompact ? 10.h : 16.h;
+            final cardPadding = isCompact ? 16.r : 24.r;
+            final topPadding = isCompact ? 8.h : 24.h;
 
-          return MediaQuery.removePadding(
-            context: context,
-            removeBottom: true,
-            child: SafeArea(
-              bottom: false,
-              child: SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                padding: EdgeInsets.only(
-                  left: 24.w,
-                  right: 24.w,
-                  top: topPadding,
-                  bottom: keyboardHeight > 0
-                      ? keyboardHeight + 24.h
-                      : 24.h,
-                ),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: constraints.maxHeight - topPadding - 24.h,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      _buildGradientBar(),
-                      _buildFormCard(cardPadding),
-                      SizedBox(height: vGap),
-                      _buildSignInRow(),
-                      SizedBox(height: 16.h),
-                    ],
+            return CustomScrollView(
+              physics: const ClampingScrollPhysics(),
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 24.w,
+                      right: 24.w,
+                      top: topPadding,
+                      bottom: 24.h,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        _buildGradientBar(),
+                        _buildFormCard(cardPadding),
+                        SizedBox(height: vGap),
+                        _buildSignInRow(),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-          );
-        },
+              ],
+            );
+          },
+        ),
       ),
     );
   }

@@ -43,7 +43,7 @@ class _AssessmentCompleteScreenState
   void _navigateToChat() {
     if (!mounted || _navigated) return;
     _navigated = true;
-    Navigator.pushNamedAndRemoveUntil(context, '/chat', (route) => false);
+    Navigator.pushNamed(context, '/preferences');
   }
 
   @override

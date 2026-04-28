@@ -39,10 +39,11 @@ class ProfileState {
     bool? isLoaded,
     String? error,
     bool clearError = false,
+    bool clearSessionId = false,
   }) =>
       ProfileState(
         onboardingStage: onboardingStage ?? this.onboardingStage,
-        sessionId: sessionId ?? this.sessionId,
+        sessionId: clearSessionId ? null : sessionId ?? this.sessionId,
         riasecScores: riasecScores ?? this.riasecScores,
         subjectMarks: subjectMarks ?? this.subjectMarks,
         capabilityScores: capabilityScores ?? this.capabilityScores,
@@ -81,6 +82,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
         state = state.copyWith(
           isLoading: false,
           error: 'session_expired',
+          clearSessionId: true,
         );
       } else {
         state = state.copyWith(

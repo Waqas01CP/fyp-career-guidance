@@ -10,7 +10,8 @@ import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
 
 class AssessmentScreen extends ConsumerStatefulWidget {
-  const AssessmentScreen({super.key});
+  final bool isRetake;
+  const AssessmentScreen({super.key, this.isRetake = false});
 
   @override
   ConsumerState<AssessmentScreen> createState() => _AssessmentScreenState();
@@ -51,6 +52,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   final Map<String, int> _answers = {};
   bool _isSubmitting = false;
   bool _isGoingForward = true;
+  bool _canPop = false;
 
   Timer? _draftDebounce;
   late final ScrollController _tabScrollController;
@@ -150,10 +152,9 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   String _draftKey() {
     final sessionId = ref.read(profileProvider).sessionId;
     if (sessionId != null) return 'draft_assessment_$sessionId';
-    // Fallback: token hash — better than a shared key, worse than sessionId
     final token = ref.read(authProvider).token;
     return token != null
-        ? 'draft_assessment_${token.hashCode}'
+        ? 'draft_assessment_${token.length > 32 ? token.substring(0, 32) : token}'
         : 'draft_assessment_anonymous';
   }
 
@@ -167,17 +168,19 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
       profile = ref.read(profileProvider);
     }
 
-    final stage = profile.onboardingStage;
+    if (!widget.isRetake) {
+      final stage = profile.onboardingStage;
 
-    // If assessment already completed, clear stale draft and navigate forward
-    if (stage == 'assessment_complete') {
-      try {
-        await _storage.delete(key: _draftKey());
-      } catch (_) {}
-      if (mounted) {
-        Navigator.pushReplacementNamed(context, '/assessment-complete');
+      // If assessment already completed, clear stale draft and navigate forward
+      if (stage == 'assessment_complete') {
+        try {
+          await _storage.delete(key: _draftKey());
+        } catch (_) {}
+        if (mounted) {
+          Navigator.pushReplacementNamed(context, '/assessment-complete');
+        }
+        return;
       }
-      return;
     }
 
     // For any pre-assessment stage, attempt to restore draft
@@ -237,6 +240,40 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
   }
 
   // ── Navigation ────────────────────────────────────────────────────────────
+  Future<void> _onBackPressed() async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: const Text('Leave assessment?'),
+        content: const Text(
+            'Your progress has been saved automatically and will be restored when you return.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: const Text('Stay'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: const Text(
+              'Leave',
+              style: TextStyle(color: Color(0xFFBA1A1A)),
+            ),
+          ),
+        ],
+      ),
+    );
+    if (confirmed == true && mounted) {
+      setState(() => _canPop = true);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (widget.isRetake) {
+          Navigator.of(context).pop();
+        } else {
+          Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
+        }
+      });
+    }
+  }
+
   void _onPrevious() {
     if (_currentIndex <= 0) return;
     setState(() {
@@ -389,7 +426,10 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     final results = _computeSubjectResults();
     final totalCorrect =
         results.values.fold(0, (sum, v) => sum + v['correct']!);
-    final overallPct = (totalCorrect / 60 * 100).round();
+    final totalQuestions = _questions.isEmpty ? 60 : _questions.length;
+    final overallPct = (totalCorrect / totalQuestions * 100).round();
+
+    final originalContext = context;
 
     showModalBottomSheet(
       context: context,
@@ -400,12 +440,19 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
       builder: (ctx) => _ResultsSheet(
         results: results,
         totalCorrect: totalCorrect,
+        totalQuestions: totalQuestions,
         overallPct: overallPct,
         subjectLabels: _subjectLabels,
         onViewFullReport: () {
           Navigator.pop(ctx);
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/assessment-complete', (route) => false);
+          if (mounted) {
+            if (widget.isRetake) {
+              Navigator.pop(originalContext);
+            } else {
+              Navigator.pushNamedAndRemoveUntil(
+                  originalContext, '/assessment-complete', (route) => false);
+            }
+          }
         },
       ),
     );
@@ -761,7 +808,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
                   ),
                   const Spacer(),
                   Text(
-                    '${_answers.length}/60 answered',
+                    '${_answers.length}/${_questions.length} answered',
                     style: TextStyle(fontSize: 14.sp, color: _secondary),
                   ),
                 ],
@@ -914,7 +961,13 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
     final progress =
         totalQuestions > 0 ? answeredCount / totalQuestions : 0.0;
 
-    return Scaffold(
+    return PopScope(
+      canPop: _canPop,
+      onPopInvokedWithResult: (didPop, _) {
+        if (didPop) return;
+        _onBackPressed();
+      },
+      child: Scaffold(
         backgroundColor: _surfaceLow,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(52.h),
@@ -1029,6 +1082,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             ],
           ),
         ),
+      ),
     );
   }
 }
@@ -1037,6 +1091,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
 class _ResultsSheet extends StatelessWidget {
   final Map<String, Map<String, int>> results;
   final int totalCorrect;
+  final int totalQuestions;
   final int overallPct;
   final Map<String, String> subjectLabels;
   final VoidCallback onViewFullReport;
@@ -1052,6 +1107,7 @@ class _ResultsSheet extends StatelessWidget {
   const _ResultsSheet({
     required this.results,
     required this.totalCorrect,
+    required this.totalQuestions,
     required this.overallPct,
     required this.subjectLabels,
     required this.onViewFullReport,
@@ -1104,7 +1160,7 @@ class _ResultsSheet extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             Text(
-              '$overallPct% overall · $totalCorrect/60 correct',
+              '$overallPct% overall · $totalCorrect/$totalQuestions correct',
               style: TextStyle(
                   fontSize: 15.sp, color: const Color(0xFF515F74)),
             ),

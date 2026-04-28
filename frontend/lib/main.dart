@@ -14,8 +14,10 @@ import 'screens/onboarding/grades_input_screen.dart';
 import 'screens/onboarding/grades_complete_screen.dart';
 import 'screens/onboarding/assessment_screen.dart';
 import 'screens/onboarding/assessment_complete_screen.dart';
+import 'screens/onboarding/preferences_screen.dart';
 import 'screens/chat/main_chat_screen.dart';
 import 'screens/dashboard/recommendation_dashboard.dart';
+import 'screens/profile/profile_screen.dart';
 import 'screens/profile/settings_screen.dart';
 import 'screens/error_screen.dart';
 
@@ -53,17 +55,26 @@ class FypApp extends StatelessWidget {
               '/signup': (context) => const SignupScreen(),
               '/forgot-password': (context) =>
                   const _PlaceholderScreen('Forgot Password'),
-              '/riasec-quiz': (context) => const RiasecQuizScreen(),
+              '/riasec-quiz': (context) {
+                final args = settings.arguments as Map<String, dynamic>?;
+                return RiasecQuizScreen(isRetake: args?['isRetake'] == true);
+              },
               '/riasec-complete': (context) => const RiasecCompleteScreen(),
-              '/grades-input': (context) => const GradesInputScreen(),
+              '/grades-input': (context) {
+                final args = settings.arguments as Map<String, dynamic>?;
+                return GradesInputScreen(isRetake: args?['isRetake'] == true);
+              },
               '/grades-complete': (context) => const GradesCompleteScreen(),
-              '/assessment': (context) => const AssessmentScreen(),
+              '/assessment': (context) {
+                final args = settings.arguments as Map<String, dynamic>?;
+                return AssessmentScreen(isRetake: args?['isRetake'] == true);
+              },
               '/assessment-complete': (context) =>
                   const AssessmentCompleteScreen(),
+              '/preferences': (context) => const PreferencesScreen(),
               '/chat': (context) => const MainChatScreen(),
               '/dashboard': (context) => const RecommendationDashboard(),
-              '/profile': (context) =>
-                  const _PlaceholderScreen('Student Profile'),
+              '/profile': (context) => const ProfileScreen(),
               '/settings': (context) => const SettingsScreen(),
               '/error': (context) {
                 final args =

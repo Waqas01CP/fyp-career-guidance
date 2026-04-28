@@ -7,7 +7,8 @@ import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
 
 class GradesInputScreen extends ConsumerStatefulWidget {
-  const GradesInputScreen({super.key});
+  final bool isRetake;
+  const GradesInputScreen({super.key, this.isRetake = false});
 
   @override
   ConsumerState<GradesInputScreen> createState() => _GradesInputScreenState();
@@ -178,7 +179,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       if (response.statusCode == 200) {
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
-        Navigator.pushNamed(context, '/grades-complete');
+        if (widget.isRetake) {
+          Navigator.pop(context);
+        } else {
+          Navigator.pushNamed(context, '/grades-complete');
+        }
       } else if (response.statusCode == 401) {
         ref.read(authProvider.notifier).handleUnauthorized();
         if (!mounted) return;

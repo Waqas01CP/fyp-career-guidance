@@ -8,6 +8,7 @@ import '../../providers/chat_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/sse_service.dart';
 import '../../widgets/thinking_indicator.dart';
+import '../../widgets/university_card.dart';
 
 class MainChatScreen extends ConsumerStatefulWidget {
   const MainChatScreen({super.key});
@@ -31,6 +32,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
   final _inputFocusNode = FocusNode();
 
   StreamSubscription<Map<String, dynamic>>? _sseSubscription;
+  Timer? _streamTimeout;
 
   // Suggested chips — shown only before any messages
   static const List<String> _suggestedChips = [
@@ -48,6 +50,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
 
   @override
   void dispose() {
+    _streamTimeout?.cancel();
     _sseSubscription?.cancel();
     _inputController.dispose();
     _scrollController.dispose();
@@ -82,10 +85,22 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     _inputController.clear();
     _inputFocusNode.unfocus();
 
+    // Clear previous chat recommendations and messages before a new send
+    ref.read(chatProvider.notifier).reset();
+
     // Add user message and start AI message placeholder
     ref.read(chatProvider.notifier).addUserMessage(trimmed);
     ref.read(chatProvider.notifier).startAssistantMessage();
     _scrollToBottom();
+
+    _streamTimeout?.cancel();
+    _streamTimeout = Timer(const Duration(seconds: 90), () {
+      ref.read(chatProvider.notifier).setError(
+        'The response is taking too long. '
+        'Please try sending your message again.'
+      );
+      _streamTimeout = null;
+    });
 
     // Stream SSE events
     try {
@@ -123,11 +138,15 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
           }
         },
         onDone: () {
+          _streamTimeout?.cancel();
+          _streamTimeout = null;
           if (!mounted) return;
           ref.read(chatProvider.notifier).finishStreaming();
           _scrollToBottom();
         },
         onError: (Object e) {
+          _streamTimeout?.cancel();
+          _streamTimeout = null;
           if (!mounted) return;
           final errStr = e.toString();
           if (errStr.contains('401')) {
@@ -141,6 +160,8 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
         cancelOnError: true,
       );
     } catch (e) {
+      _streamTimeout?.cancel();
+      _streamTimeout = null;
       if (!mounted) return;
       ref.read(chatProvider.notifier).setError(
             'Could not reach AI advisor. Please try again.',
@@ -286,8 +307,78 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
   }
 
   // ── Build: AI bubble ──────────────────────────────────────────────────────
-  Widget _buildAIBubble(ChatMessage msg, bool isStreaming) {
+  Widget _buildAIBubble(ChatMessage msg, bool isStreaming, bool isLast, String? errorMsg) {
     final isEmpty = msg.content.isEmpty;
+
+    if (isLast && !isStreaming && errorMsg != null) {
+      return Padding(
+        padding: EdgeInsets.only(bottom: 4.h),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              radius: 16.r,
+              backgroundColor: const Color(0xFFFFDAD6),
+              child: Icon(Icons.error_outline, size: 16.r, color: const Color(0xFFBA1A1A)),
+            ),
+            SizedBox(width: 8.w),
+            Flexible(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.85),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFFFDAD6),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(18.r),
+                        topRight: Radius.circular(18.r),
+                        bottomLeft: Radius.circular(4.r),
+                        bottomRight: Radius.circular(18.r),
+                      ),
+                      border: const Border(
+                        left: BorderSide(color: Color(0xFFBA1A1A), width: 3),
+                      ),
+                    ),
+                    padding: EdgeInsets.all(14.r),
+                    child: Text(
+                      errorMsg,
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF93000A),
+                        height: 1.6,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 8.h),
+                  ElevatedButton(
+                    onPressed: () {
+                      final chatState = ref.read(chatProvider);
+                      // Resend the last user message
+                      final lastUserMsg = chatState.messages.lastWhere((m) => m.isUser, orElse: () => ChatMessage(id: '', role: 'user', content: '', timestamp: DateTime.now()));
+                      if (lastUserMsg.content.isNotEmpty) {
+                        _sendMessage(lastUserMsg.content);
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: _primary,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                    ),
+                    child: Text('Try Again', style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600)),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Padding(
       padding: EdgeInsets.only(bottom: 4.h),
       child: Row(
@@ -432,6 +523,93 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     );
   }
 
+  String _getMissingDataMessage(ProfileState profile) {
+    if (!profile.riasecScores.isNotEmpty) {
+      return 'Complete your interest profile quiz (Step 1 of 3) '
+             'to get personalised degree recommendations.';
+    }
+    if (!profile.subjectMarks.isNotEmpty) {
+      return 'Enter your academic grades (Step 2 of 3) '
+             'so we can match you with eligible degrees.';
+    }
+    if (!profile.capabilityScores.isNotEmpty) {
+      return 'Complete the capability assessment (Step 3 of 3) '
+             'to finalise your profile.';
+    }
+    return 'Your profile is incomplete. '
+           'Please complete all steps to get recommendations.';
+  }
+
+  Widget _buildProfileActionButton(
+      String label, IconData icon, VoidCallback onTap) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 8.h),
+      child: ElevatedButton.icon(
+        onPressed: onTap,
+        icon: Icon(icon, size: 16.r),
+        label: Text(label,
+          style: TextStyle(fontSize: 13.sp,
+            fontWeight: FontWeight.w600)),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF006B62),
+          foregroundColor: Colors.white,
+          minimumSize: Size(double.infinity, 44.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.r)),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildLockedBanner(ProfileState profile, bool hasRiasec, bool hasGrades, bool hasCapability) {
+    return Container(
+      padding: EdgeInsets.all(16.r),
+      margin: EdgeInsets.all(12.r),
+      decoration: BoxDecoration(
+        color: const Color(0xFFEADDFF), // tertiaryFixed
+        borderRadius: BorderRadius.circular(12.r),
+        border: Border.all(color: const Color(0xFF6616D7), width: 1),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(children: [
+            Icon(Icons.lock_outline, size: 16.r,
+                 color: const Color(0xFF6616D7)),
+            SizedBox(width: 8.w),
+            Text('Complete your profile first',
+              style: TextStyle(fontSize: 14.sp,
+                fontWeight: FontWeight.w700,
+                color: const Color(0xFF25005A))),
+          ]),
+          SizedBox(height: 8.h),
+          Text(_getMissingDataMessage(profile),
+            style: TextStyle(fontSize: 13.sp,
+              color: const Color(0xFF5A00C6))),
+          SizedBox(height: 12.h),
+          if (!hasRiasec)
+            _buildProfileActionButton(
+              'Complete Interest Assessment',
+              Icons.psychology_outlined,
+              () => Navigator.pushNamed(context, '/riasec-quiz'),
+            ),
+          if (hasRiasec && !hasGrades)
+            _buildProfileActionButton(
+              'Enter Academic Grades',
+              Icons.school_outlined,
+              () => Navigator.pushNamed(context, '/grades-input'),
+            ),
+          if (hasRiasec && hasGrades && !hasCapability)
+            _buildProfileActionButton(
+              'Complete Capability Assessment',
+              Icons.quiz_outlined,
+              () => Navigator.pushNamed(context, '/assessment'),
+            ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final chatState = ref.watch(chatProvider);
@@ -440,6 +618,13 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     final statusLabel = chatState.currentStatusLabel;
     final errorMsg = chatState.error;
     final showChips = messages.isEmpty && !isStreaming;
+
+    final profile = ref.watch(profileProvider);
+    final bool onboardingComplete = profile.onboardingStage == 'assessment_complete';
+    final bool hasRiasec = profile.riasecScores.isNotEmpty;
+    final bool hasGrades = profile.subjectMarks.isNotEmpty;
+    final bool hasCapability = profile.capabilityScores.isNotEmpty;
+    final bool profileComplete = onboardingComplete && hasRiasec && hasGrades && hasCapability;
 
     return Scaffold(
       backgroundColor: _surface,
@@ -501,13 +686,25 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
                       if (msg.isUser)
                         _buildUserBubble(msg)
                       else
-                        _buildAIBubble(msg, isStreaming && isLast),
+                        _buildAIBubble(msg, isStreaming, isLast, errorMsg),
+                      
                       // Status label — show below last AI bubble when streaming
                       if (!msg.isUser &&
                           isLast &&
                           isStreaming &&
                           statusLabel != null)
                         _buildStatusLabel(statusLabel),
+                        
+                      // Recommendation cards
+                      if (!msg.isUser && isLast && chatState.recommendations.isNotEmpty && !isStreaming)
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: chatState.recommendations.length,
+                          itemBuilder: (ctx, i) => UniversityCard(
+                            recommendation: chatState.recommendations[i],
+                          ),
+                        ),
                     ],
                   ),
                 );
@@ -515,43 +712,14 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             ),
           ),
 
-          // ── Error banner ───────────────────────────────────────────────
-          if (errorMsg != null)
-            Container(
-              color: const Color(0xFFFFDAD6),
-              padding:
-                  EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-              child: Row(
-                children: [
-                  Icon(Icons.error_outline,
-                      size: 16.r, color: const Color(0xFFBA1A1A)),
-                  SizedBox(width: 8.w),
-                  Expanded(
-                    child: Text(
-                      errorMsg,
-                      style: TextStyle(
-                        fontSize: 13.sp,
-                        color: const Color(0xFF93000A),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.close,
-                        size: 16.r, color: const Color(0xFF93000A)),
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                    onPressed: () =>
-                        ref.read(chatProvider.notifier).reset(),
-                  ),
-                ],
-              ),
-            ),
-
           // ── Suggested chips row (only when list is empty) ──────────────
           // (chips rendered inline in ListView when showChips=true above)
 
-          // ── Input bar ──────────────────────────────────────────────────
-          _buildInputBar(isStreaming),
+          // ── Input bar / Locked banner ──────────────────────────────────
+          if (!profileComplete)
+            _buildLockedBanner(profile, hasRiasec, hasGrades, hasCapability)
+          else
+            _buildInputBar(isStreaming),
         ],
       ),
     );
