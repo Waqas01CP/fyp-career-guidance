@@ -41,6 +41,15 @@ class AuthService {
     return null;
   }
 
-  static Future<String?> getToken() => _storage.read(key: _tokenKey);
+  static Future<String?> getToken() async {
+    try {
+      return await _storage.read(key: _tokenKey);
+    } catch (e) {
+      // If the Android Keystore becomes out of sync (e.g. user cleared app data),
+      // read() throws a PlatformException. We must clear corrupted storage to prevent app freeze.
+      await _storage.deleteAll();
+      return null;
+    }
+  }
   static Future<void> logout() => _storage.delete(key: _tokenKey);
 }

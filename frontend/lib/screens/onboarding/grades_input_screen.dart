@@ -65,11 +65,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     'Science (Computer)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'Mathematics', 'Physics', 'Chemistry', 'Computer Science'],
     'Commerce (Matric)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Commercial Geography', 'Economics'],
     'General (Arts)': ['English', 'Urdu', 'Sindhi', 'Islamiat', 'Pakistan Studies', 'General Mathematics', 'General Science', 'Elective 1', 'Elective 2'],
-    'Pre-Engineering': ['Mathematics', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
-    'Pre-Medical':     ['Biology', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
-    'ICS':             ['Mathematics', 'Physics', 'Computer Science', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
-    'Commerce':        ['Accounting', 'Economics', 'Business Studies', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
-    'Humanities':      ['Elective 1', 'Elective 2', 'Elective 3', 'English', 'Urdu', 'Islamiyat/Pak Studies'],
+    'Pre-Engineering': ['Mathematics', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiat', 'Pakistan Studies'],
+    'Pre-Medical':     ['Biology', 'Physics', 'Chemistry', 'English', 'Urdu', 'Islamiat', 'Pakistan Studies'],
+    'ICS':             ['Mathematics', 'Physics', 'Computer Science', 'English', 'Urdu', 'Islamiat', 'Pakistan Studies'],
+    'Commerce':        ['Accounting', 'Economics', 'Business Studies', 'English', 'Urdu', 'Islamiat', 'Pakistan Studies'],
+    'Humanities':      ['English', 'Urdu', 'Islamiat', 'Pakistan Studies', 'Civics', 'Islamic History', 'Sociology'],
   };
 
   static const List<String> _oLevelCompulsory = [
@@ -624,7 +624,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         ),
                       ),
 
-                      if (_currentSubjects.isEmpty)
+                      if (_currentSubjects.isEmpty && _selectedLevel != 'a_level')
                         Padding(
                           padding: EdgeInsets.symmetric(vertical: 16.h),
                           child: Text(
@@ -638,7 +638,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                         ),
 
                       // Subject marks section
-                      if (_currentSubjects.isNotEmpty) ...[
+                      if (_currentSubjects.isNotEmpty || _selectedLevel == 'a_level') ...[
                         // Header row
                         Row(
                           children: [
