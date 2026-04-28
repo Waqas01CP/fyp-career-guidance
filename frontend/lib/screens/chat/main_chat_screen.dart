@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../models/chat_message.dart';
@@ -426,13 +427,60 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
               padding: EdgeInsets.all(14.r),
               child: isEmpty && isStreaming
                   ? const ThinkingIndicator()
-                  : Text(
-                      msg.content,
-                      style: TextStyle(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w400,
-                        color: _onSurface,
-                        height: 1.6,
+                  : MarkdownBody(
+                      data: msg.content,
+                      softLineBreak: true,
+                      styleSheet: MarkdownStyleSheet(
+                        p: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w400,
+                          color: _onSurface,
+                          height: 1.6,
+                        ),
+                        strong: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w700,
+                          color: _onSurface,
+                        ),
+                        em: TextStyle(
+                          fontSize: 15.sp,
+                          fontStyle: FontStyle.italic,
+                          color: _onSurface,
+                        ),
+                        h1: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w700,
+                          color: _onSurface,
+                        ),
+                        h2: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w700,
+                          color: _onSurface,
+                        ),
+                        h3: TextStyle(
+                          fontSize: 15.sp,
+                          fontWeight: FontWeight.w600,
+                          color: _onSurface,
+                        ),
+                        listBullet: TextStyle(
+                          fontSize: 15.sp,
+                          color: _secondary,
+                        ),
+                        blockquoteDecoration: BoxDecoration(
+                          border: Border(
+                            left: BorderSide(
+                              color: _primary,
+                              width: 3,
+                            ),
+                          ),
+                        ),
+                        blockquotePadding: EdgeInsets.only(left: 12.w),
+                        code: TextStyle(
+                          fontSize: 13.sp,
+                          fontFamily: 'monospace',
+                          color: _tertiary,
+                          backgroundColor: _surfaceLow,
+                        ),
                       ),
                     ),
             ),
