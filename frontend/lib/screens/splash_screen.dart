@@ -91,11 +91,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         ]);
 
       case 'grades_complete':
-        // Full back-stack: riasec → riasec-complete → grades → grades-complete.
+        // Full back-stack ending at /assessment — student was mid-assessment
+        // when they closed the app. grades_complete stage means grades were
+        // submitted but assessment was not, so the active screen must be
+        // /assessment, not /grades-complete.
         _pushAfterFrame('/riasec-quiz', replace: true, then: [
           '/riasec-complete',
           '/grades-input',
           '/grades-complete',
+          '/assessment',
         ]);
 
       case 'assessment_complete':
