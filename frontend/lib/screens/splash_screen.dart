@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'error_screen.dart';
 import '../providers/auth_provider.dart';
 import '../providers/profile_provider.dart';
 import '../services/auth_service.dart';
@@ -59,10 +60,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       return;
     }
     if (profile.error != null) {
-      // Network or server error while a valid token exists — go to login
-      // so the user can retry. Do NOT reset to /onboarding (that would
-      // force a new account creation flow for an existing user).
-      _navigateSingle('/login');
+      // Network or server error while a valid token exists — go to error screen
+      // so the user can retry. Do NOT reset to /login (that causes a "false logout").
+      _navigateSingle('/error', arguments: {'errorType': ErrorType.serverTimeout});
       return;
     }
     _reconstructStack(profile.onboardingStage);
@@ -159,11 +159,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
 
   /// Used for pre-auth navigation where no back-stack reconstruction is
   /// needed — just replace splash with the target screen.
-  void _navigateSingle(String route) {
+  void _navigateSingle(String route, {Object? arguments}) {
     if (!mounted) return;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, route);
+      Navigator.pushReplacementNamed(context, route, arguments: arguments);
     });
   }
 

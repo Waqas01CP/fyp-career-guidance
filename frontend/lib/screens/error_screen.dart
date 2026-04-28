@@ -168,8 +168,13 @@ class ErrorScreen extends StatelessWidget {
     switch (errorType) {
       case ErrorType.noNetwork:
       case ErrorType.serverTimeout:
-        // Retry → pop back to previous screen
-        Navigator.maybePop(context);
+        // Retry → pop back to previous screen, or restart Splash if root
+        if (Navigator.canPop(context)) {
+          Navigator.maybePop(context);
+        } else {
+          Navigator.pushReplacementNamed(context, '/');
+        }
+        break;
       case ErrorType.sessionExpired:
         // Sign in → clear stack and go to login
         Navigator.pushNamedAndRemoveUntil(
