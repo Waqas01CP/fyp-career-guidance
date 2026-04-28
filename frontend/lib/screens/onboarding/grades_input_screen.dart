@@ -1,7 +1,10 @@
+import 'dart:async';
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/api_service.dart';
@@ -81,6 +84,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     'Computer Science', 'Economics', 'Business', 'Accounting', 'Law', 'Psychology', 'Sociology'
   ];
 
+  // Draft persistence
+  static const _storage = FlutterSecureStorage();
+  static const _draftKey = 'grades_draft';
+  Timer? _debounce;
+
   final _formKey = GlobalKey<FormState>();
   String? _selectedLevel;
   String? _selectedStream;
@@ -123,6 +131,88 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   void initState() {
     super.initState();
     _rebuildSubjectControllers();
+    _loadDraft();
+  }
+
+  // ── Draft persistence ────────────────────────────────────────────────────────
+
+  Future<void> _loadDraft() async {
+    final raw = await _storage.read(key: _draftKey);
+    if (raw == null || !mounted) return;
+    try {
+      final Map<String, dynamic> data = json.decode(raw) as Map<String, dynamic>;
+      final level  = data['level']  as String?;
+      final stream = data['stream'] as String?;
+      final board  = data['board']  as String?;
+      final year   = data['year']   as int?;
+      final marks  = (data['marks']  as Map<String, dynamic>?) ?? {};
+      final dynSubjects = (data['dyn_subjects'] as List<dynamic>?) ?? [];
+
+      setState(() {
+        _selectedLevel  = level;
+        _selectedStream = stream;
+        _selectedBoard  = board;
+        _selectedYear   = year;
+        _rebuildSubjectControllers();
+
+        // Restore fixed marks
+        for (final entry in marks.entries) {
+          _markControllers[entry.key]?.text = entry.value.toString();
+        }
+
+        // Restore dynamic rows
+        for (final row in dynSubjects) {
+          final key     = DateTime.now().millisecondsSinceEpoch.toString();
+          final subject = row['subject'] as String?;
+          final mark    = row['mark']    as String? ?? '';
+          _dynamicSubjectKeys.add(key);
+          _dynamicSubjectSelections[key] = subject;
+          final ctrl = TextEditingController(text: mark);
+          ctrl.addListener(() => setState(() {}));
+          _dynamicMarkControllers[key] = ctrl;
+        }
+      });
+    } catch (_) {
+      // Corrupted draft — silently ignore
+      await _storage.delete(key: _draftKey);
+    }
+  }
+
+  void _scheduleSaveDraft() {
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), _saveDraft);
+  }
+
+  Future<void> _saveDraft() async {
+    final marks = <String, String>{};
+    for (final entry in _markControllers.entries) {
+      if (entry.value.text.isNotEmpty) {
+        marks[entry.key] = entry.value.text;
+      }
+    }
+
+    final dynSubjects = <Map<String, String?>>[];
+    for (final key in _dynamicSubjectKeys) {
+      dynSubjects.add({
+        'subject': _dynamicSubjectSelections[key],
+        'mark':    _dynamicMarkControllers[key]?.text,
+      });
+    }
+
+    final data = <String, dynamic>{
+      'level':        _selectedLevel,
+      'stream':       _selectedStream,
+      'board':        _selectedBoard,
+      'year':         _selectedYear,
+      'marks':        marks,
+      'dyn_subjects': dynSubjects,
+    };
+    await _storage.write(key: _draftKey, value: json.encode(data));
+  }
+
+  Future<void> _clearDraft() async {
+    _debounce?.cancel();
+    await _storage.delete(key: _draftKey);
   }
 
   void _onLevelChanged(String? newLevel) {
@@ -139,6 +229,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
         _dynamicMarkControllers.clear();
         _rebuildSubjectControllers();
       });
+      _scheduleSaveDraft();
     }
   }
 
@@ -148,9 +239,13 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       _dynamicSubjectKeys.add(key);
       _dynamicSubjectSelections[key] = null;
       final ctrl = TextEditingController();
-      ctrl.addListener(() => setState(() {}));
+      ctrl.addListener(() {
+        setState(() {});
+        _scheduleSaveDraft();
+      });
       _dynamicMarkControllers[key] = ctrl;
     });
+    _scheduleSaveDraft();
   }
 
   void _removeDynamicSubject(String key) {
@@ -160,6 +255,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       _dynamicMarkControllers[key]?.dispose();
       _dynamicMarkControllers.remove(key);
     });
+    _scheduleSaveDraft();
   }
 
   void _rebuildSubjectControllers() {
@@ -169,7 +265,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     _markControllers.clear();
     for (final s in _currentSubjects) {
       final ctrl = TextEditingController();
-      ctrl.addListener(() => setState(() {}));
+      ctrl.addListener(() {
+        setState(() {});
+        _scheduleSaveDraft();
+      });
       _markControllers[s] = ctrl;
     }
   }
@@ -194,6 +293,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
 
   @override
   void dispose() {
+    _debounce?.cancel();
     for (final c in _markControllers.values) {
       c.dispose();
     }
@@ -324,6 +424,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       final response =
           await ApiService.post('/profile/grades', body, token: token);
       if (response.statusCode == 200) {
+        await _clearDraft();
         await ref.read(profileProvider.notifier).loadProfile(token);
         if (!mounted) return;
         if (widget.isRetake) {
@@ -802,7 +903,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     ),
                   ))
               .toList(),
-          onChanged: (v) => setState(() => _selectedYear = v),
+          onChanged: (v) => setState(() {
+            _selectedYear = v;
+            _scheduleSaveDraft();
+          }),
         ),
       ],
     );
@@ -848,6 +952,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
           onChanged: (v) => setState(() {
             _selectedStream = v;
             _rebuildSubjectControllers();
+            _scheduleSaveDraft();
           }),
         ),
       ],
@@ -891,7 +996,10 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     ),
                   ))
               .toList(),
-          onChanged: (v) => setState(() => _selectedBoard = v),
+          onChanged: (v) => setState(() {
+            _selectedBoard = v;
+            _scheduleSaveDraft();
+          }),
         ),
       ],
     );
