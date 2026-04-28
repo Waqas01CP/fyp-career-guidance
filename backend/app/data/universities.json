@@ -3337,9 +3337,9 @@
           },
           "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC/FSc Part-1 + 10% SSC/Matric. HSSC Part-1 only is used if Part-2 result is not yet available. Source: nu.edu.pk official eligibility page. The uploaded merit file shows a simplified '50% Inter + 50% NU Test' which is an approximation; the 3-component formula is authoritative."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 190875,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1527000,
         "merit_history": [
           {
             "year": 2022,
@@ -3428,9 +3428,9 @@
           },
           "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 190875,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1527000,
         "merit_history": [
           {
             "year": 2022,
@@ -3610,9 +3610,9 @@
           },
           "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 190875,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1527000,
         "merit_history": [
           {
             "year": 2022,
@@ -3701,9 +3701,9 @@
           },
           "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 190875,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1527000,
         "merit_history": [
           {
             "year": 2022,
@@ -3861,9 +3861,9 @@
           },
           "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. Merit data for Karachi campus shows 'Data N/A' for 2025 — program offered but enrollment data not published. Merit estimates based on regional trend. policy_pending_verification set to true due to absence of confirmed Karachi-specific merit data."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 188125,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1505000,
         "merit_history": [
           {
             "year": 2022,
@@ -3941,9 +3941,9 @@
           },
           "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. 2022-2023 merit history is estimated. 2024 and 2025 are confirmed from official Karachi campus data. NEW FIELD_ID: 'fintech' — Waqas must add to canonical list in DATA_CHAT_INSTRUCTIONS.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Matching lag_model.json and affinity_matrix.json entries required in this same commit. Add alias mapping in answer_node.py. min_percentage_hssc set to 45.0 (HEC general floor, Business category); verify if NCEAC governs this degree instead (would be 50.0)."
         },
-        "fee_per_semester": 181250,
+        "fee_per_semester": 192250,
         "admission_fee_pkr": 30000,
-        "estimated_total_cost_pkr": 1450000,
+        "estimated_total_cost_pkr": 1538000,
         "merit_history": [
           {
             "year": 2022,
