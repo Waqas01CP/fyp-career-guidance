@@ -366,14 +366,14 @@
           },
           {
             "year": 2025,
-            "cutoff": 67.76
+            "cutoff": 65.08
           }
         ],
         "cutoff_range": {
           "min": 62.5,
-          "max": 67.76
+          "max": 66.14
         },
-        "confidence_band": 5.26,
+        "confidence_band": 3.64,
         "location": {
           "area": "Shah Latif Town, National Highway, Malir, Karachi",
           "zone": 4
