@@ -1,0 +1,687 @@
+[ 
+   {
+    "university_id": "uok",
+    "name": "University of Karachi",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "UoK Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top-ranked students by merit in each department — awarded at time of admission"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Up to full tuition",
+        "criteria": "HEC income-based eligibility — apply via HEC portal before semester commencement"
+      },
+      {
+        "name": "Sindh Endowment Fund Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Sindh-domicile students demonstrating financial need — apply through UoK Dean of Students office"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "uok_bs_cs_morning",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission is also subject to passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). The entry test is a qualifying threshold, not a weighted component of the merit aggregate. Matric marks are not included. Cutoffs in merit_history are HSSC closing percentages (K-category — Karachi domicile seats). NOTE: 2025 morning test-based data was not available in the source PDFs provided."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.09},
+          {"year": 2022, "cutoff": 83.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 76.45},
+          {"year": 2026, "cutoff": 77.91}
+        ],
+        "cutoff_range": {
+          "min": 76.45,
+          "max": 90.09
+        },
+        "confidence_band": 13.6,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_cs_evening",
+        "name": "BS Computer Science (Evening)",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission also requires passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK evening test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). Entry test is a qualifying threshold, not a weighted merit component. Matric marks excluded. Cutoffs are HSSC closing percentages (K-category). Evening programs have significantly lower cutoffs than morning due to smaller applicant pool and higher fees."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 56.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 55.00},
+          {"year": 2025, "cutoff": 61.73},
+          {"year": 2026, "cutoff": 68.82}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 76.82
+        },
+        "confidence_band": 21.8,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_morning",
+        "name": "BS Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked purely on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Entry test is qualifying threshold only — not a weighted merit component. Matric excluded. Cutoffs are HSSC closing % (K-category). NOTE: BSSE (BS Software Engineering) is NCEAC-governed — min_percentage_hssc is 50.0, not 60.0. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.45},
+          {"year": 2022, "cutoff": 85.00},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 77.91},
+          {"year": 2026, "cutoff": 77.18}
+        ],
+        "cutoff_range": {
+          "min": 75.00,
+          "max": 90.45
+        },
+        "confidence_band": 15.4,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_evening",
+        "name": "BS Software Engineering (Evening)",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100 for primary track; secondary track at 45/100 also appears in some years — primary track cutoffs used here). Entry test is a gate only. Evening programs carry higher fees and lower cutoffs than morning."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 55.09},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2025, "cutoff": 55.00},
+          {"year": 2026, "cutoff": 62.18}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 75.00
+        },
+        "confidence_band": 20.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_ai_morning",
+        "name": "BS Artificial Intelligence",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must appear in the academic record before application. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "New program introduced in 2026 admissions cycle. Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Only one year of cutoff data available — confidence_band is 0.0 and the single data point should be treated as indicative only. policy_pending_verification set true due to limited data on full eligibility rules for this new program."
+        },
+        "fee_per_semester": 35000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 280000,
+        "merit_history": [
+          {"year": 2026, "cutoff": 77.36}
+        ],
+        "cutoff_range": {
+          "min": 77.36,
+          "max": 77.36
+        },
+        "confidence_band": 0.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_be_chemical_morning",
+        "name": "BE Chemical Engineering",
+        "field_id": "chemical_engineering",
+        "field_category": "Engineering",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering"],
+          "conditionally_eligible_streams": ["ICS"],
+          "eligibility_notes": {
+            "ICS": "ICS applicants typically lack Chemistry at FSc level, which is a PEC requirement for Chemical Engineering. Applicants must have passed Chemistry at O-Level (minimum Grade C) or equivalent to meet PEC eligibility. Admission is also subject to passing the UoK Entry Test with minimum score 50 out of 100. Verify current policy with UoK Directorate of Admissions before applying."
+          },
+          "mandatory_subjects": ["Mathematics", "Physics", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK BE Chemical Engineering is PEC-governed (min_percentage_hssc: 60.0). Ranked on HSSC academic percentage after clearing UoK Entry Test gate (minimum 50/100). Entry test is a qualifying gate — not weighted in the merit aggregate. Cutoffs in merit_history are HSSC closing percentages (K-category). Significant downward trend observed: 86% in 2021 to 60% in 2024-2026 — reflects increased seat capacity or lower applicant competition. 2022 and 2023 cutoffs are identical at 74.18. NOTE: 2025 morning data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 86.00},
+          {"year": 2022, "cutoff": 74.18},
+          {"year": 2023, "cutoff": 74.18},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2026, "cutoff": 60.00}
+        ],
+        "cutoff_range": {
+          "min": 60.00,
+          "max": 86.00
+        },
+        "confidence_band": 26.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.40,
+          "physics_weight": 0.30,
+          "chemistry_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_morning",
+        "name": "BBA (Karachi University Business School)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA morning is entry-test-based. Students are ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). All intermediate streams are eligible. Entry test is a qualifying gate, not weighted in merit aggregate. Cutoffs represent strong downward trend: 83% in 2021 to 73% in 2024-2026 — possibly reflecting increased seats or reduced competition. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 83.09},
+          {"year": 2022, "cutoff": 81.18},
+          {"year": 2023, "cutoff": 81.18},
+          {"year": 2024, "cutoff": 73.09},
+          {"year": 2026, "cutoff": 73.09}
+        ],
+        "cutoff_range": {
+          "min": 73.09,
+          "max": 83.09
+        },
+        "confidence_band": 10.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "english_weight": 0.60,
+          "math_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_evening",
+        "name": "BBA — Karachi University Business School (Evening)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages (K-category seats). Evening fees are significantly higher than morning. Downward trend in recent years (76% to 66%) makes this increasingly accessible."
+        },
+        "fee_per_semester": 65000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 520000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 76.36},
+          {"year": 2023, "cutoff": 76.36},
+          {"year": 2024, "cutoff": 68.18},
+          {"year": 2025, "cutoff": 65.82},
+          {"year": 2026, "cutoff": 66.82}
+        ],
+        "cutoff_range": {
+          "min": 65.82,
+          "max": 76.36
+        },
+        "confidence_band": 10.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_morning",
+        "name": "BS Economics & Finance",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) is an open-merit-based morning program — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages for the Karachi (K) domicile category. Significant downward trend: 80.45% in 2022 to 65.36% in 2026 — reflects either increased seat capacity or reduced applicant competition. 2021 morning open-merit data was not available in source PDFs."
+        },
+        "fee_per_semester": 20000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 160000,
+        "merit_history": [
+          {"year": 2022, "cutoff": 80.45},
+          {"year": 2024, "cutoff": 68.09},
+          {"year": 2025, "cutoff": 67.55},
+          {"year": 2026, "cutoff": 65.36}
+        ],
+        "cutoff_range": {
+          "min": 65.36,
+          "max": 80.45
+        },
+        "confidence_band": 15.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_evening",
+        "name": "BS Economics & Finance (Evening)",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All streams eligible. Cutoffs are HSSC closing percentages for the K-category (Karachi domicile). Highly volatile cutoffs (ranging from 45.09% to 63.64%) suggest year-to-year seat availability fluctuations. Evening fees are higher than morning. Very accessible financially compared to private alternatives."
+        },
+        "fee_per_semester": 40000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 320000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 45.09},
+          {"year": 2023, "cutoff": 63.64},
+          {"year": 2024, "cutoff": 45.09},
+          {"year": 2025, "cutoff": 49.45},
+          {"year": 2026, "cutoff": 45.09}
+        ],
+        "cutoff_range": {
+          "min": 45.09,
+          "max": 63.64
+        },
+        "confidence_band": 18.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  }
+]

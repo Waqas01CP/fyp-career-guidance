@@ -1,0 +1,403 @@
+[
+  {
+    "university_id": "dow",
+    "name": "Dow University of Health Sciences",
+    "short_name": "DUHS",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "Baba-e-Urdu Road / Ojha Campus, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "DUHS Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top merit list positions in MDCAT / DUHS Entry Test — exact threshold varies by program"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Partial fee waiver",
+        "criteria": "Financial need + academic merit, administered through HEC portal"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "dow_mbbs",
+        "name": "MBBS",
+        "field_id": "medicine_mbbs",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 55% for MBBS. MDCAT 2025 conducted by IBA-Sukkur."
+        },
+
+        "fee_per_semester": 24000,
+        "admission_fee_pkr": 25000,
+        "estimated_total_cost_pkr": 240000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 83.0 },
+          { "year": 2022, "cutoff": 81.0 },
+          { "year": 2023, "cutoff": 79.3 },
+          { "year": 2024, "cutoff": 75.6 }
+        ],
+        "cutoff_range": {
+          "min": 75.6,
+          "max": 83.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "Baba-e-Urdu Road, Karachi (Dow Medical College)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 55.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bds",
+        "name": "BDS (Bachelor of Dental Surgery)",
+        "field_id": "dentistry_bds",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 50% for BDS. MDCAT 2025 conducted by IBA-Sukkur. Fee structure is for DIKIOHS (primary public-sector BDS college, 100 seats). DDC and DIDC have higher fees (PKR 750,000/yr — self-finance category)."
+        },
+
+        "fee_per_semester": 100000,
+        "admission_fee_pkr": 60000,
+        "estimated_total_cost_pkr": 800000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 81.0 },
+          { "year": 2022, "cutoff": 79.0 },
+          { "year": 2023, "cutoff": 75.4 },
+          { "year": 2024, "cutoff": 74.0 }
+        ],
+        "cutoff_range": {
+          "min": 74.0,
+          "max": 81.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "DIKIOHS Campus, Karachi (Dr. Ishrat-ul-Ebad Khan Institute of Oral Health Sciences)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 50.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_pharmd",
+        "name": "Pharm-D (Doctor of Pharmacy)",
+        "field_id": "pharmacy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official Pharm-D merit list 2024-25 (dated 16-Jan-2025): 10% Matric + 40% FSc + 50% DUHS Entry Test. Min entry test 25%. Fee verified from DUHS seat allocation notifications 2024-25: Open Merit PKR 275,000 per year (PKR 137,500 per semester). Self-Finance fee is PKR 435,000 per year. estimated_total_cost_pkr = 5yr tuition (1,375,000) + admission fee estimate (7,500)."
+        },
+
+        "fee_per_semester": 137500,
+        "fee_data_status": "verified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 1375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 74.6 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 74.6
+        },
+        "confidence_band": 3.5,
+
+        "location": {
+          "area": "DUHS Campus, Karachi (Dow College of Pharmacy — DCOP)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": 25.0,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_dpt",
+        "name": "Doctor of Physical Therapy (DPT)",
+        "field_id": "physical_therapy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official DPT merit list 2023-24: 10% Matric + 40% FSc + 50% DUHS Entry Test. Merit #1 = 88.327%. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover DPT fees. Requires verification against DIPM&R (Ojha Campus) fee schedule."
+        },
+
+        "fee_per_semester": 37500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 72.5 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 72.5
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Physical Medicine and Rehabilitation — DIPM&R)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bs_nursing",
+        "name": "BS Nursing (Generic)",
+        "field_id": "nursing",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "other": 1.0
+          },
+          "notes": "Merit lists (Male/Female separate) published via DION&M (Dow Institute of Nursing & Midwifery), Ojha Campus. DUHS Entry Test formula applied. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover BS Nursing fees. Requires verification against DION&M fee schedule."
+        },
+
+        "fee_per_semester": 27500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 220000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 70.0 },
+          { "year": 2022, "cutoff": 70.0 },
+          { "year": 2023, "cutoff": 70.0 },
+          { "year": 2024, "cutoff": 70.0 }
+        ],
+        "cutoff_range": {
+          "min": 70.0,
+          "max": 70.0
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Nursing and Midwifery — DION&M)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.60,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.15,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  }
+]

@@ -1,0 +1,871 @@
+[
+  {
+    "university_id": "iba",
+    "name": "Institute of Business Administration (IBA), Karachi",
+    "type": "public",
+    "zone": 3,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 3
+    },
+    "scholarships": [
+      {
+        "name": "IBA National Talent Hunt Program (NTHP)",
+        "coverage": "Fully funded",
+        "criteria": "Merit-based national talent program"
+      },
+      {
+        "name": "IBA Financial Assistance Program",
+        "coverage": "Up to 100% tuition",
+        "criteria": "Need-based assessment; over 30% of students receive some assistance annually"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+      {
+        "degree_id": "iba_bba",
+        "name": "BBA",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. SAT route also available \u2014 top SAT scorers may qualify for direct admission or interview. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_accounting_finance",
+        "name": "BS Accounting & Finance",
+        "field_id": "finance_accounting",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_business_analytics",
+        "name": "BS Business Analytics",
+        "field_id": "business_analytics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics",
+        "name": "BS Economics",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_ssla",
+        "name": "BS Social Sciences & Liberal Arts",
+        "field_id": "social_sciences",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). Aptitude test for BSSS includes an essay writing component unlike other UG programs."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course. Mathematics background required at SSC or O-Level level."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). No interview stage for BSCS per official IBA admission schedule."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_mathematics",
+        "name": "BS Mathematics",
+        "field_id": "mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics background required at high school level (SSC/O-Level). Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_mathematics",
+        "name": "BS Economics & Mathematics",
+        "field_id": "economics_mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS). Merit history data not available — IBA does not publish program-specific aptitude score cutoffs publicly. Fazal to obtain historical cutoff data directly from IBA admissions office before this degree can go live."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_data_science",
+        "name": "BS Economics & Data Science",
+        "field_id": "economics_data_science",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). 41 courses, 131 credit hours, 1 research project per official program table. School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+    ]
+  }
+]

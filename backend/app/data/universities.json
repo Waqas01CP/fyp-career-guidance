@@ -4072,5 +4072,1962 @@
       }
     ],
     "notes": "MERIT CUTOFF CONTEXT: All historical merit cutoffs and aggregate formulas provided in this dataset apply strictly to the NU (National University) Entry Test track. These cutoffs are community-sourced estimates. FAST-NUCES does not officially publish closing aggregates. Cutoffs for NAT and SAT applicant tracks are calculated separately and are subject to different, typically much higher, merit benchmarks due to limited seat quotas."
-  }
+  },
+  {
+    "university_id": "uok",
+    "name": "University of Karachi",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "UoK Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top-ranked students by merit in each department — awarded at time of admission"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Up to full tuition",
+        "criteria": "HEC income-based eligibility — apply via HEC portal before semester commencement"
+      },
+      {
+        "name": "Sindh Endowment Fund Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Sindh-domicile students demonstrating financial need — apply through UoK Dean of Students office"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "uok_bs_cs_morning",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission is also subject to passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). The entry test is a qualifying threshold, not a weighted component of the merit aggregate. Matric marks are not included. Cutoffs in merit_history are HSSC closing percentages (K-category — Karachi domicile seats). NOTE: 2025 morning test-based data was not available in the source PDFs provided."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.09},
+          {"year": 2022, "cutoff": 83.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 76.45},
+          {"year": 2026, "cutoff": 77.91}
+        ],
+        "cutoff_range": {
+          "min": 76.45,
+          "max": 90.09
+        },
+        "confidence_band": 13.6,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_cs_evening",
+        "name": "BS Computer Science (Evening)",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission also requires passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK evening test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). Entry test is a qualifying threshold, not a weighted merit component. Matric marks excluded. Cutoffs are HSSC closing percentages (K-category). Evening programs have significantly lower cutoffs than morning due to smaller applicant pool and higher fees."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 56.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 55.00},
+          {"year": 2025, "cutoff": 61.73},
+          {"year": 2026, "cutoff": 68.82}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 76.82
+        },
+        "confidence_band": 21.8,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_morning",
+        "name": "BS Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked purely on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Entry test is qualifying threshold only — not a weighted merit component. Matric excluded. Cutoffs are HSSC closing % (K-category). NOTE: BSSE (BS Software Engineering) is NCEAC-governed — min_percentage_hssc is 50.0, not 60.0. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.45},
+          {"year": 2022, "cutoff": 85.00},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 77.91},
+          {"year": 2026, "cutoff": 77.18}
+        ],
+        "cutoff_range": {
+          "min": 75.00,
+          "max": 90.45
+        },
+        "confidence_band": 15.4,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_evening",
+        "name": "BS Software Engineering (Evening)",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100 for primary track; secondary track at 45/100 also appears in some years — primary track cutoffs used here). Entry test is a gate only. Evening programs carry higher fees and lower cutoffs than morning."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 55.09},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2025, "cutoff": 55.00},
+          {"year": 2026, "cutoff": 62.18}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 75.00
+        },
+        "confidence_band": 20.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_ai_morning",
+        "name": "BS Artificial Intelligence",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must appear in the academic record before application. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "New program introduced in 2026 admissions cycle. Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Only one year of cutoff data available — confidence_band is 0.0 and the single data point should be treated as indicative only. policy_pending_verification set true due to limited data on full eligibility rules for this new program."
+        },
+        "fee_per_semester": 35000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 280000,
+        "merit_history": [
+          {"year": 2026, "cutoff": 77.36}
+        ],
+        "cutoff_range": {
+          "min": 77.36,
+          "max": 77.36
+        },
+        "confidence_band": 0.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_be_chemical_morning",
+        "name": "BE Chemical Engineering",
+        "field_id": "chemical_engineering",
+        "field_category": "Engineering",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering"],
+          "conditionally_eligible_streams": ["ICS"],
+          "eligibility_notes": {
+            "ICS": "ICS applicants typically lack Chemistry at FSc level, which is a PEC requirement for Chemical Engineering. Applicants must have passed Chemistry at O-Level (minimum Grade C) or equivalent to meet PEC eligibility. Admission is also subject to passing the UoK Entry Test with minimum score 50 out of 100. Verify current policy with UoK Directorate of Admissions before applying."
+          },
+          "mandatory_subjects": ["Mathematics", "Physics", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK BE Chemical Engineering is PEC-governed (min_percentage_hssc: 60.0). Ranked on HSSC academic percentage after clearing UoK Entry Test gate (minimum 50/100). Entry test is a qualifying gate — not weighted in the merit aggregate. Cutoffs in merit_history are HSSC closing percentages (K-category). Significant downward trend observed: 86% in 2021 to 60% in 2024-2026 — reflects increased seat capacity or lower applicant competition. 2022 and 2023 cutoffs are identical at 74.18. NOTE: 2025 morning data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 86.00},
+          {"year": 2022, "cutoff": 74.18},
+          {"year": 2023, "cutoff": 74.18},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2026, "cutoff": 60.00}
+        ],
+        "cutoff_range": {
+          "min": 60.00,
+          "max": 86.00
+        },
+        "confidence_band": 26.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.40,
+          "physics_weight": 0.30,
+          "chemistry_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_morning",
+        "name": "BBA (Karachi University Business School)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA morning is entry-test-based. Students are ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). All intermediate streams are eligible. Entry test is a qualifying gate, not weighted in merit aggregate. Cutoffs represent strong downward trend: 83% in 2021 to 73% in 2024-2026 — possibly reflecting increased seats or reduced competition. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 83.09},
+          {"year": 2022, "cutoff": 81.18},
+          {"year": 2023, "cutoff": 81.18},
+          {"year": 2024, "cutoff": 73.09},
+          {"year": 2026, "cutoff": 73.09}
+        ],
+        "cutoff_range": {
+          "min": 73.09,
+          "max": 83.09
+        },
+        "confidence_band": 10.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "english_weight": 0.60,
+          "math_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_evening",
+        "name": "BBA — Karachi University Business School (Evening)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages (K-category seats). Evening fees are significantly higher than morning. Downward trend in recent years (76% to 66%) makes this increasingly accessible."
+        },
+        "fee_per_semester": 65000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 520000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 76.36},
+          {"year": 2023, "cutoff": 76.36},
+          {"year": 2024, "cutoff": 68.18},
+          {"year": 2025, "cutoff": 65.82},
+          {"year": 2026, "cutoff": 66.82}
+        ],
+        "cutoff_range": {
+          "min": 65.82,
+          "max": 76.36
+        },
+        "confidence_band": 10.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_morning",
+        "name": "BS Economics & Finance",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) is an open-merit-based morning program — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages for the Karachi (K) domicile category. Significant downward trend: 80.45% in 2022 to 65.36% in 2026 — reflects either increased seat capacity or reduced applicant competition. 2021 morning open-merit data was not available in source PDFs."
+        },
+        "fee_per_semester": 20000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 160000,
+        "merit_history": [
+          {"year": 2022, "cutoff": 80.45},
+          {"year": 2024, "cutoff": 68.09},
+          {"year": 2025, "cutoff": 67.55},
+          {"year": 2026, "cutoff": 65.36}
+        ],
+        "cutoff_range": {
+          "min": 65.36,
+          "max": 80.45
+        },
+        "confidence_band": 15.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_evening",
+        "name": "BS Economics & Finance (Evening)",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All streams eligible. Cutoffs are HSSC closing percentages for the K-category (Karachi domicile). Highly volatile cutoffs (ranging from 45.09% to 63.64%) suggest year-to-year seat availability fluctuations. Evening fees are higher than morning. Very accessible financially compared to private alternatives."
+        },
+        "fee_per_semester": 40000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 320000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 45.09},
+          {"year": 2023, "cutoff": 63.64},
+          {"year": 2024, "cutoff": 45.09},
+          {"year": 2025, "cutoff": 49.45},
+          {"year": 2026, "cutoff": 45.09}
+        ],
+        "cutoff_range": {
+          "min": 45.09,
+          "max": 63.64
+        },
+        "confidence_band": 18.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  },
+  
+  {
+    "university_id": "iba",
+    "name": "Institute of Business Administration (IBA), Karachi",
+    "type": "public",
+    "zone": 3,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 3
+    },
+    "scholarships": [
+      {
+        "name": "IBA National Talent Hunt Program (NTHP)",
+        "coverage": "Fully funded",
+        "criteria": "Merit-based national talent program"
+      },
+      {
+        "name": "IBA Financial Assistance Program",
+        "coverage": "Up to 100% tuition",
+        "criteria": "Need-based assessment; over 30% of students receive some assistance annually"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+      {
+        "degree_id": "iba_bba",
+        "name": "BBA",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. SAT route also available \u2014 top SAT scorers may qualify for direct admission or interview. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_accounting_finance",
+        "name": "BS Accounting & Finance",
+        "field_id": "finance_accounting",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_business_analytics",
+        "name": "BS Business Analytics",
+        "field_id": "business_analytics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics",
+        "name": "BS Economics",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_ssla",
+        "name": "BS Social Sciences & Liberal Arts",
+        "field_id": "social_sciences",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). Aptitude test for BSSS includes an essay writing component unlike other UG programs."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course. Mathematics background required at SSC or O-Level level."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). No interview stage for BSCS per official IBA admission schedule."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_mathematics",
+        "name": "BS Mathematics",
+        "field_id": "mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics background required at high school level (SSC/O-Level). Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_mathematics",
+        "name": "BS Economics & Mathematics",
+        "field_id": "economics_mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS). Merit history data not available — IBA does not publish program-specific aptitude score cutoffs publicly. Fazal to obtain historical cutoff data directly from IBA admissions office before this degree can go live."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_data_science",
+        "name": "BS Economics & Data Science",
+        "field_id": "economics_data_science",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). 41 courses, 131 credit hours, 1 research project per official program table. School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+    ]
+  },
+
+  {
+    "university_id": "dow",
+    "name": "Dow University of Health Sciences",
+    "short_name": "DUHS",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "Baba-e-Urdu Road / Ojha Campus, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "DUHS Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top merit list positions in MDCAT / DUHS Entry Test — exact threshold varies by program"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Partial fee waiver",
+        "criteria": "Financial need + academic merit, administered through HEC portal"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "dow_mbbs",
+        "name": "MBBS",
+        "field_id": "medicine_mbbs",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 55% for MBBS. MDCAT 2025 conducted by IBA-Sukkur."
+        },
+
+        "fee_per_semester": 24000,
+        "admission_fee_pkr": 25000,
+        "estimated_total_cost_pkr": 240000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 83.0 },
+          { "year": 2022, "cutoff": 81.0 },
+          { "year": 2023, "cutoff": 79.3 },
+          { "year": 2024, "cutoff": 75.6 }
+        ],
+        "cutoff_range": {
+          "min": 75.6,
+          "max": 83.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "Baba-e-Urdu Road, Karachi (Dow Medical College)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 55.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bds",
+        "name": "BDS (Bachelor of Dental Surgery)",
+        "field_id": "dentistry_bds",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 50% for BDS. MDCAT 2025 conducted by IBA-Sukkur. Fee structure is for DIKIOHS (primary public-sector BDS college, 100 seats). DDC and DIDC have higher fees (PKR 750,000/yr — self-finance category)."
+        },
+
+        "fee_per_semester": 100000,
+        "admission_fee_pkr": 60000,
+        "estimated_total_cost_pkr": 800000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 81.0 },
+          { "year": 2022, "cutoff": 79.0 },
+          { "year": 2023, "cutoff": 75.4 },
+          { "year": 2024, "cutoff": 74.0 }
+        ],
+        "cutoff_range": {
+          "min": 74.0,
+          "max": 81.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "DIKIOHS Campus, Karachi (Dr. Ishrat-ul-Ebad Khan Institute of Oral Health Sciences)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 50.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_pharmd",
+        "name": "Pharm-D (Doctor of Pharmacy)",
+        "field_id": "pharmacy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official Pharm-D merit list 2024-25 (dated 16-Jan-2025): 10% Matric + 40% FSc + 50% DUHS Entry Test. Min entry test 25%. Fee verified from DUHS seat allocation notifications 2024-25: Open Merit PKR 275,000 per year (PKR 137,500 per semester). Self-Finance fee is PKR 435,000 per year. estimated_total_cost_pkr = 5yr tuition (1,375,000) + admission fee estimate (7,500)."
+        },
+
+        "fee_per_semester": 137500,
+        "fee_data_status": "verified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 1375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 74.6 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 74.6
+        },
+        "confidence_band": 3.5,
+
+        "location": {
+          "area": "DUHS Campus, Karachi (Dow College of Pharmacy — DCOP)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": 25.0,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_dpt",
+        "name": "Doctor of Physical Therapy (DPT)",
+        "field_id": "physical_therapy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official DPT merit list 2023-24: 10% Matric + 40% FSc + 50% DUHS Entry Test. Merit #1 = 88.327%. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover DPT fees. Requires verification against DIPM&R (Ojha Campus) fee schedule."
+        },
+
+        "fee_per_semester": 37500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 72.5 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 72.5
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Physical Medicine and Rehabilitation — DIPM&R)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bs_nursing",
+        "name": "BS Nursing (Generic)",
+        "field_id": "nursing",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "other": 1.0
+          },
+          "notes": "Merit lists (Male/Female separate) published via DION&M (Dow Institute of Nursing & Midwifery), Ojha Campus. DUHS Entry Test formula applied. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover BS Nursing fees. Requires verification against DION&M fee schedule."
+        },
+
+        "fee_per_semester": 27500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 220000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 70.0 },
+          { "year": 2022, "cutoff": 70.0 },
+          { "year": 2023, "cutoff": 70.0 },
+          { "year": 2024, "cutoff": 70.0 }
+        ],
+        "cutoff_range": {
+          "min": 70.0,
+          "max": 70.0
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Nursing and Midwifery — DION&M)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.60,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.15,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  } 
 ]
