@@ -423,8 +423,8 @@ alembic downgrade -1
 | Category | layer1 | layer2 | layer3a | layer3b | Fields |
 |---|---|---|---|---|---|
 | `LEAPFROG` | 30% | 20% | 30% | 20% | CS/AI/Software Engineering |
-| `FAST` | 35% | 25% | 24% | 16% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering |
-| `MEDIUM` | 40% | 30% | 18% | 12% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering |
+| `FAST` | 35% | 25% | 24% | 16% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering, business_analytics |
+| `MEDIUM` | 40% | 30% | 18% | 12% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering, fintech |
 | `SLOW` | 45% | 35% | 12% | 8% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering |
 | `LOCAL` | 60% | 40% | 0% | 0% | Medicine, Law, Civil Eng, Business, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics |
 

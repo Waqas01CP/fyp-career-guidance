@@ -344,7 +344,7 @@ industrial_manufacturing_engineering, automotive_engineering,
 metallurgical_engineering, materials_engineering,
 polymer_petrochemical_engineering, urban_infrastructure_engineering,
 construction_engineering, textile_engineering, food_engineering,
-textile_sciences, english_linguistics
+textile_sciences, english_linguistics, fintech, business_analytics
 ```
 
 **Adding new field_ids:** If a university offers a program not in this list
