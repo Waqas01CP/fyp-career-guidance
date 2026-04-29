@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     # JWT
     SECRET_KEY: str = "change-this-in-production"
     JWT_ALGORITHM: str = "HS256"
-    JWT_EXPIRY_MINUTES: int = 60
+    JWT_EXPIRY_MINUTES: int = 10080
 
     # LLM
     GEMINI_API_KEY: str = ""
