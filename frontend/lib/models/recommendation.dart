@@ -49,26 +49,33 @@ class Recommendation {
 
   factory Recommendation.fromJson(Map<String, dynamic> json) {
     return Recommendation(
-      rank: json['rank'] as int,
+      // Use (as num).toInt() everywhere an int is expected —
+      // some backends emit rank/count as double (e.g. 1.0 instead of 1).
+      rank: (json['rank'] as num).toInt(),
       degreeId: json['degree_id'] as String,
       degreeName: json['degree_name'] as String,
       universityId: json['university_id'] as String,
       universityName: json['university_name'] as String,
-      fieldId: json['field_id'] as String,
+      fieldId: json['field_id'] as String? ?? '',
       totalScore: (json['total_score'] as num).toDouble(),
       matchScoreNormalised: (json['match_score_normalised'] as num).toDouble(),
-      futureScore: (json['future_score'] as num).toDouble(),
-      meritTier: json['merit_tier'] as String,
-      eligibilityTier: json['eligibility_tier'] as String,
+      futureScore: (json['future_score'] as num? ?? 0).toDouble(),
+      meritTier: json['merit_tier'] as String? ?? 'Unknown',
+      eligibilityTier: json['eligibility_tier'] as String? ?? 'Unknown',
       eligibilityNote: json['eligibility_note'] as String?,
-      feePerSemester: (json['fee_per_semester'] as num).toDouble(),
-      aggregateUsed: (json['aggregate_used'] as num).toDouble(),
+      feePerSemester: (json['fee_per_semester'] as num? ?? 0).toDouble(),
+      aggregateUsed: (json['aggregate_used'] as num? ?? 0).toDouble(),
       softFlags: List<String>.from(json['soft_flags'] as List? ?? []),
-      lifecycleStatus: json['lifecycle_status'] as String,
+      lifecycleStatus: json['lifecycle_status'] as String? ?? 'active',
       riskFactor: json['risk_factor'] as String? ?? 'Low',
-      rozeeLiveCount: json['rozee_live_count'] as int?,
+      // int? fields — backend may send as double or null
+      rozeeLiveCount: json['rozee_live_count'] == null
+          ? null
+          : (json['rozee_live_count'] as num).toInt(),
       rozeeLastUpdated: json['rozee_last_updated'] as String?,
-      policyPendingVerification: json['policy_pending_verification'] as bool,
+      // bool field — guard against null or non-bool values from backend
+      policyPendingVerification:
+          json['policy_pending_verification'] as bool? ?? false,
     );
   }
 

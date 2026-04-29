@@ -58,8 +58,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       case 'grades_complete':
         return '/assessment';
       case 'assessment_complete':
-        return '/preferences';
       case 'complete':
+        // Preferences (Step 4) are optional — once assessment is done,
+        // the user is fully onboarded. Send directly to chat.
         return '/chat';
       default:
         return '/riasec-quiz';

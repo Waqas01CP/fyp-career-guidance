@@ -17,7 +17,8 @@ class GradesInputScreen extends ConsumerStatefulWidget {
   ConsumerState<GradesInputScreen> createState() => _GradesInputScreenState();
 }
 
-class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
+class _GradesInputScreenState extends ConsumerState<GradesInputScreen>
+    with WidgetsBindingObserver {
   static const Color _primary   = Color(0xFF006B62);
   static const Color _secondary = Color(0xFF515F74);
   static const Color _onSurface = Color(0xFF191C1E);
@@ -88,7 +89,18 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
 
   // Draft persistence
   static const _storage = FlutterSecureStorage();
-  static const _draftKey = 'grades_draft';
+  // NOTE: draftKey is a user-scoped getter — prevents cross-user draft leakage
+  // on shared devices. Uses sessionId (stable UUID) as the primary key,
+  // falling back to a token prefix or 'anonymous' if neither is available.
+  String get _draftKey {
+    final sessionId = ref.read(profileProvider).sessionId;
+    if (sessionId != null) return 'draft_grades_$sessionId';
+    final token = ref.read(authProvider).token;
+    return token != null
+        ? 'draft_grades_${token.length > 32 ? token.substring(0, 32) : token}'
+        : 'draft_grades_anonymous';
+  }
+
   Timer? _debounce;
 
   final _formKey = GlobalKey<FormState>();
@@ -132,8 +144,22 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _rebuildSubjectControllers();
     _loadDraftThenProfile();
+  }
+
+
+  /// Force-flush the draft when the app is backgrounded or killed.
+  /// This prevents data loss when the user swipes the app away before
+  /// the 500ms debounce timer fires.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.detached) {
+      _debounce?.cancel();
+      _saveDraft(); // unawaited — intentional, same pattern as RIASEC/assessment
+    }
   }
 
   // ── Draft persistence ────────────────────────────────────────────────────────
@@ -201,11 +227,11 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
     final marks = profile.subjectMarks;
     if (level == null || marks.isEmpty) return;
 
-    // Map education_level back to a stream if possible
-    // (stream is not stored in the profileProvider state, so we restore
-    //  level + marks only — stream dropdown remains unselected)
     setState(() {
       _selectedLevel = level;
+      // Restore stream and board from server profile if available
+      _selectedStream = profile.stream;
+      _selectedBoard  = profile.board;
       _rebuildSubjectControllers();
       // Restore percentage marks for fixed subjects
       for (final entry in marks.entries) {
@@ -336,6 +362,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this); // paired with addObserver in initState
     _debounce?.cancel();
     for (final c in _markControllers.values) {
       c.dispose();
@@ -543,7 +570,7 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Text(
-                    'STEP 2 OF 3',
+                    'STEP 2 OF 4',
                     style: TextStyle(
                       fontSize: 9.sp,
                       fontWeight: FontWeight.w700,

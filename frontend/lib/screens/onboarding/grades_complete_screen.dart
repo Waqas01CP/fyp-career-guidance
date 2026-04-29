@@ -102,7 +102,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(20.r),
                     ),
                     child: Text(
-                      'STEP 2 OF 3 COMPLETE',
+                      'STEP 2 OF 4 COMPLETE',
                       style: TextStyle(
                         fontSize: 11.sp,
                         fontWeight: FontWeight.w700,

@@ -10,6 +10,8 @@ class ProfileState {
   final Map<String, dynamic> capabilityScores;
   final String studentMode;
   final String? educationLevel;
+  final String? stream;
+  final String? board;
   final bool isLoading;
   final bool isLoaded;
   final String? error;
@@ -22,6 +24,8 @@ class ProfileState {
     this.capabilityScores = const {},
     this.studentMode = 'inter',
     this.educationLevel,
+    this.stream,
+    this.board,
     this.isLoading = false,
     this.isLoaded = false,
     this.error,
@@ -35,11 +39,15 @@ class ProfileState {
     Map<String, dynamic>? capabilityScores,
     String? studentMode,
     String? educationLevel,
+    String? stream,
+    String? board,
     bool? isLoading,
     bool? isLoaded,
     String? error,
     bool clearError = false,
     bool clearSessionId = false,
+    bool clearStream = false,
+    bool clearBoard = false,
   }) =>
       ProfileState(
         onboardingStage: onboardingStage ?? this.onboardingStage,
@@ -49,6 +57,8 @@ class ProfileState {
         capabilityScores: capabilityScores ?? this.capabilityScores,
         studentMode: studentMode ?? this.studentMode,
         educationLevel: educationLevel ?? this.educationLevel,
+        stream: clearStream ? null : stream ?? this.stream,
+        board: clearBoard ? null : board ?? this.board,
         isLoading: isLoading ?? this.isLoading,
         isLoaded: isLoaded ?? this.isLoaded,
         error: clearError ? null : error ?? this.error,
@@ -75,6 +85,8 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
               data['capability_scores'] as Map? ?? {}),
           studentMode: data['student_mode'] as String? ?? 'inter',
           educationLevel: data['education_level'] as String?,
+          stream: data['stream'] as String?,
+          board: data['board'] as String?,
           isLoading: false,
           isLoaded: true,
         );

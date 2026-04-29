@@ -80,8 +80,26 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     final token = ref.read(authProvider).token;
     final sessionId = ref.read(profileProvider).sessionId;
 
-    if (token == null || sessionId == null) {
+    if (token == null) {
       _handleUnauthorized();
+      return;
+    }
+
+    // sessionId can be null if profile hasn't loaded yet (e.g. first launch
+    // after login before SplashScreen's loadProfile completes). In that case,
+    // reload the profile and retry rather than forcing logout.
+    if (sessionId == null) {
+      await ref.read(profileProvider.notifier).loadProfile(token);
+      final reloadedSessionId = ref.read(profileProvider).sessionId;
+      if (reloadedSessionId == null) {
+        // Profile loaded but still no session — backend issue, not auth issue.
+        ref.read(chatProvider.notifier).setError(
+          'Could not start a session. Please try again.',
+        );
+        return;
+      }
+      // Retry with the freshly loaded sessionId.
+      await _sendMessage(text);
       return;
     }
 
@@ -146,6 +164,15 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
           if (!mounted) return;
           ref.read(chatProvider.notifier).finishStreaming();
           _scrollToBottom();
+          // Detect silent empty response — AI returned no text chunks.
+          // This happens when the backend times out silently or sends only
+          // keepalive pings. Show an error with retry instead of a blank bubble.
+          final lastMsg = ref.read(chatProvider).messages.lastOrNull;
+          if (lastMsg != null && !lastMsg.isUser && lastMsg.content.trim().isEmpty) {
+            ref.read(chatProvider.notifier).setError(
+              'No response received. The AI may be busy — please try again.',
+            );
+          }
           final cards = ref.read(chatProvider).recommendations;
           if (cards.isNotEmpty) {
             RecommendationCacheService.save(cards);
@@ -588,15 +615,15 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
 
   String _getMissingDataMessage(ProfileState profile) {
     if (!profile.riasecScores.isNotEmpty) {
-      return 'Complete your interest profile quiz (Step 1 of 3) '
+      return 'Complete your interest profile quiz (Step 1 of 4) '
              'to get personalised degree recommendations.';
     }
     if (!profile.subjectMarks.isNotEmpty) {
-      return 'Enter your academic grades (Step 2 of 3) '
+      return 'Enter your academic grades (Step 2 of 4) '
              'so we can match you with eligible degrees.';
     }
     if (!profile.capabilityScores.isNotEmpty) {
-      return 'Complete the capability assessment (Step 3 of 3) '
+      return 'Complete the capability assessment (Step 3 of 4) '
              'to finalise your profile.';
     }
     return 'Your profile is incomplete. '
@@ -683,7 +710,9 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     final showChips = messages.isEmpty && !isStreaming;
 
     final profile = ref.watch(profileProvider);
-    final bool onboardingComplete = profile.onboardingStage == 'assessment_complete';
+    final bool onboardingComplete =
+        profile.onboardingStage == 'assessment_complete' ||
+        profile.onboardingStage == 'complete';
     final bool hasRiasec = profile.riasecScores.isNotEmpty;
     final bool hasGrades = profile.subjectMarks.isNotEmpty;
     final bool hasCapability = profile.capabilityScores.isNotEmpty;

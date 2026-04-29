@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/chat_message.dart';
 import '../models/recommendation.dart';
@@ -107,8 +108,13 @@ class ChatNotifier extends StateNotifier<ChatState> {
       state = state.copyWith(
         recommendations: [...state.recommendations, rec],
       );
-    } catch (_) {
-      // Malformed payload — skip silently, do not crash
+    } catch (e, stack) {
+      // Log parse failures in debug builds so they are visible in the console.
+      // In release this is a no-op. Swallowing silently would hide backend
+      // schema mismatches and make debugging impossible.
+      debugPrint('[ChatProvider] Failed to parse university_card payload: $e');
+      debugPrint('[ChatProvider] Payload was: $payload');
+      debugPrint('[ChatProvider] Stack: $stack');
     }
   }
 

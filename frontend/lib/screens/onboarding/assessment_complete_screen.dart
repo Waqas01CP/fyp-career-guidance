@@ -43,6 +43,10 @@ class _AssessmentCompleteScreenState
   void _navigateToChat() {
     if (!mounted || _navigated) return;
     _navigated = true;
+    // Step 3 complete → lead to Step 4 (Preferences) for first-time onboarding.
+    // Login and Splash routing already map assessment_complete/complete stages
+    // directly to /chat for returning users, so this code path is only hit
+    // the first time the user finishes the assessment.
     Navigator.pushNamed(context, '/preferences');
   }
 

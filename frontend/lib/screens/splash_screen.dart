@@ -85,9 +85,13 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
         _pushAfterFrame('/riasec-quiz', replace: true);
 
       case 'riasec_complete':
-        // Back from grades-input → riasec-complete.
+        // Reconstruct full back-stack ending at /grades-input.
+        // The student completed RIASEC and was filling grades when they closed
+        // the app. Restore them directly to grades-input (not riasec-complete),
+        // so they don't have to tap 'Continue' again to get back to their form.
         _pushAfterFrame('/riasec-quiz', replace: true, then: [
           '/riasec-complete',
+          '/grades-input',
         ]);
 
       case 'grades_complete':

@@ -985,7 +985,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
                 Icon(Icons.school, color: _primary, size: 20.r),
                 const Spacer(),
                 Text(
-                  'Step 3 of 3',
+                  'Step 3 of 4',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,

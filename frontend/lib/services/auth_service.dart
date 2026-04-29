@@ -15,7 +15,11 @@ class AuthService {
       'password': password,
       'full_name': fullName,
     });
-    if (response.statusCode == 201) {
+    // Accept both 200 and 201 — the REST spec says 201 for resource creation
+    // but some backends (including this one) return 200 on successful register.
+    // Accepting only 201 caused "Registration failed" even when the account
+    // was created, because the token was never extracted.
+    if (response.statusCode == 200 || response.statusCode == 201) {
       final data = jsonDecode(response.body);
       final token = data['access_token'] as String;
       await _storage.write(key: _tokenKey, value: token);

@@ -87,8 +87,12 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.detached) {
+      // Cancel any pending debounced save and force an immediate flush.
+      // The OS gives us a short window (~300ms) on pause — fire-and-forget
+      // is acceptable here since storage is async-fast.
       _saveTimer?.cancel();
-      _saveDraft();
+      _saveTimer = null;
+      _saveDraft(); // unawaited — intentional
     }
   }
 
@@ -232,7 +236,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       _selectedAnswer =
           _answers[_questions[_currentIndex]['id'] as int];
     });
-    _scheduleDraftSave();
+    // Save immediately on every navigation step — don't rely solely on debounce
+    // so a quick-close can't lose progress.
+    _saveTimer?.cancel();
+    _saveDraft(); // unawaited — intentional
   }
 
   void _onPrevious() {
@@ -247,7 +254,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       _selectedAnswer =
           _answers[_questions[_currentIndex]['id'] as int];
     });
-    _scheduleDraftSave();
+    // Save immediately on every navigation step.
+    _saveTimer?.cancel();
+    _saveDraft(); // unawaited — intentional
   }
 
   Future<void> _onSubmit() async {
@@ -318,7 +327,10 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           _selectedAnswer = score;
           _answers[qId] = score;
         });
-        _scheduleDraftSave();
+        // Save immediately on every answer tap — don't debounce.
+        // A quick app close within the debounce window would lose the answer.
+        _saveTimer?.cancel();
+        _saveDraft(); // unawaited — intentional
       },
       borderRadius: BorderRadius.circular(12.r),
       child: AnimatedContainer(
@@ -532,7 +544,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
             ),
           ),
           Text(
-            'Step 1 of 3',
+            'Step 1 of 4',
             style: TextStyle(
               fontSize: 13.sp,
               fontWeight: FontWeight.w500,
