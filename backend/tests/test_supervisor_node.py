@@ -125,3 +125,15 @@ def test_roman_urdu_classified():
         state = _make_state(messages=[HumanMessage(content="yaar mujhe CS ka scope batao Pakistan mein")])
         result = supervisor_node(state)
     assert result["last_intent"] == "market_query"
+
+
+# ── Test 8: standalone amount classified as profile_update ───────────────────
+
+def test_profile_update_standalone_amount():
+    """Standalone budget answer '200000 rs' must be profile_update, never out_of_scope."""
+    with patch("app.agents.nodes.supervisor.llm") as mock_llm:
+        mock_llm.invoke.return_value = _mock_llm_response("profile_update")
+        from app.agents.nodes.supervisor import supervisor_node
+        state = _make_state(messages=[HumanMessage(content="200000 rs")])
+        result = supervisor_node(state)
+    assert result["last_intent"] == "profile_update"
