@@ -37,6 +37,13 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
   StreamSubscription<Map<String, dynamic>>? _sseSubscription;
   Timer? _streamTimeout;
 
+  // Tracks whether the FIRST university_card of the current SSE stream has
+  // been received yet. On the first card, old recommendations are replaced
+  // (new get_recommendation turn). Subsequent cards in the same stream are
+  // appended. On follow_up turns that emit no cards, this stays true but is
+  // never consumed, so existing recommendations survive untouched.
+  bool _firstCardOfStream = false;
+
   // Suggested chips — shown only before any messages
   static const List<String> _suggestedChips = [
     'What universities suit me?',
@@ -106,8 +113,11 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     _inputController.clear();
     _inputFocusNode.unfocus();
 
-    // Clear previous chat recommendations and messages before a new send
-    ref.read(chatProvider.notifier).reset();
+    // Mark that the next university_card event should replace (not append to)
+    // the current recommendation set. This is reset to false on the first card.
+    // Do NOT call chatProvider.reset() here — that wipes the message history
+    // and recommendation cards, breaking chat continuity across messages.
+    _firstCardOfStream = true;
 
     // Add user message and start AI message placeholder
     ref.read(chatProvider.notifier).addUserMessage(trimmed);
@@ -149,6 +159,12 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             case 'rich_ui':
               final uiType = data['type'] as String? ?? '';
               if (uiType == 'university_card') {
+                if (_firstCardOfStream) {
+                  // First card of this stream = new recommendation set.
+                  // Replace old cards so stale results don't persist.
+                  _firstCardOfStream = false;
+                  ref.read(chatProvider.notifier).setRecommendations([]);
+                }
                 ref.read(chatProvider.notifier).addRecommendation(data);
               } else if (uiType == 'roadmap_timeline') {
                 ref.read(chatProvider.notifier).setRoadmapTimeline(data);
