@@ -8,8 +8,10 @@ import '../../providers/auth_provider.dart';
 import '../../providers/chat_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../services/sse_service.dart';
+import '../../services/recommendation_cache_service.dart';
 import '../../widgets/thinking_indicator.dart';
 import '../../widgets/university_card.dart';
+import 'package:flutter/services.dart';
 
 class MainChatScreen extends ConsumerStatefulWidget {
   const MainChatScreen({super.key});
@@ -144,6 +146,10 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
           if (!mounted) return;
           ref.read(chatProvider.notifier).finishStreaming();
           _scrollToBottom();
+          final cards = ref.read(chatProvider).recommendations;
+          if (cards.isNotEmpty) {
+            RecommendationCacheService.save(cards);
+          }
         },
         onError: (Object e) {
           _streamTimeout?.cancel();
@@ -683,10 +689,38 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
     final bool hasCapability = profile.capabilityScores.isNotEmpty;
     final bool profileComplete = onboardingComplete && hasRiasec && hasGrades && hasCapability;
 
-    return Scaffold(
-      backgroundColor: _surface,
-      resizeToAvoidBottomInset: true,
-      appBar: _buildAppBar(isStreaming),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        final shouldExit = await showDialog<bool>(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: const Text('Exit app?'),
+            content: const Text('Are you sure you want to exit the application?'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, false),
+                child: const Text('Stay'),
+              ),
+              TextButton(
+                onPressed: () => Navigator.pop(ctx, true),
+                child: const Text(
+                  'Exit',
+                  style: TextStyle(color: Color(0xFFBA1A1A)),
+                ),
+              ),
+            ],
+          ),
+        );
+        if (shouldExit == true) {
+          SystemNavigator.pop();
+        }
+      },
+      child: Scaffold(
+        backgroundColor: _surface,
+        resizeToAvoidBottomInset: true,
+        appBar: _buildAppBar(isStreaming),
       body: Column(
         children: [
           // ── Chat list ──────────────────────────────────────────────────
@@ -779,6 +813,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             _buildInputBar(isStreaming),
         ],
       ),
+    ),
     );
   }
 }

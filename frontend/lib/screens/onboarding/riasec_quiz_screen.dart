@@ -160,22 +160,6 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Future<void> _initQuiz() async {
-    if (!widget.isRetake) {
-      final stage = ref.read(profileProvider).onboardingStage;
-      const completedStages = [
-        'riasec_complete',
-        'grades_complete',
-        'assessment_complete',
-      ];
-      if (completedStages.contains(stage)) {
-        await _clearDraft();
-        if (mounted) {
-          Navigator.pushReplacementNamed(context, '/grades-input');
-        }
-        return;
-      }
-    }
-
     await _loadQuestions();
     await _loadDraft();
   }
@@ -203,9 +187,9 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Leave quiz?'),
+        title: const Text('Sign out?'),
         content: const Text(
-            'Your progress has been saved automatically and will be restored when you return.'),
+            'You will be signed out. Your quiz progress has been saved automatically and will be restored when you return.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
@@ -214,7 +198,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
           TextButton(
             onPressed: () => Navigator.pop(ctx, true),
             child: const Text(
-              'Leave',
+              'Sign Out',
               style: TextStyle(color: Color(0xFFBA1A1A)),
             ),
           ),
@@ -223,11 +207,14 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
     );
     if (confirmed == true && mounted) {
       setState(() => _canPop = true);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
         if (widget.isRetake) {
           Navigator.of(context).pop();
         } else {
-          Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
+          await ref.read(authProvider.notifier).logout();
+          if (mounted) {
+            Navigator.of(context).pushNamedAndRemoveUntil('/login', (route) => false);
+          }
         }
       });
     }

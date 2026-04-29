@@ -71,4 +71,29 @@ class Recommendation {
       policyPendingVerification: json['policy_pending_verification'] as bool,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'rank': rank,
+      'degree_id': degreeId,
+      'degree_name': degreeName,
+      'university_id': universityId,
+      'university_name': universityName,
+      'field_id': fieldId,
+      'total_score': totalScore,
+      'match_score_normalised': matchScoreNormalised,
+      'future_score': futureScore,
+      'merit_tier': meritTier,
+      'eligibility_tier': eligibilityTier,
+      'eligibility_note': eligibilityNote,
+      'fee_per_semester': feePerSemester,
+      'aggregate_used': aggregateUsed,
+      'soft_flags': softFlags,
+      'lifecycle_status': lifecycleStatus,
+      'risk_factor': riskFactor,
+      'rozee_live_count': rozeeLiveCount,
+      'rozee_last_updated': rozeeLastUpdated,
+      'policy_pending_verification': policyPendingVerification,
+    };
+  }
 }

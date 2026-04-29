@@ -116,6 +116,10 @@ class ChatNotifier extends StateNotifier<ChatState> {
     state = state.copyWith(roadmapTimeline: payload);
   }
 
+  void setRecommendations(List<Recommendation> recs) {
+    state = state.copyWith(recommendations: recs);
+  }
+
   void finishStreaming() {
     state = state.copyWith(
       isStreaming: false,

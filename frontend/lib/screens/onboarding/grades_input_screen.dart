@@ -133,10 +133,23 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
   void initState() {
     super.initState();
     _rebuildSubjectControllers();
-    _loadDraft();
+    _loadDraftThenProfile();
   }
 
   // ── Draft persistence ────────────────────────────────────────────────────────
+
+  /// Loads local draft first. If draft is absent (e.g. already submitted),
+  /// falls back to reading submitted data from the profile provider so the
+  /// user sees their previously entered marks when navigating back.
+  Future<void> _loadDraftThenProfile() async {
+    final raw = await _storage.read(key: _draftKey);
+    if (!mounted) return;
+    if (raw != null) {
+      await _loadDraft();
+    } else {
+      _loadFromProfile();
+    }
+  }
 
   Future<void> _loadDraft() async {
     final raw = await _storage.read(key: _draftKey);
@@ -178,6 +191,34 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen> {
       // Corrupted draft — silently ignore
       await _storage.delete(key: _draftKey);
     }
+  }
+
+  /// Restore form from the profile provider's already-submitted data.
+  /// Called as a fallback when no local draft exists.
+  void _loadFromProfile() {
+    final profile = ref.read(profileProvider);
+    final level = profile.educationLevel;
+    final marks = profile.subjectMarks;
+    if (level == null || marks.isEmpty) return;
+
+    // Map education_level back to a stream if possible
+    // (stream is not stored in the profileProvider state, so we restore
+    //  level + marks only — stream dropdown remains unselected)
+    setState(() {
+      _selectedLevel = level;
+      _rebuildSubjectControllers();
+      // Restore percentage marks for fixed subjects
+      for (final entry in marks.entries) {
+        final subjectKey = entry.key; // lowercase e.g. "mathematics"
+        // Find matching controller (controllers are keyed by display name)
+        for (final ctrlEntry in _markControllers.entries) {
+          if (ctrlEntry.key.toLowerCase() == subjectKey) {
+            ctrlEntry.value.text = (entry.value as num).toStringAsFixed(1);
+            break;
+          }
+        }
+      }
+    });
   }
 
   void _scheduleSaveDraft() {

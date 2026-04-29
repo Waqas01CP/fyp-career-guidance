@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/chat_provider.dart';
+import '../../services/recommendation_cache_service.dart';
 import '../../widgets/university_card.dart';
 
 class RecommendationDashboard extends ConsumerStatefulWidget {
@@ -160,6 +161,22 @@ class _RecommendationDashboardState
   static const Color _secondary = Color(0xFF515F74);
   static const Color _onSurface = Color(0xFF191C1E);
   static const Color _surface = Color(0xFFF7F9FB);
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCacheIfEmpty();
+  }
+
+  Future<void> _loadCacheIfEmpty() async {
+    final currentRecs = ref.read(chatProvider).recommendations;
+    if (currentRecs.isEmpty) {
+      final cached = await RecommendationCacheService.load();
+      if (cached != null && cached.isNotEmpty && mounted) {
+        ref.read(chatProvider.notifier).setRecommendations(cached);
+      }
+    }
+  }
 
   void _navigateToChat({String? prefill}) {
     if (prefill != null) {
