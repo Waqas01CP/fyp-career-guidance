@@ -336,17 +336,21 @@ def _build_system_prompt(
             "name the exact subject, cite the gap, be specific."
         )
 
-    # Language rule — LLM-native detection via recent message injection
+    # Language rule — determined solely by the current (most recent) student message.
+    # Label kept as "Student's recent messages" to avoid breaking existing tests.
     lang_rule = (
-        "LANGUAGE RULE: Detect the language of the student's recent messages\n"
-        "shown below and respond entirely in that language.\n"
+        "LANGUAGE RULE: Respond in the SAME language as the "
+        "student's current message shown below. This overrides "
+        "any previous language choices.\n"
+        "If the current message is in English — respond in English.\n"
+        "If the current message is in Roman Urdu (Urdu written "
+        "in English letters like 'mujhe', 'kaunsa', 'chahiye') "
+        "— respond in natural conversational Roman Urdu.\n"
+        "If the current message is in Urdu script — respond in "
+        "Urdu script.\n"
+        "Do not use the language of previous messages. Only the "
+        "current message determines the response language.\n"
         f"Student's recent messages: {recent_text}\n"
-        "If the messages are in Roman Urdu (Urdu written in English letters),\n"
-        "respond in natural conversational Roman Urdu as a Pakistani student\n"
-        "would write — not formal transliteration.\n"
-        "If the messages are in Urdu script, respond in Urdu script.\n"
-        "If the messages are in English, respond in English.\n"
-        "Do not mix languages unless the student mixes them."
     )
 
     # ── Assemble ──────────────────────────────────────────────────────────
@@ -378,17 +382,10 @@ def explanation_node(state: AgentState) -> AgentState:
 
     messages = state.get("messages") or []
 
-    # Extract messages for language detection:
-    # always include first student message (establishes language preference)
-    # plus last 2 for current context; deduplicate if first is among the last 2
+    # Language detection: use ONLY the most recent student message.
+    # One message = one language decision — no memory of prior language choices.
     human_msgs = [m for m in messages if isinstance(m, HumanMessage)]
-    if not human_msgs:
-        recent_text = ""
-    else:
-        first_msg = [human_msgs[0]]
-        last_msgs = human_msgs[-2:] if len(human_msgs) > 1 else []
-        combined = first_msg + [m for m in last_msgs if m is not human_msgs[0]]
-        recent_text = " | ".join(_scrub_pii(m.content) for m in combined)
+    current_msg_text = _scrub_pii(human_msgs[-1].content) if human_msgs else ""
 
     # Thought trace trimming — match on degree_name and university_name
     # FilterNode traces: "{university_name} {degree_name}" format
@@ -435,7 +432,7 @@ def explanation_node(state: AgentState) -> AgentState:
         state=state,
         top5=top5,
         lag_model=lag_model,
-        recent_text=recent_text,
+        recent_text=current_msg_text,
         prompt_trace=prompt_trace,
         significant_change=significant_change,
         entered=entered,

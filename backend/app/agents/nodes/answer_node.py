@@ -155,20 +155,24 @@ def answer_node(state: AgentState) -> AgentState:
     intent = state["last_intent"]
     user_input = _get_user_input(state)
 
-    # Build language rule from last 3 student messages — appended to every system prompt at call time
+    # Language detection: use ONLY the most recent student message.
+    # One message = one language decision — no memory of prior language choices.
     messages = state.get("messages", [])
     human_msgs = [m for m in messages if isinstance(m, HumanMessage)]
-    recent_human = human_msgs[-3:] if len(human_msgs) >= 3 else human_msgs
-    recent_text = " | ".join(m.content for m in recent_human)
+    current_msg_text = human_msgs[-1].content if human_msgs else ""
     language_rule = (
-        "\n\nLANGUAGE RULE: Detect the language of the "
-        "student's recent messages and respond entirely "
-        "in that language. If messages contain Roman Urdu "
-        "(Urdu written in English letters), respond in "
-        "Roman Urdu. If Urdu script, respond in Urdu script. "
-        "If English, respond in English. Do not mix languages "
-        "unless the student mixes them.\n"
-        f"Student's recent messages: {recent_text}\n"
+        "\n\nLANGUAGE RULE: Respond in the SAME language as the "
+        "student's current message shown below. This overrides "
+        "any previous language choices.\n"
+        "If the current message is in English — respond in English.\n"
+        "If the current message is in Roman Urdu (Urdu written "
+        "in English letters like 'mujhe', 'kaunsa', 'chahiye') "
+        "— respond in natural conversational Roman Urdu.\n"
+        "If the current message is in Urdu script — respond in "
+        "Urdu script.\n"
+        "Do not use the language of previous messages. Only the "
+        "current message determines the response language.\n"
+        f"Student's current message: {current_msg_text}\n"
     )
 
     # ── fee_query ─────────────────────────────────────────────────────────────

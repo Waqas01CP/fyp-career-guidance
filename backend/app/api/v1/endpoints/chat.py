@@ -321,22 +321,26 @@ async def chat_stream(
             current_roadmap = final_state.get("current_roadmap", [])
             last_intent = final_state.get("last_intent", "")
 
-            if current_roadmap and last_intent == "get_recommendation":
+            should_emit_cards = (
+                current_roadmap and
+                last_intent in ("get_recommendation", "follow_up")
+            )
+            if should_emit_cards:
                 for i, degree in enumerate(current_roadmap[:5]):
                     card = _build_university_card(degree, i + 1, final_state)
                     yield _sse("rich_ui", {"type": "university_card", "payload": card})
 
-                timeline = _build_roadmap_timeline(
-                    current_roadmap[0],
-                    final_state.get("student_profile", {}),
-                    final_state.get("active_constraints", {}),
-                )
-                yield _sse("rich_ui", {"type": "roadmap_timeline", "payload": timeline})
-
-                # Write recommendations row to DB
-                await _write_recommendation(
-                    db, current_user.id, current_roadmap, previous_roadmap, last_intent
-                )
+                if last_intent == "get_recommendation":
+                    timeline = _build_roadmap_timeline(
+                        current_roadmap[0],
+                        final_state.get("student_profile", {}),
+                        final_state.get("active_constraints", {}),
+                    )
+                    yield _sse("rich_ui", {"type": "roadmap_timeline", "payload": timeline})
+                    # Write recommendations row to DB — only on first recommendation run
+                    await _write_recommendation(
+                        db, current_user.id, current_roadmap, previous_roadmap, last_intent
+                    )
 
         except Exception as e:
             logger.error("chat_stream error: %s", e, exc_info=True)

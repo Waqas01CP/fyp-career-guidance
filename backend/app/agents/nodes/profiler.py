@@ -153,9 +153,10 @@ def _build_system_prompt(state: AgentState) -> str:
     human_messages = [m for m in messages if isinstance(m, HumanMessage)]
     conversation_turn = len(human_messages)
 
-    # Recent messages for language detection
-    recent_human = human_messages[-3:] if len(human_messages) >= 3 else human_messages
-    recent_text = " | ".join(m.content for m in recent_human) or "no messages yet"
+    # Language detection: use ONLY the most recent student message.
+    # One message = one language decision — no memory of prior language choices.
+    current_msg_text = human_messages[-1].content \
+        if human_messages else "no messages yet"
 
     # RIASEC interpretation (never expose raw scores)
     riasec_summary = _interpret_riasec(riasec)
@@ -248,13 +249,15 @@ def _build_system_prompt(state: AgentState) -> str:
         "  - Never ask more than one question per response\n"
         "  - Never mention RIASEC scores, capability scores, or "
         "    any numerical data from the profile\n"
-        "  - LANGUAGE DETECTION: The student's recent messages "
-        "    are shown below. Detect their language and respond "
-        "    entirely in that language. Roman Urdu (Urdu in "
-        "    English letters), Urdu script, or English — match "
-        "    exactly. Do not mix languages.\n"
-        f"  - Student's recent messages for language detection: "
-        f"    {recent_text}\n"
+        "  - LANGUAGE RULE: Respond in the SAME language as the "
+        "    student's current message shown below. This overrides "
+        "    any previous language choices. If the current message "
+        "    is in English — respond in English. If Roman Urdu "
+        "    (Urdu written in English letters like 'mujhe', "
+        "    'kaunsa', 'chahiye') — respond in natural Roman Urdu. "
+        "    If Urdu script — respond in Urdu script. Only the "
+        "    current message determines the language.\n"
+        f"  - Student's current message: {current_msg_text}\n"
         "  - If student asks for recommendations directly: briefly "
         "    acknowledge, say you're building their profile, ask the "
         "    most important missing question\n"
