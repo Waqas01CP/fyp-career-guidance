@@ -620,6 +620,19 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 | Token optimization | Every LLM node prompt balances output quality against token efficiency. Find the minimum prompt length that delivers excellent, reliable output — do not cut tokens that degrade quality, do not add tokens that produce no improvement. Output format explicitly constrained. User input passed as variable. See TOKEN OPTIMIZATION section in BACKEND_CHAT_INSTRUCTIONS.md. |
 | Remember Me checkbox | UI-only — token always stored in flutter_secure_storage regardless of checkbox state. No backend remember_device field exists. Post-demo if needed. |
 | flutter_screenutil | Added post-build for responsive scaling. Version ^5.9.3. Baseline 390×844. All fontSize → .sp, SizedBox heights → .h, widths → .w, icons → .r, BorderRadius → .r, EdgeInsets → .r/.h/.w. Approved April 2026. |
+| JWT_EXPIRY_MINUTES | Changed from 60 to 10080 (7 days). Students should not be logged out when closing the app. backend/app/core/config.py line 19. |
+| PROFILER_REQUIRED_FIELDS | Set to [] (empty list). budget_per_semester, transport_willing, home_zone collected via Step 4 Preferences screen during onboarding instead of conversationally. profiling_complete is True from first chat message. |
+| Step 4 Preferences screen | New onboarding screen added: frontend/lib/screens/onboarding/preferences_screen.dart. Collects budget_per_semester, transport_willing, home_zone, career_goal. Submits to POST /api/v1/profile/preferences. Assessment Complete → Preferences → Chat (pushNamedAndRemoveUntil). |
+| POST /profile/preferences | New endpoint added to backend/app/api/v1/endpoints/profile.py. Accepts all Optional fields: budget_per_semester (int), transport_willing (bool), home_zone (int), career_goal (str), stated_preferences (List[str]). |
+| flutter_screenutil | Approved and implemented. Version ^5.9.3. Baseline 390x844. All font sizes use .sp, heights .h, widths .w, border radius and icons .r. No hardcoded pixel values permitted anywhere in frontend. |
+| Antigravity | Used for all frontend UI work. Claude Code in VS Code used for backend only. Antigravity uses Agent Driven Development mode, Claude Sonnet 4.6. |
+| Language detection | All three LLM nodes (ExplanationNode, AnswerNode, ProfilerNode) use ONLY the most recent HumanMessage for language detection. Not first+last2. One message = one language decision. |
+| profile_provider.dart | Antigravity added clearSessionId parameter to copyWith() — boundary violation but pragmatically safe. clearSessionId: true used in reset() method to clear sessionId on logout. Do not revert. Monitor in future sessions. |
+| University cards emission | rich_ui university_card events emitted on both get_recommendation and follow_up intents. roadmap_timeline only emitted on get_recommendation. |
+| Universities in system | NED (33 degrees), FAST-NUCES (9 degrees), UoK, IBA, DOW added to universities.json. affinity_matrix.json and lag_model.json: 32 entries each (NED field_ids only — FAST/UoK/IBA/DOW not yet in affinity_matrix or lag_model, silently use defaults). |
+| Deferred features | Google SSO: removed from Login/Signup, no button, post-demo. Forgot Password: greyed no-op link on login, no screen, post-demo. OCR marksheet: disabled button with Soon badge, post-demo. Notification toggles: removed from settings entirely (no backend notification system). |
+| SupervisorNode intent | Updated to never classify direct answers (numbers, amounts, locations, yes/no) as out_of_scope. Always profile_update. out_of_scope only for completely unrelated requests. |
+| AnswerNode FOLLOWUP prompt | Updated to include roadmap_section with current recommendations. Never says processing or coming soon when roadmap exists. Provides actionable advice (e.g. increase budget by X to access university Y). |
 
 ---
 
