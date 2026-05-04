@@ -2,7 +2,14 @@
   {
     "field_id": "computer_science",
     "field_name": "Computer Science / Software Development",
-    "associated_degrees": ["neduet_bs_cs", "neduet_be_cise"],
+    "associated_degrees": [
+      "neduet_bs_cs",
+      "neduet_be_cise",
+      "fast_nuces_bs_cs",
+      "uok_bs_cs_morning",
+      "uok_bs_cs_evening",
+      "iba_bs_cs"
+    ],
     "lag_category": "LEAPFROG",
     "lifecycle_status": "Emerging",
     "risk_factor": "Low",
@@ -10,19 +17,64 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 1240, "yoy_growth_rate": 0.38, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 1.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 8.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Junior Software Engineer", "typical_first_role_salary_pkr": "80,000 \u2013 120,000/month", "common_sectors": ["Software Houses", "Banks", "Startups", "Telecom"] }
+    "pakistan_now": {
+      "job_postings_monthly": 1240,
+      "yoy_growth_rate": 0.38,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 1.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 8.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Software Engineer",
+      "typical_first_role_salary_pkr": "80,000 – 120,000/month",
+      "common_sectors": [
+        "Software Houses",
+        "Banks",
+        "Startups",
+        "Telecom"
+      ]
+    }
   },
   {
     "field_id": "artificial_intelligence",
     "field_name": "Artificial Intelligence / Machine Learning",
-    "associated_degrees": ["neduet_bs_ai"],
+    "associated_degrees": [
+      "neduet_bs_ai",
+      "fast_nuces_bs_ai",
+      "uok_bs_ai_morning"
+    ],
     "lag_category": "LEAPFROG",
     "lifecycle_status": "Emerging",
     "risk_factor": "Low",
@@ -30,19 +82,64 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 520, "yoy_growth_rate": 0.42, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 1.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 9.2, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Artificial Intelligence Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 520,
+      "yoy_growth_rate": 0.42,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 1.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 9.2,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Artificial Intelligence Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "software_engineering",
     "field_name": "Software Engineering",
-    "associated_degrees": ["neduet_be_software_eng"],
+    "associated_degrees": [
+      "neduet_be_software_eng",
+      "fast_nuces_bs_se",
+      "uok_bs_se_morning",
+      "uok_bs_se_evening"
+    ],
     "lag_category": "LEAPFROG",
     "lifecycle_status": "Emerging",
     "risk_factor": "Low",
@@ -50,19 +147,63 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 1240, "yoy_growth_rate": 0.38, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 1.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 8.3, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Junior Software Engineer", "typical_first_role_salary_pkr": "80,000 \u2013 120,000/month", "common_sectors": ["Software Houses", "Banks", "Startups", "Telecom"] }
+    "pakistan_now": {
+      "job_postings_monthly": 1240,
+      "yoy_growth_rate": 0.38,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 1.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 8.3,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Software Engineer",
+      "typical_first_role_salary_pkr": "80,000 – 120,000/month",
+      "common_sectors": [
+        "Software Houses",
+        "Banks",
+        "Startups",
+        "Telecom"
+      ]
+    }
   },
   {
     "field_id": "cybersecurity",
     "field_name": "Cybersecurity / Network Security",
-    "associated_degrees": ["neduet_bs_cybersecurity"],
+    "associated_degrees": [
+      "neduet_bs_cybersecurity",
+      "fast_nuces_bs_cys"
+    ],
     "lag_category": "FAST",
     "lifecycle_status": "Emerging",
     "risk_factor": "Low",
@@ -70,19 +211,62 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 420, "yoy_growth_rate": 0.25, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 2.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 8.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Cybersecurity Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 420,
+      "yoy_growth_rate": 0.25,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 8.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Cybersecurity Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "data_science",
     "field_name": "Data Science / Analytics",
-    "associated_degrees": ["neduet_bs_data_science"],
+    "associated_degrees": [
+      "neduet_bs_data_science",
+      "fast_nuces_bs_ds"
+    ],
     "lag_category": "FAST",
     "lifecycle_status": "Emerging",
     "risk_factor": "Low",
@@ -90,19 +274,61 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 520, "yoy_growth_rate": 0.42, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 2.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 7.8, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Data Science Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 520,
+      "yoy_growth_rate": 0.42,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 7.8,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Data Science Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "digital_media",
     "field_name": "Digital Media / Animation",
-    "associated_degrees": ["neduet_bs_animation"],
+    "associated_degrees": [
+      "neduet_bs_animation"
+    ],
     "lag_category": "FAST",
     "lifecycle_status": "Emerging",
     "risk_factor": "Medium",
@@ -110,19 +336,63 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 2.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 6.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Digital Media Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 6.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Digital Media Specialist / Animator",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Advertising Agencies",
+        "Game Studios",
+        "Media Production",
+        "E-commerce",
+        "Broadcasting"
+      ]
+    }
   },
   {
     "field_id": "telecommunications_engineering",
     "field_name": "Telecommunications Engineering",
-    "associated_degrees": ["neduet_be_telecom"],
+    "associated_degrees": [
+      "neduet_be_telecom"
+    ],
     "lag_category": "FAST",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -130,19 +400,62 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": true,
     "constraint_note": "Growth linked to national telecom infrastructure investment.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 2.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 7.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Telecommunications Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 7.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Telecommunications Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "electrical_engineering",
     "field_name": "Electrical Engineering",
-    "associated_degrees": ["neduet_be_electrical"],
+    "associated_degrees": [
+      "neduet_be_electrical",
+      "fast_nuces_bs_ee"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -150,19 +463,62 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 680, "yoy_growth_rate": 0.15, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 7.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Junior Electrical Engineer", "typical_first_role_salary_pkr": "60,000 \u2013 90,000/month", "common_sectors": ["Power Sector", "Telecom", "Manufacturing", "Defence"] }
+    "pakistan_now": {
+      "job_postings_monthly": 680,
+      "yoy_growth_rate": 0.15,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 7.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Electrical Engineer",
+      "typical_first_role_salary_pkr": "60,000 – 90,000/month",
+      "common_sectors": [
+        "Power Sector",
+        "Telecom",
+        "Manufacturing",
+        "Defence"
+      ]
+    }
   },
   {
     "field_id": "electronics_engineering",
     "field_name": "Electronics Engineering",
-    "associated_degrees": ["neduet_be_electronics"],
+    "associated_degrees": [
+      "neduet_be_electronics"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -170,19 +526,61 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 6.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Electronics Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 6.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Electronics Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "biomedical_engineering",
     "field_name": "Biomedical Engineering",
-    "associated_degrees": ["neduet_be_biomedical"],
+    "associated_degrees": [
+      "neduet_be_biomedical"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Emerging",
     "risk_factor": "Medium",
@@ -190,19 +588,62 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 6.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Biomedical Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 6.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Biomedical Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "chemical_engineering",
     "field_name": "Chemical Engineering",
-    "associated_degrees": ["neduet_be_chemical"],
+    "associated_degrees": [
+      "neduet_be_chemical",
+      "uok_be_chemical_morning"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -210,19 +651,61 @@
     "outsourcing_applicable": true,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 5.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Chemical Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 5.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Chemical Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "food_engineering",
     "field_name": "Food Engineering / Technology",
-    "associated_degrees": ["neduet_be_food_eng"],
+    "associated_degrees": [
+      "neduet_be_food_eng"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -230,19 +713,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 5.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Food Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 5.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Food Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "mechanical_engineering",
     "field_name": "Mechanical Engineering",
-    "associated_degrees": ["neduet_be_mechanical"],
+    "associated_degrees": [
+      "neduet_be_mechanical"
+    ],
     "lag_category": "MEDIUM",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -250,19 +775,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 4.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 5.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Mechanical Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 5.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Mechanical Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "automotive_engineering",
     "field_name": "Automotive Engineering",
-    "associated_degrees": ["neduet_be_automotive"],
+    "associated_degrees": [
+      "neduet_be_automotive"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -270,19 +837,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Growth dependent on domestic automotive industry investment.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 4.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Automotive Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 4.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Automotive Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "metallurgical_engineering",
     "field_name": "Metallurgical Engineering",
-    "associated_degrees": ["neduet_be_metallurgical"],
+    "associated_degrees": [
+      "neduet_be_metallurgical"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -290,19 +899,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Tied to domestic steel and mining sector capacity.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 3.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Metallurgical Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 3.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Metallurgical Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "materials_engineering",
     "field_name": "Materials Engineering",
-    "associated_degrees": ["neduet_be_materials"],
+    "associated_degrees": [
+      "neduet_be_materials"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -310,19 +961,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Growth tied to advanced manufacturing investment.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 4.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Materials Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 4.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Materials Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "polymer_petrochemical_engineering",
     "field_name": "Polymer & Petrochemical Engineering",
-    "associated_degrees": ["neduet_be_polymer_petrochem"],
+    "associated_degrees": [
+      "neduet_be_polymer_petrochem"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -330,19 +1023,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Demand tied to domestic petrochemical plant capacity.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 4.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Polymer Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 4.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Polymer Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "industrial_manufacturing_engineering",
     "field_name": "Industrial & Manufacturing Engineering",
-    "associated_degrees": ["neduet_be_industrial_mfg"],
+    "associated_degrees": [
+      "neduet_be_industrial_mfg"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -350,19 +1085,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Growth dependent on domestic industrial base expansion.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 4.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Industrial Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 4.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Industrial Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "petroleum_engineering",
     "field_name": "Petroleum Engineering",
-    "associated_degrees": ["neduet_be_petroleum"],
+    "associated_degrees": [
+      "neduet_be_petroleum"
+    ],
     "lag_category": "SLOW",
     "lifecycle_status": "Peak",
     "risk_factor": "Medium",
@@ -370,19 +1147,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Growth tied to domestic oil & gas exploration investment.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 7.0, "arrival_confidence": "medium", "cultural_barrier": false, "societal_barrier": false, "notes": "STUB DATA — replace with real data before production" },
-    "computed": { "future_value": 5.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Petroleum Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "STUB DATA — replace with real data before production"
+    },
+    "computed": {
+      "future_value": 5.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Petroleum Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "civil_engineering",
     "field_name": "Civil Engineering",
-    "associated_degrees": ["neduet_be_civil"],
+    "associated_degrees": [
+      "neduet_be_civil"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -390,19 +1209,65 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 4.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Civil Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 4.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Civil Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "business_bba",
     "field_name": "Business Administration / BBA",
-    "associated_degrees": ["neduet_bs_management_sci"],
+    "associated_degrees": [
+      "neduet_bs_management_sci",
+      "fast_nuces_bba",
+      "uok_bba_morning",
+      "uok_bba_evening",
+      "iba_bba"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -410,19 +1275,63 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 5.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Business Administration", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 5.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Management Trainee Officer / Business Graduate",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "FMCG",
+        "Banking",
+        "Telecom",
+        "Retail",
+        "Consulting"
+      ]
+    }
   },
   {
     "field_id": "urban_infrastructure_engineering",
     "field_name": "Urban Infrastructure Engineering / City Planning",
-    "associated_degrees": ["neduet_be_urban_planning"],
+    "associated_degrees": [
+      "neduet_be_urban_planning"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -430,19 +1339,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": true,
     "constraint_note": "Demand linked to government development spending.",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 4.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Urban Infrastructure Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 4.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Urban Infrastructure Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "construction_engineering",
     "field_name": "Construction Engineering",
-    "associated_degrees": ["neduet_be_construction"],
+    "associated_degrees": [
+      "neduet_be_construction"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -450,19 +1401,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.8, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Construction Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.8,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Construction Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "textile_engineering",
     "field_name": "Textile Engineering",
-    "associated_degrees": ["neduet_be_textile_eng"],
+    "associated_degrees": [
+      "neduet_be_textile_eng"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -470,19 +1463,63 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Textile Engineer", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Textile Engineer / Production Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Spinning Mills",
+        "Garment Export",
+        "Textile Manufacturing",
+        "Quality Control",
+        "APTMA Member Companies"
+      ]
+    }
   },
   {
     "field_id": "textile_sciences",
     "field_name": "Textile Sciences",
-    "associated_degrees": ["neduet_bs_textile_science"],
+    "associated_degrees": [
+      "neduet_bs_textile_science"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -490,19 +1527,63 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.2, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Textile Sciences", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.2,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Textile Sciences Graduate / QC Specialist",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Textile R&D",
+        "Quality Control",
+        "Fashion Industry",
+        "Export Sector",
+        "Academic Research"
+      ]
+    }
   },
   {
     "field_id": "english_linguistics",
     "field_name": "English Linguistics / Applied Linguistics",
-    "associated_degrees": ["neduet_bs_english_ling"],
+    "associated_degrees": [
+      "neduet_bs_english_ling"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -510,19 +1591,66 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate English Linguistics", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "English Language Instructor / Content Writer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Education",
+        "Media",
+        "Corporate Communications",
+        "Publishing",
+        "Language Institutes"
+      ]
+    }
   },
   {
     "field_id": "economics",
     "field_name": "Economics",
-    "associated_degrees": ["neduet_bs_economics_finance"],
+    "associated_degrees": [
+      "neduet_bs_economics_finance",
+      "uok_bs_econ_finance_morning",
+      "uok_bs_econ_finance_evening",
+      "iba_bs_economics"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -530,19 +1658,64 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 5.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Economist", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 5.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Economist / Policy Research Analyst",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Banking",
+        "Government",
+        "NGO Sector",
+        "Research Institutions",
+        "Consulting"
+      ]
+    }
   },
   {
     "field_id": "finance_accounting",
     "field_name": "Finance & Accounting",
-    "associated_degrees": ["neduet_bs_comp_finance"],
+    "associated_degrees": [
+      "neduet_bs_comp_finance",
+      "iba_bs_accounting_finance"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -550,19 +1723,63 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 5.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Finance & Accounting", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 5.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Finance Analyst / Accounts Officer",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Banking",
+        "Corporate Finance",
+        "FMCG",
+        "Audit Firms",
+        "Investment Companies"
+      ]
+    }
   },
   {
     "field_id": "social_work",
     "field_name": "Social Work / Development Studies",
-    "associated_degrees": ["neduet_bs_dev_studies"],
+    "associated_degrees": [
+      "neduet_bs_dev_studies"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -570,19 +1787,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Social Work", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Social Work",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "physics",
     "field_name": "Physics",
-    "associated_degrees": ["neduet_bs_physics"],
+    "associated_degrees": [
+      "neduet_bs_physics"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -590,19 +1849,61 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 3.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Physics", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 3.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Physics",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "chemistry_biochemistry",
     "field_name": "Chemistry / Biochemistry",
-    "associated_degrees": ["neduet_bs_chemistry"],
+    "associated_degrees": [
+      "neduet_bs_chemistry"
+    ],
     "lag_category": "LOCAL",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
@@ -610,33 +1911,1298 @@
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 4.0, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Chemistry / Biochemistry", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 4.0,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Chemistry / Biochemistry",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
   },
   {
     "field_id": "architecture",
     "field_name": "Architecture",
-    "associated_degrees": ["neduet_barch_architecture"],
-    "lag_category": "LOCAL",
+    "associated_degrees": [
+      "neduet_barch_architecture"
+    ],
+    "lag_category": "SLOW",
     "lifecycle_status": "Stable",
     "risk_factor": "Medium",
     "risk_reasoning": "Real estate boom driving demand for architects in Pakistan's urban centres.",
     "outsourcing_applicable": false,
     "infrastructure_constrained": false,
     "constraint_note": "",
-    "pakistan_now": { "job_postings_monthly": 180, "yoy_growth_rate": 0.08, "sources": [] },
-    "world_now": { "us_yoy_growth_rate": null, "uk_yoy_growth_rate": null, "uae_yoy_growth_rate": null, "sources": [] },
-    "world_future": { "us_bls_4yr_projected_growth": null, "bls_soc_code": null, "projection_basis": null },
-    "pakistan_future": { "projected_4yr_growth": null, "derivation": "STUB DATA — replace with real data before production" },
-    "lag_parameters": { "lag_years": 0.0, "arrival_confidence": "high", "cultural_barrier": false, "societal_barrier": false, "notes": "LOCAL field — not lag-based" },
-    "computed": { "future_value": 4.5, "last_computed": "2026-04-19" },
-    "employment_data": { "rozee_live_count": null, "rozee_last_updated": null, "hec_employment_rate": null, "qualitative_pathway": "STUB DATA — replace with real data before production", "data_source_used": "qualitative", "data_status": "partial" },
-    "career_paths": { "entry_level_title": "Graduate Architect", "typical_first_role_salary_pkr": "50,000 \u2013 80,000/month", "common_sectors": ["Industry", "Government", "Research"] }
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "SLOW lag — global architectural practices (BIM, parametric design, sustainable construction) take 6–9 years to become standard in Pakistan's construction and real estate market"
+    },
+    "computed": {
+      "future_value": 4.5,
+      "last_computed": "2026-04-19"
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "STUB DATA — replace with real data before production",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Architect",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Industry",
+        "Government",
+        "Research"
+      ]
+    }
+  },
+  {
+    "field_id": "medicine_mbbs",
+    "field_name": "Medicine / MBBS",
+    "associated_degrees": [
+      "dow_mbbs"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Medicine is one of the most stable career paths in Pakistan — structural demand from population growth, healthcare expansion, and Gulf employment migration.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 520,
+      "yoy_growth_rate": 0.1,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates complete one year house job then register with PMDC. Public sector (DHQ/THQ hospitals), private hospitals, and Gulf employment (PMDC-recognised degree accepted in Saudi Arabia, UAE, UK via PLAB). FCPS specialisation pathway widely pursued.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "House Officer / Medical Officer",
+      "typical_first_role_salary_pkr": "60,000 – 100,000/month",
+      "common_sectors": [
+        "Public Hospitals",
+        "Private Hospitals",
+        "Gulf Healthcare",
+        "Teaching Hospitals"
+      ]
+    }
+  },
+  {
+    "field_id": "dentistry_bds",
+    "field_name": "Dentistry / BDS",
+    "associated_degrees": [
+      "dow_bds"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Growing private dental clinic market in Pakistan's urban centres; Gulf employment pathway active for PMDC-registered dentists.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.1,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates complete one year house job then register with PMDC. Private dental clinics are the primary employer. Gulf migration (Saudi Arabia, UAE) is a consistent pathway. FCPS (Dentistry) specialisation pursued by academically strong graduates.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Dental House Officer / Dentist",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Private Dental Clinics",
+        "Public Hospitals",
+        "Teaching Hospitals",
+        "Gulf Healthcare"
+      ]
+    }
+  },
+  {
+    "field_id": "pharmacy",
+    "field_name": "Pharmacy / Pharm-D",
+    "associated_degrees": [
+      "dow_pharmd"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pakistan's growing pharmaceutical manufacturing sector and retail pharmacy network provide consistent demand; Pharm-D is the only accepted qualification for pharmacist registration.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 280,
+      "yoy_growth_rate": 0.12,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates register with Pharmacy Council of Pakistan. Employment in pharmaceutical companies (quality control, regulatory affairs, sales), hospital pharmacy, and retail pharmacy chains. Gulf employment pathway exists for PCP-registered pharmacists.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Pharmacist / Clinical Pharmacist",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Pharmaceutical Companies",
+        "Hospital Pharmacy",
+        "Retail Pharmacy",
+        "Drug Regulatory Authority of Pakistan"
+      ]
+    }
+  },
+  {
+    "field_id": "mathematics",
+    "field_name": "Mathematics / Applied Mathematics",
+    "associated_degrees": [
+      "iba_bs_mathematics"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Pure mathematics has limited direct industry demand in Pakistan; however IBA brand and strong quantitative skills open actuarial, banking, and analytics roles.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "IBA BS Mathematics graduates enter actuarial science (pursuing SOA/CAS exams), quantitative research, banking analytics, and academic pathways (MS/PhD locally or abroad). Strong quantitative foundation valued in fintech and data-driven firms.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Actuarial Analyst / Mathematics Lecturer",
+      "typical_first_role_salary_pkr": "70,000 – 110,000/month",
+      "common_sectors": [
+        "Actuarial Firms",
+        "Banking",
+        "Education",
+        "Research Institutions"
+      ]
+    }
+  },
+  {
+    "field_id": "fintech",
+    "field_name": "Financial Technology / FinTech",
+    "associated_degrees": [
+      "fast_nuces_bs_ft"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pakistan's digital payments revolution (Raast, JazzCash, Easypaisa) creating strong demand for FinTech talent; SBP regulatory sandbox active.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 280,
+      "yoy_growth_rate": 0.35,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "FAST lag — global fintech innovation (open banking, blockchain, embedded finance) arriving in Pakistan within 2 years driven by SBP digitalisation mandate"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates enter product, engineering, or compliance roles at fintech startups (Finja, Tez Financial, TAG), banks' digital divisions, and payment networks. Remote work for international fintech firms is an active pathway.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "FinTech Analyst / Product Associate",
+      "typical_first_role_salary_pkr": "80,000 – 130,000/month",
+      "common_sectors": [
+        "FinTech Startups",
+        "Banks (Digital Divisions)",
+        "Payment Networks",
+        "Investment Platforms"
+      ]
+    }
+  },
+  {
+    "field_id": "business_analytics",
+    "field_name": "Business Analytics / Data Analytics",
+    "associated_degrees": [
+      "fast_nuces_bs_ba",
+      "iba_bs_business_analytics"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "FMCG, telecom, and banking sectors rapidly adopting data-driven decision making; BA graduates scarce relative to demand.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 350,
+      "yoy_growth_rate": 0.3,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "FAST lag — analytics-driven operations standard globally, arriving in Pakistan's corporate sector within 2 years"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates join FMCG companies as commercial analysts, banks as decision-science analysts, and telecom companies as network/marketing analytics roles. IBA and FAST brand names open mid-market consulting doors from Day 1.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Business Analyst / Data Analyst",
+      "typical_first_role_salary_pkr": "80,000 – 130,000/month",
+      "common_sectors": [
+        "FMCG",
+        "Banking",
+        "Telecom",
+        "Consulting",
+        "E-commerce"
+      ]
+    }
+  },
+  {
+    "field_id": "nursing",
+    "field_name": "Nursing / Health Sciences",
+    "associated_degrees": [
+      "dow_bs_nursing"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pakistan's chronic nursing shortage ensures consistent demand in public and private hospitals. Gulf migration pathway further strengthens employment prospects.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 320,
+      "yoy_growth_rate": 0.12,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates work in public and private hospitals, clinics, and community health centres. Gulf migration (Saudi Arabia, UAE) is a major pathway with PNC-recognised credentials accepted internationally.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Staff Nurse / Clinical Nurse",
+      "typical_first_role_salary_pkr": "40,000 – 70,000/month",
+      "common_sectors": [
+        "Public Hospitals",
+        "Private Hospitals",
+        "Community Health",
+        "Gulf Healthcare"
+      ]
+    }
+  },
+  {
+    "field_id": "physical_therapy",
+    "field_name": "Physical Therapy / Physiotherapy (DPT)",
+    "associated_degrees": [
+      "dow_dpt"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Growing private physiotherapy market in Pakistan's urban centres driven by sports injuries, post-surgical rehabilitation, and elderly care needs.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 150,
+      "yoy_growth_rate": 0.1,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates work in hospital rehabilitation departments, sports clinics, and private practice. Gulf migration pathway active for WCPT-recognised DPT holders — UAE and Saudi Arabia absorb Pakistani physiotherapists consistently.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Physical Therapist / Physiotherapist",
+      "typical_first_role_salary_pkr": "45,000 – 75,000/month",
+      "common_sectors": [
+        "Private Hospitals",
+        "Sports Clinics",
+        "Rehabilitation Centres",
+        "Gulf Healthcare"
+      ]
+    }
+  },
+  {
+    "field_id": "economics_mathematics",
+    "field_name": "Economics & Mathematics",
+    "associated_degrees": [
+      "iba_bs_economics_mathematics"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Dual quantitative discipline with strong actuarial and investment banking placement; IBA brand amplifies outcomes significantly above a generic economics degree.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.1,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates pursue actuarial science, quantitative finance, and economic research roles. IBA placement record includes investment banks, multilateral organisations, and policy think tanks.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Quantitative Analyst / Research Associate",
+      "typical_first_role_salary_pkr": "80,000 – 130,000/month",
+      "common_sectors": [
+        "Investment Banking",
+        "Actuarial Firms",
+        "Policy Research",
+        "Consulting"
+      ]
+    }
+  },
+  {
+    "field_id": "economics_data_science",
+    "field_name": "Economics & Data Science",
+    "associated_degrees": [
+      "iba_bs_economics_data_science"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Combines two high-demand disciplines — causal inference and econometric ML skills are scarce and growing in Pakistan's corporate sector.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 150,
+      "yoy_growth_rate": 0.2,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "FAST lag — international demand for applied econometrics and causal ML arriving in Pakistan's FMCG and finance sectors within 2 years"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates move into data analytics, economic consulting, and product analytics roles at multinationals and tech-forward firms. IBA's early cohorts placed at McKinsey Pakistan and Unilever.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Data Analyst / Economic Consultant",
+      "typical_first_role_salary_pkr": "90,000 – 140,000/month",
+      "common_sectors": [
+        "Consulting",
+        "FMCG",
+        "FinTech",
+        "Development Sector"
+      ]
+    }
+  },
+  {
+    "field_id": "social_sciences",
+    "field_name": "Social Sciences & Liberal Arts",
+    "associated_degrees": [
+      "iba_bs_ssla"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Broad discipline with variable outcomes; IBA brand significantly improves placement versus generic social sciences degrees at other institutions.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 100,
+      "yoy_growth_rate": 0.06,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates pursue civil service (CSS), media, NGO sector, and corporate communications roles. IBA SSLA specifically places graduates in journalism, policy research, and development organisations.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Research Associate / Communications Officer",
+      "typical_first_role_salary_pkr": "60,000 – 90,000/month",
+      "common_sectors": [
+        "NGO Sector",
+        "Civil Service",
+        "Media",
+        "Corporate Communications"
+      ]
+    }
+  },
+  {
+    "field_id": "robotics_iot",
+    "field_name": "Robotics & IoT / Embedded Systems",
+    "associated_degrees": [],
+    "lag_category": "SLOW",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Pakistan's industrial automation and smart city sectors are growing but robotics adoption lags global pace by 6-9 years; limited domestic manufacturing base constrains scale.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Growth tied to factory automation investment and smart city government spending.",
+    "pakistan_now": {
+      "job_postings_monthly": 80,
+      "yoy_growth_rate": 0.12,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 7.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "SLOW lag — industrial robotics and IoT deployment in Pakistan lags global adoption by 6-9 years"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates pursue embedded systems roles at industrial manufacturers, telecom equipment vendors, and smart infrastructure projects.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Embedded Systems Engineer / Robotics Engineer",
+      "typical_first_role_salary_pkr": "70,000 – 110,000/month",
+      "common_sectors": [
+        "Industrial Automation",
+        "Telecom Equipment",
+        "Defence",
+        "Smart Infrastructure"
+      ]
+    }
+  },
+  {
+    "field_id": "fine_arts",
+    "field_name": "Fine Arts / Visual Arts",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "High",
+    "risk_reasoning": "Limited formal employer demand in Pakistan's economy; income depends heavily on freelance work, teaching, and design agency employment.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 40,
+      "yoy_growth_rate": 0.05,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": true,
+      "societal_barrier": true,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates pursue commercial illustration, graphic design, art direction at agencies, and academic teaching. Freelance platforms (Fiverr, Behance) are primary income sources for many graduates.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Visual Artist / Graphic Designer",
+      "typical_first_role_salary_pkr": "40,000 – 70,000/month",
+      "common_sectors": [
+        "Advertising Agencies",
+        "Media Production",
+        "Education",
+        "Freelance"
+      ]
+    }
+  },
+  {
+    "field_id": "psychology",
+    "field_name": "Psychology / Clinical Psychology",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Growing mental health awareness in urban Pakistan driving demand for psychologists in private hospitals and corporate wellness programmes.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.15,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates enter private hospital psychology departments, corporate HR wellness roles, NGO counselling, and private practice.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Counselling Psychologist / HR Wellbeing Specialist",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Private Hospitals",
+        "NGO Sector",
+        "Corporate HR",
+        "Education"
+      ]
+    }
+  },
+  {
+    "field_id": "education_bed",
+    "field_name": "Education / B.Ed (Bachelor of Education)",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Government and private school sector demand for qualified teachers is structural and permanent; HEC teacher qualification requirements sustain demand.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 280,
+      "yoy_growth_rate": 0.06,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates teach in government and private schools. Private tutoring and language instruction centres provide supplementary income. Gulf teaching positions available for qualified graduates.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "School Teacher / Education Officer",
+      "typical_first_role_salary_pkr": "35,000 – 60,000/month",
+      "common_sectors": [
+        "Government Schools",
+        "Private Schools",
+        "Tutoring Centres",
+        "International Schools"
+      ]
+    }
+  },
+  {
+    "field_id": "law_llb",
+    "field_name": "Law (LLB)",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Legal profession requires bar admission and practice-building time; corporate law at top firms provides above-average income but is competitive.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates pursue bar registration then corporate law, civil litigation, or judiciary paths. CSS and PCS exams are also common routes for law graduates seeking government careers.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Associate / Legal Officer",
+      "typical_first_role_salary_pkr": "60,000 – 100,000/month",
+      "common_sectors": [
+        "Law Firms",
+        "Corporate Legal Departments",
+        "Government",
+        "Judiciary"
+      ]
+    }
+  },
+  {
+    "field_id": "mass_communication",
+    "field_name": "Mass Communication / Journalism",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Digital media transformation creating new roles while reducing traditional broadcast positions; overall demand is stable but shifting in form.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 160,
+      "yoy_growth_rate": 0.1,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates enter broadcast journalism, digital content creation, PR agencies, and corporate communications. Growing demand from digital news platforms and brand marketing teams.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Journalist / Content Strategist",
+      "typical_first_role_salary_pkr": "45,000 – 75,000/month",
+      "common_sectors": [
+        "Media Houses",
+        "PR Agencies",
+        "Corporate Communications",
+        "Digital Platforms"
+      ]
+    }
+  },
+  {
+    "field_id": "agriculture",
+    "field_name": "Agriculture / Agricultural Sciences",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Pakistan's agricultural sector is the backbone of the economy; government and agri-business demand for qualified graduates is consistent though urban-facing opportunities are limited.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 100,
+      "yoy_growth_rate": 0.06,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates enter government agricultural extension services, agri-input companies, food processing corporations, and research institutions.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Agricultural Officer / Agronomist",
+      "typical_first_role_salary_pkr": "50,000 – 80,000/month",
+      "common_sectors": [
+        "Government Extension Services",
+        "Agri-input Companies",
+        "Food Processing",
+        "Research Institutions"
+      ]
+    }
+  },
+  {
+    "field_id": "veterinary_science",
+    "field_name": "Veterinary Science (DVM)",
+    "associated_degrees": [],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pakistan's large livestock sector ensures consistent demand for veterinarians in disease management, food safety, and livestock production support.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.08,
+      "sources": []
+    },
+    "world_now": {
+      "us_yoy_growth_rate": null,
+      "uk_yoy_growth_rate": null,
+      "uae_yoy_growth_rate": null,
+      "sources": []
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": null,
+      "bls_soc_code": null,
+      "projection_basis": null
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": null,
+      "derivation": "STUB DATA — replace with real data before production"
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "LOCAL field — not lag-based"
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": null,
+      "rozee_last_updated": null,
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Graduates work in government veterinary departments, livestock farms, poultry industry, food safety agencies, and private veterinary clinics.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Veterinary Officer / Animal Health Inspector",
+      "typical_first_role_salary_pkr": "55,000 – 85,000/month",
+      "common_sectors": [
+        "Government Livestock",
+        "Poultry Industry",
+        "Food Safety",
+        "Research Institutions"
+      ]
+    }
   }
 ]

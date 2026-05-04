@@ -1,0 +1,3087 @@
+[
+  {
+    "field_id": "computer_science",
+    "field_name": "Computer Science / Computing",
+    "associated_degrees": [
+      "fast_nuces_bs_cs",
+      "neduet_bs_cs",
+      "neduet_be_cise",
+      "uok_bs_cs_morning",
+      "uok_bs_cs_evening",
+      "iba_bs_cs"
+    ],
+    "lag_category": "LEAPFROG",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "CS is structural economic infrastructure. Demand is driven by software, cloud, fintech, and digital transformation across every sector — not tied to a single technology cycle. Pakistan's remote-work outsourcing model means demand is also global.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 2200,
+      "yoy_growth_rate": 0.25,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.12,
+      "uk_yoy_growth_rate": 0.09,
+      "uae_yoy_growth_rate": 0.22,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.158,
+      "bls_soc_code": "15-1252",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Software Developers, QA Analysts, and Testers"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.55,
+      "derivation": "Pakistan ICT export growth of 24% YoY (SBP 2024) combined with LEAPFROG lag dynamics and government Vision 2026 digital targets project sustained 4-year expansion above the current YoY rate."
+    },
+    "lag_parameters": {
+      "lag_years": 1.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "CS is the most established tech field in Pakistan. FAST-NUCES and NEDUET graduates are actively recruited by US, UK, and UAE firms for remote roles. Pakistan ranks 16th globally in outsourcing talent (Ataraxis 2026). Lag is effectively zero for core software development roles."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 2200,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Software Developer / Graduate Trainee Engineer",
+      "typical_first_role_salary_pkr": "55,000 – 85,000/month",
+      "common_sectors": [
+        "Software Houses (Karachi, Lahore, Islamabad)",
+        "Fintech & Banking IT",
+        "Telecom (PTCL, Jazz, Telenor)",
+        "E-commerce & Logistics",
+        "Remote / Freelance (US, UK, UAE clients)"
+      ]
+    }
+  },
+  {
+    "field_id": "software_engineering",
+    "field_name": "Software Engineering",
+    "associated_degrees": [
+      "fast_nuces_bs_se",
+      "neduet_be_software_eng",
+      "uok_bs_se_morning",
+      "uok_bs_se_evening"
+    ],
+    "lag_category": "LEAPFROG",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "Software engineering demand is driven by permanent digitisation of the economy across all sectors. Pakistan's role as a top-9 global outsourcing destination (Ataraxis 2026) makes demand partially decoupled from the domestic economic cycle.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 1800,
+      "yoy_growth_rate": 0.28,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.13,
+      "uk_yoy_growth_rate": 0.1,
+      "uae_yoy_growth_rate": 0.23,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.158,
+      "bls_soc_code": "15-1252",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Software Developers, QA Analysts, and Testers"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.58,
+      "derivation": "Pakistan IT exports growing at 24% YoY; software engineering is the core delivery discipline behind those exports, and the government $5B export target for FY2026 and $10B for FY2029 (Uraan Pakistan) implies sustained compounding demand above current levels."
+    },
+    "lag_parameters": {
+      "lag_years": 1.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Software engineering is the flagship discipline for Pakistan's outsourcing economy. Pakistan has 2.3 million active freelancers (State Bank 2025) and 20,700+ registered IT/ITeS firms (PSEB). NEDUET BE Software is PEC-governed (professional engineering title); demand spans both local software houses and remote global clients."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 1800,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Software Engineer / Associate Software Engineer",
+      "typical_first_role_salary_pkr": "60,000 – 90,000/month",
+      "common_sectors": [
+        "Software Houses (Karachi, Lahore, Islamabad)",
+        "Banking & Fintech IT Departments",
+        "Telecom Software Teams",
+        "US/UK/UAE Remote Contracts",
+        "Systems Integrators (Systems Ltd, NetSol, 10Pearls)"
+      ]
+    }
+  },
+  {
+    "field_id": "artificial_intelligence",
+    "field_name": "Artificial Intelligence / Machine Learning",
+    "associated_degrees": [
+      "fast_nuces_bs_ai",
+      "neduet_bs_ai",
+      "uok_bs_ai_morning"
+    ],
+    "lag_category": "LEAPFROG",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "AI demand is structural and accelerating globally. LinkedIn reports AI job postings up 78% YoY globally while talent pool grew only 24%. In Pakistan the National AI Policy 2025 mandates AI across public services, agriculture, health, and education — guaranteeing domestic demand independent of private sector cycles.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 480,
+      "yoy_growth_rate": 0.42,
+      "sources": [
+        "rozee.pk",
+        "P@SHA Skills Survey 2025 (OpenAI-skill postings led with 638 openings)",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.38,
+      "uk_yoy_growth_rate": 0.31,
+      "uae_yoy_growth_rate": 0.37,
+      "sources": [
+        "LinkedIn Global Talent Insights Report 2025 (AI job postings +78% YoY)",
+        "LinkedIn Jobs on the Rise 2025 UK (AI Engineer #1 fastest-growing)",
+        "WEF Future of Jobs Report 2024"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.2,
+      "bls_soc_code": "15-1221",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Computer and Information Research Scientists (closest SOC for AI/ML research and engineering roles)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.8,
+      "derivation": "Current 42% YoY Pakistan growth combined with National AI Policy 2025 government targets (1 million AI professionals, 50k civic AI projects) and LEAPFROG dynamics project compound 4-year growth well above current annual rate."
+    },
+    "lag_parameters": {
+      "lag_years": 1.5,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "AI roles are the fastest-growing category in Pakistan's tech market in 2025-26. While large-scale domestic AI R&D labs remain nascent, implementation, fine-tuning, and deployment roles are actively recruited by local software houses and global clients. Pakistan's AI market projected at $3.2B by 2030 at 28.66% CAGR."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 480,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior ML Engineer / AI Associate",
+      "typical_first_role_salary_pkr": "90,000 – 130,000/month",
+      "common_sectors": [
+        "AI Startups & Software Houses",
+        "Fintech (fraud detection, credit scoring)",
+        "Telecom (network optimisation, churn prediction)",
+        "Healthcare Tech (diagnostic AI)",
+        "Remote / Freelance (US, UK, UAE clients)"
+      ]
+    }
+  },
+  {
+    "field_id": "data_science",
+    "field_name": "Data Science / Data Analytics",
+    "associated_degrees": [
+      "fast_nuces_bs_ds",
+      "neduet_bs_data_science"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Demand for data-driven decision-making is universal across industries. Pakistan's State Bank reported 88% of retail transactions processed digitally in FY25 — every percentage point of digitisation generates more data requiring professional analysis. Not easily automated at the insights and strategy layer.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 390,
+      "yoy_growth_rate": 0.36,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.28,
+      "uk_yoy_growth_rate": 0.22,
+      "uae_yoy_growth_rate": 0.3,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "WEF Future of Jobs Report 2024"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.34,
+      "bls_soc_code": "15-2051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Data Scientists (4th fastest-growing occupation in the US economy, 34% projected growth 2024-34)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.65,
+      "derivation": "Pakistan's current 36% YoY data science growth, combined with near-50% of Pakistani companies moving to advanced analytics by 2026 (industry survey) and FAST lag dynamics, projects 4-year cumulative growth significantly above the current YoY rate."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Data science is well-established in Pakistan's banking, fintech, and telecom sectors. Freelance data analytics gigs are thriving. The field is 2 years behind the US/UK in breadth of adoption but demand is accelerating rapidly across FMCG, retail, and healthcare verticals."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 390,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Data Analyst / Graduate Data Scientist",
+      "typical_first_role_salary_pkr": "70,000 – 100,000/month",
+      "common_sectors": [
+        "Banking & Financial Services (HBL, UBL, Meezan)",
+        "Fintech & Digital Payments",
+        "Telecom (Jazz, Telenor, Zong)",
+        "FMCG & Retail Analytics",
+        "Remote / Freelance (US, UK clients)"
+      ]
+    }
+  },
+  {
+    "field_id": "cybersecurity",
+    "field_name": "Cybersecurity / Network Security",
+    "associated_degrees": [
+      "fast_nuces_bs_cys",
+      "neduet_bs_cybersecurity"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Demand is structural — cyberattacks increase regardless of economic cycles and are growing in frequency and cost. Pakistan's digital payments reaching 88% of retail transactions (SBP FY25) creates permanent and expanding attack surface. Not easily automated at the threat analysis and response layer.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 320,
+      "yoy_growth_rate": 0.32,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "TECHINCEPTO Pakistan IT Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.18,
+      "uk_yoy_growth_rate": 0.15,
+      "uae_yoy_growth_rate": 0.27,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "ISC2 Cybersecurity Workforce Study 2024",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.29,
+      "bls_soc_code": "15-1212",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Information Security Analysts (29% projected growth 2024-34, nearly 3x the all-occupations average)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.55,
+      "derivation": "Pakistan cybersecurity market projected at $263M by 2029, with Karachi and Islamabad already recording 30% annual job growth in cybersecurity roles; FAST lag dynamics adjusted for the 2-year gap in enterprise security maturity project strong 4-year cumulative growth."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Banking, telecom, and government sectors are driving strong domestic demand — these are sectors that cannot outsource their cybersecurity posture. Pakistan ranks 79th globally in cybersecurity measures with an active government push toward top 50, creating structural public-sector demand. FAST-NUCES and NEDUET graduates also work remotely for international firms."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 320,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Security Analyst / SOC Analyst",
+      "typical_first_role_salary_pkr": "70,000 – 100,000/month",
+      "common_sectors": [
+        "Banking & Financial Services (IT Security Teams)",
+        "Telecom (Jazz, Telenor, Zong)",
+        "Government IT & NITB",
+        "Software Houses (managed security services)",
+        "Freelance / Remote (US, UK, UAE clients — CEH/CISSP certified)"
+      ]
+    }
+  },
+  {
+    "field_id": "economics_mathematics",
+    "field_name": "Economics & Mathematics",
+    "associated_degrees": [
+      "iba_bs_economics_mathematics"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Economics & Mathematics is one of the most rigorous and differentiated undergraduate degrees in Pakistan — IBA Karachi is the sole offering, making supply extremely scarce relative to growing demand from quantitative finance, actuarial science, and policy research employers. The mathematical depth of the programme positions graduates for roles that pure economics or pure business graduates cannot fill: financial modelling, stochastic modelling for insurance, econometric research, and quantitative portfolio management. Low risk because graduates are competing in a small premium tier with minimal peer competition, and quantitative skills resist automation at the modelling and interpretation layer.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 90,
+      "yoy_growth_rate": 0.22,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.18,
+      "uk_yoy_growth_rate": 0.15,
+      "uae_yoy_growth_rate": 0.2,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.3,
+      "bls_soc_code": "15-2041",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Statisticians (30% projected growth 2024-34, much faster than average; closest BLS category for economics-mathematics graduates performing quantitative modelling, econometric analysis, and financial statistics — the mathematical methods component aligns most closely with this high-growth occupation)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.55,
+      "derivation": "IBA Economics & Mathematics graduates occupy a premium quantitative niche — demand from actuarial functions (insurance, reinsurance), SBP monetary policy research, and financial modelling teams at investment banks and AMCs is structurally undersupplied in Pakistan; the scarcity of the degree combined with the growing sophistication of Pakistan's capital markets projects strong 4-year cumulative growth from the current small base."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Economics & Mathematics as a standalone undergraduate programme is 2 years behind UK and Singapore in Pakistan — IBA launched it in 2021-22, making it one of the newest quantitative degrees in the country. Actuarial science is the most established global destination for this profile; Pakistan has an active Institute of Actuaries of Pakistan (IAP) with exam pathways aligned to the UK Institute and Faculty of Actuaries. Remote quantitative research and financial modelling roles for UAE and London-based asset managers are an active outsourcing channel for IBA graduates in this programme."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 90,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "IBA Economics & Mathematics graduates enter four primary pathways: (1) quantitative analyst and financial modelling roles at investment banks, AMCs, and brokerage firms (JS Investments, NBP Funds, Arif Habib); (2) actuarial trainee roles at insurance and reinsurance firms (State Life, EFU Life, Swiss Re Pakistan) working toward IAP/IFoA qualification; (3) economic research at the State Bank of Pakistan, SECP, or international organisations (World Bank, IMF Pakistan team); or (4) PhD programmes abroad in economics, statistics, or finance at top-ranked universities.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Quantitative Analyst / Actuarial Trainee / Economic Research Associate",
+      "typical_first_role_salary_pkr": "65,000 – 95,000/month",
+      "common_sectors": [
+        "Investment Banking & Asset Management (JS Bank Capital Markets, Arif Habib, KASB Securities)",
+        "Insurance & Actuarial (State Life Insurance, EFU Life, Jubilee Life — actuarial trainees)",
+        "Central Bank & Regulatory (SBP Monetary Policy Department, SECP Research)",
+        "Development Finance Institutions (IFC Pakistan, ADB PSOD, World Bank economic research)",
+        "Remote / Freelance (quantitative financial modelling and econometric research for UAE, UK clients)"
+      ]
+    }
+  },
+  {
+    "field_id": "economics_data_science",
+    "field_name": "Economics & Data Science",
+    "associated_degrees": [
+      "iba_bs_economics_data_science"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Economics & Data Science is one of the highest-value undergraduate degree combinations in Pakistan's current market — graduates can compete for both pure data science roles and economics-domain roles, effectively doubling their addressable employer base relative to single-discipline peers. IBA Karachi is the sole provider, creating extreme supply scarcity at a time when data-driven decision-making is being mandated across banking, FMCG, and telecom. The causal inference and econometric methods taught in this programme are directly applicable to product analytics, A/B testing, and policy evaluation roles that pure CS data science graduates lack the theoretical grounding to fill as effectively.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 130,
+      "yoy_growth_rate": 0.38,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.28,
+      "uk_yoy_growth_rate": 0.22,
+      "uae_yoy_growth_rate": 0.3,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "WEF Future of Jobs Report 2024",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.34,
+      "bls_soc_code": "15-2051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Data Scientists (34% projected growth 2024-34, 4th fastest-growing occupation in the US economy; the data science component of this degree directly maps to this high-growth BLS category, while the economics component provides domain depth that elevates graduates above commodity data analysts)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.7,
+      "derivation": "IBA Economics & Data Science graduates combine Pakistan's fastest-growing technical skill (data science, 36% YoY per P@SHA 2025) with the most employer-trusted institutional brand (IBA) — demand from banking, FMCG, and policy analytics roles projects 4-year cumulative growth significantly above the standalone data science baseline, compounded by the programme's extreme scarcity and the growing preference for econometrics-literate data scientists in Pakistan's maturing analytics market."
+    },
+    "lag_parameters": {
+      "lag_years": 1.5,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Economics & Data Science as a combined undergraduate degree is 1-2 years behind equivalent programmes at LSE, UCL, and University of Warwick in Pakistan. IBA launched this programme in 2022-23 in direct response to employer demand signals from McKinsey Pakistan, HBL Analytics, and Unilever Pakistan. The econometrics-plus-ML curriculum is the key differentiator from a pure data science degree — employers in banking and policy evaluation specifically seek graduates who understand causal inference alongside predictive modelling. Remote roles for UK and UAE analytics firms are accessible from graduation due to the programme's international curriculum alignment."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 130,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "IBA Economics & Data Science graduates are recruited across two talent pools simultaneously: the data science track (software houses, fintech, FMCG analytics) and the economics track (banking research, development sector, policy analytics). This dual eligibility is the programme's primary market advantage. First cohort placements (2025-26) include roles at McKinsey Pakistan, Unilever Pakistan analytics team, HBL Data Science, and CERP (Centre for Economic Research in Pakistan).",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Data Analyst / Applied Economist / Junior Data Scientist",
+      "typical_first_role_salary_pkr": "75,000 – 110,000/month",
+      "common_sectors": [
+        "Consulting & Strategy (McKinsey Pakistan, Deloitte Analytics, A.F. Ferguson — data-driven advisory)",
+        "Banking & Fintech Analytics (HBL Data Science, Meezan Analytics, NayaPay product analytics)",
+        "FMCG Commercial Analytics (Unilever Pakistan, Nestlé, P&G — market analytics and demand forecasting)",
+        "Policy & Development Research (CERP, IGC Pakistan, World Bank data teams)",
+        "Remote / Freelance (UK and UAE analytics firms — causal inference and econometric modelling)"
+      ]
+    }
+  },
+  {
+    "field_id": "electrical_engineering",
+    "field_name": "Electrical Engineering",
+    "associated_degrees": [
+      "fast_nuces_bs_ee",
+      "neduet_be_electrical"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "Electrical engineering demand in Pakistan is structurally driven by the power sector crisis, grid expansion, and the government's 10,000 MW renewable energy target. Energy-sector hiring is counter-cyclical — grid failures and load-shedding increase public investment pressure. Outsourcing of embedded power systems design to Pakistan is a growing secondary channel.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 680,
+      "yoy_growth_rate": 0.2,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "NEPRA Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.1,
+      "uk_yoy_growth_rate": 0.08,
+      "uae_yoy_growth_rate": 0.2,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Energi People Engineering Talent Market Update 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.07,
+      "bls_soc_code": "17-2071",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Electrical and Electronics Engineers (7% projected growth 2024-34, much faster than average)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.4,
+      "derivation": "Pakistan's 20% YoY electrical engineering growth, combined with NEPRA's 10,000 MW renewable capacity mandate, CPEC power corridor maintenance, and MEDIUM lag dynamics, projects cumulative 4-year growth well above the current YoY baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 3.5,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Electrical engineering is fully established in Pakistan — NED and FAST graduates are actively hired by WAPDA, K-Electric, NTDC, and large-scale manufacturing. Smart-grid and EV-charging specialisations are 3-4 years behind the US/UK curve but are arriving via CPEC-linked Chinese equipment partnerships."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 680,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Electrical Engineer / Trainee Engineer",
+      "typical_first_role_salary_pkr": "50,000 – 75,000/month",
+      "common_sectors": [
+        "Power Utilities (WAPDA, K-Electric, NTDC, HESCO)",
+        "Renewable Energy (Solar / Wind Project Developers)",
+        "Telecom (Jazz, Telenor, Zong — network infrastructure)",
+        "Manufacturing & Industrial Automation",
+        "Gulf (DEWA, Saudi Electricity Company, ADNOC Grid)"
+      ]
+    }
+  },
+  {
+    "field_id": "electronics_engineering",
+    "field_name": "Electronics Engineering",
+    "associated_degrees": [
+      "neduet_be_electronics"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Electronics hardware roles face moderate automation risk from EDA tool advances. However, demand for embedded systems, firmware, and telecom hardware in Pakistan's expanding mobile broadband rollout provides a stable base. The field is narrower than electrical engineering, limiting the number of domestic employers.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 280,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.08,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.15,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.062,
+      "bls_soc_code": "17-2072",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Electronics Engineers, except computer (6.2% projected growth 2024-34, faster than average; driven by telecommunications technology demand)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.35,
+      "derivation": "Pakistan's telecom 5G rollout (PTA timeline: 2025-2027), growing electronics manufacturing in SITE and Korangi industrial zones, and MEDIUM lag dynamics project 4-year growth above the current 18% YoY rate."
+    },
+    "lag_parameters": {
+      "lag_years": 3.5,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Electronics engineering in Pakistan is anchored in telecom and consumer electronics repair/manufacturing. Embedded firmware and PCB design roles are increasingly outsourced to Pakistan from Gulf and European firms — NED graduates are well-regarded in this niche. The IoT hardware layer remains 3-4 years behind global adoption."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 280,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Electronics Engineer / Embedded Systems Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 70,000/month",
+      "common_sectors": [
+        "Telecom Equipment & Infrastructure (Jazz, Telenor, ZTE, Huawei Pakistan)",
+        "Consumer Electronics Manufacturing (SITE / Korangi industrial zones)",
+        "Defense & SUPARCO (electronics systems)",
+        "Software Houses with hardware divisions (embedded/IoT products)",
+        "Freelance / Remote (firmware and embedded design for UAE, UK clients)"
+      ]
+    }
+  },
+  {
+    "field_id": "mechanical_engineering",
+    "field_name": "Mechanical Engineering",
+    "associated_degrees": [
+      "neduet_be_mechanical"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Mechanical engineering demand is broad but structurally tied to Pakistan's manufacturing and energy sectors, which grow steadily with GDP. Automation in manufacturing creates some displacement risk for process-floor roles but simultaneously increases demand for mechanical automation engineers. Gulf migration is a significant and well-established secondary demand channel.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 520,
+      "yoy_growth_rate": 0.16,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.12,
+      "uk_yoy_growth_rate": 0.08,
+      "uae_yoy_growth_rate": 0.18,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Energi People Engineering Talent Market Update 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.09,
+      "bls_soc_code": "17-2141",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Mechanical Engineers (9% projected growth 2024-34, among the fastest-growing engineering occupations; driven by robotics, automation R&D, and manufacturing expansion)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.32,
+      "derivation": "Pakistan's 16% YoY mechanical engineering job growth, combined with the CPEC industrial zone commissioning (9 SEZs adding manufacturing capacity), Pakistan Automotive Policy 2021-2026, and expanding FMCG production, projects sustained 4-year cumulative growth above the current annual rate."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Mechanical engineering is well-established in Pakistan's power, FMCG, cement, and textile industries. Advanced manufacturing automation (robotics, additive manufacturing) is 4-5 years behind global adoption, but traditional mechanical roles remain strong. CAD/design outsourcing is a growing remote channel, particularly with Gulf construction firms."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 520,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Graduate Mechanical Engineer / Trainee Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 70,000/month",
+      "common_sectors": [
+        "Power Generation & Energy (HUBCO, KAPCO, Engro Powergen)",
+        "FMCG & Food Manufacturing (Nestlé, Unilever, P&G Pakistan)",
+        "Automotive Assembly (Indus Motor, Honda Atlas, Pak Suzuki)",
+        "Cement & Construction Materials (Lucky Cement, DG Khan Cement)",
+        "Gulf (Saudi Aramco, ADNOC, Emaar Projects — MEP and plant roles)"
+      ]
+    }
+  },
+  {
+    "field_id": "civil_engineering",
+    "field_name": "Civil Engineering",
+    "associated_degrees": [
+      "neduet_be_civil"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "Civil engineering demand in Pakistan is directly tied to infrastructure investment, which is at its highest in decades: CPEC Phase II, Naya Pakistan Housing, Karachi Transformation Plan, and dam construction programmes all require civil engineers continuously. Gulf migration to Saudi Arabia (Vision 2030 / NEOM) and UAE (smart city expansion) provides a structural second demand channel that is independent of domestic cycles.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 750,
+      "yoy_growth_rate": 0.22,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "CPEC Authority Annual Progress Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.08,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.25,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Energi People Engineering Talent Market Update 2025 (GCC demand cited)"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.05,
+      "bls_soc_code": "17-2051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Civil Engineers (5% projected growth 2024-34, faster than average; driven by infrastructure modernisation investment)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.42,
+      "derivation": "Pakistan's 22% YoY civil engineering growth driven by CPEC Phase II SEZ construction, Karachi Circular Railway, National Highway Authority expansion, and Gulf recruitment demand from Saudi Vision 2030 megaprojects projects strong 4-year cumulative domestic and Gulf demand."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Civil engineering demand is domestically driven with no global lag dynamic — classified LOCAL. Pakistan's construction sector has been in a structural boom since CPEC Phase I and demand is reinforced by Gulf migration. NED civil graduates are regularly recruited by Saudi and UAE construction firms for site and project management roles."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 750,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Pakistani civil engineers are systematically recruited by Saudi Aramco, NEOM, Emaar, and Abu Dhabi's Aldar Properties for large-scale infrastructure projects; Gulf employment is a primary career route for civil engineering graduates with 2+ years of experience.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Site Engineer / Junior Civil Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Construction & Real Estate Developers (Bahria Town, DHA, Emaar Pakistan)",
+        "Government Infrastructure (NHA, NED, KDA, Sindh Building Control Authority)",
+        "CPEC Project Contractors (China Communications Construction, FWO)",
+        "Consultancy Firms (NESPAK, ACE Consultants)",
+        "Saudi Aramco, NEOM, Aldar Properties, Emaar UAE — Gulf project roles"
+      ]
+    }
+  },
+  {
+    "field_id": "chemical_engineering",
+    "field_name": "Chemical Engineering",
+    "associated_degrees": [
+      "neduet_be_chemical",
+      "uok_be_chemical_morning"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Chemical engineering demand in Pakistan is anchored in the petroleum, fertilizer, and FMCG industries — all structurally stable. However, the field is sensitive to the energy sector's cyclical investment patterns and to import-substitution policy changes. Limited number of large employers means the total job pool is smaller than most other engineering disciplines.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Chemical engineering growth in Pakistan is infrastructure-constrained: new plant construction requires capital-intensive investment by OGDCL, ENGRO, or ICI. Field growth tracks industrial capacity addition — not a continuously expanding market like software.",
+    "pakistan_now": {
+      "job_postings_monthly": 210,
+      "yoy_growth_rate": 0.14,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.04,
+      "uk_yoy_growth_rate": 0.05,
+      "uae_yoy_growth_rate": 0.08,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "17-2041",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Chemical Engineers (3% projected growth 2024-34, about as fast as the all-occupations average)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's chemical engineering market is driven by petroleum refinery expansions (Parco, RLNG projects), ENGRO fertilizer capacity additions, and growing pharmaceutical manufacturing — current 14% YoY growth projects moderate but sustained 4-year cumulative demand above the global average."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Chemical engineering in Pakistan is concentrated in petroleum, fertilizer, FMCG, and pharmaceutical industries. Green chemistry, bioprocessing, and specialty chemicals are 4-5 years behind global adoption. Demand is steady but not high-growth — the field is well-suited for students seeking job security over rapid salary growth."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 210,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Process Engineer / Graduate Trainee (Engineering)",
+      "typical_first_role_salary_pkr": "55,000 – 80,000/month",
+      "common_sectors": [
+        "Petroleum & Gas (OGDCL, PPL, Parco, Sui Networks)",
+        "Fertilizers & Agro-Chemicals (ENGRO Fertilizers, Fatima Fertilizer, FFC)",
+        "FMCG & Consumer Products (Nestlé, Unilever, P&G Pakistan)",
+        "Pharmaceuticals (AGP, Ferozsons, GlaxoSmithKline Pakistan)",
+        "Textiles & Chemicals (ICI Pakistan, Archroma Pakistan)"
+      ]
+    }
+  },
+  {
+    "field_id": "biomedical_engineering",
+    "field_name": "Biomedical Engineering",
+    "associated_degrees": [
+      "neduet_be_biomedical"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Biomedical engineering is one of the smallest-pool engineering disciplines in Pakistan. The domestic medical device manufacturing industry is nascent, meaning most graduates enter medical equipment maintenance and sales roles at multinationals rather than design roles. Hospital sector expansion post-COVID is driving incremental demand but the total addressable market remains limited compared to other engineering fields.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Biomedical engineering growth in Pakistan is constrained by the absence of a domestic medical device manufacturing industry — most employment is in servicing and distributing imported equipment. Design and R&D roles require a manufacturing ecosystem that does not yet exist at scale.",
+    "pakistan_now": {
+      "job_postings_monthly": 65,
+      "yoy_growth_rate": 0.28,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.09,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.12,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.052,
+      "bls_soc_code": "17-2031",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Bioengineers and Biomedical Engineers (5.2% projected growth 2024-34, faster than average; driven by aging population and medical technology investment)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.45,
+      "derivation": "Pakistan's biomedical engineering market is growing from a low base — hospital sector modernisation (Sehat Sahulat Programme, Shaukat Khanum expansion), telehealth infrastructure post-COVID, and AKU's medical technology investments project high percentage growth from a small current pool over 4 years."
+    },
+    "lag_parameters": {
+      "lag_years": 5.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Biomedical engineering as a standalone profession is 5+ years behind the US/UK in institutional recognition in Pakistan — many graduates find roles under generic 'biomedical technician' or 'medical equipment engineer' titles. AKU and CMH-affiliated hospital networks are the primary structured employers. Remote medical device software design for international clients is a growing niche for NED graduates."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 65,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Most NED biomedical engineering graduates enter one of three pathways: (1) medical equipment sales and service roles at multinational distributors (GE Healthcare, Siemens Healthineers, Philips Pakistan); (2) biomedical technician roles in private hospital chains (Aga Khan, Liaquat National, South City); or (3) remote medical device software/firmware roles for international clients.",
+      "data_source_used": "rozee_live",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Biomedical Equipment Engineer / Clinical Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Private Hospitals & Hospital Chains (Aga Khan, Liaquat National, South City)",
+        "Medical Equipment Distributors (GE Healthcare Pakistan, Siemens Healthineers, Philips)",
+        "Pharmaceutical Manufacturing (quality / process equipment)",
+        "Government Hospitals (JPMC, NICH — through NTS-based procurement agencies)",
+        "Telehealth & HealthTech Startups (remote monitoring devices)"
+      ]
+    }
+  },
+  {
+    "field_id": "petroleum_engineering",
+    "field_name": "Petroleum Engineering",
+    "associated_degrees": [
+      "neduet_be_petroleum"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Petroleum engineering demand in Pakistan is tied directly to domestic oil and gas exploration and production — OGDCL, PPL, and PARCO are the dominant employers and their hiring tracks government energy policy, not global technology cycles. Medium risk reflects the long-term structural shift from fossil fuels and the limited number of large domestic employers, but Pakistan's energy security imperative sustains steady public-sector demand. Gulf migration to Saudi Aramco, ADNOC, and Kuwait Oil Company is a structurally important parallel demand channel independent of the domestic cycle.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": true,
+    "constraint_note": "Petroleum engineering growth is physically constrained by upstream exploration investment. OGDCL and PPL capital expenditure cycles determine hiring levels — no new wells drilled means no new demand for field engineers regardless of the graduate pipeline.",
+    "pakistan_now": {
+      "job_postings_monthly": 90,
+      "yoy_growth_rate": 0.1,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "OGDCL Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.02,
+      "uk_yoy_growth_rate": 0.03,
+      "uae_yoy_growth_rate": 0.12,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Saudi Aramco Annual Report 2024"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.01,
+      "bls_soc_code": "17-2171",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Petroleum Engineers (1% projected growth 2024-34, slower than average; global energy transition dampens US upstream hiring while Gulf demand remains robust)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.22,
+      "derivation": "Pakistan's domestic petroleum engineering demand is insulated from global energy transition trends by energy security policy; OGDCL's Reko Diq copper-gold project, continued RLNG expansion, and Balochistan exploration licensing projected alongside Gulf recruitment from Saudi Vision 2030 energy projects drive cumulative 4-year growth above the low US baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — domestic demand driven by upstream E&P investment with no meaningful global lag dynamic. The Gulf migration channel (Saudi Aramco, ADNOC, Kuwait Oil Company) is the primary growth multiplier for Pakistani petroleum engineers. NED graduates are specifically recruited for offshore and onshore drilling operations in the GCC."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 90,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Pakistani petroleum engineers are regularly recruited by Saudi Aramco, ADNOC, and Kuwait Oil Company for upstream operations; Gulf employment is a primary career route for this field, with NED graduates frequently placed through the Pakistan Engineering Council's international placement agreements.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Petroleum Engineer Trainee / Junior Reservoir Engineer",
+      "typical_first_role_salary_pkr": "65,000 – 95,000/month",
+      "common_sectors": [
+        "OGDCL (Oil & Gas Development Company)",
+        "PPL (Pakistan Petroleum Limited)",
+        "PARCO (Pak Arab Refinery)",
+        "Mari Petroleum Company",
+        "Saudi Aramco, ADNOC, Kuwait Oil Company — Gulf upstream roles"
+      ]
+    }
+  },
+  {
+    "field_id": "telecommunications_engineering",
+    "field_name": "Telecommunications Engineering",
+    "associated_degrees": [
+      "neduet_be_telecom"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Telecom engineering demand in Pakistan is structurally underpinned by the 5G spectrum auction (PTA 2025), broadband penetration still below 50% nationally, and CPEC fibre optic backbone expansion. Pakistan's 190M+ subscriber base — the largest in South Asia outside India — provides a permanent maintenance and expansion demand floor. Remote RF and network planning work for Gulf operators is an active outsourcing channel.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 350,
+      "yoy_growth_rate": 0.22,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "PTA Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.09,
+      "uk_yoy_growth_rate": 0.08,
+      "uae_yoy_growth_rate": 0.22,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Energi People Engineering Talent Market Update 2025 (GCC telecom cited)"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.062,
+      "bls_soc_code": "17-2072",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Electronics Engineers, except computer (6.2% projected growth 2024-34; closest BLS category for telecommunications engineering, driven by demand for new telecommunications technology development)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.48,
+      "derivation": "Pakistan's 22% YoY telecom engineering growth, combined with PTA's 5G rollout timeline (2025-2027), national broadband policy targeting 80% penetration by 2028, and Gulf operator demand for Pakistani RF/network engineers, projects cumulative 4-year growth well above the current annual rate."
+    },
+    "lag_parameters": {
+      "lag_years": 3.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Telecommunications engineering is well-established in Pakistan via Jazz, Telenor, Zong, and PTCL — all operate large RF and network engineering teams. 5G rollout represents the current global-to-Pakistan lag frontier. NED telecom graduates increasingly work remotely on network planning projects for UAE and Saudi operators, making outsourcing a real and growing channel alongside the large domestic employer base."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 350,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "RF Engineer / Network Planning Engineer / Trainee Telecom Engineer",
+      "typical_first_role_salary_pkr": "55,000 – 80,000/month",
+      "common_sectors": [
+        "Mobile Network Operators (Jazz, Telenor Pakistan, Zong, Ufone)",
+        "Fixed-Line & Broadband (PTCL, Nayatel, StormFiber)",
+        "Telecom Equipment Vendors (Huawei Pakistan, Nokia, Ericsson Pakistan)",
+        "Government Telecom (PTA, SUPARCO, NTC)",
+        "Remote / Freelance (RF planning and network optimisation for UAE, Saudi operators)"
+      ]
+    }
+  },
+  {
+    "field_id": "industrial_manufacturing_engineering",
+    "field_name": "Industrial & Manufacturing Engineering",
+    "associated_degrees": [
+      "neduet_be_industrial_mfg"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Industrial engineering demand in Pakistan is driven by the manufacturing sector's ongoing need for efficiency improvement, quality management, and cost reduction — demands that grow as competitive pressure intensifies. Medium risk reflects the dual dynamic of manufacturing automation (which can displace some roles) simultaneously creating demand for engineers who implement and manage those automation systems. CPEC Special Economic Zones are the primary near-term growth driver.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 180,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.14,
+      "uk_yoy_growth_rate": 0.09,
+      "uae_yoy_growth_rate": 0.16,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025 (industrial engineers among fastest-growing engineering occupations)"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.11,
+      "bls_soc_code": "17-2112",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Industrial Engineers (11% projected growth 2024-34, much faster than average; among the fastest-growing engineering occupations driven by manufacturing automation, robotics R&D, and lean production demand)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.36,
+      "derivation": "Pakistan's manufacturing sector is entering a structural efficiency push driven by 9 CPEC SEZs coming online, automotive policy expansion, and the textile sector's compliance modernisation for EU GSP+ requirements — current 18% YoY industrial engineering growth projects sustained 4-year cumulative expansion above the current annual rate."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Industrial engineering as a distinct profession — separate from mechanical — is less institutionally established in Pakistan than in the US or UK, where IE has decades of recognition. CPEC SEZ manufacturing and large FMCG players (Nestlé, Unilever, P&G) are the clearest current employers. Industry 4.0 adoption (smart factories, digital twins, OEE systems) is arriving 4-5 years behind global trends via Chinese equipment partnerships in CPEC zones."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 180,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Industrial Engineer / Production Engineer / Process Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 68,000/month",
+      "common_sectors": [
+        "FMCG & Food Manufacturing (Nestlé, Unilever, P&G, Engro Foods)",
+        "Textile & Apparel (Interloop, Gul Ahmed, Nishat Mills)",
+        "Automotive Assembly (Indus Motor, Honda Atlas, Pak Suzuki)",
+        "Cement & Building Materials (Lucky, DG Khan, Cherat Cement)",
+        "CPEC Special Economic Zones (Rashakai, Allama Iqbal Industrial City)"
+      ]
+    }
+  },
+  {
+    "field_id": "automotive_engineering",
+    "field_name": "Automotive Engineering",
+    "associated_degrees": [
+      "neduet_be_automotive"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Automotive engineering in Pakistan is entering a structural transition: the legacy internal combustion assembly model (Indus Motor, Honda Atlas, Pak Suzuki) is stable but low-growth, while the EV segment is expanding rapidly under the Pakistan Electric Vehicle Policy 2020-25. Medium risk reflects the global and domestic pressure on ICE engineering roles over a 10-year horizon, partially offset by new EV powertrain and battery systems demand that requires a new category of automotive engineer.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Automotive engineering growth in Pakistan is constrained by EV charging infrastructure and battery supply chain absence. High-value design and simulation roles (FEA, CAD, powertrain optimisation) are outsourceable; production and assembly roles are tied to physical plant capacity.",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.24,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Automotive Manufacturers Association (PAMA) 2025 Report"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.08,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.14,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.09,
+      "bls_soc_code": "17-2141",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Mechanical Engineers (9% projected growth 2024-34; closest BLS category for automotive engineering, which does not have a dedicated SOC code in US classification)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.45,
+      "derivation": "Pakistan's 24% YoY automotive engineering growth, combined with the EV Policy 2020-25 mandating 30% EV sales by 2030, new entrants Sazgar EV and Master EV requiring powertrain engineers, and CPEC-linked Chinese auto parts manufacturing investment in Punjab SEZs, projects cumulative 4-year growth well above the current YoY baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Traditional automotive engineering (ICE) is 4+ years behind global EV transition trends in Pakistan — the domestic industry only began EV assembly in 2022-23. However, China-Pakistan technology transfer via CPEC is compressing the lag for EV battery management and powertrain systems. FEA and vehicle dynamics simulation roles are an emerging remote-work channel for NED graduates serving Tier-1 global auto parts suppliers."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 120,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Automotive Engineer Trainee / Production Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 68,000/month",
+      "common_sectors": [
+        "Automotive Assembly (Indus Motor / Toyota, Honda Atlas, Pak Suzuki, Hyundai Nishat)",
+        "EV Manufacturers (Sazgar Engineering, Master EV, Jolta Electric)",
+        "Auto Parts & Components (Exide Battery, Agriauto, DWP)",
+        "Government Transport (Railways, NLC — fleet engineering)",
+        "Remote / Freelance (FEA / CAD for Tier-1 global auto suppliers)"
+      ]
+    }
+  },
+  {
+    "field_id": "metallurgical_engineering",
+    "field_name": "Metallurgical Engineering",
+    "associated_degrees": [
+      "neduet_be_metallurgical"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Metallurgical engineering in Pakistan serves a small, concentrated set of industries — steel mills, foundries, and the emerging mining sector. Demand is stable but structurally limited: the domestic steel industry is not growing rapidly and advanced metallurgy R&D does not exist at scale in Pakistan. The Reko Diq copper-gold mine project represents the single largest near-term demand catalyst, with CMEC-led construction expected to create new extractive metallurgy roles from 2025-2030.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": true,
+    "constraint_note": "Metallurgical engineering growth is tightly constrained by physical industrial capacity — the number of steel mills, foundries, and active mining sites in Pakistan directly caps the total hireable pool. New mill construction or mine commissioning is required to expand meaningful employment.",
+    "pakistan_now": {
+      "job_postings_monthly": 55,
+      "yoy_growth_rate": 0.12,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Glassdoor Pakistan job listings 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.08,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "17-2131",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Materials Engineers (6% projected growth 2024-34; metallurgical engineers are classified under this BLS category, which also covers ceramics, polymers, and semiconductor materials)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's metallurgical engineering pool is growing from a small base; the Reko Diq copper mine commissioning (CMEC, 2025-2030), Thar coal-to-steel initiatives, and expansion of Aisha Steel and Ittefaq Group rolling mills project moderate but genuine 4-year cumulative demand above the current 12% YoY baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — metallurgical engineering demand is entirely driven by the domestic steel, mining, and foundry industry with no global lag dynamic. The graduate pool from NED and UET is small and reasonably matched to the limited number of employers. Reko Diq represents a potential step-change in extractive metallurgy roles from 2026 onward."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 55,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Most NED metallurgical engineering graduates enter one of three pathways: (1) quality control and production roles at steel mills (Aisha Steel, ISL, Ittefaq Group, Crescent Steel); (2) extractive metallurgy roles at mining operations (OGDCL, PMDC, and the emerging Reko Diq mine); or (3) materials testing and inspection roles at construction, automotive, and defence sector organizations.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Metallurgical Engineer Trainee / Quality Control Engineer",
+      "typical_first_role_salary_pkr": "40,000 – 60,000/month",
+      "common_sectors": [
+        "Steel Manufacturing (Aisha Steel, ISL, Ittefaq Group, Crescent Steel & Allied Products)",
+        "Mining & Extraction (PMDC, OGDCL, Reko Diq Copper-Gold Mine — CMEC)",
+        "Foundries & Auto Parts (DWP, Pakistan Cables, Agriauto)",
+        "Defence & Aerospace (POF Wah, NESCOM — materials testing)",
+        "Construction Materials (cement quality, rebar QC for large infrastructure projects)"
+      ]
+    }
+  },
+  {
+    "field_id": "materials_engineering",
+    "field_name": "Materials Engineering",
+    "associated_degrees": [
+      "neduet_be_materials"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Materials engineering in Pakistan is a relatively nascent discipline with a broader and more diverse application base than metallurgical engineering — spanning composites, polymers, ceramics, and advanced coatings. Demand is moderate and distributed across pharmaceuticals, construction, defence, and consumer goods manufacturing. The field's growth is limited by the absence of a high-tech R&D manufacturing sector in Pakistan but is supported by the global shift to advanced materials in renewables and defence.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 75,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Glassdoor Pakistan (166 materials engineer listings, 2025)"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.08,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.1,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "17-2131",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Materials Engineers (6% projected growth 2024-34, faster than average; driven by demand in electronics, aerospace, and renewable energy materials)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.32,
+      "derivation": "Pakistan's materials engineering market is growing from a small base driven by solar panel manufacturing localisation (AEDB 2025 policy), pharmaceutical packaging materials, CPEC construction composites, and defence sector polymer/ceramics requirements — current 18% YoY growth projects moderate 4-year cumulative expansion above the US baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 5.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Advanced materials engineering (composites, nanomaterials, biomaterials) is 5+ years behind global adoption in Pakistan — the domestic industry does not yet manufacture carbon fibre composites or advanced semiconductors at scale. Current demand is concentrated in materials testing, quality assurance, and specification work. Remote materials simulation and specification consulting for international clients is a nascent but growing channel for NED graduates."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 75,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Materials Engineer / Quality Assurance Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Pharmaceuticals & Packaging (AGP, Ferozsons, Packages Limited)",
+        "Construction & Infrastructure (concrete admixtures, polymer coatings QC)",
+        "Defence & Aerospace (POF Wah, NESCOM — composites and advanced materials)",
+        "Textiles & Speciality Fibres (Interloop, Gul Ahmed — technical textiles)",
+        "Solar & Renewable Energy (panel module manufacturing, AEDB-licenced plants)"
+      ]
+    }
+  },
+  {
+    "field_id": "polymer_petrochemical_engineering",
+    "field_name": "Polymer & Petrochemical Engineering",
+    "associated_degrees": [
+      "neduet_be_polymer_petrochem"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Polymer and petrochemical engineering in Pakistan is anchored in domestic refining, plastics manufacturing, and specialty chemicals — sectors that are structurally stable but not high-growth. Medium risk reflects the global long-term transition away from virgin petrochemical plastics toward bio-based and recycled alternatives, which will eventually reshape the domestic employer base. Near-term domestic demand from packaging, construction materials, and FMCG is steady.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Growth in polymer and petrochemical engineering is tightly constrained by domestic refinery and cracker plant capacity. New roles appear only when PARCO, NRL, or LOTTE Chemical commission new process units — there is no continuously expanding employer pool.",
+    "pakistan_now": {
+      "job_postings_monthly": 85,
+      "yoy_growth_rate": 0.12,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.04,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.09,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "17-2041",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Chemical Engineers (3% projected growth 2024-34; closest BLS category for polymer and petrochemical engineering graduates, who perform chemical process engineering in refining and polymer production)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.25,
+      "derivation": "Pakistan's polymer and petrochemical sector is growing modestly from domestic capacity additions — PARCO's new diesel hydrodesulphurisation unit, LOTTE Chemical PTA plant expansion, and PVC pipe demand from CPEC housing projects project steady 4-year demand above the low global baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Advanced polymer engineering specialisations — bio-based polymers, polymer composites for aerospace, recyclate processing — are 4-5 years behind global adoption in Pakistan. Current demand is concentrated in conventional petrochemical process operations and plastic compounding for the FMCG and construction sectors."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 85,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Process Engineer / Production Engineer (Polymers)",
+      "typical_first_role_salary_pkr": "55,000 – 80,000/month",
+      "common_sectors": [
+        "Petrochemical Refineries (PARCO, NRL, Attock Refinery)",
+        "Polymer & Plastics Manufacturing (LOTTE Chemical Pakistan, ICI Pakistan)",
+        "Packaging & FMCG (Packages Limited, Tri-Pack Films, Teradata)",
+        "Specialty Chemicals & Adhesives (Archroma Pakistan, Henkel Pakistan)",
+        "Construction Materials (PVC pipe, polymer coating manufacturers)"
+      ]
+    }
+  },
+  {
+    "field_id": "urban_infrastructure_engineering",
+    "field_name": "Urban & Infrastructure Engineering",
+    "associated_degrees": [
+      "neduet_be_urban_planning"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Urban infrastructure engineering in Pakistan is structurally demand-driven by a rapid and irreversible urbanisation trend — Pakistan's urban population is growing at 2.7% annually, the fastest in South Asia. Karachi, Lahore, and emerging CPEC corridors all require professional urban engineers for drainage, roads, utilities, and smart-city infrastructure. Demand is insulated from global cycles and low automation risk applies to the complex multi-stakeholder nature of urban planning and design.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 60,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "ADB Pakistan Urban Development Programme Reports 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.04,
+      "uk_yoy_growth_rate": 0.05,
+      "uae_yoy_growth_rate": 0.2,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Urban and Regional Planners data 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "19-3051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Urban and Regional Planners (3% projected growth 2024-34; closest BLS category for urban infrastructure engineering graduates performing urban systems design and planning)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.38,
+      "derivation": "Pakistan's urbanisation rate of 2.7% annually combined with the Karachi Transformation Plan (KTP), CPEC new city developments (Rashakai, Gwadar), World Bank urban resilience funding, and ADB urban infrastructure loans project strong 4-year domestic demand significantly above the US baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — urban infrastructure demand is entirely driven by Pakistan's domestic urbanisation and government infrastructure investment, with no global lag dynamic. The Karachi Metropolitan Corporation, SKAA, KDA, and NHA are the anchor public employers. World Bank and ADB-funded projects create periodic bursts of project-linked hiring."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 60,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "NED urban infrastructure engineering graduates enter three primary pathways: (1) municipal and provincial government bodies (KMC, KDA, SKAA, Sindh government infrastructure departments); (2) national engineering consultancies (NESPAK, ACE Consultants, AECOM Pakistan) on donor-funded projects; or (3) large-scale real estate developers managing internal infrastructure (Bahria Town, DHA, Emaar Pakistan).",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Urban Engineer / Infrastructure Planning Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Municipal Authorities (KMC, KDA, SKAA, LDA, NHA)",
+        "Engineering Consultancies (NESPAK, ACE Consultants, AECOM Pakistan)",
+        "Real Estate Developers (Bahria Town, DHA, Emaar Pakistan — infrastructure teams)",
+        "Donor-Funded Projects (World Bank, ADB, USAID urban resilience programmes)",
+        "CPEC New City Development (Gwadar Smart City, Rashakai Economic Zone)"
+      ]
+    }
+  },
+  {
+    "field_id": "construction_engineering",
+    "field_name": "Construction Engineering",
+    "associated_degrees": [
+      "neduet_be_construction"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "Construction engineering demand in Pakistan is at its highest in decades, driven by CPEC Phase II SEZ construction, the Naya Pakistan Housing Programme (5 million units), Karachi Transformation Plan infrastructure, and Gulf migration to Saudi Vision 2030 megaprojects. Construction is a peak-employment field in Pakistan's current development phase and is counter-cyclical to many other engineering disciplines — infrastructure investment accelerates during economic corrections as fiscal stimulus.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 420,
+      "yoy_growth_rate": 0.2,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Construction Industry Development Board (CIDB) Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.1,
+      "uk_yoy_growth_rate": 0.08,
+      "uae_yoy_growth_rate": 0.28,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Energi People Engineering Talent Market Update 2025 (GCC megaprojects cited)"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.09,
+      "bls_soc_code": "11-9021",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Construction Managers (9% projected growth 2024-34, much faster than average; driven by infrastructure investment, renewable energy construction, and data center expansion)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.42,
+      "derivation": "Pakistan's 20% YoY construction engineering growth, combined with 5 million housing units under Naya Pakistan programme, CPEC SEZ construction, Karachi Circular Railway, and strong Gulf recruitment from Saudi NEOM and UAE smart city projects, projects sustained 4-year cumulative growth well above the current annual baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — construction engineering demand is entirely domestic and Gulf-migration driven, with no global lag dynamic. Pakistan's construction sector is in a structural boom phase tied to CPEC, housing policy, and urbanisation. NED construction graduates are actively recruited by Saudi and UAE construction firms (NEOM, Aldar, Emaar) for site and project management roles."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 420,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Site Engineer / Construction Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Real Estate & Housing Developers (Bahria Town, DHA, Emaar Pakistan)",
+        "CPEC Contractors (China Communications Construction, FWO, NLC)",
+        "Government Infrastructure (NHA, NED, Railways, Irrigation departments)",
+        "Building & Construction Companies (Descon, CSCEC Pakistan)",
+        "Saudi NEOM, Aldar Properties UAE, Emaar UAE — Gulf project roles"
+      ]
+    }
+  },
+  {
+    "field_id": "textile_engineering",
+    "field_name": "Textile Engineering",
+    "associated_degrees": [
+      "neduet_be_textile_eng"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Textile engineering demand in Pakistan is structurally underpinned by the country's position as the world's 8th largest textile exporter ($19.3B in FY2025). However, medium risk reflects automation pressure on spinning and weaving operations, growing EU sustainability compliance requirements (GOTS, OEKO-TEX) that are reshaping required skills, and Chinese competition in the lower-value commodity segment. Engineers who specialise in technical textiles, sustainability compliance, and value-added finishing are well-positioned.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Textile engineering growth is tied to the physical expansion of spinning, weaving, and finishing capacity. New mill investment is required to absorb additional graduates — demand does not grow independently of capital expenditure in the sector.",
+    "pakistan_now": {
+      "job_postings_monthly": 240,
+      "yoy_growth_rate": 0.16,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "All Pakistan Textile Mills Association (APTMA) Workforce Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.03,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.07,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "17-2041",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Chemical Engineers (3% projected growth 2024-34; closest BLS category for textile engineering, which applies chemical and process engineering principles to fibre production, dyeing, and finishing)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.3,
+      "derivation": "Pakistan's textile exports growing at 8-12% annually under EU GSP+ framework; APTMA's 2026 capacity expansion plan and Allama Iqbal Industrial City textile zone investment project steady 4-year domestic hiring growth above the low global baseline for Pakistan's largest export sector."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Pakistan's textile industry is well-established but lags global leaders (Bangladesh, China, Vietnam) in automation and sustainability technology adoption by 4-5 years. EU GSP+ compliance requirements are actively pulling forward adoption of sustainable dyeing, waterless processes, and digital textile printing — creating new engineering roles that did not exist in the sector three years ago."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 240,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Textile Engineer / Production Engineer (Textiles)",
+      "typical_first_role_salary_pkr": "50,000 – 75,000/month",
+      "common_sectors": [
+        "Integrated Textile Mills (Interloop, Gul Ahmed, Nishat Mills, Artistic Milliners)",
+        "Hosiery & Knitwear (Outfitters, Sapphire, Crescent Bahuman)",
+        "Technical Textiles & Non-Wovens (industrial filtration, geotextiles)",
+        "Dyeing & Finishing (APTMA-affiliated finishing plants)",
+        "Garment Export Houses (Masood Textiles, Ibrahim Fibres)"
+      ]
+    }
+  },
+  {
+    "field_id": "food_engineering",
+    "field_name": "Food Engineering",
+    "associated_degrees": [
+      "neduet_be_food_eng"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Food engineering demand in Pakistan is driven by the structural expansion of the organised food processing sector — Pakistan's FMCG market is growing at 8-10% annually, and every percentage point of market formalisation (from home-based to factory production) translates to new food engineering roles. The field has low automation risk at the quality, safety, and process optimisation level — these are judgment-intensive roles that AI and robotics cannot easily displace in the near term.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 130,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.06,
+      "uk_yoy_growth_rate": 0.05,
+      "uae_yoy_growth_rate": 0.1,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "19-1012",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Food Scientists and Technologists (6% projected growth 2024-34, faster than average; driven by food safety regulation, packaged food demand, and functional food innovation)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.38,
+      "derivation": "Pakistan's organised food processing sector expanding at 8-10% annually under FMCG FMCG growth; SPS compliance requirements for food exports to GCC and EU creating structural demand for food safety engineers; current 18% YoY growth projects sustained 4-year expansion well above the US baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Food engineering as a distinct engineering discipline (vs. food science) is 4-5 years behind global adoption of advanced processing technologies — HPP, aseptic processing, and food robotics — in Pakistan. However, basic food safety (HACCP, ISO 22000, FSSC 22000) is actively required by multinational FMCG employers and is creating sustained demand for formally trained food engineers at NED graduate level."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 130,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Food Technologist / Production Engineer (Food)",
+      "typical_first_role_salary_pkr": "50,000 – 75,000/month",
+      "common_sectors": [
+        "FMCG & Dairy (Nestlé Pakistan, Engro Foods, Haleeb Foods, Olper's)",
+        "Baked Goods & Confectionery (Continental Biscuits, EBM, Gourmet Foods)",
+        "Beverage Processing (Coca-Cola Pakistan, PepsiCo Pakistan, National Foods)",
+        "Meat & Poultry Processing (K&N's, Shadman Meat)",
+        "Food Export (Halal-certified processing plants for GCC and EU markets)"
+      ]
+    }
+  },
+  {
+    "field_id": "business_bba",
+    "field_name": "Business Administration / Management",
+    "associated_degrees": [
+      "fast_nuces_bba",
+      "neduet_bs_management_sci",
+      "uok_bba_morning",
+      "uok_bba_evening",
+      "iba_bba"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "BBA and business management is the most generalist and highest-volume degree in Pakistan's private sector economy. Demand is structurally guaranteed by every company's need for management trainees, HR, operations, and business development staff — it cannot be concentrated in a single industry cycle. IBA, FAST, and NED graduates are the most sought-after in the domestic market. Risk is low due to the breadth of applicable sectors, though salary ceilings are lower than technical fields at entry level.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 1400,
+      "yoy_growth_rate": 0.15,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.1,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.1,
+      "bls_soc_code": "13-1111",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Management Analysts (10% projected growth 2024-34, faster than average; closest BLS category for BBA graduates entering management trainee, operations, and consulting roles in both private and public sectors)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.32,
+      "derivation": "Pakistan's organised private sector — banking, FMCG, telecom, and retail — continues to absorb BBA graduates at scale; CPEC-linked SEZ operations, growth of domestic retail chains, and the formalisation of SMEs under SBP's financial inclusion mandate project sustained 4-year cumulative demand well above the low global baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — business administration demand is entirely driven by Pakistan's domestic private sector and is not subject to a global technology lag cycle. IBA Karachi is the anchor institution, with FAST-NUCES and NED Management Science graduates also strongly placed. The field has the highest absolute number of monthly job postings in Karachi's non-engineering market, reflecting the economy-wide demand for management talent."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 1400,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Management Trainee Officer (MTO) / Business Development Executive",
+      "typical_first_role_salary_pkr": "45,000 – 70,000/month",
+      "common_sectors": [
+        "Banking & Financial Services (HBL, UBL, MCB, Meezan — MTO programmes)",
+        "FMCG (Nestlé, Unilever, P&G Pakistan, Engro Foods — commercial functions)",
+        "Telecom (Jazz, Telenor Pakistan, Zong — commercial and operations)",
+        "Consulting & Advisory (A.F. Ferguson, McKinsey Pakistan, KPMG Advisory)",
+        "Retail & E-Commerce (Daraz, Imtiaz, Chase-Up — commercial management)"
+      ]
+    }
+  },
+  {
+    "field_id": "economics",
+    "field_name": "Economics / Economics & Finance",
+    "associated_degrees": [
+      "neduet_bs_economics_finance",
+      "uok_bs_econ_finance_morning",
+      "uok_bs_econ_finance_evening",
+      "iba_bs_economics"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Pure economics degrees in Pakistan produce graduates who primarily enter banking, financial analysis, development sector, and the civil service — a structurally stable but narrow demand base. Medium risk reflects the fact that the total addressable market for economics-specific roles is smaller than for broader business or finance degrees, and that Pakistan's constrained public sector hiring (the traditional destination for economics graduates) does not grow in line with graduate output. IBA economics graduates outperform peers significantly due to network and brand premium.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 165,
+      "yoy_growth_rate": 0.12,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.06,
+      "uk_yoy_growth_rate": 0.05,
+      "uae_yoy_growth_rate": 0.08,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.14,
+      "bls_soc_code": "19-3011",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Economists (14% projected growth 2024-34, much faster than average; driven by demand for economic analysis in finance, government, and technology sectors)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.25,
+      "derivation": "Pakistan's economics graduate demand is steady but narrow — anchored in development sector growth (World Bank, ADB, UNDP Pakistan programmes expanding under climate finance mandates), SBP and SECP regulatory expansion, and the banking sector's research and treasury functions, projecting moderate 4-year cumulative growth from a small base."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — economics demand is domestically driven by Pakistan's civil service, banking, and development sector with no meaningful global lag dynamic. IBA BS Economics is the highest-placed programme; NED and UoK Economics-Finance graduates primarily enter banking and corporate finance analyst roles rather than research economics. The development sector (World Bank, ADB, UNDP, UN-Habitat) provides a consistent and relatively well-compensated secondary demand channel."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 165,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Economics graduates in Pakistan enter four primary pathways: (1) banking and financial services analyst roles (HBL Treasury, NBP Research, JS Bank); (2) development sector positions with international organisations (World Bank Pakistan, ADB PSOD, UNDP, UN-Habitat); (3) economic research and policy with government bodies (SBP Economic Policy Department, SECP, Finance Division); or (4) graduate studies abroad (LSE, UCL, University of Toronto) funded through merit scholarships.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Economic Analyst / Research Associate / Graduate Trainee (Finance)",
+      "typical_first_role_salary_pkr": "50,000 – 75,000/month",
+      "common_sectors": [
+        "Banking & Treasury (HBL, NBP, JS Bank, Meezan — economic research and treasury)",
+        "Development Sector (World Bank Pakistan, ADB, UNDP, IFC)",
+        "Government & Regulatory Bodies (SBP, SECP, Finance Division, BISP)",
+        "Consulting & Advisory (Deloitte Pakistan, A.F. Ferguson, OPM — economic advisory)",
+        "Think Tanks & Policy Research (PIDE, IGC Pakistan, CERP)"
+      ]
+    }
+  },
+  {
+    "field_id": "finance_accounting",
+    "field_name": "Finance & Accounting",
+    "associated_degrees": [
+      "neduet_bs_comp_finance",
+      "iba_bs_accounting_finance"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Finance and accounting is one of Pakistan's most consistently employed professional fields — every company requires financial reporting, audit, and treasury functions. Medium risk reflects two structural headwinds: (1) automation of routine bookkeeping and accounts-payable processing through ERPs and AI-assisted accounting tools is beginning to reduce entry-level demand for rote accounting roles; and (2) ACCA and CA qualifications are increasingly preferred over standalone BS degrees for Big-4 and corporate finance roles, creating a credential premium that pure degree-holders must overcome. The BPO and remote accounting outsourcing channel (UK, UAE, Australian firms) is a meaningful growth pathway for ACCA-qualified Pakistani graduates.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 850,
+      "yoy_growth_rate": 0.14,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "ICAP Pakistan Graduate Employment Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.04,
+      "uk_yoy_growth_rate": 0.03,
+      "uae_yoy_growth_rate": 0.09,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.04,
+      "bls_soc_code": "13-2011",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Accountants and Auditors (4% projected growth 2024-34, about as fast as average; reflects automation pressure on routine accounting tasks offset by sustained demand for audit, financial controls, and advisory functions)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's listed company audit requirements, SBP-mandated financial reporting for regulated entities, and growing BPO/remote bookkeeping outsourcing for UK and UAE clients project moderate 4-year domestic demand above the low global baseline, partially offset by ERP automation reducing entry-level volume positions."
+    },
+    "lag_parameters": {
+      "lag_years": 3.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Finance and accounting automation (AI-assisted bookkeeping, ERP-driven accounts payable, robotic process automation for reconciliation) is 3-4 years behind global adoption in Pakistan's mid-market corporate sector. Big-4 firms (EY, KPMG, Deloitte, PWC Pakistan) and multinational FMCG companies are already implementing ERP-integrated financial reporting, reducing the volume of entry-level processing roles. The outsourcing channel to UK and UAE accounting firms is a genuine and growing demand pathway for ACCA-qualified graduates, distinct from the domestic employer pool captured by Rozee data."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 850,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Finance Officer / Junior Accountant / Audit Trainee",
+      "typical_first_role_salary_pkr": "45,000 – 70,000/month",
+      "common_sectors": [
+        "Audit & Assurance (EY Pakistan, KPMG Pakistan, Deloitte Pakistan, A.F. Ferguson / PwC)",
+        "Banking & Financial Services (HBL, UBL, MCB, Meezan — finance and treasury functions)",
+        "FMCG & Manufacturing (Nestlé, Unilever, ICI — finance business partners)",
+        "Telecom (Jazz, Telenor, Zong — financial planning and analysis)",
+        "BPO / Remote Accounting (UK, UAE, Australian SME bookkeeping and payroll outsourcing)"
+      ]
+    }
+  },
+  {
+    "field_id": "business_analytics",
+    "field_name": "Business Analytics",
+    "associated_degrees": [
+      "fast_nuces_bs_ba",
+      "iba_bs_business_analytics"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Business analytics is the fastest-growing business discipline in Pakistan's corporate sector, driven by the 88% digital payment penetration (SBP FY25) generating data that requires professional analysis, and by multinational FMCG and banking employers mandating data-driven decision frameworks. The degree sits at the intersection of business management and data science — graduates can enter both traditional business analyst roles and data analytics roles, giving them a broader addressable market than pure data science or pure business graduates. Low automation risk at the insights and strategy layer.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 285,
+      "yoy_growth_rate": 0.32,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.22,
+      "uk_yoy_growth_rate": 0.18,
+      "uae_yoy_growth_rate": 0.25,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "WEF Future of Jobs Report 2024",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.23,
+      "bls_soc_code": "15-2031",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Operations Research Analysts (23% projected growth 2024-34, much faster than average; closest BLS category for business analytics graduates performing quantitative decision analysis, supply chain optimisation, and commercial forecasting)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.6,
+      "derivation": "Pakistan's current 32% YoY business analytics growth, combined with near-50% of Pakistani multinationals and large corporates moving to advanced analytics frameworks by 2026, the FAST-NUCES and IBA programme brand premium, and growing remote analytics contracts for UAE and UK commercial clients, projects strong 4-year cumulative growth above the current annual baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Business analytics as a standalone degree (distinct from data science or MBA analytics electives) was only formally established at FAST-NUCES and IBA Karachi in 2022-23, making it one of the newest business disciplines in Pakistan. Demand is already outpacing supply in the FMCG, banking, and telecom sectors, which are the earliest adopters. The 2-year lag reflects the time needed for corporate Pakistan's mid-tier employers — retail, logistics, manufacturing — to formalise analytics functions and create dedicated analyst roles beyond the FMCG and telecom early movers."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 285,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Business Analyst / Commercial Analyst / Junior Data Analyst",
+      "typical_first_role_salary_pkr": "65,000 – 95,000/month",
+      "common_sectors": [
+        "FMCG & Consumer Goods (Nestlé, Unilever, P&G, Reckitt — commercial analytics)",
+        "Banking & Fintech (HBL, Meezan, JS Bank — financial analytics and CRM)",
+        "Telecom (Jazz, Telenor, Zong — customer analytics, revenue management)",
+        "E-Commerce & Retail (Daraz, Foodpanda, Careem — operations analytics)",
+        "Remote / Freelance (UK, UAE commercial analytics and reporting contracts)"
+      ]
+    }
+  },
+  {
+    "field_id": "fintech",
+    "field_name": "Financial Technology (FinTech)",
+    "associated_degrees": [
+      "fast_nuces_bs_ft"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "FinTech is the highest-growth intersection of finance and technology in Pakistan — the SBP's digital banking licensing framework (2022) has triggered a structural expansion of digital payment infrastructure, neobanking, and microfinance technology. Pakistan's 190M+ mobile subscriber base and 88% digital retail payment penetration (SBP FY25) creates a permanently expanding platform for fintech products. FAST-NUCES BS FinTech is the first dedicated fintech undergraduate degree in Pakistan, giving graduates a rare positioning advantage. Low risk: demand is structural and the degree is scarce, making supply-side competition minimal at present.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 310,
+      "yoy_growth_rate": 0.35,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "SBP Digital Financial Services Report 2025",
+        "P@SHA Skills Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.18,
+      "uk_yoy_growth_rate": 0.16,
+      "uae_yoy_growth_rate": 0.28,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "UAE FinTech Report 2025 (Dubai International Financial Centre)"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.09,
+      "bls_soc_code": "13-2051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Financial and Investment Analysts (9% projected growth 2024-34; closest BLS category for fintech graduates performing financial product analysis, digital payment systems design, and regulatory technology work — fintech does not have a dedicated BLS SOC code)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.65,
+      "derivation": "Pakistan's SBP digital banking licence framework (5 neobank licences issued 2024-26), State Bank's National Financial Inclusion Strategy targeting 65% financial inclusion by 2028, and the JazzCash / Easypaisa / NayaPay expansion all point to structural fintech hiring growth well above the current 35% YoY rate over the next 4 years; UAE and Saudi digital payments expansion creates a parallel Gulf demand channel for Pakistani fintech graduates."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "FinTech as a degree discipline is 2 years behind the UK and Singapore in Pakistan, but the industry itself is well-established: JazzCash, Easypaisa, NayaPay, SadaPay, and Finja are all active and hiring. The dedicated BS FinTech at FAST-NUCES (launched 2022) is the first institutional recognition of the field as a standalone undergraduate programme — most current practitioners entered via CS or Finance backgrounds. UAE fintech employers (ADCB, Mashreq Digital, Network International) actively recruit Pakistani fintech talent for digital banking product and compliance roles."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 310,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "FAST-NUCES BS FinTech graduates are the first cohort from a dedicated fintech degree in Pakistan. Current hiring data includes roles titled 'fintech analyst', 'digital banking associate', and 'payment systems engineer' across Pakistan's neobanks, traditional banks' digital transformation units, and microfinance technology providers. The degree's hybrid CS-Finance curriculum makes graduates competitive for both software engineering and financial product roles, effectively doubling the addressable job pool relative to a pure finance or pure CS degree.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "FinTech Associate / Digital Banking Analyst / Payment Systems Engineer",
+      "typical_first_role_salary_pkr": "75,000 – 110,000/month",
+      "common_sectors": [
+        "Neobanks & Digital Wallets (JazzCash, Easypaisa, NayaPay, SadaPay, Finja)",
+        "Traditional Banks — Digital Transformation Units (HBL Digital, MCB Digital, UBL Omni)",
+        "Microfinance Technology (FINCA Pakistan, Akhuwat Digital, Kashf Foundation tech teams)",
+        "InsurTech & RegTech (EFU Digital, Jubilee InsurTech, SBP-regulated sandbox companies)",
+        "Gulf FinTech (ADCB Digital, Mashreq Neo, Network International UAE — product and compliance roles)"
+      ]
+    }
+  },
+  {
+    "field_id": "medicine_mbbs",
+    "field_name": "Medicine & Surgery (MBBS)",
+    "associated_degrees": [
+      "dow_mbbs"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Peak",
+    "risk_factor": "Low",
+    "risk_reasoning": "MBBS is structurally the most demand-secure degree in Pakistan — the doctor-to-population ratio of 1:1,000 is less than half the WHO recommended minimum of 1:400, guaranteeing structural undersupply for decades. Sehat Sahulat Programme expansion, the hospital sector privatisation pipeline, and sustained Gulf migration to Saudi MOH, UAE health authorities, and NHS England (via PLAB) provide three independent demand channels. Automation risk is effectively zero for clinical practice. Low risk is unambiguous and does not require qualification.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 200,
+      "yoy_growth_rate": 0.15,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Medical Commission (PMC) Annual Report 2025",
+        "Sehat Sahulat Programme Hiring Data 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.03,
+      "uk_yoy_growth_rate": 0.03,
+      "uae_yoy_growth_rate": 0.08,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Dubai Health Authority Workforce Report 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "29-1229",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Physicians and Surgeons, All Other (3% projected growth 2024-34; note: BLS Layer 3 weight is 0.0 for LOCAL fields — this figure is included for reference only and has no bearing on FutureValue computation for this field)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.35,
+      "derivation": "Pakistan's hospital sector is expanding under the Sehat Sahulat Programme (15 million families covered, requiring new panel hospitals), CPEC-linked healthcare zone development in Gwadar and Rashakai, and continuous Gulf recruitment from Saudi Vision 2030 healthcare infrastructure — projecting steady 4-year cumulative demand well above the current annual baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — MBBS demand is driven entirely by Pakistan's domestic healthcare infrastructure deficit and Gulf migration. No global technology lag dynamic applies to clinical medicine. Gulf migration is structurally the most important demand channel after domestic public hospitals: Saudi MOH recruits Pakistani doctors at scale for general practice and specialist posts; UAE DHA and HAAD licensing is accessible to PMC-registered graduates; NHS England PLAB pathway is an active route for Dow, Aga Khan, and JPMC graduates."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 200,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "Pakistani MBBS graduates follow one of four primary pathways after house job completion: (1) public sector service — DHQ/THQ hospitals and CMH system via FPSC/provincial PSC competitive exams; (2) private hospital employment in Karachi, Lahore, and Islamabad corporate hospital networks (Aga Khan, South City, Shifa International); (3) Gulf migration — Saudi MOH, HAAD-licensed Abu Dhabi hospitals, or Dubai DHA through PMC-verified credential channels; or (4) postgraduate FCPS/MRCP/FRCS specialisation, which increases lifetime earnings substantially.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "House Officer / Medical Officer",
+      "typical_first_role_salary_pkr": "60,000 – 90,000/month",
+      "common_sectors": [
+        "Public Hospitals (DHQ, THQ, CMH, JPMC, Dow University Hospital)",
+        "Private Hospital Chains (Aga Khan University Hospital, South City, Liaquat National)",
+        "Sehat Sahulat Panel Hospitals (government-contracted private facilities)",
+        "Saudi MOH Hospitals — Gulf recruitment (General Practitioner and MO posts)",
+        "UAE (DHA / HAAD licensed hospitals in Dubai and Abu Dhabi), NHS England via PLAB"
+      ]
+    }
+  },
+  {
+    "field_id": "dentistry_bds",
+    "field_name": "Dentistry (BDS)",
+    "associated_degrees": [
+      "dow_bds"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "BDS demand in Pakistan is underpinned by a severe dentist-to-population ratio deficit — approximately 1 dentist per 6,000 people against a WHO recommended ratio of 1:7,500, meaning Pakistan is still within the growth zone for dental workforce expansion. Private dental clinic proliferation in urban centres (Karachi, Lahore, Islamabad) and Gulf recruitment by Saudi MOH dental departments provide stable and growing demand channels. Cosmetic dentistry and orthodontics are expanding rapidly in Pakistan's upper-middle-income urban population, creating additional specialist demand.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 90,
+      "yoy_growth_rate": 0.14,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Medical Commission (PMC) BDS Registration Data 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.02,
+      "uk_yoy_growth_rate": 0.02,
+      "uae_yoy_growth_rate": 0.07,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.03,
+      "bls_soc_code": "29-1021",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Dentists, General (3% projected growth 2024-34; note: BLS Layer 3 weight is 0.0 for LOCAL fields — included for reference only)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's dental workforce deficit, urban middle-class expansion driving private dental clinic openings, cosmetic and orthodontic demand growth in Karachi and Lahore, and Saudi MOH dental department recruitment projecting moderate but steady 4-year cumulative demand above the current annual baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — BDS demand is driven entirely by Pakistan's domestic dental workforce deficit and Gulf migration. No global technology lag applies. Private dental clinic ownership is the most common long-term career path — most BDS graduates open solo or group practices within 3-5 years of graduation. Gulf recruitment (Saudi MOH dental departments, UAE private clinic chains) is a significant parallel demand channel, particularly for graduates who complete MDS (postgraduate) specialisation in prosthodontics or oral surgery."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 90,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "BDS graduates in Pakistan follow three primary career paths: (1) dental officer posts in public sector (DHQ hospitals, CMH, Armed Forces dental corps via AFNS); (2) associate dentist roles in private clinic chains (Smile Design, Dental Solutions, corporate hospital dental departments) before opening independent practices; or (3) Gulf migration to Saudi MOH dental departments or UAE private dental clinic groups (Aster, Prime Healthcare) after 2+ years of domestic experience.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Dental Officer / Associate Dentist",
+      "typical_first_role_salary_pkr": "50,000 – 75,000/month",
+      "common_sectors": [
+        "Private Dental Clinics (solo and group practices — most common long-term path)",
+        "Public Hospitals (DHQ, CMH, Armed Forces dental corps)",
+        "Corporate Hospital Dental Departments (Aga Khan, South City, Liaquat National)",
+        "Saudi MOH Dental Departments — Gulf recruitment",
+        "UAE Private Dental Groups (Aster Dental, Prime Healthcare, City Hospital dental units)"
+      ]
+    }
+  },
+  {
+    "field_id": "pharmacy",
+    "field_name": "Pharmacy (Pharm-D)",
+    "associated_degrees": [
+      "dow_pharmd"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pharm-D demand in Pakistan is structurally driven by pharmaceutical manufacturing expansion ($4.5B industry, growing at 10% annually), hospital clinical pharmacy adoption mandated by DRAP, and the Gulf recruitment market for Pakistani pharmacists in Saudi and UAE hospital pharmacy departments. Unlike the US and UK where dispensing automation is reducing community pharmacy roles, Pakistan's pharmaceutical workforce deficit means Pharm-D graduates face minimal competitive displacement risk in the near term. Risk is Low because graduates can enter both the clinical (hospital) and industrial (manufacturing, regulatory affairs, quality assurance) tracks, giving the degree wide applicability across sectors.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 245,
+      "yoy_growth_rate": 0.16,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Drug Regulatory Authority of Pakistan (DRAP) Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.01,
+      "uk_yoy_growth_rate": 0.02,
+      "uae_yoy_growth_rate": 0.06,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": -0.03,
+      "bls_soc_code": "29-1051",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Pharmacists (-3% projected decline 2024-34 in the US; driven by automation of retail dispensing and mail-order pharmacy consolidation — this US trend is NOT applicable to Pakistan where dispensing automation is absent and the pharmaceutical manufacturing workforce is growing; BLS Layer 3 weight is 0.0 for LOCAL fields, so this figure does not affect FutureValue)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.32,
+      "derivation": "Pakistan's pharmaceutical manufacturing sector ($4.5B, 10% annual growth) requires Pharm-D graduates for QA, regulatory affairs, and production roles at scale; DRAP's updated GMP compliance mandate (2024) is forcing all manufacturers to hire qualified pharmacists for QC oversight, projecting sustained 4-year cumulative demand well above the irrelevant negative US baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — pharmacy demand is driven by Pakistan's domestic pharmaceutical manufacturing industry, DRAP regulatory compliance requirements, and Gulf healthcare recruitment. The US trend of dispensing automation reducing pharmacist demand is irrelevant to Pakistan's context — the dominant employer segment is pharmaceutical manufacturing (quality assurance, regulatory affairs, production) rather than retail dispensing. Saudi MOH hospital pharmacy departments and UAE hospital chains actively recruit Pakistani Pharm-D graduates, particularly those with additional DRAP regulatory experience."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 245,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Pharmacist / Quality Assurance Officer / Medical Sales Representative",
+      "typical_first_role_salary_pkr": "55,000 – 80,000/month",
+      "common_sectors": [
+        "Pharmaceutical Manufacturing — QA & Regulatory (GlaxoSmithKline Pakistan, AGP, Ferozsons, Highnoon)",
+        "Hospital Clinical Pharmacy (Aga Khan, South City, CMH hospital pharmacy departments)",
+        "Medical Sales & Promotion (multinational pharma field force — Abbott, Pfizer, Sanofi Pakistan)",
+        "DRAP-Regulated Regulatory Affairs (drug registration, import licencing, pharmacovigilance)",
+        "Saudi MOH Hospital Pharmacy Departments and UAE Hospital Chains — Gulf recruitment"
+      ]
+    }
+  },
+  {
+    "field_id": "physical_therapy",
+    "field_name": "Physical Therapy (DPT)",
+    "associated_degrees": [
+      "dow_dpt"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Physical therapy is one of the fastest-growing allied health disciplines globally and Pakistan is catching up from a very low base — the country has fewer than 12,000 registered physiotherapists for a population of 230 million, a structural deficit that will take decades to fill. Post-COVID awareness of rehabilitation medicine, the rise of sports medicine and fitness culture in urban Pakistan, and NICVD/NMC hospital rehabilitation ward expansion are all driving demand. Low automation risk: physical therapy is a hands-on clinical discipline with high human interaction requirements that cannot be automated.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 70,
+      "yoy_growth_rate": 0.22,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Physiotherapy Association (PPA) Workforce Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.09,
+      "uk_yoy_growth_rate": 0.07,
+      "uae_yoy_growth_rate": 0.12,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.15,
+      "bls_soc_code": "29-1123",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Physical Therapists (15% projected growth 2024-34, much faster than average; driven by aging population rehabilitation needs and sports medicine expansion — the global signal is informative even for this LOCAL field)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.45,
+      "derivation": "Pakistan's DPT graduate pool is growing from an extremely low base against a structural workforce deficit of approximately 200,000 physiotherapists; post-COVID rehabilitation demand, the expansion of corporate gym and sports medicine chains in Karachi and Lahore, and Gulf recruitment (Saudi and UAE rehabilitation hospitals) project strong 4-year cumulative growth well above the current 22% YoY rate."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — DPT demand is driven by Pakistan's domestic rehabilitation medicine deficit with no global technology lag dynamic. Physical therapy as a standalone 5-year DPT degree (distinct from a 2-year diploma) was formalised in Pakistan only in 2007, making the profession relatively young institutionally. The Pakistan Physiotherapy Association has WCPT (World Confederation for Physical Therapy) membership, enabling credential recognition for Gulf and UK migration. Saudi rehabilitation hospitals and UAE sports medicine clinics actively recruit Pakistani DPT graduates, making Gulf migration an important secondary demand channel."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 70,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "DPT graduates in Pakistan enter three primary pathways: (1) hospital rehabilitation departments (NICVD, NMC, Aga Khan Rehabilitation Medicine, JPMC) in physiotherapy officer roles; (2) private physiotherapy clinics and sports medicine centres (growing rapidly in Defence, Gulshan, and Clifton, Karachi); or (3) Gulf migration to Saudi rehabilitation hospitals (King Fahad, NGHA network) or UAE sports medicine and orthopaedic centres after 1-2 years of domestic experience. Independent private practice is a viable 3-5 year career milestone given low setup costs.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Physiotherapy Officer / Clinical Physiotherapist",
+      "typical_first_role_salary_pkr": "40,000 – 60,000/month",
+      "common_sectors": [
+        "Public & Teaching Hospitals (NICVD, NMC, JPMC, Dow University Hospital — rehab departments)",
+        "Private Hospitals & Rehab Centres (Aga Khan Rehab, South City, Liaquat National)",
+        "Sports Medicine & Fitness (NIPA Sports Complex, private physiotherapy clinics, gym-affiliated)",
+        "Saudi Rehabilitation Hospitals — Gulf recruitment (King Fahad Medical City, NGHA network)",
+        "UAE Sports Medicine & Orthopaedic Centres (NMC Healthcare, Mediclinic UAE)"
+      ]
+    }
+  },
+  {
+    "field_id": "nursing",
+    "field_name": "Nursing (BS Nursing)",
+    "associated_degrees": [
+      "dow_bs_nursing"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Low",
+    "risk_reasoning": "Nursing is globally and domestically among the most undersupplied healthcare professions — Pakistan has approximately 0.6 nurses per 1,000 population against a WHO minimum of 3 per 1,000, a deficit so severe that it represents a structural multi-decade demand guarantee. Gulf migration to Saudi MOH, UAE hospital groups, and increasingly UK NHS (via Objective Structured Clinical Examination pathway) is the single strongest demand driver for BS Nursing graduates and provides salaries 5-10x the Pakistani domestic rate. Low risk: nursing is irreplaceable by automation at the direct patient care and clinical judgment layer.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 120,
+      "yoy_growth_rate": 0.18,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Nursing Council (PNC) Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.15,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Dubai Health Authority Nursing Workforce Report 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "29-1141",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Registered Nurses (6% projected growth 2024-34, faster than average; driven by aging population care needs and hospital sector expansion — BLS Layer 3 weight is 0.0 for LOCAL fields but the global signal confirms structural undersupply)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.38,
+      "derivation": "Pakistan's nursing workforce deficit of approximately 400,000 nurses against WHO minimums, combined with Saudi Vision 2030 hospital expansion requiring 50,000+ additional nurses, UAE healthcare emiratisation creating nursing vacancies, and NHS England active Pakistan recruitment programmes, projects strong 4-year cumulative demand for BS Nursing graduates through both domestic and Gulf channels."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": true,
+      "societal_barrier": true,
+      "notes": "Classified LOCAL — nursing demand is driven by Pakistan's domestic healthcare workforce deficit and strong Gulf migration, with no global technology lag dynamic. Cultural and societal barriers are flagged TRUE: nursing as a profession faces family-level resistance in Pakistan's conservative social context — the profession is often perceived as low-status despite being well-compensated, particularly after Gulf migration. BS Nursing (4-year degree) is a meaningful upgrade over the older 3-year diploma pathway and is improving social acceptability. ExplanationNode should acknowledge this barrier sensitively when recommending nursing to students from conservative family backgrounds."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 120,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "BS Nursing graduates in Pakistan follow two dominant pathways: (1) domestic hospital employment — staff nurse and charge nurse roles in private hospital chains (Aga Khan, Shifa International, South City) or government hospitals (JPMC, NICVD, CMH network via AFNS) with salary ranges of 35,000-55,000 PKR/month; or (2) Gulf and UK migration — Saudi MOH hospital nursing posts pay SAR 3,500-5,000/month, UAE DHA-licensed hospitals pay AED 4,000-6,000/month, and NHS England active recruitment offers Band 5 RN posts at GBP 28,000-34,000/year via the Objective Structured Clinical Examination (OSCE) pathway. Gulf migration is the primary financial motivation for BS Nursing graduates and should be foregrounded in career guidance.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Staff Nurse / Registered Nurse",
+      "typical_first_role_salary_pkr": "35,000 – 55,000/month",
+      "common_sectors": [
+        "Private Hospital Chains (Aga Khan University Hospital, Shifa International, South City Hospital)",
+        "Government Hospitals (JPMC, NICVD, CMH via Armed Forces Nursing Service)",
+        "Saudi MOH Hospital Network — Gulf migration (highest volume employer for Pakistani nurses)",
+        "UAE DHA / HAAD Licensed Hospitals (NMC Healthcare, Mediclinic, Aster DM Healthcare)",
+        "NHS England via OSCE Pathway — UK migration (Band 5 RN posts, active Pakistan recruitment)"
+      ]
+    }
+  },
+  {
+    "field_id": "physics",
+    "field_name": "Physics",
+    "associated_degrees": [
+      "neduet_bs_physics"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "BS Physics demand in Pakistan is structurally narrow — the primary employers are PAEC (Pakistan Atomic Energy Commission), SUPARCO, and academic institutions, none of which are high-volume hirers. Medium risk reflects this employer concentration: a policy shift in public sector science spending directly impacts the total addressable market for physics graduates. However, physics graduates increasingly cross over into data science, computational modelling, and instrumentation roles, which broadens the effective employment pathway beyond the core physics employer set. NED BS Physics graduates who upskill into scientific computing or RF engineering are competitive in the broader engineering market.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": true,
+    "constraint_note": "Physics employment growth in Pakistan is directly constrained by public sector science investment. PAEC and SUPARCO are the two largest structured employers and their hiring tracks government budget allocation rather than market forces. Private sector demand for physics-specific skills is minimal without additional applied specialisation.",
+    "pakistan_now": {
+      "job_postings_monthly": 65,
+      "yoy_growth_rate": 0.1,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "PAEC Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.06,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.08,
+      "bls_soc_code": "19-2012",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Physicists (8% projected growth 2024-34, faster than average; driven by quantum computing research, semiconductor physics, and national lab investment — note: BLS Layer 3 weight is 0.0 for LOCAL fields; this figure is for reference only)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.2,
+      "derivation": "Pakistan's physics graduate employment is anchored in PAEC and SUPARCO institutional hiring plus university lectureship demand; modest growth is projected from PAEC's nuclear power expansion programme (Karachi Nuclear Power Plant units K-2 and K-3 operational, requiring ongoing instrumentation and reactor physics staffing) and from growing NED cross-placement into instrumentation engineering and RF roles."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — physics employment in Pakistan is driven entirely by public sector science institutions and academia with no meaningful global technology lag dynamic. ExplanationNode should be candid with students that a standalone BS Physics has a narrow domestic job market and that most successful physics graduates either (1) pursue MSc/PhD for academic or PAEC research careers, (2) cross into engineering roles via graduate conversion, or (3) upskill into data science or scientific computing to access the broader private sector market. The degree is best suited for students with a clear research or public sector science career intent."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 65,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "NED BS Physics graduates follow three primary pathways: (1) government science institutions — PAEC (reactor operations, radiation protection, instrumentation) and SUPARCO (satellite systems, remote sensing) via competitive NTS-based entry exams; (2) university and college lectureship, which requires an MSc or MPhil as a minimum — the BS alone is typically insufficient for permanent academic posts; or (3) private sector cross-over into instrumentation, QC metrology, or RF engineering roles, often requiring self-directed upskilling in programming (Python, MATLAB) or electronics.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Scientific Officer Trainee / Physics Lecturer / Instrumentation Engineer",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "PAEC (Pakistan Atomic Energy Commission — nuclear power, research reactors, radiation safety)",
+        "SUPARCO (satellite operations, remote sensing, scientific instruments)",
+        "Higher Education — Lectureship (universities and colleges; MSc/MPhil typically required)",
+        "Metrology & Calibration (PNAC-accredited labs, industrial calibration services)",
+        "Instrumentation & QC (manufacturing plants — cross-over with engineering roles)"
+      ]
+    }
+  },
+  {
+    "field_id": "chemistry_biochemistry",
+    "field_name": "Chemistry / Biochemistry",
+    "associated_degrees": [
+      "neduet_bs_chemistry"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Chemistry and biochemistry graduates in Pakistan have a broader employer base than physics — pharmaceutical manufacturing, FMCG quality assurance, textile dyeing and finishing, and food safety laboratories all require chemists with BSc-level qualifications. Medium risk reflects the degree's sensitivity to automation of routine analytical chemistry tasks (HPLC, spectrophotometry analysis is increasingly software-assisted), and the fact that DRAP's GMP compliance mandate is simultaneously expanding the need for qualified analytical chemists in pharmaceutical manufacturing. The biochemistry component creates a pathway into Pakistan's nascent biotechnology and diagnostic sector.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 165,
+      "yoy_growth_rate": 0.14,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Drug Regulatory Authority of Pakistan (DRAP) GMP Compliance Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.04,
+      "uae_yoy_growth_rate": 0.07,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.05,
+      "bls_soc_code": "19-2031",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Chemists (5% projected growth 2024-34, faster than average; driven by pharmaceutical R&D, environmental chemistry, and materials science demand)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's pharmaceutical manufacturing sector ($4.5B, 10% annual growth) combined with DRAP GMP compliance mandates requiring qualified analytical chemists, FMCG sector food safety lab expansion, and EU GSP+ textile compliance driving demand for dyeing chemistry specialists project moderate 4-year cumulative demand above the global baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Chemistry and biochemistry practice in Pakistan's industrial sector is 4-5 years behind global adoption of green chemistry, bioprocessing, and advanced analytical instrumentation. Pharmaceutical manufacturing is the most structurally important employer — DRAP's Schedule 4 GMP compliance requirements mean every licensed manufacturer must employ qualified chemists for QC laboratory functions. The biochemistry component creates a growing pathway into clinical diagnostics (Chughtai Lab, Essa Lab, IDC are expanding) and food safety testing. Remote pharmaceutical regulatory consulting for international clients is a niche but growing outsourcing channel."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 165,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Quality Control Analyst / Laboratory Chemist / Research Associate",
+      "typical_first_role_salary_pkr": "45,000 – 68,000/month",
+      "common_sectors": [
+        "Pharmaceutical Manufacturing — QC Labs (GlaxoSmithKline Pakistan, AGP, Highnoon, Sanofi)",
+        "FMCG & Food Safety (Nestlé, Unilever, National Foods — product quality and food safety labs)",
+        "Textile Dyeing & Finishing (APTMA mills — dyehouse chemistry and wastewater compliance)",
+        "Clinical Diagnostics & Pathology (Chughtai Lab, Essa Lab, IDC — biochemistry analysts)",
+        "Environmental & Water Testing (NESPAK, PCRWR, provincial EPAs — analytical labs)"
+      ]
+    }
+  },
+  {
+    "field_id": "mathematics",
+    "field_name": "Mathematics",
+    "associated_degrees": [
+      "iba_bs_mathematics"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Low",
+    "risk_reasoning": "Pure mathematics at IBA Karachi produces graduates with the highest concentration of abstract reasoning and quantitative rigour in Pakistan's undergraduate market — a profile that is structurally scarce and increasingly valued by quantitative finance, actuarial science, and machine learning employers. IBA is the sole provider of a BS Mathematics programme with this calibre, making supply extremely limited. Low risk because the degree's mathematical foundation is discipline-agnostic: graduates can compete for actuarial, data science, financial modelling, and academic research roles simultaneously, giving them an unusually wide addressable market for a pure science degree.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 55,
+      "yoy_growth_rate": 0.2,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.15,
+      "uk_yoy_growth_rate": 0.12,
+      "uae_yoy_growth_rate": 0.18,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.29,
+      "bls_soc_code": "15-2021",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Mathematicians (29% projected growth 2024-34, much faster than average; driven by demand for advanced mathematical modelling in finance, AI research, cryptography, and operations research)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.55,
+      "derivation": "IBA BS Mathematics graduates are positioned at the intersection of Pakistan's three fastest-growing quantitative demand channels — actuarial science (IAP-affiliated insurance sector), quantitative finance (capital markets expansion), and data science (36% YoY growth per P@SHA 2025) — projecting strong 4-year cumulative growth from a currently very small base."
+    },
+    "lag_parameters": {
+      "lag_years": 2.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Pure mathematics as a standalone undergraduate career pathway is 2 years behind the UK (where BSc Mathematics is a mainstream degree with well-defined actuarial, finance, and tech career pipelines) in Pakistan's institutional recognition. IBA launched BS Mathematics to address the absence of quantitative undergraduate training outside engineering programmes. Remote quantitative modelling roles — financial risk models, cryptographic protocol analysis, operations research — for UAE and London-based firms are accessible to IBA Mathematics graduates given the programme's international curriculum alignment. Rozee live count significantly undercounts real demand because most employers list roles as 'quantitative analyst' or 'actuary' without specifying the degree — the effective addressable market is larger than the raw posting count suggests."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 55,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "IBA BS Mathematics graduates enter four primary pathways: (1) actuarial trainee programmes at insurance and reinsurance firms (State Life, EFU Life, Jubilee Life) working toward Institute of Actuaries of Pakistan (IAP) / IFoA qualification — the most structured and highest-earning domestic pathway; (2) quantitative analyst and financial modelling roles at investment banks, AMCs, and brokerage firms (JS Investments, Arif Habib, NBP Funds); (3) data science roles with additional Python/ML upskilling (banking, fintech, FMCG analytics); or (4) PhD programmes abroad in mathematics, statistics, financial mathematics, or computer science at Russell Group / Ivy League institutions.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Actuarial Trainee / Quantitative Analyst / Mathematical Modeller",
+      "typical_first_role_salary_pkr": "65,000 – 95,000/month",
+      "common_sectors": [
+        "Insurance & Actuarial (State Life, EFU Life, Jubilee Life, TPL Insurance — actuarial trainees)",
+        "Investment Banking & Asset Management (JS Bank Capital Markets, Arif Habib, KASB — quant roles)",
+        "Fintech & Risk Analytics (NayaPay, Finja, HBL risk modelling teams)",
+        "Academic & Research (IBA, LUMS, NED — research associate and PhD pipeline)",
+        "Remote / Freelance (financial risk modelling, cryptographic protocol, OR consulting for UAE, UK)"
+      ]
+    }
+  },
+  {
+    "field_id": "textile_sciences",
+    "field_name": "Textile Sciences",
+    "associated_degrees": [
+      "neduet_bs_textile_science"
+    ],
+    "lag_category": "MEDIUM",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Textile Sciences is distinct from Textile Engineering — it focuses on fibre chemistry, material science of fabrics, testing standards, and sustainability compliance rather than process engineering and machinery. Demand is anchored in Pakistan's $19.3B textile export industry, where EU GSP+ compliance (OEKO-TEX, GOTS, ZDHC chemical compliance) is creating specific demand for textile scientists who can manage chemical inventories, run accredited testing labs, and certify products for international buyers. Medium risk reflects the field's narrow employer base (primarily APTMA-affiliated mills and export houses) and its sensitivity to global fashion cycles and buyer sustainability mandates.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": true,
+    "constraint_note": "Textile Sciences employment growth is tied to the capacity and compliance modernisation of Pakistan's existing textile mills — new testing labs and sustainability compliance functions are only created when mills invest in export market certification. Demand does not grow independently of the physical textile sector.",
+    "pakistan_now": {
+      "job_postings_monthly": 85,
+      "yoy_growth_rate": 0.13,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "All Pakistan Textile Mills Association (APTMA) Workforce Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.03,
+      "uk_yoy_growth_rate": 0.03,
+      "uae_yoy_growth_rate": 0.06,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "19-2032",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Materials Scientists (6% projected growth 2024-34; closest BLS category for textile sciences graduates performing fibre characterisation, material testing, and chemical compliance work — the material science methodology is directly analogous)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.28,
+      "derivation": "Pakistan's textile exports growing at 8-12% annually under EU GSP+ framework are creating structural demand for OEKO-TEX and ZDHC-certified textile scientists to manage chemical compliance and run accredited testing labs; APTMA's 2026 capacity expansion and the Allama Iqbal Industrial City textile zone investment project moderate 4-year demand growth above the low global baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 4.0,
+      "arrival_confidence": "medium",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Textile Sciences as a distinct science-based discipline (versus textile engineering) is well-established in Pakistan's export industry context but lags global leaders (Bangladesh, Turkey, Vietnam) in adoption of advanced functional textile testing, sustainable chemistry protocols, and digital colour management by approximately 4 years. EU GSP+ compliance requirements — specifically ZDHC MRSL chemical restriction lists and OEKO-TEX Standard 100 certification — are actively pulling forward demand for formally trained textile scientists rather than empirically trained technicians. PCSIR (Pakistan Council for Scientific and Industrial Research) textile testing labs and private accredited labs are growing secondary employers alongside the mills themselves."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 85,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Textile Technologist / Quality Assurance Officer (Textiles) / Lab Analyst",
+      "typical_first_role_salary_pkr": "45,000 – 65,000/month",
+      "common_sectors": [
+        "Integrated Textile Mills — QA & Testing Labs (Interloop, Gul Ahmed, Nishat Mills, Artistic Milliners)",
+        "Dyeing & Finishing Plants — Chemical Compliance (APTMA-affiliated finishing units, ZDHC-certified)",
+        "Garment Export Houses — Sustainability & Certification (Masood Textiles, Sapphire, Crescent Bahuman)",
+        "Textile Testing Laboratories (SGS Pakistan, Bureau Veritas, PCSIR Textile Labs — OEKO-TEX testing)",
+        "Fibre & Chemical Suppliers (Archroma Pakistan, Huntsman Textile Effects — technical sales and support)"
+      ]
+    }
+  },
+  {
+    "field_id": "architecture",
+    "field_name": "Architecture (B.Arch)",
+    "associated_degrees": [
+      "neduet_barch_architecture"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Architecture practice in Pakistan is regulated by PCATP (Pakistan Council of Architects and Town Planners), making it a locally governed profession with physical-presence requirements for site supervision and client engagement. Demand is structurally tied to real estate and infrastructure investment cycles — CPEC-linked construction, the DHA and Bahria Town housing pipeline, and the government's Naya Pakistan Housing Programme provide sustained domestic demand. Medium risk is assigned because the profession is cyclically sensitive: a construction slowdown (interest rate rises, real estate regulatory tightening) directly reduces project volume and junior architect employment. AI-assisted design tools (e.g. generative CAD, BIM automation) are increasing per-architect productivity, moderating headcount growth even as project volumes rise. Gulf migration to UAE and Saudi Arabia for large-scale urban development projects provides a significant secondary demand channel that partially offsets domestic cycle risk.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 90,
+      "yoy_growth_rate": 0.12,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Council of Architects and Town Planners (PCATP) Annual Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.04,
+      "uk_yoy_growth_rate": 0.03,
+      "uae_yoy_growth_rate": 0.09,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Dubai Urban Master Plan 2040 Workforce Projections"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.04,
+      "bls_soc_code": "17-1011",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Architects, Except Landscape and Naval (4% projected growth 2024-34, about as fast as the average; note: BLS Layer 3 weight is 0.0 for LOCAL fields — included for reference only and has no bearing on FutureValue computation)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.25,
+      "derivation": "Pakistan's construction sector expansion through CPEC Phase 2 infrastructure, government Naya Pakistan Housing Programme targeting 5 million housing units, DHA and Bahria Town Karachi Phase 8 development, and sustained Gulf migration to UAE and Saudi urban development projects project moderate but steady 4-year cumulative demand for PCATP-registered architects above the current 12% annual baseline."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": false,
+      "notes": "Classified LOCAL — architecture demand is driven by Pakistan's domestic construction and real estate investment cycle with no global technology lag dynamic. PCATP registration is mandatory for practice in Pakistan, making this a locally regulated profession. Gulf migration is a meaningful secondary demand channel: UAE's Dubai Urban Master Plan 2040 and Abu Dhabi Vision 2030 require large architectural workforces, and Saudi Arabia's NEOM and Vision 2030 megaprojects actively recruit Pakistani architects through UAE-based intermediary firms. Graduate employment splits roughly between architectural firms (project design), construction companies (site coordination), and real estate developers (project management), with Gulf migration as a well-established career progression for senior graduates."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 90,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Architect / Architectural Designer",
+      "typical_first_role_salary_pkr": "45,000 – 70,000/month",
+      "common_sectors": [
+        "Architectural Design Firms (Habib Fida Ali, Arshad Shahid Abdulla, Arshad & Associates)",
+        "Real Estate Developers (DHA Karachi, Bahria Town, Emaar Pakistan — design and project teams)",
+        "Government Construction (NHA, NED Consulting, Public Works Department)",
+        "Construction Companies (FWO, Descon, Habib Construction — site architecture roles)",
+        "UAE and Saudi Arabia — Gulf migration (Dubai, Abu Dhabi master plan projects, NEOM)"
+      ]
+    }
+  },
+  {
+    "field_id": "social_work",
+    "field_name": "Social Work / Development Studies (BS)",
+    "associated_degrees": [
+      "neduet_bs_dev_studies"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Social work and development studies employment in Pakistan is structurally dependent on NGO and INGO project funding cycles, government social sector programme budgets, and donor-driven humanitarian operations. This funding dependency creates volatility: when international donors reduce Pakistan programme budgets (as occurred post-FATF scrutiny), NGO hiring contracts significantly. Medium risk is assigned because the sector cannot be automated (direct community engagement, beneficiary coordination, and psychosocial support require human practitioners), but career stability is project-based rather than permanent, and salary ceilings in the development sector are significantly lower than comparable private sector roles. The expanding Ehsaas Programme and Benazir Income Support Programme have created a parallel government social protection workforce that is more stable but highly competitive via public service exams.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 65,
+      "yoy_growth_rate": 0.1,
+      "sources": [
+        "rozee.pk",
+        "brightspyre.com",
+        "reliefweb.int (Pakistan postings)",
+        "OCHA Pakistan Situation Reports 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.05,
+      "uae_yoy_growth_rate": 0.04,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.06,
+      "bls_soc_code": "21-1029",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Social Workers, All Other (6% projected growth 2024-34, faster than average; note: BLS Layer 3 weight is 0.0 for LOCAL fields — included for reference only, global social worker demand growth does not translate directly to Pakistan's NGO/government social protection context)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.2,
+      "derivation": "Pakistan's Ehsaas and Benazir Income Support Programme expansion requiring social protection field officers, INGO humanitarian operations sustained by climate disaster response (floods, droughts), and Sindh and KPK government social welfare department hiring projecting moderate 4-year cumulative demand for development studies graduates, partially offset by donor funding uncertainty and NGO sector volatility."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": true,
+      "notes": "Classified LOCAL — social work and development sector employment is driven entirely by Pakistan's domestic NGO ecosystem, government social protection programmes, and INGO humanitarian operations. No global technology lag dynamic applies. Societal barrier is flagged TRUE: in Pakistan's family context, social work and development studies are perceived as lower-prestige fields compared to engineering, medicine, or business — often seen as 'charity work' rather than a defined profession. ExplanationNode should acknowledge this perception sensitively and frame the career path around INGO project management and policy roles, which carry higher status and salary than grassroots community work. BrightSpyre.com is a more relevant source than Rozee.pk for this field — most NGO and INGO postings appear there rather than Rozee."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 65,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "BS Development Studies / Social Work graduates in Pakistan enter three primary pathways: (1) NGO and INGO sector — field coordinator, M&E officer, and programme associate roles at organisations such as Aga Khan Foundation, Oxfam, UN-Habitat, UNDP Pakistan, Care International, and Save the Children, typically on project-based contracts of 1-2 years; (2) government social protection — Social Mobilisers and Field Officers for Ehsaas Programme, Benazir Income Support Programme (BISP), and Pakistan Poverty Alleviation Fund (PPAF) via competitive exam and merit-based appointment; or (3) postgraduate study in development studies, public policy, or social sciences at LUMS, IBA, or international institutions (HEC overseas scholarship track), which leads to policy research and international development careers.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Programme Associate / Field Coordinator / M&E Officer",
+      "typical_first_role_salary_pkr": "35,000 – 55,000/month",
+      "common_sectors": [
+        "International NGOs — INGO Pakistan operations (Aga Khan Foundation, Oxfam, Save the Children, Care International)",
+        "UN Agencies (UNDP Pakistan, UN-Habitat, UNICEF, UNHCR — project support and field roles)",
+        "Government Social Protection (Ehsaas Programme, BISP, PPAF — field officer posts)",
+        "Local NGOs and Think Tanks (Strengthening Participatory Organisation, Shirkat Gah, PIDE)",
+        "Corporate Social Responsibility (CSR) Departments — private sector foundations and community investment"
+      ]
+    }
+  },
+  {
+    "field_id": "english_linguistics",
+    "field_name": "English Language & Linguistics (BS)",
+    "associated_degrees": [
+      "neduet_bs_english_ling"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "English linguistics graduates in Pakistan face a bifurcated market: the teaching/lecturing track (the dominant pathway) is structurally stable given Pakistan's expanding higher education enrollment and chronic shortage of qualified English faculty; the content writing, copywriting, and translation track is exposed to growing AI language model competition. Medium risk is assigned because AI tools (GPT-class models) are already displacing routine translation and basic content work globally, compressing entry-level freelance rates — a trend that will affect Pakistani content writers who rely on international platform-based work. However, the teaching pathway is automation-resistant: English medium instruction, IELTS/TOEFL preparation demand, and HEC-mandated English proficiency requirements across all universities guarantee institutional demand for qualified English instructors for the foreseeable future.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 175,
+      "yoy_growth_rate": 0.15,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "HEC Higher Education Statistics 2024-25"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.02,
+      "uk_yoy_growth_rate": 0.02,
+      "uae_yoy_growth_rate": 0.05,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.02,
+      "bls_soc_code": "27-3091",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Interpreters and Translators (2% projected growth 2024-34, slower than average; driven by AI translation tools limiting employment growth — this global constraint applies partially to Pakistani content writing and translation roles but does NOT apply to the dominant teaching pathway; BLS Layer 3 weight is 0.0 for LOCAL fields)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.22,
+      "derivation": "HEC's expanding higher education enrollment requiring English faculty, the EdTech boom in online English language instruction (Noon Academy, Sabaq Foundation, private tutoring platforms), and corporate demand for English-medium communication trainers project moderate 4-year cumulative demand, offset by AI compression of entry-level content writing and freelance translation rates."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": true,
+      "notes": "Classified LOCAL — English linguistics employment is driven by Pakistan's domestic education system requirements, corporate communication demand, and content industry, with no global technology lag dynamic for the primary (teaching) career path. Societal barrier is flagged TRUE: in Pakistani family contexts, arts and humanities degrees including English literature and linguistics are perceived as lower-prestige than STEM fields, often with family pressure toward engineering or medical streams. ExplanationNode should frame the teaching pathway around institutional faculty roles (which carry stable salary and HEC benefits) and note that English proficiency is a transversal asset across sectors — civil service (CSS exam), corporate communication, EdTech, and digital content — rather than presenting it purely as a 'literature degree.' The content writing track retains international earning potential (Upwork, Fiverr, UK/US agency freelance) despite AI compression at the low end."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 175,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "English Lecturer / Content Writer / Communication Trainer",
+      "typical_first_role_salary_pkr": "35,000 – 60,000/month",
+      "common_sectors": [
+        "Higher Education — Lecturer/Assistant Professor (HEC-affiliated universities, BPS-17 faculty scale)",
+        "Private Schools and O/A Level Institutions (English language and literature instruction)",
+        "EdTech Platforms (Noon Academy Pakistan, Sabaq Foundation, online IELTS/TOEFL prep)",
+        "Digital Content and Copywriting (marketing agencies, e-commerce brands, media houses)",
+        "Corporate Communication and Training (IELTS prep centres, soft skills trainers, MNC internal comms)"
+      ]
+    }
+  },
+  {
+    "field_id": "social_sciences",
+    "field_name": "Social Sciences / Liberal Arts (BS)",
+    "associated_degrees": [
+      "iba_bs_ssla"
+    ],
+    "lag_category": "LOCAL",
+    "lifecycle_status": "Stable",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Social sciences (including sociology, political science, anthropology, and interdisciplinary liberal arts programmes like IBA SSLA) produce graduates whose primary employment pathways in Pakistan are academia, civil service, policy research, journalism, and the NGO sector — all locally governed and automation-resistant at the analytical and interpersonal layers. Medium risk is assigned because direct employment options for social science graduates without postgraduate qualifications are limited relative to degree volume: the Pakistani private sector does not have a well-established absorptive demand for social science BS holders comparable to CS or business programmes, and public sector absorptive capacity via CSS and PMS exams is finite and highly competitive. Graduates who complete MPhil or PhD in social sciences or who qualify for civil service have strong long-term trajectories, but the entry-level market is thin relative to graduate supply.",
+    "outsourcing_applicable": false,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 40,
+      "yoy_growth_rate": 0.08,
+      "sources": [
+        "rozee.pk",
+        "brightspyre.com",
+        "Pakistan Institute of Development Economics (PIDE) Labour Market Survey 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.03,
+      "uk_yoy_growth_rate": 0.02,
+      "uae_yoy_growth_rate": 0.03,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.04,
+      "bls_soc_code": "19-3041",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Sociologists (4% projected growth 2024-34, about as fast as the average; used as the closest proxy for a broad social sciences field — the Political Scientists SOC (19-3111) projects a decline of -3%, reflecting the niche academic job market; note: BLS Layer 3 weight is 0.0 for LOCAL fields)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.15,
+      "derivation": "Pakistan's expanding think tank and policy research ecosystem (PIDE, SDPI, Tabadlab, Pak Institute for Peace Studies), government social protection data collection requirements, and NGO M&E demand projecting slow but steady 4-year cumulative growth, primarily for graduates who combine social sciences with quantitative research methods or who qualify for civil service through CSS/PMS routes."
+    },
+    "lag_parameters": {
+      "lag_years": 0.0,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": true,
+      "notes": "Classified LOCAL — social sciences employment is driven entirely by Pakistan's domestic academic, civil service, policy, and development sector demand. No global technology lag dynamic applies. Societal barrier is flagged TRUE: social sciences degrees face significant family-level resistance in Pakistan, where STEM and professional degrees (engineering, medicine, business) are strongly preferred. ExplanationNode should frame IBA SSLA specifically as a multidisciplinary liberal arts programme at a premier institution, which carries substantially higher prestige and career capital than a generic social sciences degree — IBA's brand and alumni network open private sector doors (consulting, financial services, marketing research) that a typical social sciences degree does not. This distinction between programme quality and field stigma should be surfaced clearly in explanations. NOTE: social_sciences is a NEW field_id not in the canonical list as of Point 4 v1.5 — flag to Waqas before committing this entry."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 40,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": "BS Social Sciences / Liberal Arts graduates from IBA Karachi (SSLA programme) follow three primary pathways that diverge significantly from those of graduates from lower-ranked institutions: (1) private sector — management trainee and analyst roles in consulting firms, FMCG companies, media, and financial services, where the IBA brand provides access despite the field's general stigma; (2) civil service — competitive CSS (Central Superior Services) and PMS exams, for which liberal arts and social sciences backgrounds are well-suited given the examination's emphasis on current affairs, essay writing, and social issues; or (3) postgraduate study — MPhil/PhD at LUMS, IBA itself, or international universities (HEC scholarship track for social policy, development economics, or international relations), leading to academic and policy careers.",
+      "data_source_used": "qualitative",
+      "data_status": "partial"
+    },
+    "career_paths": {
+      "entry_level_title": "Research Analyst / Management Trainee / Policy Associate",
+      "typical_first_role_salary_pkr": "40,000 – 65,000/month",
+      "common_sectors": [
+        "Policy Research and Think Tanks (PIDE, SDPI, Tabadlab, Pak Institute for Peace Studies)",
+        "Civil Service — CSS/PMS Route (Federal and Provincial Secretariat, DMG/PAS cadres)",
+        "Media and Journalism (Dawn, Geo, ARY — research, reporting, and content roles)",
+        "NGO and INGO Sector (research, M&E, and programme management roles)",
+        "Private Sector Consulting and FMCG (management trainee programmes — IBA brand-dependent access)"
+      ]
+    }
+  },
+  {
+    "field_id": "digital_media",
+    "field_name": "Digital Media / Animation (BS)",
+    "associated_degrees": [
+      "neduet_bs_animation"
+    ],
+    "lag_category": "FAST",
+    "lifecycle_status": "Emerging",
+    "risk_factor": "Medium",
+    "risk_reasoning": "Digital media and animation in Pakistan is growing from a very low base — the country has a nascent but rapidly expanding ecosystem of animation studios, game development companies, and digital content agencies serving both the domestic market and international clients through remote work platforms. Freelance export earnings from digital media (Upwork, Fiverr, direct studio contracts with UAE and UK agencies) are a documented and growing revenue stream. Medium risk is assigned on the AI dimension: AI-powered video generation tools (Sora, Runway Gen-3, Pika) are improving rapidly and are projected by BLS to limit traditional animator and VFX employment growth in the US — this risk will arrive in Pakistan within the FAST lag category's 2-4 year window. However, the risk is partially offset by Pakistan's extremely low base in the formal animation market, meaning domestic demand growth (advertising, EdTech, gaming, streaming) will outpace displacement effects in the near-term 4-year window. The distinction between AI-assistable (routine 2D animation, stock motion graphics) and AI-resistant (custom brand storytelling, interactive UX design, game development) will determine graduate employment trajectories.",
+    "outsourcing_applicable": true,
+    "infrastructure_constrained": false,
+    "constraint_note": "",
+    "pakistan_now": {
+      "job_postings_monthly": 145,
+      "yoy_growth_rate": 0.28,
+      "sources": [
+        "rozee.pk",
+        "mustakbil.com",
+        "Pakistan Software Export Board (PSEB) IT Export Report 2025"
+      ]
+    },
+    "world_now": {
+      "us_yoy_growth_rate": 0.05,
+      "uk_yoy_growth_rate": 0.06,
+      "uae_yoy_growth_rate": 0.12,
+      "sources": [
+        "LinkedIn Talent Trends 2025",
+        "BLS Current Employment Statistics 2025",
+        "Dubai Creative Economy Strategy 2025"
+      ]
+    },
+    "world_future": {
+      "us_bls_4yr_projected_growth": 0.02,
+      "bls_soc_code": "27-1014",
+      "projection_basis": "BLS Occupational Outlook Handbook 2024-34 — Special Effects Artists and Animators (2% projected growth 2024-34, slower than average; constrained by AI video generation tools improving speed and quality of animation production — this global constraint will arrive in Pakistan within a 2-3 year lag window but is offset in the near term by domestic market growth from a very low base)"
+    },
+    "pakistan_future": {
+      "projected_4yr_growth": 0.55,
+      "derivation": "Pakistan's animation industry is growing from a near-zero formal base: PSEB-registered game development studios (Caramel Tech, Mindstorm Studios), EdTech animation demand (Sabaq Foundation, Khan Academy Urdu), advertising agency digital production, and UAE creative agency outsourcing to Karachi-based studios project strong 4-year cumulative demand well above the US baseline, despite anticipated AI displacement in routine 2D animation within the same window."
+    },
+    "lag_parameters": {
+      "lag_years": 2.5,
+      "arrival_confidence": "high",
+      "cultural_barrier": false,
+      "societal_barrier": true,
+      "notes": "Classified FAST — Pakistan's digital media and animation market is tracking global trends with a 2-3 year lag: gaming, streaming content, EdTech animation, and advertising digital production are all showing strong momentum driven by smartphone penetration (78% in urban Pakistan, 2025) and social media advertising budget growth. Societal barrier is flagged TRUE: animation and digital arts degrees face family-level resistance in Pakistan, where the career pathway is often misunderstood as 'drawing cartoons' rather than a technology-adjacent creative industry with international freelance earning potential. ExplanationNode should explicitly reframe the field as digital technology work — emphasising PSEB freelance registration, Upwork/Fiverr export earnings, UAE studio contracts, and game development — to overcome the social acceptability barrier. The AI displacement risk at the routine animation layer should also be surfaced as a career planning factor, with advice to develop skills in interactive media, game design, and brand motion graphics (AI-resistant segments) over generic 2D animation."
+    },
+    "computed": {
+      "future_value": 0.0,
+      "last_computed": null
+    },
+    "employment_data": {
+      "rozee_live_count": 145,
+      "rozee_last_updated": "2026-04-29",
+      "hec_employment_rate": null,
+      "qualitative_pathway": null,
+      "data_source_used": "rozee_live",
+      "data_status": "sufficient"
+    },
+    "career_paths": {
+      "entry_level_title": "Junior Animator / Motion Designer / Digital Content Creator",
+      "typical_first_role_salary_pkr": "45,000 – 75,000/month",
+      "common_sectors": [
+        "Animation and VFX Studios (Caramel Tech, Mindstorm Studios, Silverline Entertainment, The Nest I/O incubated)",
+        "Advertising and Digital Agencies (JWT Pakistan, Ogilvy, MullenLowe — digital production teams)",
+        "EdTech Content Production (Sabaq Foundation, Noon Academy Pakistan, Taleemabad)",
+        "Freelance International Platforms (Upwork, Fiverr — UAE, UK, US agency outsourcing)",
+        "Game Development (PSEB-registered studios and indie game development for mobile/PC markets)"
+      ]
+    }
+  }
+]

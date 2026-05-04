@@ -1,359 +1,604 @@
 [
   {
     "field_id": "computer_science",
-    "riasec_affinity": {"R": 5, "I": 9, "A": 4, "S": 3, "E": 5, "C": 7},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 9,
+      "A": 4,
+      "S": 3,
+      "E": 5,
+      "C": 7
+    },
     "riasec_description": "Strongly Investigative (algorithmic problem-solving, theoretical foundations) and Conventional (structured coding, systems architecture) profile, with a meaningful Realistic component for hands-on development work and a moderate Enterprising dimension reflecting startup and product-led career paths.",
     "social_acceptability_tier": "high",
     "prestige_note": "BS Computer Science from NED, FAST-NUCES, or IBA ranks among the most socially valued degrees in Pakistan's urban professional class — technology careers are perceived as globally portable, high-earning, and intellectually prestigious, making this one of the least contested degree choices in family and community contexts."
   },
   {
     "field_id": "artificial_intelligence",
-    "riasec_affinity": {"R": 4, "I": 10, "A": 5, "S": 3, "E": 4, "C": 7},
+    "riasec_affinity": {
+      "R": 4,
+      "I": 10,
+      "A": 5,
+      "S": 3,
+      "E": 4,
+      "C": 7
+    },
     "riasec_description": "Maximally Investigative (mathematical modelling, research-driven inquiry, statistical reasoning) and Conventional (structured pipelines, reproducible experimental design) profile, with a notable Artistic component reflecting the creative dimension of model architecture and problem framing unique to AI research roles.",
     "social_acceptability_tier": "high",
     "prestige_note": "Artificial Intelligence degrees command the highest prestige among technology disciplines in Pakistan's current market — the field's high media visibility, global demand narrative, and premium salaries at FAANG-adjacent firms and domestic AI labs make it the most aspirationally valued STEM degree in the 2024–26 cohort context."
   },
   {
     "field_id": "software_engineering",
-    "riasec_affinity": {"R": 5, "I": 8, "A": 5, "S": 3, "E": 5, "C": 7},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 8,
+      "A": 5,
+      "S": 3,
+      "E": 5,
+      "C": 7
+    },
     "riasec_description": "High Investigative (systems design, debugging, architectural reasoning) and Conventional (process adherence, structured development cycles) profile, with a balanced Artistic dimension reflecting UI/UX sensibility and creative product thinking increasingly expected of senior software engineers.",
     "social_acceptability_tier": "high",
     "prestige_note": "Software Engineering is interchangeable with Computer Science in Pakistani family and employer perception — both are regarded as top-tier career paths, with the engineering label providing a minor additional edge in manufacturing and telecom sectors where PEC registration carries institutional weight."
   },
   {
     "field_id": "cybersecurity",
-    "riasec_affinity": {"R": 5, "I": 9, "A": 2, "S": 4, "E": 5, "C": 8},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 9,
+      "A": 2,
+      "S": 4,
+      "E": 5,
+      "C": 8
+    },
     "riasec_description": "High Investigative (problem-solving, threat analysis) and Conventional (systematic, rule-following) profile. Realistic component for hands-on technical work.",
     "social_acceptability_tier": "high",
     "prestige_note": "Well-regarded in Pakistan's tech industry. Growing awareness due to banking and fintech sector demand."
   },
   {
     "field_id": "data_science",
-    "riasec_affinity": {"R": 4, "I": 9, "A": 4, "S": 3, "E": 5, "C": 8},
+    "riasec_affinity": {
+      "R": 4,
+      "I": 9,
+      "A": 4,
+      "S": 3,
+      "E": 5,
+      "C": 8
+    },
     "riasec_description": "High Investigative (statistical modelling, pattern recognition, hypothesis testing) and Conventional (structured data pipelines, reproducible analysis workflows) profile, with a meaningful Enterprising component reflecting the commercial decision-support function that defines most industry data science roles in Pakistan.",
     "social_acceptability_tier": "high",
     "prestige_note": "Data Science has rapidly become one of Pakistan's most sought-after technology disciplines — FMCG multinationals, banks, and telcos have established dedicated data teams and actively recruit from FAST-NUCES and NED programmes, placing the field firmly in the high-prestige tier alongside Computer Science."
   },
   {
     "field_id": "digital_media",
-    "riasec_affinity": {"R": 3, "I": 5, "A": 9, "S": 6, "E": 6, "C": 4},
+    "riasec_affinity": {
+      "R": 3,
+      "I": 5,
+      "A": 9,
+      "S": 6,
+      "E": 6,
+      "C": 4
+    },
     "riasec_description": "Strongly Artistic (visual storytelling, creative content production, aesthetic design) and Social (audience engagement, collaborative creative teams) profile, with a significant Enterprising dimension reflecting the commercial and brand-building context in which digital media skills are applied in Pakistan's advertising and media industry.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Digital Media occupies a middle-prestige tier in Pakistani family perception — it is increasingly accepted in urban households given the visible success of content creators and digital agencies, but is still sometimes viewed as less serious than STEM or business degrees by older generations; employer demand from advertising, e-commerce, and OTT platforms is growing rapidly."
   },
   {
     "field_id": "electrical_engineering",
-    "riasec_affinity": {"R": 8, "I": 7, "A": 3, "S": 2, "E": 4, "C": 6},
+    "riasec_affinity": {
+      "R": 8,
+      "I": 7,
+      "A": 3,
+      "S": 2,
+      "E": 4,
+      "C": 6
+    },
     "riasec_description": "Strongly Realistic (hands-on circuit work, laboratory-based testing, physical system design) and Investigative (analytical problem-solving in power systems, electronics, and control theory) profile — one of the most technically demanding engineering disciplines with minimal social or artistic requirements.",
     "social_acceptability_tier": "high",
     "prestige_note": "Electrical Engineering from NED or a major university is one of the most prestigious undergraduate paths in Pakistan — parents and employers alike regard it as rigorous and career-secure, with strong placement in KESC/K-Electric, OGDCL, PTCL, and manufacturing sectors; PEC registration further reinforces institutional credibility."
   },
   {
     "field_id": "mechanical_engineering",
-    "riasec_affinity": {"R": 9, "I": 7, "A": 3, "S": 2, "E": 4, "C": 5},
+    "riasec_affinity": {
+      "R": 9,
+      "I": 7,
+      "A": 3,
+      "S": 2,
+      "E": 4,
+      "C": 5
+    },
     "riasec_description": "Dominant Realistic (physical systems, machinery, thermodynamic applications) and Investigative (analytical modelling, material stress analysis, fluid dynamics) profile — the archetype of a hands-on engineering discipline with strong quantitative demands and minimal interpersonal orientation.",
     "social_acceptability_tier": "high",
     "prestige_note": "Mechanical Engineering is among the most universally respected degree choices in Pakistan's engineering tradition — its versatility across automotive, HVAC, manufacturing, and oil and gas sectors gives graduates wide employment optionality, and NED's ME programme in particular carries significant employer recognition in Karachi's industrial base."
   },
   {
     "field_id": "civil_engineering",
-    "riasec_affinity": {"R": 8, "I": 6, "A": 4, "S": 3, "E": 5, "C": 6},
+    "riasec_affinity": {
+      "R": 8,
+      "I": 6,
+      "A": 4,
+      "S": 3,
+      "E": 5,
+      "C": 6
+    },
     "riasec_description": "High Realistic (site work, structural assessment, construction materials) and Investigative (structural analysis, geotechnical reasoning) profile, with notable Conventional and Enterprising dimensions reflecting the project management, regulatory, and client-facing aspects of professional civil practice.",
     "social_acceptability_tier": "high",
     "prestige_note": "Civil Engineering is deeply embedded in Pakistan's professional prestige hierarchy — it is associated with nation-building infrastructure and commands strong family approval; NDA and government contract roles are well-known career destinations, and the CPEC infrastructure boom has meaningfully elevated demand and compensation in the sector."
   },
   {
     "field_id": "biomedical_engineering",
-    "riasec_affinity": {"R": 7, "I": 8, "A": 3, "S": 5, "E": 4, "C": 6},
+    "riasec_affinity": {
+      "R": 7,
+      "I": 8,
+      "A": 3,
+      "S": 5,
+      "E": 4,
+      "C": 6
+    },
     "riasec_description": "High Investigative (medical device research, physiological modelling, instrumentation design) and Realistic (laboratory-based hardware work, equipment calibration) profile, with a meaningful Social dimension reflecting the patient-centred application context of healthcare technology.",
     "social_acceptability_tier": "high",
     "prestige_note": "Biomedical Engineering benefits from the dual prestige of both medicine and engineering in Pakistani family perception — it is regarded as a socially responsible and intellectually challenging degree, with growing private hospital networks and diagnostic equipment distributors creating visible local demand alongside Gulf and North American postgraduate pathways."
   },
   {
     "field_id": "electronics_engineering",
-    "riasec_affinity": {"R": 8, "I": 7, "A": 3, "S": 2, "E": 4, "C": 6},
+    "riasec_affinity": {
+      "R": 8,
+      "I": 7,
+      "A": 3,
+      "S": 2,
+      "E": 4,
+      "C": 6
+    },
     "riasec_description": "Strongly Realistic (circuit design, embedded systems, electronic fabrication) and Investigative (signal processing, semiconductor analysis, control systems) profile — virtually identical to Electrical Engineering in RIASEC structure, distinguished primarily by its narrower focus on device-level electronics rather than power systems.",
     "social_acceptability_tier": "high",
     "prestige_note": "Electronics Engineering at NED and similar institutions is well-regarded and often viewed as interchangeable with Electrical Engineering in employer perception — telecom, consumer electronics, and defence electronics sectors provide clear career pathways, and PEC registration ensures the degree is recognised for regulated engineering practice."
   },
   {
-    "field_id": "petroleum_engineering",
-    "riasec_affinity": {"R": 8, "I": 8, "A": 2, "S": 2, "E": 5, "C": 6},
-    "riasec_description": "High Realistic (drilling operations, reservoir sampling, wellhead equipment management) and Investigative (reservoir simulation, petrophysical modelling, production optimisation) profile, with an Enterprising dimension reflecting the high-stakes commercial decision-making and project leadership that defines senior petroleum engineering roles in upstream operations.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Petroleum Engineering commands among the highest starting salaries of any engineering discipline in Pakistan — OGDCL, PPL, Sui Networks, and Gulf employers (Saudi Aramco, ADNOC, Kuwait Oil Company) actively recruit Pakistani graduates; the degree's association with high compensation, Gulf migration pathways, and nationally strategic resource extraction places it firmly in the highest-prestige engineering tier."
-  },
-  {
-    "field_id": "robotics_iot",
-    "riasec_affinity": {"R": 8, "I": 8, "A": 4, "S": 2, "E": 4, "C": 6},
-    "riasec_description": "High Realistic and Investigative — physical systems design, embedded programming, and sensor-actuator integration.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Robotics and IoT is an emerging field in Pakistan with growing industrial and smart city applications but limited public awareness compared to mainstream CS."
-  },
-  {
     "field_id": "medicine_mbbs",
-    "riasec_affinity": {"R": 4, "I": 8, "A": 3, "S": 9, "E": 5, "C": 5},
+    "riasec_affinity": {
+      "R": 4,
+      "I": 8,
+      "A": 3,
+      "S": 9,
+      "E": 5,
+      "C": 5
+    },
     "riasec_description": "Strongly Social (direct patient care, doctor-patient relationship, community health responsibility) and Investigative (clinical diagnosis, evidence-based medicine, scientific reasoning) profile — the defining characteristics of a medical career that demands both intellectual rigour and sustained interpersonal empathy.",
     "social_acceptability_tier": "high",
     "prestige_note": "MBBS is the single most prestigious undergraduate degree in Pakistani society — it carries unmatched family and community status, guarantees stable employment, and opens both domestic private practice and Gulf/Western migration pathways; competition for MDCAT and private medical college seats is intense precisely because of this universally acknowledged prestige."
   },
   {
     "field_id": "dentistry_bds",
-    "riasec_affinity": {"R": 5, "I": 7, "A": 4, "S": 8, "E": 4, "C": 5},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 7,
+      "A": 4,
+      "S": 8,
+      "E": 4,
+      "C": 5
+    },
     "riasec_description": "High Social (therapeutic patient interaction, chair-side communication, treatment compliance) and Investigative (clinical diagnosis, oral pathology, treatment planning) profile, with a meaningful Realistic component for the precise manual dexterity demanded by dental procedures.",
     "social_acceptability_tier": "high",
     "prestige_note": "BDS is regarded as a strong and secure degree in Pakistani family perception — slightly below MBBS in status but firmly in the top professional tier; private practice ownership is a well-established career model, and PMDC registration ensures a regulated professional identity that families value highly."
   },
   {
     "field_id": "pharmacy",
-    "riasec_affinity": {"R": 4, "I": 7, "A": 3, "S": 7, "E": 4, "C": 7},
+    "riasec_affinity": {
+      "R": 4,
+      "I": 7,
+      "A": 3,
+      "S": 7,
+      "E": 4,
+      "C": 7
+    },
     "riasec_description": "Balanced Investigative (pharmaceutical sciences, drug mechanism research, clinical pharmacology) and Social (patient counselling, healthcare team collaboration) profile, with a strong Conventional dimension reflecting the regulatory, protocol-driven, and documentation-intensive nature of pharmacy practice.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Pharm-D is generally well-regarded in Pakistani family contexts as a respected health sciences degree — it sits clearly above general sciences in prestige while being perceived as more attainable than MBBS; hospital clinical pharmacy roles are emerging alongside the traditional community dispensing model, gradually improving the degree's professional identity."
   },
   {
     "field_id": "mathematics",
-    "riasec_affinity": {"R": 3, "I": 10, "A": 5, "S": 3, "E": 3, "C": 8},
+    "riasec_affinity": {
+      "R": 3,
+      "I": 10,
+      "A": 5,
+      "S": 3,
+      "E": 3,
+      "C": 8
+    },
     "riasec_description": "Maximally Investigative (abstract reasoning, proof construction, pure mathematical inquiry) and Conventional (formal logic, structured derivation, systematic methodology) profile — among the most intensely intellectual of all undergraduate disciplines, with an Artistic component reflecting the creative dimension of mathematical problem-finding.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "BS Mathematics is respected intellectually but faces family-level questions about immediate employment prospects in Pakistan — the degree is most valued when paired with actuarial pathways, quantitative finance, or postgraduate study; IBA and NED mathematics graduates who pursue actuarial certification command strong market prestige."
   },
   {
     "field_id": "physics",
-    "riasec_affinity": {"R": 5, "I": 10, "A": 4, "S": 3, "E": 3, "C": 7},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 10,
+      "A": 4,
+      "S": 3,
+      "E": 3,
+      "C": 7
+    },
     "riasec_description": "Maximally Investigative (theoretical and experimental physics, scientific inquiry, mathematical modelling) and Conventional (rigorous experimental method, systematic data analysis) profile — the quintessential research-oriented science degree with a Realistic component from laboratory and instrumentation work.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "BS Physics carries strong intellectual prestige in Pakistan's academic community but moderate family-level status due to narrow immediate employment pathways — graduates who proceed to postgraduate study abroad or enter nuclear/defence research institutions are well-regarded, but the degree without further specialisation is perceived as a limited credential in Pakistan's private sector."
   },
   {
     "field_id": "chemistry_biochemistry",
-    "riasec_affinity": {"R": 5, "I": 9, "A": 3, "S": 4, "E": 3, "C": 7},
+    "riasec_affinity": {
+      "R": 5,
+      "I": 9,
+      "A": 3,
+      "S": 4,
+      "E": 3,
+      "C": 7
+    },
     "riasec_description": "High Investigative (molecular analysis, reaction mechanism reasoning, laboratory-based research) and Conventional (precise experimental protocols, systematic compound characterisation) profile, with a Realistic component reflecting extensive hands-on laboratory technique central to chemistry and biochemistry practice.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Chemistry and Biochemistry degrees occupy a middle-prestige tier in Pakistan — valued in pharmaceutical manufacturing, food science, and textile industries but not commanding the same family approval as engineering or medicine; the biochemistry pathway into medical research or postgraduate study is the most prestige-positive career route for these graduates."
   },
   {
     "field_id": "architecture",
-    "riasec_affinity": {"R": 7, "I": 6, "A": 9, "S": 4, "E": 5, "C": 6},
+    "riasec_affinity": {
+      "R": 7,
+      "I": 6,
+      "A": 9,
+      "S": 4,
+      "E": 5,
+      "C": 6
+    },
     "riasec_description": "Strongly Artistic (spatial design, aesthetic composition, creative vision) and Realistic (physical construction knowledge, materials understanding, technical drawing) profile — architecture is distinctive in demanding both high creative expression and rigorous technical precision, with an Enterprising dimension for client management and practice leadership.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Architecture is viewed positively in Pakistani professional circles — the 5-year professional degree from institutions like NED or Indus Valley is well-regarded, PCATP registration confers regulatory standing, and the profession's visibility in real estate and construction has elevated its social status; however, it occupies a moderate rather than high prestige tier relative to engineering and medicine in traditional family expectations."
   },
   {
-    "field_id": "fine_arts",
-    "riasec_affinity": {"R": 2, "I": 4, "A": 10, "S": 6, "E": 5, "C": 3},
-    "riasec_description": "Strongly Artistic — visual expression, creative production, and aesthetic craft.",
-    "social_acceptability_tier": "lower",
-    "prestige_note": "Fine arts faces strong family resistance in Pakistan's professional culture though design and media agency careers provide viable income pathways."
-  },
-  {
-    "field_id": "psychology",
-    "riasec_affinity": {"R": 2, "I": 7, "A": 6, "S": 9, "E": 5, "C": 4},
-    "riasec_description": "High Social and Investigative — human behaviour research, clinical counselling, and interpersonal support.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Psychology is gaining acceptance in Pakistan's urban educated class driven by mental health awareness; clinical and counselling roles are growing in private hospital networks."
-  },
-  {
     "field_id": "social_work",
-    "riasec_affinity": {"R": 1, "I": 4, "A": 5, "S": 10, "E": 5, "C": 4},
+    "riasec_affinity": {
+      "R": 1,
+      "I": 4,
+      "A": 5,
+      "S": 10,
+      "E": 5,
+      "C": 4
+    },
     "riasec_description": "Maximally Social (direct community service, welfare advocacy, interpersonal support) and Enterprising (NGO leadership, advocacy campaigns, programme management) profile — social work sits at the extreme interpersonal end of the RIASEC spectrum, demanding sustained empathy and community orientation above all other traits.",
     "social_acceptability_tier": "lower",
     "prestige_note": "Social Work faces low family prestige in Pakistan's degree hierarchy — it is associated with NGO sector salaries that are perceived as modest relative to the degree duration, and the field lacks the regulatory credential framework that elevates medicine or engineering; development-sector organisations, UN agencies, and international NGOs provide the most visible and respected career pathways for graduates."
   },
   {
-    "field_id": "education_bed",
-    "riasec_affinity": {"R": 2, "I": 5, "A": 6, "S": 9, "E": 5, "C": 5},
-    "riasec_description": "Strongly Social — teaching, curriculum design, and student development.",
-    "social_acceptability_tier": "lower",
-    "prestige_note": "B.Ed is associated with government school teaching in Pakistani family perception — stable but modest income; private school and tutoring careers provide supplementary pathways."
-  },
-  {
     "field_id": "business_bba",
-    "riasec_affinity": {"R": 2, "I": 4, "A": 4, "S": 6, "E": 9, "C": 7},
+    "riasec_affinity": {
+      "R": 2,
+      "I": 4,
+      "A": 4,
+      "S": 6,
+      "E": 9,
+      "C": 7
+    },
     "riasec_description": "Dominant Enterprising (leadership orientation, commercial ambition, persuasion and negotiation) and Conventional (accounting frameworks, business process systems, organisational structure) profile — BBA is the archetype of an outward-facing, commercially competitive degree with a Social dimension from teamwork and client interaction.",
     "social_acceptability_tier": "high",
     "prestige_note": "BBA from IBA, LUMS (Lahore), or a top private institution is among the most family-approved non-technical degrees in Pakistan — the business route into corporate employment, banking, and entrepreneurship is well understood, and IBA Karachi in particular carries a brand premium that makes its BBA graduates competitive with engineering peers in hiring at multinationals."
   },
   {
     "field_id": "economics",
-    "riasec_affinity": {"R": 3, "I": 8, "A": 4, "S": 5, "E": 7, "C": 7},
+    "riasec_affinity": {
+      "R": 3,
+      "I": 8,
+      "A": 4,
+      "S": 5,
+      "E": 7,
+      "C": 7
+    },
     "riasec_description": "High Investigative (quantitative economic reasoning, econometric analysis, theoretical modelling) and Enterprising (policy influence, consulting, financial strategy) profile, with a strong Conventional dimension reflecting the systematic data-analysis and reporting demands of applied economics and policy research roles.",
     "social_acceptability_tier": "high",
     "prestige_note": "Economics is perceived as a high-prestige degree in Pakistan's professional class, particularly from IBA Karachi — the combination of quantitative rigour and policy relevance makes graduates competitive for roles at the State Bank of Pakistan, IMF, World Bank, and leading consultancies; the degree's perceived difficulty and selectivity contribute positively to its social standing."
   },
   {
     "field_id": "finance_accounting",
-    "riasec_affinity": {"R": 2, "I": 5, "A": 2, "S": 4, "E": 7, "C": 9},
+    "riasec_affinity": {
+      "R": 2,
+      "I": 5,
+      "A": 2,
+      "S": 4,
+      "E": 7,
+      "C": 9
+    },
     "riasec_description": "Dominant Conventional (numerical precision, regulatory compliance, structured financial reporting) and Enterprising (financial advisory, investment decision-making, business leadership) profile — finance and accounting represents the most systematically structured of all business disciplines, demanding meticulous accuracy within established frameworks.",
     "social_acceptability_tier": "high",
     "prestige_note": "Finance and Accounting degrees, especially when pursued alongside ACCA or CA certification, are among the most practically respected credentials in Pakistan's business community — the ICAP-affiliated CA pathway in particular is regarded as academically rigorous and professionally prestigious, rivalling engineering in family approval within commercial and banking households."
   },
   {
-    "field_id": "law_llb",
-    "riasec_affinity": {"R": 2, "I": 6, "A": 5, "S": 7, "E": 8, "C": 6},
-    "riasec_description": "High Enterprising and Social — advocacy, legal reasoning, and client representation.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Law from a recognised institution is respected in Pakistan — corporate law, civil service, and judicial careers are well-regarded paths though bar admission and practice-building take time."
-  },
-  {
-    "field_id": "mass_communication",
-    "riasec_affinity": {"R": 3, "I": 4, "A": 9, "S": 7, "E": 7, "C": 3},
-    "riasec_description": "Strongly Artistic and Social — journalism, media production, and audience communication.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Mass communication degrees are accepted in urban Pakistan especially for media, PR, and digital content careers — less favoured by engineering-oriented families but growing employer demand from agencies."
-  },
-  {
     "field_id": "chemical_engineering",
-    "riasec_affinity": {"R": 8, "I": 8, "A": 2, "S": 3, "E": 4, "C": 7},
+    "riasec_affinity": {
+      "R": 8,
+      "I": 8,
+      "A": 2,
+      "S": 3,
+      "E": 4,
+      "C": 7
+    },
     "riasec_description": "High Realistic (process plant operations, laboratory-scale experimentation, physical system monitoring) and Investigative (thermodynamic modelling, reaction kinetics, materials characterisation) profile, with a strong Conventional dimension reflecting the safety-critical, process-regulated, and documentation-heavy environment of chemical and petrochemical engineering practice.",
     "social_acceptability_tier": "high",
     "prestige_note": "Chemical Engineering is regarded as a prestigious and technically demanding engineering discipline in Pakistan — NED's ChE programme feeds directly into ENGRO, ICI Pakistan, Lotte Chemical, and Sui gas companies, with strong employer recognition and PEC registration; petrochemical and polymer industry demand provides above-average starting salaries relative to most engineering disciplines."
   },
   {
     "field_id": "telecommunications_engineering",
-    "riasec_affinity": {"R": 7, "I": 8, "A": 3, "S": 3, "E": 4, "C": 7},
+    "riasec_affinity": {
+      "R": 7,
+      "I": 8,
+      "A": 3,
+      "S": 3,
+      "E": 4,
+      "C": 7
+    },
     "riasec_description": "High Investigative (signal processing, network protocol design, wireless systems analysis) and Realistic (antenna systems, RF hardware, network infrastructure) profile, with a strong Conventional dimension reflecting the standards-driven, protocol-governed, and systematic testing requirements of telecommunications engineering practice.",
     "social_acceptability_tier": "high",
     "prestige_note": "Telecommunications Engineering at NED and similar institutions benefits from direct employer pipelines into Jazz, Zong, Ericsson Pakistan, Huawei, and PTCL — Pakistan's expanding 4G/5G rollout has maintained strong demand, and PEC registration places graduates firmly in the regulated engineering professional class alongside electrical and computer engineers."
   },
   {
     "field_id": "industrial_manufacturing_engineering",
-    "riasec_affinity": {"R": 9, "I": 6, "A": 2, "S": 3, "E": 5, "C": 7},
+    "riasec_affinity": {
+      "R": 9,
+      "I": 6,
+      "A": 2,
+      "S": 3,
+      "E": 5,
+      "C": 7
+    },
     "riasec_description": "Dominant Realistic (factory floor operations, machine setup, physical production systems) and Conventional (quality management systems, production scheduling, ISO-standard process control) profile, with a meaningful Enterprising dimension reflecting the supervisory and operations management roles that industrial engineers typically occupy after several years of experience.",
     "social_acceptability_tier": "high",
     "prestige_note": "Industrial and Manufacturing Engineering is well-regarded in Pakistan's large manufacturing sector — textile mills, automotive assemblers, FMCG factories, and pharmaceutical manufacturers actively recruit from NED's industrial engineering programme; the degree's practical orientation and immediate employment absorption rate provide strong family-approval credentials despite lower academic prestige than electrical or mechanical engineering."
   },
   {
-    "field_id": "automotive_engineering",
-    "riasec_affinity": {"R": 9, "I": 7, "A": 3, "S": 2, "E": 4, "C": 6},
-    "riasec_description": "Dominant Realistic (vehicle systems, powertrain mechanics, chassis fabrication) and Investigative (NVH analysis, thermal management modelling, structural simulation) profile — automotive engineering is among the most physically grounded engineering disciplines, demanding precise hands-on workshop skills alongside rigorous computational analysis.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Automotive Engineering is a niche but well-regarded discipline in Pakistan's industrial context — Atlas Honda, Pak Suzuki, Master Motor, and components suppliers provide direct recruitment pipelines; PEC registration and the degree's association with a high-visibility consumer industry give it strong family-approval credentials, particularly in Punjab's automotive manufacturing belt."
-  },
-  {
-    "field_id": "metallurgical_engineering",
-    "riasec_affinity": {"R": 8, "I": 8, "A": 2, "S": 2, "E": 3, "C": 7},
-    "riasec_description": "High Realistic (furnace operations, metal forming, physical smelting and casting processes) and Investigative (thermodynamic phase analysis, corrosion chemistry, alloy characterisation) profile — metallurgical engineering sits at the most physically intensive intersection of chemistry and engineering, demanding both laboratory rigour and heavy industrial familiarity.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Metallurgical Engineering is a technically respected but relatively niche discipline in Pakistan — Pakistan Steel (historically), Aisha Steel, and international mining companies operating in Balochistan provide primary employment pathways; the degree's association with foundational industrial infrastructure gives it solid institutional credibility within the engineering professional class."
-  },
-  {
-    "field_id": "materials_engineering",
-    "riasec_affinity": {"R": 7, "I": 8, "A": 3, "S": 2, "E": 3, "C": 7},
-    "riasec_description": "High Investigative (material microstructure analysis, mechanical property testing, failure mode research) and Realistic (laboratory characterisation, physical sample preparation, industrial material testing) profile, with a strong Conventional dimension reflecting the standards-driven, specification-controlled environment of materials selection and quality assurance.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Materials Engineering is a specialised discipline valued in Pakistan's steel, ceramics, and polymer industries — Pakistan Steel Mills, Aisha Steel, and composite materials manufacturers recruit from NED's programme; the degree's breadth across metals, polymers, and composites provides employment versatility across multiple industrial sectors."
-  },
-  {
-    "field_id": "polymer_petrochemical_engineering",
-    "riasec_affinity": {"R": 7, "I": 8, "A": 2, "S": 2, "E": 4, "C": 7},
-    "riasec_description": "High Investigative (polymer synthesis, petrochemical process design, molecular property characterisation) and Realistic (reactor operations, extrusion and moulding machinery, pilot plant work) profile, with a strong Conventional dimension reflecting the strict process standards, safety protocols, and regulatory compliance requirements of petrochemical plant environments.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Polymer and Petrochemical Engineering is directly aligned with Pakistan's chemical and plastic manufacturing industries — LOTTE Chemical Pakistan, ICI, and downstream plastic processors employ graduates in technical and process roles; the degree's linkage to energy sector feedstocks also creates pathways into OGDCL and refinery operations, supporting solid family-approval credentials."
-  },
-  {
-    "field_id": "urban_infrastructure_engineering",
-    "riasec_affinity": {"R": 7, "I": 6, "A": 5, "S": 4, "E": 5, "C": 6},
-    "riasec_description": "Realistic (physical infrastructure systems, utilities network operations, site assessment) and Investigative (urban planning analysis, infrastructure load modelling, environmental impact assessment) profile, with notable Artistic and Enterprising dimensions reflecting the spatial design thinking and stakeholder management demands of urban development projects.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Urban Infrastructure Engineering is an emerging and strategically important discipline in Pakistan's rapidly urbanising cities — Karachi Development Authority, KWSB, KMC, and private real estate developers provide growing employer demand; the CPEC and Smart Cities agenda has elevated the field's profile, and its association with large-scale public infrastructure confers strong institutional prestige."
-  },
-  {
-    "field_id": "construction_engineering",
-    "riasec_affinity": {"R": 9, "I": 6, "A": 3, "S": 3, "E": 5, "C": 6},
-    "riasec_description": "Dominant Realistic (on-site construction management, materials testing, physical infrastructure delivery) and Conventional (contract administration, quantity surveying, building codes compliance) profile, with an Enterprising dimension reflecting the project leadership and sub-contractor coordination that defines senior construction engineering practice.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Construction Engineering occupies a strong prestige position in Karachi's real estate and infrastructure economy — CPEC-linked projects, private real estate developers, and government agencies provide substantial employer demand; PEC registration and on-site engineering experience translate into above-average compensation relative to office-based engineering disciplines."
-  },
-  {
     "field_id": "textile_engineering",
-    "riasec_affinity": {"R": 8, "I": 6, "A": 4, "S": 3, "E": 4, "C": 6},
+    "riasec_affinity": {
+      "R": 8,
+      "I": 6,
+      "A": 4,
+      "S": 3,
+      "E": 4,
+      "C": 6
+    },
     "riasec_description": "High Realistic (fibre processing, weaving machinery, dyeing and finishing plant operations) and Investigative (textile material testing, fibre science, quality characterisation) profile, with an Artistic dimension reflecting the colour, pattern, and design considerations embedded in technical textile product development.",
     "social_acceptability_tier": "high",
     "prestige_note": "Textile Engineering commands strong employer demand and respectable family prestige in Karachi, which hosts Pakistan's largest textile export sector — NED's textile engineering graduates are absorbed by major spinning mills, garment exporters, and APTMA-member companies; the degree's direct linkage to a dominant export industry makes it a pragmatic and income-secure choice in the city's industrial context."
   },
   {
-    "field_id": "food_engineering",
-    "riasec_affinity": {"R": 7, "I": 7, "A": 3, "S": 4, "E": 4, "C": 7},
-    "riasec_description": "High Realistic (food processing plant operations, packaging machinery, quality control lab work) and Investigative (food chemistry, microbial safety analysis, process optimisation research) profile, with a strong Conventional dimension reflecting the HACCP-standard, regulatory-compliance-driven environment of food manufacturing and export certification.",
-    "social_acceptability_tier": "high",
-    "prestige_note": "Food Engineering is directly relevant to Pakistan's large agro-processing and food export sector — Nestle, Engro Foods, Friesland Campina, and major halal export processors actively recruit graduates; NED's food engineering programme has strong industry linkages, and the degree's association with food safety and public health lends it credible social standing."
-  },
-  {
-    "field_id": "textile_sciences",
-    "riasec_affinity": {"R": 6, "I": 7, "A": 5, "S": 4, "E": 4, "C": 6},
-    "riasec_description": "Balanced Realistic (fibre testing, yarn and fabric quality assessment, dyeing laboratory work), Investigative (textile material science, colour chemistry, functional fabric development), and Artistic (design-adjacent aesthetic evaluation, colour matching, surface texture assessment) profile — textile sciences bridges hard material science with design-sensitive quality judgement.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Textile Sciences is an applied science degree with strong sector relevance in Karachi's export textile industry — spinning mills, fabric exporters, and quality certification labs employ graduates in technical roles; the degree is respected within the industry but occupies a moderate general prestige tier, with the engineering version (textile engineering) typically preferred in family perception for its PEC registration credential."
-  },
-  {
     "field_id": "english_linguistics",
-    "riasec_affinity": {"R": 1, "I": 7, "A": 8, "S": 7, "E": 5, "C": 4},
+    "riasec_affinity": {
+      "R": 1,
+      "I": 7,
+      "A": 8,
+      "S": 7,
+      "E": 5,
+      "C": 4
+    },
     "riasec_description": "High Artistic (literary interpretation, creative and analytical writing, linguistic aesthetics) and Social (language teaching, intercultural communication, editorial collaboration) profile, with a strong Investigative component reflecting the theoretical linguistics, discourse analysis, and research methodology demands of an honours-level English programme.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "English and Linguistics degrees at University of Karachi occupy a moderate prestige position — the degree is valued for corporate communication, teaching, content creation, and IELTS/TOEFL instruction careers, and UoK's English department has a long institutional track record; however, family perception favours it primarily as a path to teaching or civil service rather than a high-earning corporate credential."
   },
   {
     "field_id": "fintech",
-    "riasec_affinity": {"R": 4, "I": 8, "A": 2, "S": 3, "E": 7, "C": 8},
+    "riasec_affinity": {
+      "R": 4,
+      "I": 8,
+      "A": 2,
+      "S": 3,
+      "E": 7,
+      "C": 8
+    },
     "riasec_description": "High Investigative (analytical problem-solving, financial modelling) and Conventional (regulatory compliance, structured systems) profile, with a strong Enterprising component reflecting the business-product and commercial orientation of financial technology roles.",
     "social_acceptability_tier": "high",
     "prestige_note": "FinTech is among the most sought-after emerging disciplines in Pakistan's corporate sector — the combination of finance credentials and technology skills commands premium salaries at neobanks and digital payment firms, and the FAST-NUCES brand amplifies graduate prestige further."
   },
   {
     "field_id": "business_analytics",
-    "riasec_affinity": {"R": 3, "I": 8, "A": 3, "S": 4, "E": 7, "C": 8},
+    "riasec_affinity": {
+      "R": 3,
+      "I": 8,
+      "A": 3,
+      "S": 4,
+      "E": 7,
+      "C": 8
+    },
     "riasec_description": "High Investigative (quantitative analysis, data interpretation) and Conventional (structured reporting, systematic frameworks) profile, with a significant Enterprising dimension reflecting the commercial decision-support nature of analytics work in FMCG, banking, and telecom.",
     "social_acceptability_tier": "high",
     "prestige_note": "Business analytics is rapidly gaining prestige in Pakistan's corporate market — multinationals and banks actively recruit from FAST-NUCES and IBA analytics programmes, and the data-driven decision-making mandate across sectors has elevated the role's visibility and starting salaries."
   },
   {
     "field_id": "social_sciences",
-    "riasec_affinity": {"R": 1, "I": 7, "A": 6, "S": 8, "E": 5, "C": 4},
+    "riasec_affinity": {
+      "R": 1,
+      "I": 7,
+      "A": 6,
+      "S": 8,
+      "E": 5,
+      "C": 4
+    },
     "riasec_description": "High Social (people-centred inquiry, community and policy focus) and Investigative (research methodology, critical analysis) profile, with a meaningful Artistic dimension reflecting the interpretive, essay-based, and qualitative reasoning demands of social science disciplines.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Social sciences degrees face family-level resistance in Pakistan's STEM-oriented culture, but IBA's SSLA programme is a significant exception — the IBA brand and alumni network open private-sector and civil service doors that a generic social sciences degree would not, meaningfully elevating this specific programme's perceived prestige."
   },
   {
     "field_id": "economics_mathematics",
-    "riasec_affinity": {"R": 2, "I": 10, "A": 3, "S": 3, "E": 6, "C": 9},
+    "riasec_affinity": {
+      "R": 2,
+      "I": 10,
+      "A": 3,
+      "S": 3,
+      "E": 6,
+      "C": 9
+    },
     "riasec_description": "Strongly dominant Investigative (abstract reasoning, quantitative modelling, mathematical proof) and Conventional (systematic analytical frameworks, structured computation) profile — one of the most intensely intellectual degree combinations available, with an Enterprising component reflecting the actuarial and quantitative finance career destinations.",
     "social_acceptability_tier": "high",
     "prestige_note": "Economics & Mathematics at IBA Karachi is perceived as a highly selective and rigorous programme — the combination of IBA's institutional prestige with a scarcity of graduates creates strong employer pull from actuarial firms, investment banks, and policy research institutions, placing it among the higher-prestige business-adjacent degrees in Pakistan."
   },
   {
     "field_id": "economics_data_science",
-    "riasec_affinity": {"R": 3, "I": 9, "A": 3, "S": 3, "E": 7, "C": 8},
+    "riasec_affinity": {
+      "R": 3,
+      "I": 9,
+      "A": 3,
+      "S": 3,
+      "E": 7,
+      "C": 8
+    },
     "riasec_description": "High Investigative (econometric reasoning, machine learning, causal inference) and Conventional (systematic data pipelines, structured analytical frameworks) profile, with a strong Enterprising component reflecting the commercial analytics and product decision-support roles that define this degree's primary career destinations.",
     "social_acceptability_tier": "high",
     "prestige_note": "Economics & Data Science at IBA is positioned at the intersection of two of Pakistan's highest-demand disciplines — data science and economics — and benefits from the IBA brand premium; first-cohort placements at McKinsey Pakistan and Unilever have established the programme's prestige reputation rapidly in the corporate market."
   },
   {
     "field_id": "physical_therapy",
-    "riasec_affinity": {"R": 7, "I": 6, "A": 2, "S": 9, "E": 3, "C": 5},
+    "riasec_affinity": {
+      "R": 7,
+      "I": 6,
+      "A": 2,
+      "S": 9,
+      "E": 3,
+      "C": 5
+    },
     "riasec_description": "High Social (patient care, rehabilitation support, therapeutic relationship) and Realistic (hands-on manual therapy, physical assessment, biomechanical intervention) profile, with a meaningful Investigative component reflecting the clinical reasoning and evidence-based practice demands of a DPT programme.",
     "social_acceptability_tier": "moderate",
     "prestige_note": "Physical therapy is a growing and well-regarded allied health profession in Pakistan's urban private healthcare market, though it occupies a lower prestige tier than MBBS or pharmacy in family perceptions — the 5-year DPT degree and WCPT-recognised credential have substantially improved the profession's institutional standing compared to the older diploma pathway."
   },
   {
     "field_id": "nursing",
-    "riasec_affinity": {"R": 6, "I": 5, "A": 2, "S": 10, "E": 3, "C": 6},
+    "riasec_affinity": {
+      "R": 6,
+      "I": 5,
+      "A": 2,
+      "S": 10,
+      "E": 3,
+      "C": 6
+    },
     "riasec_description": "Strongly dominant Social (direct patient care, compassionate support, interpersonal clinical communication) and Realistic (hands-on clinical procedures, physical patient management) profile, with a Conventional component reflecting the protocol-driven, documentation-heavy nature of modern nursing practice.",
     "social_acceptability_tier": "lower",
     "prestige_note": "Nursing faces significant social stigma in Pakistan's conservative family culture, where the profession is often perceived as low-status despite being well-compensated especially after Gulf migration — the 4-year BS Nursing degree is gradually improving acceptability compared to the older diploma route, but family resistance remains a documented barrier particularly for male graduates."
   },
   {
-    "field_id": "agriculture",
-    "riasec_affinity": {"R": 8, "I": 6, "A": 3, "S": 5, "E": 4, "C": 5},
-    "riasec_description": "Strongly Realistic — crop science, soil management, and agricultural systems.",
-    "social_acceptability_tier": "moderate",
-    "prestige_note": "Agriculture degrees serve Pakistan's primary export sector — respected in rural contexts and food security policy but less prominent in Karachi's urban professional market."
+    "field_id": "construction_engineering",
+    "riasec_affinity": {
+      "R": 9,
+      "I": 6,
+      "A": 3,
+      "S": 3,
+      "E": 5,
+      "C": 6
+    },
+    "riasec_description": "Dominant Realistic (on-site construction management, materials testing, physical infrastructure delivery) and Conventional (contract administration, quantity surveying, building codes compliance) profile, with an Enterprising dimension reflecting the project leadership and sub-contractor coordination that defines senior construction engineering practice.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Construction Engineering occupies a strong prestige position in Karachi's real estate and infrastructure economy — CPEC-linked projects, private real estate developers, and government agencies provide substantial employer demand; PEC registration and on-site engineering experience translate into above-average compensation relative to office-based engineering disciplines."
   },
   {
-    "field_id": "veterinary_science",
-    "riasec_affinity": {"R": 7, "I": 7, "A": 3, "S": 7, "E": 3, "C": 5},
-    "riasec_description": "Realistic, Investigative, and Social — animal health, clinical diagnosis, and livestock management.",
+    "field_id": "automotive_engineering",
+    "riasec_affinity": {
+      "R": 9,
+      "I": 7,
+      "A": 3,
+      "S": 2,
+      "E": 4,
+      "C": 6
+    },
+    "riasec_description": "Dominant Realistic (vehicle systems, powertrain mechanics, chassis fabrication) and Investigative (NVH analysis, thermal management modelling, structural simulation) profile — automotive engineering is among the most physically grounded engineering disciplines, demanding precise hands-on workshop skills alongside rigorous computational analysis.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Automotive Engineering is a niche but well-regarded discipline in Pakistan's industrial context — Atlas Honda, Pak Suzuki, Master Motor, and components suppliers provide direct recruitment pipelines; PEC registration and the degree's association with a high-visibility consumer industry give it strong family-approval credentials, particularly in Punjab's automotive manufacturing belt."
+  },
+  {
+    "field_id": "food_engineering",
+    "riasec_affinity": {
+      "R": 7,
+      "I": 7,
+      "A": 3,
+      "S": 4,
+      "E": 4,
+      "C": 7
+    },
+    "riasec_description": "High Realistic (food processing plant operations, packaging machinery, quality control lab work) and Investigative (food chemistry, microbial safety analysis, process optimisation research) profile, with a strong Conventional dimension reflecting the HACCP-standard, regulatory-compliance-driven environment of food manufacturing and export certification.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Food Engineering is directly relevant to Pakistan's large agro-processing and food export sector — Nestle, Engro Foods, Friesland Campina, and major halal export processors actively recruit graduates; NED's food engineering programme has strong industry linkages, and the degree's association with food safety and public health lends it credible social standing."
+  },
+  {
+    "field_id": "materials_engineering",
+    "riasec_affinity": {
+      "R": 7,
+      "I": 8,
+      "A": 3,
+      "S": 2,
+      "E": 3,
+      "C": 7
+    },
+    "riasec_description": "High Investigative (material microstructure analysis, mechanical property testing, failure mode research) and Realistic (laboratory characterisation, physical sample preparation, industrial material testing) profile, with a strong Conventional dimension reflecting the standards-driven, specification-controlled environment of materials selection and quality assurance.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Materials Engineering is a specialised discipline valued in Pakistan's steel, ceramics, and polymer industries — Pakistan Steel Mills, Aisha Steel, and composite materials manufacturers recruit from NED's programme; the degree's breadth across metals, polymers, and composites provides employment versatility across multiple industrial sectors."
+  },
+  {
+    "field_id": "metallurgical_engineering",
+    "riasec_affinity": {
+      "R": 8,
+      "I": 8,
+      "A": 2,
+      "S": 2,
+      "E": 3,
+      "C": 7
+    },
+    "riasec_description": "High Realistic (furnace operations, metal forming, physical smelting and casting processes) and Investigative (thermodynamic phase analysis, corrosion chemistry, alloy characterisation) profile — metallurgical engineering sits at the most physically intensive intersection of chemistry and engineering, demanding both laboratory rigour and heavy industrial familiarity.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Metallurgical Engineering is a technically respected but relatively niche discipline in Pakistan — Pakistan Steel (historically), Aisha Steel, and international mining companies operating in Balochistan provide primary employment pathways; the degree's association with foundational industrial infrastructure gives it solid institutional credibility within the engineering professional class."
+  },
+  {
+    "field_id": "petroleum_engineering",
+    "riasec_affinity": {
+      "R": 8,
+      "I": 8,
+      "A": 2,
+      "S": 2,
+      "E": 5,
+      "C": 6
+    },
+    "riasec_description": "High Realistic (drilling operations, reservoir sampling, wellhead equipment management) and Investigative (reservoir simulation, petrophysical modelling, production optimisation) profile, with an Enterprising dimension reflecting the high-stakes commercial decision-making and project leadership that defines senior petroleum engineering roles in upstream operations.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Petroleum Engineering commands among the highest starting salaries of any engineering discipline in Pakistan — OGDCL, PPL, Sui Networks, and Gulf employers (Saudi Aramco, ADNOC, Kuwait Oil Company) actively recruit Pakistani graduates; the degree's association with high compensation, Gulf migration pathways, and nationally strategic resource extraction places it firmly in the highest-prestige engineering tier."
+  },
+  {
+    "field_id": "polymer_petrochemical_engineering",
+    "riasec_affinity": {
+      "R": 7,
+      "I": 8,
+      "A": 2,
+      "S": 2,
+      "E": 4,
+      "C": 7
+    },
+    "riasec_description": "High Investigative (polymer synthesis, petrochemical process design, molecular property characterisation) and Realistic (reactor operations, extrusion and moulding machinery, pilot plant work) profile, with a strong Conventional dimension reflecting the strict process standards, safety protocols, and regulatory compliance requirements of petrochemical plant environments.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Polymer and Petrochemical Engineering is directly aligned with Pakistan's chemical and plastic manufacturing industries — LOTTE Chemical Pakistan, ICI, and downstream plastic processors employ graduates in technical and process roles; the degree's linkage to energy sector feedstocks also creates pathways into OGDCL and refinery operations, supporting solid family-approval credentials."
+  },
+  {
+    "field_id": "textile_sciences",
+    "riasec_affinity": {
+      "R": 6,
+      "I": 7,
+      "A": 5,
+      "S": 4,
+      "E": 4,
+      "C": 6
+    },
+    "riasec_description": "Balanced Realistic (fibre testing, yarn and fabric quality assessment, dyeing laboratory work), Investigative (textile material science, colour chemistry, functional fabric development), and Artistic (design-adjacent aesthetic evaluation, colour matching, surface texture assessment) profile — textile sciences bridges hard material science with design-sensitive quality judgement.",
     "social_acceptability_tier": "moderate",
-    "prestige_note": "Veterinary science is a recognised professional degree in Pakistan with stable demand in livestock sector, food safety, and research but limited visibility in Karachi's urban student population."
+    "prestige_note": "Textile Sciences is an applied science degree with strong sector relevance in Karachi's export textile industry — spinning mills, fabric exporters, and quality certification labs employ graduates in technical roles; the degree is respected within the industry but occupies a moderate general prestige tier, with the engineering version (textile engineering) typically preferred in family perception for its PEC registration credential."
+  },
+  {
+    "field_id": "urban_infrastructure_engineering",
+    "riasec_affinity": {
+      "R": 7,
+      "I": 6,
+      "A": 5,
+      "S": 4,
+      "E": 5,
+      "C": 6
+    },
+    "riasec_description": "Realistic (physical infrastructure systems, utilities network operations, site assessment) and Investigative (urban planning analysis, infrastructure load modelling, environmental impact assessment) profile, with notable Artistic and Enterprising dimensions reflecting the spatial design thinking and stakeholder management demands of urban development projects.",
+    "social_acceptability_tier": "high",
+    "prestige_note": "Urban Infrastructure Engineering is an emerging and strategically important discipline in Pakistan's rapidly urbanising cities — Karachi Development Authority, KWSB, KMC, and private real estate developers provide growing employer demand; the CPEC and Smart Cities agenda has elevated the field's profile, and its association with large-scale public infrastructure confers strong institutional prestige."
   }
 ]
