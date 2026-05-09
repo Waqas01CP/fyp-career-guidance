@@ -178,7 +178,13 @@ async def _write_recommendation(
     rec = Recommendation(
         user_id=user_id,
         roadmap_snapshot=snapshot,
-        trigger=last_intent,
+        trigger=(
+            "initial"
+            if not previous_roadmap
+            else "profile_update"
+            if last_intent == "profile_update"
+            else "manual_rerun"
+        ),
     )
     db.add(rec)
     await db.commit()
@@ -321,7 +327,7 @@ async def chat_stream(
 
             should_emit_cards = (
                 current_roadmap and
-                last_intent in ("get_recommendation", "follow_up")
+                last_intent in ("get_recommendation", "follow_up", "profile_update")
             )
             if should_emit_cards:
                 for i, degree in enumerate(current_roadmap[:5]):
@@ -335,7 +341,12 @@ async def chat_stream(
                         final_state.get("active_constraints", {}),
                     )
                     yield _sse("rich_ui", {"type": "roadmap_timeline", "payload": timeline})
-                    # Write recommendations row to DB — only on first recommendation run
+                    await _write_recommendation(
+                        db, current_user.id, current_roadmap, previous_roadmap, last_intent
+                    )
+                elif last_intent == "profile_update":
+                    # Auto-rerun completed — save updated recommendations to DB
+                    # No timeline on profile_update (roadmap path unchanged)
                     await _write_recommendation(
                         db, current_user.id, current_roadmap, previous_roadmap, last_intent
                     )

@@ -40,6 +40,27 @@ def route_by_intent(state: AgentState) -> str:
         return "answer_node"
 
 
+def route_after_profiler(state: AgentState) -> str:
+    """
+    Conditional edge after ProfilerNode.
+
+    After a profile_update: if profiling is complete,
+    automatically rerun the recommendation pipeline so
+    cards are updated immediately without the student
+    having to explicitly ask again.
+
+    After initial profiling (get_recommendation rerouted
+    here because profiling was incomplete): always END —
+    student must explicitly ask for recommendations.
+    """
+    if (
+        state.get("last_intent") == "profile_update"
+        and state.get("profiling_complete", False)
+    ):
+        return "filter_node"
+    return END
+
+
 def build_graph(checkpointer: AsyncPostgresSaver) -> StateGraph:
     """
     Build and compile the LangGraph StateGraph.
@@ -70,8 +91,17 @@ def build_graph(checkpointer: AsyncPostgresSaver) -> StateGraph:
     graph.add_edge("scoring_node",     "explanation_node")
     graph.add_edge("explanation_node", END)
 
+    # Profiler: conditional — profile_update + profiling_complete → filter_node, else END
+    graph.add_conditional_edges(
+        "profiler",
+        route_after_profiler,
+        {
+            "filter_node": "filter_node",
+            END: END,
+        },
+    )
+
     # Other nodes → END
-    graph.add_edge("profiler",    END)
     graph.add_edge("answer_node", END)
 
     return graph.compile(checkpointer=checkpointer)
