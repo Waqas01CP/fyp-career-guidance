@@ -277,6 +277,34 @@ async def submit_preferences(
     }
 
 
+# ── GET /profile/recommendations ───────────────────────────────────────────
+@router.get("/profile/recommendations", status_code=200)
+async def get_recommendations(
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Return the student's most recent recommendation
+    roadmap from the DB.
+    Reads from roadmap_snapshot JSONB — not individual
+    columns. Used by the dashboard to restore
+    recommendations on app restart.
+    """
+    from sqlalchemy import desc
+    from app.models.recommendation import Recommendation
+
+    result = await db.execute(
+        select(Recommendation)
+        .where(Recommendation.user_id == current_user.id)
+        .order_by(desc(Recommendation.run_timestamp))
+        .limit(1)
+    )
+    rec = result.scalar_one_or_none()
+    if not rec:
+        return {"recommendations": []}
+    return {"recommendations": rec.roadmap_snapshot or []}
+
+
 # ── POST /admin/seed-knowledge ──────────────────────────────────────────────
 @router.post("/admin/seed-knowledge")
 async def seed_knowledge(
