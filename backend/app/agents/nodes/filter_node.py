@@ -203,9 +203,10 @@ def filter_node(state: AgentState) -> AgentState:
             # HEC specifies "unadjusted marks" — subject weights do not apply here.
             non_zero = [v for v in subject_marks.values() if v > 0]
             unadjusted_inter = sum(non_zero) / len(non_zero) if non_zero else 0.0
-            min_required = float(elig["min_percentage_hssc"])
+            _min_hssc = elig.get("min_percentage_hssc")
+            min_required = float(_min_hssc) if _min_hssc is not None else None
 
-            if unadjusted_inter < min_required:
+            if min_required is not None and unadjusted_inter < min_required:
                 degree_name_lower = degree_name.lower()
                 if any(t in degree_name_lower for t in ["be ", "bsc engg", "mbbs", "bds", "pharm-d", "dvm"]):
                     council = "PEC/PMDC/PCP — legally enforced minimum"
@@ -225,13 +226,28 @@ def filter_node(state: AgentState) -> AgentState:
                 continue
 
             # ── Check 1: Stream eligibility ───────────────────────────────
-            if stream in elig["fully_eligible_streams"]:
+            if stream in elig.get("fully_eligible_streams", []):
                 eligibility_tier = "confirmed"
 
-            elif stream in elig["conditionally_eligible_streams"]:
+            elif stream in elig.get("conditionally_eligible_streams", []):
                 eligibility_tier = "likely"
-                # Direct access per Point 4 — data integrity enforced by validation Rule 5
-                eligibility_note = elig["eligibility_notes"][stream]
+                _notes = elig.get("eligibility_notes") or {}
+                _note = _notes.get(stream)
+                if _note is None:
+                    logger.warning(
+                        "%s: stream '%s' in conditionally_eligible_streams but missing from eligibility_notes",
+                        degree_label, stream,
+                    )
+                    soft_flags.append({
+                        "type": "eligibility_contact_university",
+                        "message": (
+                            f"Eligibility for {stream} students needs "
+                            f"direct confirmation with {university_name}"
+                        ),
+                        "actionable": "Contact the admissions office to confirm eligibility",
+                    })
+                else:
+                    eligibility_note = _note
 
             else:
                 if elig.get("policy_pending_verification"):
@@ -253,8 +269,8 @@ def filter_node(state: AgentState) -> AgentState:
                     })
                 else:
                     eligible_list = (
-                        elig["fully_eligible_streams"]
-                        + elig["conditionally_eligible_streams"]
+                        elig.get("fully_eligible_streams", [])
+                        + elig.get("conditionally_eligible_streams", [])
                     )
                     trace_entries.append(
                         f"{degree_label} — stream {stream} not in "
@@ -325,11 +341,12 @@ def filter_node(state: AgentState) -> AgentState:
                     subject_marks,
                     capability_scores,
                     degree["aggregate_formula"],
-                    degree["entry_test"],
+                    degree.get("entry_test") or {},
                 )
                 aggregate = estimated_merit
-                cutoff_min: float = degree["cutoff_range"]["min"]
-                cutoff_max: float = degree["cutoff_range"]["max"]
+                _cr = degree.get("cutoff_range") or {}
+                cutoff_min = _cr.get("min")
+                cutoff_max = _cr.get("max")
 
                 if proxy_used:
                     soft_flags.append({
@@ -345,41 +362,62 @@ def filter_node(state: AgentState) -> AgentState:
                         ),
                     })
 
-                if aggregate >= cutoff_max:
-                    merit_tier = "confirmed"
-                elif aggregate >= cutoff_min:
+                if cutoff_min is None or cutoff_max is None:
+                    logger.warning(
+                        "%s: cutoff_range has null min/max — skipping merit comparison",
+                        degree_label,
+                    )
                     merit_tier = "likely"
-                elif aggregate >= (cutoff_min - settings.MERIT_STRETCH_THRESHOLD):
-                    merit_tier = "stretch"
                     soft_flags.append({
-                        "type": "stretch_merit",
+                        "type": "policy_unconfirmed",
                         "message": (
-                            f"Your aggregate is "
-                            f"{round(cutoff_min - aggregate, 1)}% below "
-                            f"{degree_label} minimum cutoff"
+                            f"Merit cutoff data for {degree_label} is not yet confirmed. "
+                            "Contact admissions for current requirements."
                         ),
                         "actionable": (
-                            "Possible in a competitive year; entry test "
-                            "performance is critical"
+                            "Check directly with the university for current cutoff data"
                         ),
                     })
+                    trace_merit = "NO CUTOFF DATA (policy pending)"
                 else:
-                    merit_tier = "improvement_needed"
-                    soft_flags.append(
-                        _build_improvement_needed_flag(
-                            aggregate,
-                            cutoff_min,
-                            subject_marks,
-                            mandatory_subjects,
-                            university_name,
-                            degree_name,
-                        )
-                    )
+                    cutoff_min = float(cutoff_min)
+                    cutoff_max = float(cutoff_max)
 
-                trace_merit = (
-                    f"aggregate {aggregate:.1f}% vs range "
-                    f"[{cutoff_min}%–{cutoff_max}%]: {merit_tier.upper()}"
-                )
+                    if aggregate >= cutoff_max:
+                        merit_tier = "confirmed"
+                    elif aggregate >= cutoff_min:
+                        merit_tier = "likely"
+                    elif aggregate >= (cutoff_min - settings.MERIT_STRETCH_THRESHOLD):
+                        merit_tier = "stretch"
+                        soft_flags.append({
+                            "type": "stretch_merit",
+                            "message": (
+                                f"Your aggregate is "
+                                f"{round(cutoff_min - aggregate, 1)}% below "
+                                f"{degree_label} minimum cutoff"
+                            ),
+                            "actionable": (
+                                "Possible in a competitive year; entry test "
+                                "performance is critical"
+                            ),
+                        })
+                    else:
+                        merit_tier = "improvement_needed"
+                        soft_flags.append(
+                            _build_improvement_needed_flag(
+                                aggregate,
+                                cutoff_min,
+                                subject_marks,
+                                mandatory_subjects,
+                                university_name,
+                                degree_name,
+                            )
+                        )
+
+                    trace_merit = (
+                        f"aggregate {aggregate:.1f}% vs range "
+                        f"[{cutoff_min}%–{cutoff_max}%]: {merit_tier.upper()}"
+                    )
 
                 # ── Check 3b: Entry test difficulty warning ────────────────
                 if proxy_used:

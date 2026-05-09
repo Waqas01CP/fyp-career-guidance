@@ -6,9 +6,16 @@ Test 3 uses stream="Pre-Medical" to force a hard exclusion on Pre-Engineering-on
 Test cases cover: non-empty list, minimum display rule, hard exclusion, over_budget flag,
 merit tier assignment, output field completeness, thought_trace population,
 HEC floor exclusion, entry test proxy flag, shift field presence.
+Tests 14-17: crash resilience — missing entry_test, min_percentage_hssc, eligibility_notes
+stream key, and null cutoff_range min/max values (IBA-style policy-pending degrees).
 
 Run: pytest backend/tests/test_filter_node.py -v
 """
+
+import copy
+import json
+from pathlib import Path
+from unittest.mock import patch
 
 import pytest
 
@@ -380,4 +387,158 @@ def test_shift_field_in_output():
         )
         assert isinstance(entry["shift"], str), (
             f"Entry {i} 'shift' must be a string, got {type(entry['shift'])}"
+        )
+
+
+# ── Test 14: Crash resilience — missing entry_test key ───────────────────────
+
+def _load_patched_universities(patches: list) -> list:
+    """Load universities.json and apply structural patches to specific degrees.
+
+    patches: list of (university_id, degree_id, callable(degree) -> degree)
+    """
+    data_path = Path(__file__).resolve().parents[1] / "app" / "data" / "universities.json"
+    with open(data_path, encoding="utf-8") as fh:
+        universities = json.load(fh)
+    for target_uni_id, target_deg_id, patcher in patches:
+        for uni in universities:
+            if uni["university_id"] != target_uni_id:
+                continue
+            for deg in uni["degrees"]:
+                if deg["degree_id"] == target_deg_id:
+                    patcher(deg)
+    return universities
+
+
+def test_missing_entry_test_does_not_crash():
+    """filter_node must not crash when a degree lacks the entry_test key entirely.
+
+    Patches neduet_bs_cs to remove entry_test. Verifies:
+    - No exception raised
+    - roadmap is still populated (pipeline continues)
+    - neduet_bs_cs appears with entry_test_proxy_used absent (proxy cannot fire
+      when entry_test is missing — falls back to empty dict, entry_test_weight=0)
+    """
+    def remove_entry_test(deg):
+        deg.pop("entry_test", None)
+
+    patched = _load_patched_universities([("neduet", "neduet_bs_cs", remove_entry_test)])
+
+    with patch("app.agents.nodes.filter_node.json") as mock_json:
+        mock_json.load.return_value = patched
+        state = _make_state()
+        result = filter_node(state)
+
+    assert result["current_roadmap"] is not None, "roadmap must not be None"
+    assert len(result["current_roadmap"]) > 0, "roadmap must be non-empty"
+
+
+# ── Test 15: Crash resilience — missing min_percentage_hssc ─────────────────
+
+def test_missing_min_percentage_hssc_does_not_crash():
+    """filter_node must not crash when a degree's eligibility lacks min_percentage_hssc.
+
+    Patches neduet_bs_cs to remove min_percentage_hssc. Verifies:
+    - No exception raised
+    - Check 0 is skipped (degree is not HEC-excluded due to missing floor)
+    - Degree still appears in results
+    """
+    def remove_min_hssc(deg):
+        deg.get("eligibility", {}).pop("min_percentage_hssc", None)
+
+    patched = _load_patched_universities([("neduet", "neduet_bs_cs", remove_min_hssc)])
+
+    with patch("app.agents.nodes.filter_node.json") as mock_json:
+        mock_json.load.return_value = patched
+        state = _make_state()
+        result = filter_node(state)
+
+    assert result["current_roadmap"] is not None, "roadmap must not be None"
+    degree_ids = {e["degree_id"] for e in result["current_roadmap"]}
+    assert "neduet_bs_cs" in degree_ids, (
+        "neduet_bs_cs must appear in results when min_percentage_hssc is missing "
+        "(no HEC floor defined — degree is not excluded)"
+    )
+
+
+# ── Test 16: Crash resilience — stream in conditional but not in notes ────────
+
+def test_stream_in_conditional_not_in_notes_does_not_crash():
+    """filter_node must not crash when a stream is in conditionally_eligible_streams
+    but absent from eligibility_notes. Verifies:
+    - No exception raised
+    - Degree appears with eligibility_contact_university soft flag
+    - eligibility_tier is 'likely' (not confirmed)
+    """
+    def remove_pre_med_note(deg):
+        elig = deg.get("eligibility", {})
+        if "Pre-Medical" in elig.get("conditionally_eligible_streams", []):
+            elig.get("eligibility_notes", {}).pop("Pre-Medical", None)
+
+    patched = _load_patched_universities([("fast_nuces", "fast_nuces_bs_cs", remove_pre_med_note)])
+
+    with patch("app.agents.nodes.filter_node.json") as mock_json:
+        mock_json.load.return_value = patched
+        pre_medical_marks = {
+            "biology": 85, "chemistry": 78, "physics": 72,
+            "english": 80, "mathematics": 75,
+        }
+        state = _make_state(
+            stream="Pre-Medical",
+            budget=200000,
+            subject_marks=pre_medical_marks,
+        )
+        result = filter_node(state)
+
+    fast_cs_entries = [
+        e for e in result["current_roadmap"]
+        if e["degree_id"] == "fast_nuces_bs_cs"
+    ]
+    assert len(fast_cs_entries) > 0, (
+        "fast_nuces_bs_cs must appear in results for Pre-Medical student "
+        "even when eligibility_notes is missing the stream key"
+    )
+    entry = fast_cs_entries[0]
+    flag_types = {f["type"] for f in entry["soft_flags"]}
+    assert "eligibility_contact_university" in flag_types, (
+        "fast_nuces_bs_cs must carry eligibility_contact_university flag "
+        "when stream note is missing from eligibility_notes"
+    )
+    assert entry["eligibility_tier"] == "likely", (
+        "eligibility_tier must be 'likely' when stream note is missing"
+    )
+
+
+# ── Test 17: Crash resilience — null cutoff_range min/max (IBA-style) ────────
+
+def test_null_cutoff_range_does_not_crash():
+    """filter_node must not crash when cutoff_range has null min/max values.
+
+    This is the actual production crash mode — iba_bs_economics_mathematics
+    and iba_bs_economics_data_science have cutoff_range: {min: null, max: null}.
+
+    Verifies:
+    - No exception raised (TypeError was: '>=' not supported between float and NoneType)
+    - Affected degrees appear with merit_tier='likely' and policy_unconfirmed flag
+    - roadmap is non-empty
+    """
+    state = _make_state(budget=500000)
+    result = filter_node(state)
+
+    assert result["current_roadmap"] is not None, "roadmap must not be None after IBA data"
+    assert len(result["current_roadmap"]) > 0, "roadmap must be non-empty"
+
+    # Both IBA degrees with null cutoff must appear
+    for deg_id in ("iba_bs_economics_mathematics", "iba_bs_economics_data_science"):
+        matching = [e for e in result["current_roadmap"] if e["degree_id"] == deg_id]
+        assert len(matching) > 0, (
+            f"{deg_id} must appear in roadmap despite null cutoff_range"
+        )
+        entry = matching[0]
+        assert entry["merit_tier"] == "likely", (
+            f"{deg_id}: merit_tier must be 'likely' when cutoff_range is null"
+        )
+        flag_types = {f["type"] for f in entry["soft_flags"]}
+        assert "policy_unconfirmed" in flag_types, (
+            f"{deg_id}: must carry policy_unconfirmed flag when cutoff_range is null"
         )
