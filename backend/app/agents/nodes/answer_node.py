@@ -130,6 +130,38 @@ Never say 'based on my analysis' or 'as an AI'."""
 LLM_FAILURE_FALLBACK = "I'm having trouble right now. Could you try again in a moment?"
 
 
+def _invoke_with_retry(messages: list, max_retries: int = 3):
+    """
+    Invoke llm.invoke(messages) with exponential backoff
+    on Gemini 429 (ResourceExhausted) errors.
+
+    Wait times: 30s → 60s → 90s between attempts.
+    On non-429 exceptions: re-raise immediately (no retry).
+    If all retries exhausted: re-raise the last 429 error
+    so the caller's except block can handle it.
+    """
+    from google.api_core.exceptions import ResourceExhausted
+    import time
+
+    for attempt in range(max_retries):
+        try:
+            return llm.invoke(messages)
+        except ResourceExhausted:
+            if attempt == max_retries - 1:
+                raise   # all retries exhausted
+            wait_seconds = 30 * (attempt + 1)
+            logger.warning(
+                "Gemini rate limit hit — retrying in %ds "
+                "(attempt %d/%d)",
+                wait_seconds,
+                attempt + 1,
+                max_retries,
+            )
+            time.sleep(wait_seconds)
+        except Exception:
+            raise   # non-429 errors: fail immediately
+
+
 def _flatten_content(content) -> str:
     """Flatten Gemini 3.x list-of-parts content to plain string."""
     if isinstance(content, list):
@@ -153,7 +185,7 @@ def _extract_entity(user_input: str, system_prompt: str) -> str:
     Returns empty string on failure.
     """
     try:
-        response = llm.invoke([
+        response = _invoke_with_retry([
             SystemMessage(content=system_prompt),
             HumanMessage(content=user_input),
         ])
@@ -227,7 +259,7 @@ def answer_node(state: AgentState) -> AgentState:
 
         system_prompt = FEE_ANSWER_SYSTEM_PROMPT.format(fee_data_section=fee_section) + language_rule
         try:
-            response = llm.invoke([
+            response = _invoke_with_retry([
                 SystemMessage(content=system_prompt),
                 HumanMessage(content=user_input),
             ])
@@ -281,7 +313,7 @@ def answer_node(state: AgentState) -> AgentState:
 
         system_prompt = MARKET_ANSWER_SYSTEM_PROMPT.format(market_data_section=market_section) + language_rule
         try:
-            response = llm.invoke([
+            response = _invoke_with_retry([
                 SystemMessage(content=system_prompt),
                 HumanMessage(content=user_input),
             ])
@@ -295,7 +327,7 @@ def answer_node(state: AgentState) -> AgentState:
     # ── out_of_scope ──────────────────────────────────────────────────────────
     elif intent == "out_of_scope":
         try:
-            response = llm.invoke([
+            response = _invoke_with_retry([
                 SystemMessage(content=OUT_OF_SCOPE_SYSTEM_PROMPT + language_rule),
                 HumanMessage(content=user_input),
             ])
@@ -353,7 +385,7 @@ def answer_node(state: AgentState) -> AgentState:
             roadmap_section = "No recommendations available yet."
         system_prompt = FOLLOWUP_ANSWER_SYSTEM_PROMPT.format(roadmap_section=roadmap_section) + language_rule
         try:
-            response = llm.invoke([
+            response = _invoke_with_retry([
                 SystemMessage(content=system_prompt),
                 HumanMessage(content=user_input),
             ])

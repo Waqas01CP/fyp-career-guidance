@@ -76,6 +76,38 @@ def _scrub_pii(text: str) -> str:
     return text
 
 
+def _invoke_with_retry(messages: list, max_retries: int = 3):
+    """
+    Invoke llm.invoke(messages) with exponential backoff
+    on Gemini 429 (ResourceExhausted) errors.
+
+    Wait times: 30s → 60s → 90s between attempts.
+    On non-429 exceptions: re-raise immediately (no retry).
+    If all retries exhausted: re-raise the last 429 error
+    so the caller's except block can handle it.
+    """
+    from google.api_core.exceptions import ResourceExhausted
+    import time
+
+    for attempt in range(max_retries):
+        try:
+            return llm.invoke(messages)
+        except ResourceExhausted:
+            if attempt == max_retries - 1:
+                raise   # all retries exhausted
+            wait_seconds = 30 * (attempt + 1)
+            logger.warning(
+                "Gemini rate limit hit — retrying in %ds "
+                "(attempt %d/%d)",
+                wait_seconds,
+                attempt + 1,
+                max_retries,
+            )
+            time.sleep(wait_seconds)
+        except Exception:
+            raise   # non-429 errors: fail immediately
+
+
 def check_profiling_complete(
     active_constraints: dict,
     grade_system: str,
@@ -295,7 +327,7 @@ def profiler_node(state: AgentState) -> AgentState:
 
     # LLM call — failure returns a clean fallback state, never crashes the node
     try:
-        response = llm.invoke(messages_for_llm)
+        response = _invoke_with_retry(messages_for_llm)
         content = response.content
         # Gemini 3.x returns content as a list of parts; flatten to string
         if isinstance(content, list):
