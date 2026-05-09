@@ -50,6 +50,11 @@ FLAG_DESCRIPTIONS: dict = {
     "entry_test_harder_than_assessed": "Entry test is harder than the capability assessment",
     "bridge_course_required": "Bridge course may be required",
     "planning_mode": "Planning mode — no merit assessment yet",
+    "eligibility_contact_university": (
+        "Eligibility for your stream needs direct "
+        "confirmation with this university's admissions "
+        "office."
+    ),
 }
 
 _PHONE_RE = re.compile(r"03\d{2}[-\s]?\d{7}")
