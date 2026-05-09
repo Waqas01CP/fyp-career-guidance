@@ -18,7 +18,7 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 
 def create_access_token(user_id: str, role: str) -> str:
-    """Create a JWT token. sub = str(user.id), role = user.role, exp = 60 min."""
+    """Create a JWT token. sub = str(user.id), role = user.role, 7 days (10080 min)."""
     expire = datetime.now(timezone.utc) + timedelta(minutes=settings.JWT_EXPIRY_MINUTES)
     payload = {
         "sub": user_id,

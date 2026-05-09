@@ -64,7 +64,7 @@ JWT payload:
 {"sub": "<user_uuid>", "role": "student", "exp": <unix_timestamp>}
 ```
 
-Token expiry: 60 minutes. Frontend stores token in `flutter_secure_storage`.
+Token expiry: 10080 minutes (7 days). Frontend stores token in `flutter_secure_storage`.
 Never accept `user_id` from request body — always extract from JWT `sub` field.
 
 ---
@@ -858,7 +858,7 @@ per subject per level. Point 1 specifies 76 per subject per curriculum level
 | Decision | Choice |
 |---|---|
 | API prefix | `/api/v1/` on all endpoints — never omit |
-| Auth method | JWT Bearer token, 60-minute expiry, `sub` = user UUID |
+| Auth method | JWT Bearer token, 7-day expiry (10080 minutes), `sub` = user UUID |
 | user_id source | Always from JWT `sub` — never from request body |
 | Error format | `{"error_code": ..., "message": ..., "details": [...]}` on all failures |
 | `INVALID_CREDENTIALS` | Same error for "email not found" and "wrong password" — prevents user enumeration |

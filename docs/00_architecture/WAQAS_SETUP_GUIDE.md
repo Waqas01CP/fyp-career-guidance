@@ -194,7 +194,7 @@ Here is what happens so you understand the system:
 
 **When register/login succeeds:**
 1. `create_access_token(str(user.id), user.role)` is called
-2. Encodes `{"sub": "<user-uuid>", "role": "student", "exp": <60 minutes from now>}`
+2. Encodes `{"sub": "<user-uuid>", "role": "student", "exp": <7 days from now>}`
 3. Signs it with SECRET_KEY using HS256 algorithm
 4. Returns a string like `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOi...`
 
@@ -208,7 +208,7 @@ Here is what happens so you understand the system:
 
 **The only things you control:**
 - `SECRET_KEY` in `.env` — never share it, never commit it
-- `JWT_EXPIRY_MINUTES` — currently 60. Change in `.env` if needed.
+- `JWT_EXPIRY_MINUTES` — currently 10080 (7 days). Change in `.env` if needed.
 
 **Testing with JWT in the docs page:**
 1. POST /api/v1/auth/register → copy the `access_token` from the response

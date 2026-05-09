@@ -745,7 +745,7 @@ so student can view their roadmap without active connection.
 7. `http` package only for SSE — never `dio` for the streaming endpoint.
 8. Never show stack traces or internal error messages to students.
    Show friendly error messages with retry options.
-9. **JWT expiry (401 handling):** JWT expires in 60 minutes. On any HTTP 401
+9. **JWT expiry (401 handling):** JWT expires in 7 days (10080 minutes). On any HTTP 401
    response from any endpoint: clear the stored token from `flutter_secure_storage`,
    set `AuthState.token = null`, and navigate to LoginScreen with message:
    *"Session expired — please log in again."* Never silently retry a 401.
