@@ -162,25 +162,23 @@ async def _write_recommendation(
     previous_roadmap: list,
     last_intent: str,
 ) -> None:
-    """Write a new recommendations row after a successful pipeline run."""
-    trigger = (
-        "initial"        if not previous_roadmap
-        else "profile_update" if last_intent == "profile_update"
-        else "manual_rerun"
-    )
+    """
+    Persist the current recommendation run to the DB.
+    Stores complete 20-field university cards in
+    roadmap_snapshot so the dashboard can restore
+    full cards on app restart.
+    """
+    # Build complete cards — same format Flutter receives via SSE.
+    # final_state is unused inside _build_university_card() — {} is safe.
+    snapshot = []
+    for i, degree in enumerate(current_roadmap[:5]):
+        card = _build_university_card(degree, i + 1, {})
+        snapshot.append(card)
+
     rec = Recommendation(
-        id=uuid_mod.uuid4(),
         user_id=user_id,
-        roadmap_snapshot=[
-            {
-                "degree_id":   d.get("degree_id"),
-                "total_score": d.get("total_score"),
-                "merit_tier":  d.get("merit_tier"),
-                "soft_flags":  d.get("soft_flags", []),
-            }
-            for d in current_roadmap
-        ],
-        trigger=trigger,
+        roadmap_snapshot=snapshot,
+        trigger=last_intent,
     )
     db.add(rec)
     await db.commit()
