@@ -72,7 +72,7 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 - `docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md` — color roles, components, patterns
 DO NOT read design/screen_mockups/ — deprecated.
 
-**Use the session starter in DESIGN_HANDOFF.md for every screen session. One screen per Claude Code session.**
+**Use FRONTEND_SCREEN_CONTRACTS.md for the screen contract and FRONTEND_DESIGN_SYSTEM.md for visual patterns. One screen per Claude Code session.**
 
 1. Open `frontend/` in VS Code
 2. Run `flutter pub get`
@@ -85,14 +85,14 @@ DO NOT read design/screen_mockups/ — deprecated.
    - Routing logic: check `flutter_secure_storage` for token → if none navigate
      to `OnboardingCarouselScreen` → if token exists call `GET /profile/me` →
      route based on `onboarding_stage`
-   - See DESIGN_HANDOFF.md Screen 01
+   - See FRONTEND_SCREEN_CONTRACTS.md Screen 1
 5. Build Onboarding Carousel (`screens/onboarding/carousel_screen.dart`):
    - 3 slides with PageView
    - Skip → `LoginScreen`
    - Get Started → `LoginScreen`
    - Show only when no token in `flutter_secure_storage` (covers fresh install
      and post-logout)
-   - See DESIGN_HANDOFF.md Screen 02
+   - See FRONTEND_SCREEN_CONTRACTS.md Screen 2
 6. Build Login screen (`screens/auth/login_screen.dart`):
    - Email + password fields, Login button
    - On submit: call `AuthService.login(email, password)`

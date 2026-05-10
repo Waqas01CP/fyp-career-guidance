@@ -61,6 +61,9 @@ logs/*.md
 !logs/claude-code-*.md
 !logs/supabase-setup-log-*.md
 !logs/render-deployment-log-*.md
+!logs/frontend-design-*.md
+!logs/llm-output-*.md
+!logs/antigravity-*.md
 
 # Secrets
 *.pem
