@@ -1,7 +1,7 @@
 # Point 3 — Database Schema
 ## FYP: AI-Assisted Academic Career Guidance System
-### Status: COMPLETE AND LOCKED
-### Date: March 2026
+### Status: UPDATED (v1.5 — six new student_profiles columns, new assessment endpoints)
+### Date: March 2026 (updated May 2026)
 ### Change Log:
 ### v1.0 — Initial lock. Supersedes schema in BACKEND_CHAT_INSTRUCTIONS.md.
 ###         All Point 1 + Point 2 field additions incorporated.
@@ -27,6 +27,15 @@
 ###             the 15th field, from FilterNode output in Point 2).
 ###         (5) v1.1 changelog entry (2) restored (was overwritten during v1.2
 ###             patch).
+### v1.4 — riasec_scores range corrected to 10–50 summed integers;
+###         QuizSubmission comment updated; profile_history example values corrected.
+### v1.5 — Six new student_profiles columns for tier-aware assessment system:
+###         aptitude_scores, caas_scores, vna_scores, family_context,
+###         prestige_preference, misc_assessment_scores.
+###         kcis_scores documented, migration deferred to Phase 1C.
+###         Five new assessment submission endpoints added.
+###         SCHEMA_CONTRACT.md cross-reference added.
+###         JWT expiry note corrected to 7 days (10080 minutes).
 
 ---
 
@@ -44,6 +53,17 @@ Six tables. No more.
 | `profile_history` | Immutable audit trail of profile changes |
 
 **Alembic manages all schema changes. No manual ALTER TABLE. Ever.**
+
+## PHASE 1+ CROSS-REFERENCE
+
+New field key names for all JSONB columns added in v1.5 are defined in:
+  docs/00_architecture/SCHEMA_CONTRACT.md
+
+Read SCHEMA_CONTRACT.md before implementing any Phase 1+ work.
+SCHEMA_CONTRACT.md is authoritative for all key names.
+This document (POINT_3) is authoritative for table structure and ORM.
+
+---
 
 ---
 
@@ -146,6 +166,33 @@ CREATE TABLE student_profiles (
     career_goal        TEXT,
     student_notes      TEXT,
 
+    -- Tier-aware assessment scores (Phase 0 — v1.5 additions)
+    -- Key names for all JSONB fields defined in SCHEMA_CONTRACT.md
+    aptitude_scores        JSONB NOT NULL DEFAULT '{}',
+    -- Keys: numerical, spatial, verbal, logical (float 0-100)
+    --       numerical_belief, spatial_belief, verbal_belief, logical_belief (float 0-100)
+
+    caas_scores            JSONB NOT NULL DEFAULT '{}',
+    -- Keys: concern, control, curiosity, confidence, cooperation (CAAS-5-SF, Likert 1-5)
+
+    vna_scores             JSONB NOT NULL DEFAULT '{}',
+    -- Keys: social_status, independence, achievement (float 0-100)
+    -- Sprint 4 reserved: security, altruism, compensation
+
+    family_context         JSONB NOT NULL DEFAULT '{}',
+    -- Keys: family_career_field, family_career_expectation, social_pressure_field
+    -- Written by POST /profile/preferences (Step 4 screen only — not conversationally)
+
+    prestige_preference    FLOAT NOT NULL DEFAULT 5.0,
+    -- Range 0.0-10.0. Derived by ProfilerNode. Read by ScoringNode.
+
+    misc_assessment_scores JSONB NOT NULL DEFAULT '{}',
+    -- Keys: conscientiousness, neuroticism (float 0-100)
+    --       information_gap, external_conflict (float 1-5 Likert)
+
+    -- kcis_scores JSONB NOT NULL DEFAULT '{}'
+    -- DEFERRED to Phase 1C migration. Do not include in Phase 0b migration.
+
     created_at         TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at         TIMESTAMPTZ NOT NULL DEFAULT now()
 );
@@ -172,7 +219,7 @@ CREATE TRIGGER update_student_profiles_updated_at
 ```python
 import uuid
 from sqlalchemy import (
-    Column, String, Integer, SmallInteger, Boolean,
+    Column, String, Integer, SmallInteger, Boolean, Float,
     DateTime, Text, ForeignKey, UniqueConstraint, func
 )
 from sqlalchemy.dialects.postgresql import UUID, JSONB
@@ -206,6 +253,34 @@ class StudentProfile(Base):
     family_constraints  = Column(Text)
     career_goal         = Column(Text)
     student_notes       = Column(Text)
+
+    # Tier-aware assessment scores (Phase 0 — v1.5 additions)
+    # All key names defined in SCHEMA_CONTRACT.md
+    aptitude_scores        = Column(JSONB, nullable=False, default=dict)
+    # Keys: numerical, spatial, verbal, logical + belief sub-scores
+    # Written by POST /api/v1/profile/aptitude
+
+    caas_scores            = Column(JSONB, nullable=False, default=dict)
+    # Keys: concern, control, curiosity, confidence, cooperation (CAAS-5-SF)
+    # Written by POST /api/v1/profile/caas
+
+    vna_scores             = Column(JSONB, nullable=False, default=dict)
+    # Keys: social_status, independence, achievement
+    # Written by POST /api/v1/profile/vna
+
+    family_context         = Column(JSONB, nullable=False, default=dict)
+    # Keys: family_career_field, family_career_expectation, social_pressure_field
+    # Written by POST /api/v1/profile/preferences (Step 4 screen)
+
+    prestige_preference    = Column(Float, nullable=False, default=5.0)
+    # Derived by ProfilerNode. Read by ScoringNode for 3D match formula.
+
+    misc_assessment_scores = Column(JSONB, nullable=False, default=dict)
+    # Keys: conscientiousness, neuroticism, information_gap, external_conflict
+    # Written by POST /api/v1/profile/misc-assessment
+
+    # kcis_scores = Column(JSONB, nullable=False, default=dict)
+    # DEFERRED to Phase 1C migration
 
     created_at          = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at          = Column(DateTime(timezone=True), server_default=func.now(),
@@ -822,6 +897,15 @@ class SSEEvent(BaseModel):
 | Tenant isolation | user_id from JWT sub only — never from request body |
 | `riasec_scores` value range | Integers 10–50 per dimension — sum of 10 Likert responses (1–5 each) |
 | `riasec_scores` aggregation | Frontend sums per dimension before POST /profile/quiz — backend stores directly |
+| `aptitude_scores` | JSONB, default {}, written by POST /profile/aptitude |
+| `caas_scores` | JSONB, default {}, written by POST /profile/caas |
+| `vna_scores` | JSONB, default {}, written by POST /profile/vna |
+| `family_context` | JSONB, default {}, written by POST /profile/preferences (Step 4 screen) |
+| `prestige_preference` | FLOAT, default 5.0, derived by ProfilerNode, read by ScoringNode |
+| `misc_assessment_scores` | JSONB, default {}, written by POST /profile/misc-assessment |
+| `kcis_scores` | JSONB — DEFERRED to Phase 1C migration |
+| SCHEMA_CONTRACT.md | Authoritative for all new key names — read before Phase 1+ work |
+| New assessment endpoints | POST /profile/aptitude, /caas, /vna, /misc-assessment, /kcis (Phase 1C) |
 
 ---
 
@@ -830,3 +914,4 @@ class SSEEvent(BaseModel):
 *Point 3 v1.2 — March 2026 (roadmap_snapshot 15-field entry; MarksheetUploadResponse added)*
 *Point 3 v1.3 — March 2026 (TIMESTAMPTZ in all DDL; student_notes in ProfileOut; MarksheetUploadResponse moved to schemas/profile.py; field count corrected to 15; v1.1 changelog restored)*
 *Point 3 v1.4 — March 2026 (riasec_scores range corrected to 10–50 summed integers; QuizSubmission comment updated; profile_history example values corrected)*
+*Point 3 v1.5 — May 2026 (Six new student_profiles columns: aptitude_scores, caas_scores, vna_scores, family_context, prestige_preference, misc_assessment_scores. kcis_scores deferred to Phase 1C. New assessment submission endpoints documented. JWT expiry corrected. SCHEMA_CONTRACT.md cross-reference added.)*
