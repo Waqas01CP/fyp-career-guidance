@@ -13,21 +13,25 @@ Claude Code reads in this order. Confirm all read before proceeding:
 1. logs/README.md
 2. CLAUDE.md
 3. docs/00_architecture/FRONTEND_CHAT_INSTRUCTIONS.md
-4. design/screen_mockups/DESIGN_HANDOFF.md — section for THIS screen only
-5. design/screen_mockups/DESIGN_SYSTEM_TOKENS.md — colour/spacing reference
-6. design/screen_mockups/code_[screenname].html — open in browser for visual reference
+4. docs/00_architecture/FRONTEND_SCREEN_CONTRACTS.md — contract for THIS screen only
+5. docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md — color roles, components, patterns
+6. .claude/skills/flutter-official/flutter-building-layouts/skill.md
 7. The relevant provider file(s) that this screen connects to
 8. The relevant service file(s) that this screen calls
+
+DO NOT read design/screen_mockups/ — that folder is deprecated and replaced
+by FRONTEND_SCREEN_CONTRACTS.md and FRONTEND_DESIGN_SYSTEM.md.
 
 ### PHASE 2 — PLAN
 Before writing any Dart code, produce a written plan:
 - What widgets this screen uses
 - What state it reads (which Riverpod provider)
 - What API calls it makes (which service method)
-- Navigation triggers (what happens on each button tap)
-- How it matches the DESIGN_HANDOFF.md spec
+- All UI states (loading, loaded, error, empty)
+- Navigation triggers (what happens on each outcome)
+- How it satisfies FRONTEND_SCREEN_CONTRACTS.md for this screen
 
-State: "Plan reviewed against DESIGN_HANDOFF.md. No conflicts found."
+State: "Plan reviewed against FRONTEND_SCREEN_CONTRACTS.md. No conflicts found."
 Only proceed after this statement.
 
 ### PHASE 3 — IMPLEMENT
@@ -37,7 +41,7 @@ Do not invent design decisions — every visual decision is already made.
 
 ### PHASE 4 — SELF-REVIEW
 Re-read every line. Check:
-1. Colours match DESIGN_SYSTEM_TOKENS.md exactly (hex values)
+1. Colours use ColorScheme roles or named exceptions from FRONTEND_DESIGN_SYSTEM.md
 2. Navigation routes match CLAUDE.md screen inventory
 3. API calls use the correct service method and handle errors
 4. Loading states are shown (ThinkingIndicator or CircularProgressIndicator)
@@ -45,8 +49,9 @@ Re-read every line. Check:
 
 ### PHASE 5 — TEST
 Run: flutter run (on emulator or connected device)
-Open the screen and verify against design/screen_mockups/code_[screenname].html
-Check: layout, colours, navigation, API integration
+Verify against FRONTEND_SCREEN_CONTRACTS.md — all states render, all navigation
+works, all API calls succeed and handle errors.
+Check: layout, colours, navigation, API integration, error states.
 
 Document test result: PASS or FAIL with specific issues.
 
@@ -57,8 +62,8 @@ Required sections:
 - Files changed
 - Files read
 - Plan summary
-- Deviations from DESIGN_HANDOFF.md (if any — must be justified)
-- Test result (flutter run output, visual match to mockup)
+- Deviations from FRONTEND_SCREEN_CONTRACTS.md (if any — must be justified)
+- Test result (flutter run output, all states verified)
 - Known issues
 
 Then update logs/README.md.

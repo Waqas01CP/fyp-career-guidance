@@ -539,7 +539,8 @@ Claude Code: read CLAUDE.md first, then read the file for your component below.
 | Sprint tasks and gate conditions | `docs/00_architecture/SPRINT_PLAN.md` |
 | All architecture docs index | `docs/00_architecture/README.md` |
 | Session history and log navigation | `logs/README.md` |
-| Flutter screen implementation | `design/screen_mockups/DESIGN_HANDOFF.md` |
+| Flutter screen contracts | `docs/00_architecture/FRONTEND_SCREEN_CONTRACTS.md` |
+| Flutter design system | `docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md` |
 
 ---
 
@@ -652,3 +653,4 @@ uses Haiku (classification/extraction) or Sonnet (explanation generation) only.
 *CLAUDE.md v2.1 — April 2026 (dev model switched to gemini-3.1-flash-lite-preview — better benchmarks than 2.5 Flash, free tier 500 RPD; langchain-anthropic added to requirements.txt for easy Claude production switch; LLM output log standard added to SPRINT_2_BUILD_PROCESS.md)*
 *CLAUDE.md v2.2 — April 2026 (backend demo-ready: all nodes wired, Render deployment live at fyp-career-guidance-api.onrender.com, Supabase persistent, AsyncPostgresSaver confirmed working; Windows --loop asyncio requirement locked; context_overrides merge fix applied; Sprint 4 cleanup items 6-10 logged)*
 *CLAUDE.md v2.3 — April 2026 (frontend project valid and runnable; Android package name fix required; frontend development flow documented in FRONTEND_SPRINT_BUILD_PROCESS.md)*
+*CLAUDE.md v2.4 — May 2026 (design/screen_mockups/ deprecated — replaced by FRONTEND_SCREEN_CONTRACTS.md and FRONTEND_DESIGN_SYSTEM.md; screen count corrected to 16; FRONTEND_SPRINT_BUILD_PROCESS.md, FRONTEND_CHAT_INSTRUCTIONS.md, SPRINT_PLAN.md all updated to remove design/screen_mockups/ references)*

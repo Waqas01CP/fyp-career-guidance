@@ -68,9 +68,9 @@ Each sprint ends with an Opus Integration Chat gate check — do not skip this.
 *Starts after Waqas posts the team-updates file above.*
 
 **Design reference — read before building any screen:**
-- `design/screen_mockups/DESIGN_HANDOFF.md` — implementation guide, one section per screen
-- `design/screen_mockups/DESIGN_SYSTEM_TOKENS.md` — colours, typography, spacing tokens
-- `design/screen_mockups/code_[screen].html` — visual reference for the screen you are currently building
+- `docs/00_architecture/FRONTEND_SCREEN_CONTRACTS.md` — contract for this screen
+- `docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md` — color roles, components, patterns
+DO NOT read design/screen_mockups/ — deprecated.
 
 **Use the session starter in DESIGN_HANDOFF.md for every screen session. One screen per Claude Code session.**
 

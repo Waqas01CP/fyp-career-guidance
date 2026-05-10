@@ -803,24 +803,22 @@ All other screens: one per Claude Code session.
 
 ## VISUAL DESIGN — LOCKED
 
-The app design is complete and locked. All screens are in design/screen_mockups/.
-
-Khuzzaim does NOT make design decisions.
-Every visual decision is already made and documented.
+The app design system is complete and locked in two authoritative documents.
+DO NOT read design/screen_mockups/ — that folder is deprecated.
 
 For every screen implementation:
-- Read DESIGN_HANDOFF.md — implementation guide, one section per screen, exact
-  widget types, colours, spacing, API connections, navigation
-- Read DESIGN_SYSTEM_TOKENS.md — full token reference
-- Open code_[screenname].html — visual reference only.
-  DO NOT convert HTML to Flutter. Build from scratch using Flutter widgets
-  matching the visual target.
+- Read FRONTEND_SCREEN_CONTRACTS.md — contract for THIS screen: data flow,
+  all UI states, user actions, navigation outcomes
+- Read FRONTEND_DESIGN_SYSTEM.md — color roles, typography, spacing,
+  all component patterns
 
-Design files:
-- `design/screen_mockups/DESIGN_HANDOFF.md`
-- `design/screen_mockups/DESIGN_SYSTEM_TOKENS.md`
-- `design/screen_mockups/DESIGN.md` (v1.5 change log)
-- `design/screen_mockups/code_[screen].html` (×16)
+Active design files:
+- `docs/00_architecture/FRONTEND_SCREEN_CONTRACTS.md`
+- `docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md`
+- `.claude/skills/flutter-official/flutter-building-layouts/skill.md`
+
+Visual decisions are resolved by FRONTEND_DESIGN_SYSTEM.md and Flutter
+Material Design 3. Do not invent visual decisions not specified there.
 
 ---
 
