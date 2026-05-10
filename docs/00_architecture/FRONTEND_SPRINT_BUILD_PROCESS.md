@@ -36,7 +36,7 @@ Only proceed after this statement.
 
 ### PHASE 3 — IMPLEMENT
 Build the screen as a single Dart file.
-Use only widgets and patterns from DESIGN_HANDOFF.md.
+Use only widgets and patterns from FRONTEND_DESIGN_SYSTEM.md.
 Do not invent design decisions — every visual decision is already made.
 
 ### PHASE 4 — SELF-REVIEW
