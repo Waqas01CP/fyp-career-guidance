@@ -79,35 +79,43 @@ void _checkStage() {
 
 **ROUTING LOGIC:**
 ```
-ROUTING LOGIC — uses _reconstructStack pattern:
+ROUTING LOGIC — uses _reconstructStack + _pushAfterFrame/_pushChain pattern:
 
-token absent → Navigator.pushReplacementNamed('/onboarding')
+token absent → pushReplacementNamed('/onboarding')
 
-token present → GET /profile/me
-  401          → clear token → pushReplacementNamed('/onboarding')
-  network error → pushReplacementNamed('/onboarding')  [NEVER → /error]
-  200 → _reconstructStack(onboarding_stage):
+token present → GET /profile/me (via profileProvider.loadProfile)
+  session_expired   → clear token → pushReplacementNamed('/login')
+                      [NOT /onboarding — preserves onboarding progress]
+  network/server error (with valid token) → pushReplacementNamed('/error',
+                      arguments: {'errorType': ErrorType.serverTimeout})
+                      [NOT /onboarding — user can retry without fake logout]
+  success → _reconstructStack(onboarding_stage):
 
     'not_started':
-      pushNamed('/riasec-quiz')
-      Back-stack: [riasec-quiz]
+      pushReplacementNamed('/riasec-quiz')
+      Landing: riasec-quiz. Back-stack: [riasec-quiz]
 
     'riasec_complete':
-      pushNamed('/riasec-quiz') then pushNamed('/riasec-complete')
-      Back-stack: [riasec-quiz, riasec-complete]
+      pushReplacement('/riasec-quiz') → push('/riasec-complete') → push('/grades-input')
+      Landing: grades-input [student was filling grades when they closed]
+      Back-stack: [riasec-quiz, riasec-complete, grades-input]
 
     'grades_complete':
-      push: riasec-quiz → riasec-complete → grades-input → grades-complete
-      Back-stack: [riasec-quiz, riasec-complete, grades-input, grades-complete]
+      pushReplacement('/riasec-quiz') → push('/riasec-complete')
+      → push('/grades-input') → push('/grades-complete') → push('/assessment')
+      Landing: assessment [student was mid-assessment when they closed]
+      Back-stack: [riasec-quiz, riasec-complete, grades-input, grades-complete, assessment]
 
-    'assessment_complete':
+    'assessment_complete' / 'complete':
       pushNamedAndRemoveUntil('/chat', (r) => false)
-      [preferences already submitted — route directly to chat]
+      [terminal state — clear entire stack]
 
-    default/unknown:
-      pushNamedAndRemoveUntil('/chat', (r) => false)
+    default (unknown stage):
+      Same as grades_complete — 5-screen stack, lands on assessment
 
-All stack building wrapped in addPostFrameCallback.
+Each push is isolated to its own addPostFrameCallback via _pushChain,
+preventing the race condition where multiple pushes in one frame
+cause back-stack corruption (the "black screen on restore" bug).
 ```
 
 **ANIMATION:** `AnimationController` 1800ms, `Curves.easeInOut`.
@@ -479,7 +487,7 @@ Each list: exactly 12 values (0 or 1). All 5 subjects required.
 
 **AUTO-NAVIGATION:** 3-second progress bar animates to full, then:
 ```dart
-Navigator.pushNamedAndRemoveUntil(context, '/chat', (r) => false)
+Navigator.pushNamed(context, '/preferences')
 ```
 
 **NO BUTTON** — navigation is automatic only. No manual CTA.

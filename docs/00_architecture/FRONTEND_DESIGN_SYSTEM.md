@@ -608,7 +608,7 @@ Shown in the chat screen while SSE stream is in flight.
 ```dart
 class ThinkingIndicator extends StatefulWidget {
   final String label;
-  const ThinkingIndicator({super.key, required this.label});
+  const ThinkingIndicator({super.key, this.label = ''});
   @override State<ThinkingIndicator> createState() => _ThinkingIndicatorState();
 }
 
