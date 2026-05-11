@@ -116,24 +116,22 @@ and runs pub get automatically.
 
 ---
 
-## DO NOT CONVERT HTML TO FLUTTER
+## BUILD FROM CONTRACTS, NOT FROM TRANSLATION
 
-The design system includes `.html` files in `design/screen_mockups/`.
-These are visual references only — open in a browser to see the target.
+**Never translate any external format into Flutter widgets directly.**
 
-**Never translate HTML structure to Flutter widgets.**
-
-HTML `<div>`, `<flex>`, CSS padding do not map to Flutter widgets.
-Converting HTML to Flutter produces bloated, brittle code that breaks
-on different screen sizes and fails on low-end devices.
+HTML, CSS, Figma exports, and web mockups do not map to Flutter's
+constraint system. Building from these sources produces brittle code
+that overflows on different screen sizes.
 
 The correct process for every screen:
-1. Open `code_[screenname].html` in Chrome — understand the visual target
-2. Read the relevant section of `DESIGN_HANDOFF.md` — it gives Flutter
-   widget types, exact colours, spacing, API connections in Flutter terms
-3. Build from scratch using Flutter widgets that achieve the same visual
+1. Read FRONTEND_SCREEN_CONTRACTS.md — the contract for this screen
+   defines data flow, states, navigation, and what must be built
+2. Read FRONTEND_DESIGN_SYSTEM.md — every visual decision is already
+   made here. Do not invent widget patterns not covered in this document.
+3. Build from scratch using Flutter widgets per the contract and design system.
 
-The HTML is for visual reference. `DESIGN_HANDOFF.md` is for Claude Code.
+design/screen_mockups/ is deprecated. Do not read any file from it.
 
 ---
 
