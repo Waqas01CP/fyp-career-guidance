@@ -603,6 +603,69 @@ AnimatedSwitcher(
 )
 ```
 
+### 9q — ThinkingIndicator (3 staggered bouncing purple dots)
+Shown in the chat screen while SSE stream is in flight.
+```dart
+class ThinkingIndicator extends StatefulWidget {
+  final String label;
+  const ThinkingIndicator({super.key, required this.label});
+  @override State<ThinkingIndicator> createState() => _ThinkingIndicatorState();
+}
+
+class _ThinkingIndicatorState extends State<ThinkingIndicator>
+    with TickerProviderStateMixin {
+  late final List<AnimationController> _controllers;
+  late final List<Animation<double>> _animations;
+
+  @override
+  void initState() {
+    super.initState();
+    _controllers = List.generate(3, (i) =>
+      AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 600),
+      )..repeat(reverse: true, period: Duration(milliseconds: 900 + i * 150)));
+    _animations = _controllers.map((c) =>
+      Tween<double>(begin: 0, end: -6).animate(
+        CurvedAnimation(parent: c, curve: Curves.easeInOut))).toList();
+  }
+
+  @override
+  void dispose() {
+    for (final c in _controllers) c.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Row(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      ...List.generate(3, (i) => AnimatedBuilder(
+        animation: _animations[i],
+        builder: (_, __) => Transform.translate(
+          offset: Offset(0, _animations[i].value),
+          child: Container(
+            width: 6.r, height: 6.r,
+            margin: EdgeInsets.symmetric(horizontal: 2.w),
+            decoration: const BoxDecoration(
+              color: Color(0xFF6616D7), // AI purple — intentional
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      )),
+      SizedBox(width: 8.w),
+      Text(widget.label,
+        style: TextStyle(
+          fontSize: 13.sp, color: const Color(0xFF6616D7),
+          fontStyle: FontStyle.italic)),
+    ],
+  );
+}
+```
+Usage: `ThinkingIndicator(label: _thinkingLabel)` where `_thinkingLabel`
+is updated by SSE status events.
+
 ---
 
 ## 10. NAVIGATION RULES
@@ -638,6 +701,10 @@ PopScope callbacks to avoid nested navigator scope issues.
 - **Keyboard padding:** Apply `MediaQuery.of(context).viewInsets.bottom` to
   `SingleChildScrollView` bottom padding. Use `SafeArea(bottom: false)` + 
   `MediaQuery.removePadding(removeBottom: true)` to prevent double-compensation.
+- **`letterSpacing` is a raw double, never `.sp`.** `.sp` applies to font
+  sizes only. Applying `.sp` to letterSpacing produces incorrect letter
+  spacing on devices wider or narrower than 390px. Always write:
+  `letterSpacing: 1.0` not `letterSpacing: 1.0.sp`
 
 ---
 

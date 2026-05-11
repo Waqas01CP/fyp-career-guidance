@@ -79,16 +79,35 @@ void _checkStage() {
 
 **ROUTING LOGIC:**
 ```
-token absent → '/onboarding'
+ROUTING LOGIC — uses _reconstructStack pattern:
+
+token absent → Navigator.pushReplacementNamed('/onboarding')
+
 token present → GET /profile/me
-  401          → clear token → '/onboarding'
-  network error → '/onboarding'  (NEVER → /error from splash)
-  200 → route by onboarding_stage:
-    'not_started'          → '/riasec-quiz'
-    'riasec_complete'      → '/grades-input'
-    'grades_complete'      → '/assessment'
-    'assessment_complete'  → '/chat'
-    any unknown            → '/chat'
+  401          → clear token → pushReplacementNamed('/onboarding')
+  network error → pushReplacementNamed('/onboarding')  [NEVER → /error]
+  200 → _reconstructStack(onboarding_stage):
+
+    'not_started':
+      pushNamed('/riasec-quiz')
+      Back-stack: [riasec-quiz]
+
+    'riasec_complete':
+      pushNamed('/riasec-quiz') then pushNamed('/riasec-complete')
+      Back-stack: [riasec-quiz, riasec-complete]
+
+    'grades_complete':
+      push: riasec-quiz → riasec-complete → grades-input → grades-complete
+      Back-stack: [riasec-quiz, riasec-complete, grades-input, grades-complete]
+
+    'assessment_complete':
+      pushNamedAndRemoveUntil('/chat', (r) => false)
+      [preferences already submitted — route directly to chat]
+
+    default/unknown:
+      pushNamedAndRemoveUntil('/chat', (r) => false)
+
+All stack building wrapped in addPostFrameCallback.
 ```
 
 **ANIMATION:** `AnimationController` 1800ms, `Curves.easeInOut`.
@@ -471,29 +490,65 @@ Navigator.pushNamedAndRemoveUntil(context, '/chat', (r) => false)
 
 **Purpose:** Collect family context, budget, transport. Step 4 of onboarding.
 
-**DATA IN:** User input — family career field, family career expectation,
-budget per semester, transport willing.
+**DATA IN:** User input.
 
-**DATA OUT:** Profile update endpoint (Phase 1C — confirm exact endpoint from
-SCHEMA_CONTRACT.md Section 9 before implementing).
-Writes to: `student_profiles.family_context`, `budget_per_semester`,
-`transport_willing`.
+**DATA OUT:** `POST /api/v1/profile/preferences`
+All fields optional — only provided fields are updated.
+
+**CURRENT ENDPOINT (Sprint 2, live):**
+```json
+{
+  "budget_per_semester": 50000,
+  "transport_willing": true,
+  "home_zone": 2,
+  "career_goal": "software engineer",
+  "stated_preferences": ["CS", "engineering"]
+}
+```
+
+**PHASE 1C ADDITIONS TO SAME ENDPOINT (not yet active):**
+```json
+{
+  "family_career_field": "engineering",
+  "family_career_expectation": "general_preferences"
+}
+```
+
+**CURRENT FIELDS AND WIDGETS:**
+- Budget per semester → `TextFormField`, `TextInputType.number`, PKR
+- Transport willing → `Switch` or boolean toggle
+- Home zone → integer (1-5), dropdown or segmented control
+- Career goal → `TextFormField`, free text
+
+**PHASE 1C FIELDS (implement when Phase 1C begins):**
+
+family_career_field → `DropdownButtonFormField<String>`
+Options (display → stored value):
+  "Medicine / Healthcare" → "medicine"
+  "Engineering"           → "engineering"
+  "Business"              → "business"
+  "Education / Teaching"  → "education"
+  "Law"                   → "law"
+  "Computing / Technology"→ "computing"
+  "Government / Civil Service" → "government_civil_service"
+  "Arts & Media"          → "arts_media"
+  "Other"                 → "other"
+  "Not applicable"        → "not_applicable"
+
+family_career_expectation → `RadioListTile group` (3 options)
+Options (display → stored value):
+  "My family expects me to follow a specific field" → "expects_specific_field"
+  "My family has general preferences but I have freedom" → "general_preferences"
+  "My family is fully open to my choice" → "fully_open"
 
 **STATES:**
 - `idle`
 - `loading`
 - `error_network` / `error_server` — SnackBar
 
-**FIELDS:**
-- Family career field (text input or dropdown)
-- Family career expectation: `no_expectation` | `general_guidance` |
-  `expects_specific_field`
-- Budget per semester (integer, PKR, `TextInputType.number`)
-- Transport willing (boolean toggle)
-
 **NAVIGATION:**
 - Success → `pushNamedAndRemoveUntil('/chat', (r) => false)`
-- `isRetake: true` → same
+- `isRetake: true` → same (but skip if family fields already submitted)
 
 **DO NOT:** Add housing preference (removed from schema permanently).
 
@@ -535,6 +590,13 @@ event: chunk → append text to current AI bubble (typewriter effect)
 event: rich_ui type=university_card → render university card widget
 event: rich_ui type=roadmap_timeline → render roadmap timeline widget
 ```
+
+**SSE KEEPALIVE FILTERING:**
+Backend sends `: keepalive\n\n` comment lines every 15 seconds to prevent
+Render's 30-second proxy timeout from closing the connection. These lines
+start with `:` and have no event name. Standard SSE parsers ignore them
+automatically. If using a manual byte-stream parser, filter lines that
+start with `:` before processing. Never show keepalive lines in the UI.
 
 **STATES:**
 - `welcome` — no prior messages, show welcome prompt
