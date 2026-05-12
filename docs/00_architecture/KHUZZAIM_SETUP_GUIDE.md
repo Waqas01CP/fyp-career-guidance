@@ -178,15 +178,13 @@ Frontend Chat will produce the exact code for each provider when you reach that 
 
 Before building any screen, read these in order:
 
-1. `design/screen_mockups/DESIGN_HANDOFF.md` — find the section for your current
-   screen. It contains exact widget types, colours, spacing, API connections,
-   Riverpod providers, and navigation triggers.
-2. `design/screen_mockups/code_[screen].html` — open in a browser. This is what
-   the finished screen must look like.
-3. `design/screen_mockups/DESIGN_SYSTEM_TOKENS.md` — colour tokens, typography
-   scale, spacing units, component specs.
+1. `docs/00_architecture/FRONTEND_SCREEN_CONTRACTS.md` — find the contract
+   for your current screen. It defines data flow, all UI states, API connections,
+   and navigation triggers.
+2. `docs/00_architecture/FRONTEND_DESIGN_SYSTEM.md` — colour roles, typography,
+   spacing, and all component patterns in Flutter-native terms.
 
-The HTML file is a visual reference only. Do NOT convert HTML to Flutter.
+design/screen_mockups/ is deprecated. Do not read any file from it.
 Build every screen from scratch using Flutter widgets that match the visual target.
 All colours, spacing, and component decisions are already made — do not guess.
 

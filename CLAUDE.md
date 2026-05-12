@@ -158,7 +158,8 @@ polling rule.
 **LangGraph pipeline initialisation:** The graph is invoked on the first
 POST /api/v1/chat/stream message. There is no pre-initialisation step.
 Assessment Complete screen triggers nothing on the backend — it only
-auto-navigates to chat.
+auto-navigates to Preferences (Step 4). Splash routes
+assessment_complete stage directly to chat for returning users only.
 
 **Onboarding Carousel rule:** Show carousel when no token exists in
 `flutter_secure_storage`. This covers both fresh install and post-logout.
@@ -183,8 +184,10 @@ Grades Complete
 ↓
 [if onboarding_stage = grades_complete]   Capability Assessment
 ↓ 200
-Assessment Complete (auto-nav 2–3s)
+Assessment Complete (auto-nav 3s)
 ↓
+Preferences (Step 4: budget, transport, career_goal, home_zone)
+↓ POST /profile/preferences 200
 [if onboarding_stage = assessment_complete] Chat — welcome state
 ↓ first message
 Chat — active
@@ -194,7 +197,7 @@ Recommendation Dashboard
 
 **Settings and error screens are accessible outside this linear flow.**
 
-## LOCKED SCREEN INVENTORY (15 screens — Sprint 3 complete set)
+## LOCKED SCREEN INVENTORY (16 screens — Sprint 3 complete set)
 
 | Screen | Dart file | Status for demo |
 |---|---|---|

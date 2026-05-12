@@ -172,10 +172,6 @@ Low-end performance is the primary constraint. High-end handles anything.
   `MediaQuery.textScaleFactor`. Some students use accessibility font
   sizes. All text must scale with system settings.
 
-- **HTML mockups are visual reference only.** Always add
-  `code_[screenname].html` to the reading list for exact copy text.
-  Read it only for text content — never reference its structure in code.
-
 ---
 
 ## RESPONSIVE DESIGN
