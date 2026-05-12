@@ -33,3 +33,19 @@ This session focused on applying the fixes identified in the frontend design aud
 ## Next Steps
 - Manual physical device testing of the assessment screen and keyboard handling.
 - Proceeding with Sprint 4 Week 2 Remediation (P2 and P3 issues).
+
+### SECTION TO ADD 1 — Observations For Next Session
+
+- `[riasec_quiz_screen.dart / grades_input_screen.dart]` — The newly added stage guards execute routing during screen initialization (`initState`). — Future developers must ensure these checks remain safely wrapped in `addPostFrameCallback` to prevent Flutter "navigation during build" exceptions.
+- I genuinely noticed no new design violations or fragile patterns beyond the highly comprehensive 49 findings already captured in the P2/P3 audit tables.
+
+### SECTION TO ADD 2 — Session Metadata
+
+- Date: 2026-05-13
+- Model: Gemini 3.1 Pro (High)
+- Files modified: settings_screen.dart, riasec_complete_screen.dart, grades_complete_screen.dart, riasec_quiz_screen.dart, grades_input_screen.dart, assessment_screen.dart, login_screen.dart, signup_screen.dart, profile_provider.dart, main_chat_screen.dart, recommendation_dashboard.dart, thinking_indicator.dart
+- Total fixes applied: 14 (9 × P0, 5 × P1)
+- Fixes skipped: 0
+- Fixes deferred: 1 (PR-01 stated_preferences — intentional, Phase 1C)
+- flutter analyze result: 0 issues
+- Commit: 1d415dc
