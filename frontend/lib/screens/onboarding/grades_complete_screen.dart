@@ -303,9 +303,6 @@ class GradesCompleteScreen extends ConsumerWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF006B62),
                   minimumSize: Size(double.infinity, 56.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16.r),
-                  ),
                   padding: EdgeInsets.all(18.r),
                   shadowColor: const Color(0x40006B62),
                   elevation: 8,

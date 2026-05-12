@@ -108,7 +108,7 @@ class _AssessmentCompleteScreenState
                           width: 120.r,
                           height: 120.r,
                           decoration: BoxDecoration(
-                            color: const Color(0xFFEADDFF).withValues(alpha: 0.4),
+                            color: const Color(0xFF006B62).withValues(alpha: 0.1),
                             shape: BoxShape.circle,
                           ),
                         ),
@@ -119,13 +119,13 @@ class _AssessmentCompleteScreenState
                       width: 96.r,
                       height: 96.r,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFEADDFF),
+                        color: const Color(0xFF006B62).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(48.r),
                       ),
                       child: Icon(
                         Icons.auto_awesome,
                         size: 40.r,
-                        color: const Color(0xFF6616D7),
+                        color: const Color(0xFF006B62),
                       ),
                     ),
                   ],
@@ -167,7 +167,7 @@ class _AssessmentCompleteScreenState
                       BoxShadow(
                         color: Color(0x0F191C1E),
                         blurRadius: 24,
-                        offset: Offset(0, 4),
+                        offset: Offset(0, 8),
                       ),
                     ],
                   ),

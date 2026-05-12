@@ -116,9 +116,6 @@ class ErrorScreen extends StatelessWidget {
                       backgroundColor: _primary,
                       foregroundColor: Colors.white,
                       elevation: 0,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.r),
-                      ),
                     ),
                     child: Text(
                       content.primaryLabel,
@@ -142,9 +139,6 @@ class ErrorScreen extends StatelessWidget {
                         foregroundColor: _secondary,
                         side: const BorderSide(
                             color: Color(0xFFBDC9C6), width: 1.5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.r),
-                        ),
                       ),
                       child: Text(
                         content.secondaryLabel!,

@@ -305,9 +305,6 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
                         backgroundColor: const Color(0xFF006B62),
                         foregroundColor: Colors.white,
                         minimumSize: Size(double.infinity, 56.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.r),
-                        ),
                         elevation: 0,
                       ),
                       child: _isLoading

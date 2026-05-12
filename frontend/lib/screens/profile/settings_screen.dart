@@ -194,9 +194,6 @@ class SettingsScreen extends ConsumerWidget {
                     backgroundColor: const Color(0xFFE0E3E5),
                     foregroundColor: const Color(0xFF515F74),
                     elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.r),
-                    ),
                   ),
                   icon: Icon(Icons.logout, size: 20.r),
                   label: Text(
@@ -267,9 +264,9 @@ class _SectionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: const [
           BoxShadow(
-            color: Color(0x0A000000),
-            blurRadius: 12,
-            offset: Offset(0, 2),
+            color: Color(0x0F191C1E),
+            blurRadius: 24,
+            offset: Offset(0, 8),
           ),
         ],
       ),

@@ -59,12 +59,12 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               child: Container(
                 width: 80.r,
                 height: 80.r,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFEADDFF),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF006B62).withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 alignment: Alignment.center,
-                child: Icon(Icons.person, size: 40.r, color: Color(0xFF6616D7)),
+                child: Icon(Icons.person, size: 40.r, color: const Color(0xFF006B62)),
               ),
             ),
             SizedBox(height: 16.h),
@@ -197,9 +197,9 @@ class _RetakeCardState extends State<RetakeCard> {
             borderRadius: BorderRadius.circular(16.r),
             boxShadow: const [
               BoxShadow(
-                color: Color(0x0A334155),
-                blurRadius: 10,
-                offset: Offset(0, 4),
+                color: Color(0x0F191C1E),
+                blurRadius: 24,
+                offset: Offset(0, 8),
               ),
             ],
           ),

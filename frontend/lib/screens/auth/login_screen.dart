@@ -49,23 +49,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     super.dispose();
   }
 
-  String _routeForStage(String stage) {
-    switch (stage) {
-      case 'not_started':
-        return '/riasec-quiz';
-      case 'riasec_complete':
-        return '/grades-input';
-      case 'grades_complete':
-        return '/assessment';
-      case 'assessment_complete':
-      case 'complete':
-        // Preferences (Step 4) are optional — once assessment is done,
-        // the user is fully onboarded. Send directly to chat.
-        return '/chat';
-      default:
-        return '/riasec-quiz';
-    }
-  }
+
 
   Future<void> _onSubmit() async {
     if (!_formKey.currentState!.validate()) return;
@@ -84,8 +68,72 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     await ref.read(profileProvider.notifier).loadProfile(authState.token!);
     if (!mounted) return;
     final profile = ref.read(profileProvider);
-    Navigator.pushReplacementNamed(
-        context, _routeForStage(profile.onboardingStage));
+    _reconstructStackAfterLogin(profile.onboardingStage);
+  }
+
+  void _reconstructStackAfterLogin(String stage) {
+    if (!mounted) return;
+    switch (stage) {
+      case 'not_started':
+        _pushAfterFrame('/riasec-quiz', replace: true);
+        break;
+      case 'riasec_complete':
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+          '/grades-input',
+        ]);
+        break;
+      case 'grades_complete':
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+          '/grades-input',
+          '/grades-complete',
+          '/assessment',
+        ]);
+        break;
+      case 'assessment_complete':
+      case 'complete':
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!mounted) return;
+          Navigator.pushNamedAndRemoveUntil(
+              context, '/chat', (route) => false);
+        });
+        break;
+      default:
+        _pushAfterFrame('/riasec-quiz', replace: true, then: [
+          '/riasec-complete',
+          '/grades-input',
+          '/grades-complete',
+          '/assessment',
+        ]);
+        break;
+    }
+  }
+
+  void _pushAfterFrame(
+    String route, {
+    bool replace = false,
+    List<String> then = const [],
+  }) {
+    if (!mounted) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      if (replace) {
+        Navigator.pushReplacementNamed(context, route);
+      } else {
+        Navigator.pushNamed(context, route);
+      }
+      _pushChain(then, 0);
+    });
+  }
+
+  void _pushChain(List<String> routes, int index) {
+    if (index >= routes.length) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      Navigator.pushNamed(context, routes[index]);
+      _pushChain(routes, index + 1);
+    });
   }
 
   @override
@@ -341,9 +389,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       disabledBackgroundColor:
                           _primaryColor.withValues(alpha: 0.7),
                       minimumSize: Size(double.infinity, 52.h),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(14.r),
-                      ),
                       elevation: 0,
                     ),
                     child: _isLoading

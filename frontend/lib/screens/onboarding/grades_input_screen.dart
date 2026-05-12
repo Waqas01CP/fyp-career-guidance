@@ -632,9 +632,6 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF515F74),
                     minimumSize: Size(double.infinity, 56.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.r),
-                    ),
                   ),
                   icon: const Icon(Icons.document_scanner, color: Colors.white54),
                   label: Row(
@@ -852,9 +849,6 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen>
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _primary,
                     minimumSize: Size(double.infinity, 56.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.r),
-                    ),
                     padding: EdgeInsets.all(18.r),
                     shadowColor: const Color(0x40006B62),
                     elevation: 8,

@@ -5,12 +5,12 @@ import '../models/recommendation.dart';
 
 // Status label mapping — matches backend NODE_STATUS_MAP
 const Map<String, String> kStatusLabels = {
-  'profiling':              'Analysing your profile...',
+  'profiling':              'Understanding your profile...',
   'filtering_degrees':      'Checking your eligibility...',
-  'scoring_degrees':        'Ranking your options...',
-  'generating_explanation': 'Preparing your recommendations...',
-  'fetching_fees':          'Looking up fees...',
-  'fetching_market_data':   'Checking market data...',
+  'scoring_degrees':        'Ranking your matches...',
+  'generating_explanation': 'Writing your recommendations...',
+  'fetching_fees':          'Checking fee details...',
+  'fetching_market_data':   'Checking job market...',
   'done':                   '',
 };
 

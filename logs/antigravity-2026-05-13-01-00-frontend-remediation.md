@@ -49,3 +49,13 @@ This session focused on applying the fixes identified in the frontend design aud
 - Fixes deferred: 1 (PR-01 stated_preferences — intentional, Phase 1C)
 - flutter analyze result: 0 issues
 - Commit: 1d415dc
+
+### SECTION TO ADD 3 — Week 2 Remediation (Fixes 15-19)
+
+- **15. Global Button Radius**: Enforced `12.r` border radius globally via `ThemeData` in `main.dart` and removed local `14.r`/`16.r` overrides from all screens (e.g., login, settings, preferences, grades, error).
+- **16. Shadow Tokens**: Updated shadow tokens on content cards in `carousel_screen.dart`, `profile_screen.dart`, `settings_screen.dart`, and `assessment_complete_screen.dart` to match the compliant `Content Card` spec (`0x0F191C1E`, blur 24, offset `0,8`).
+- **17. Color Role Violations**: Removed unauthorized purple (`0xFF6616D7`) from human-focused UI elements (Profile avatar, Assessment Complete milestone icon) and replaced with the system-compliant Teal (`0xFF006B62`).
+- **18. SSE Status Strings**: Standardized the `kStatusLabels` in `chat_provider.dart` to match the exact `FRONTEND_SCREEN_CONTRACTS.md` wording.
+- **19. Login Back-Stack Reconstruction**: Replicated the `_reconstructStack` logic into `login_screen.dart` (`_reconstructStackAfterLogin`) to ensure the onboarding back-stack is securely rebuilt upon login without race conditions.
+
+- **Status**: `flutter analyze` verified 0 issues. Total fixes applied this session: 5.

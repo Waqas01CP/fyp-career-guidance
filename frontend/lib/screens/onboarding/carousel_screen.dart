@@ -440,9 +440,6 @@ class _CarouselScreenState extends State<CarouselScreen> {
           backgroundColor: _primaryColor,
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 16.h),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.r),
-          ),
           elevation: 0,
         ),
         child: Text(
@@ -471,9 +468,9 @@ class _BentoCell extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.r),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF334155).withValues(alpha: 0.04),
-            blurRadius: 20,
-            offset: const Offset(0, 6),
+            color: const Color(0x0F191C1E),
+            blurRadius: 24,
+            offset: const Offset(0, 8),
           ),
         ],
       ),
