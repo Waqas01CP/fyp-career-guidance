@@ -151,7 +151,7 @@ class GradesCompleteScreen extends ConsumerWidget {
                     BoxShadow(
                       color: Color(0x0F334155),
                       blurRadius: 40,
-                      offset: Offset(0, 12),
+                      offset: Offset(0, 8),
                     ),
                   ],
                 ),
