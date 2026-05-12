@@ -188,7 +188,6 @@ design/screen_mockups/ is deprecated. Do not read any file from it.
 Build every screen from scratch using Flutter widgets that match the visual target.
 All colours, spacing, and component decisions are already made — do not guess.
 
-Use the session starter block in DESIGN_HANDOFF.md for every screen session.
 One screen per Claude Code session.
 
 ---
