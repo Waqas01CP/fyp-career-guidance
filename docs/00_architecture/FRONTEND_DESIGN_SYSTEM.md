@@ -728,10 +728,10 @@ PopScope callbacks to avoid nested navigator scope issues.
 
 ---
 
-## 13. PACKAGE NAME (fix before APK build)
+## 13. PACKAGE NAME
 
-Current: `com.example.frontend_app`
-Required: `com.fyp.career_guidance`
+Package name: `com.fyp.career_guidance` — already applied April 24.
+No action needed.
 
 Files to update:
 - `android/app/build.gradle.kts` — `namespace` and `applicationId`
