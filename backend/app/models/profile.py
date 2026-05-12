@@ -1,7 +1,7 @@
 """student_profiles table — full student record."""
 import uuid
 from sqlalchemy import (
-    Column, String, Integer, SmallInteger, Boolean,
+    Column, String, Integer, SmallInteger, Boolean, Float,
     DateTime, Text, ForeignKey, UniqueConstraint, func
 )
 from sqlalchemy.dialects.postgresql import UUID, JSONB
@@ -41,6 +41,33 @@ class StudentProfile(Base):
     family_constraints  = Column(Text)
     career_goal         = Column(Text)
     student_notes       = Column(Text)
+
+    # Tier-aware assessment scores (Phase 0b migration)
+    # All key names defined in SCHEMA_CONTRACT.md
+    aptitude_scores        = Column(JSONB, nullable=False, default=dict)
+    # Keys: numerical, spatial, verbal, logical + belief sub-scores
+    # Written by POST /api/v1/profile/aptitude
+
+    caas_scores            = Column(JSONB, nullable=False, default=dict)
+    # Keys: concern, control, curiosity, confidence, cooperation (CAAS-5-SF)
+    # Written by POST /api/v1/profile/caas
+
+    vna_scores             = Column(JSONB, nullable=False, default=dict)
+    # Keys: social_status, independence, achievement
+    # Written by POST /api/v1/profile/vna
+
+    family_context         = Column(JSONB, nullable=False, default=dict)
+    # Keys: family_career_field, family_career_expectation, social_pressure_field
+    # Written by POST /api/v1/profile/preferences (Step 4 screen)
+
+    prestige_preference    = Column(Float, nullable=False, default=5.0)
+    # Derived by ProfilerNode. Read by ScoringNode for 3D match formula.
+
+    misc_assessment_scores = Column(JSONB, nullable=False, default=dict)
+    # Keys: conscientiousness, neuroticism, information_gap, external_conflict
+    # Written by POST /api/v1/profile/misc-assessment
+
+    # kcis_scores deferred to Phase 1C migration — do not add here
 
     created_at          = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     updated_at          = Column(DateTime(timezone=True), server_default=func.now(),
