@@ -40,7 +40,7 @@ class RiasecCompleteScreen extends ConsumerWidget {
         backgroundColor: const Color(0xFFF7F9FB),
         elevation: 0,
         scrolledUnderElevation: 0,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -112,7 +112,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       backgroundColor: _bgColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: LayoutBuilder(
+        bottom: false,
+        child: MediaQuery.removePadding(
+          context: context,
+          removeBottom: true,
+          child: LayoutBuilder(
           builder: (context, constraints) {
             // Use full screen height to determine compact mode, ignoring keyboard
             final isCompact = (constraints.maxHeight - MediaQuery.of(context).viewInsets.bottom) < 600;
@@ -146,7 +150,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
               ],
             );
-          },
+            },
+          ),
         ),
       ),
     );

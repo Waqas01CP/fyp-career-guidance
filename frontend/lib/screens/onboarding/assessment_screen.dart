@@ -541,6 +541,11 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             blurRadius: 24,
             offset: Offset(0, 4),
           ),
+          BoxShadow(
+            color: Color(0x40006B62),
+            blurRadius: 0,
+            spreadRadius: 2,
+          ),
         ],
       ),
       child: Column(
@@ -977,7 +982,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
             automaticallyImplyLeading: false,
             leading: IconButton(
               icon: Icon(Icons.arrow_back, size: 20.r),
-              onPressed: () => Navigator.pop(context),
+              onPressed: _onBackPressed,
             ),
             titleSpacing: 0,
             title: Row(

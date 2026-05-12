@@ -50,7 +50,7 @@ class GradesCompleteScreen extends ConsumerWidget {
         backgroundColor: const Color(0xFFF7F9FB),
         elevation: 0,
         scrolledUnderElevation: 0,
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: false,
         title: Text(
           'Academic Profile',
           style: TextStyle(

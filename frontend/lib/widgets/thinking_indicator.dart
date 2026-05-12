@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 /// Shown in Chat screen when isStreaming == true and the last message has
 /// empty content (i.e. no tokens received yet).
 class ThinkingIndicator extends StatefulWidget {
-  const ThinkingIndicator({super.key});
+  final String? label;
+
+  const ThinkingIndicator({super.key, this.label});
 
   @override
   State<ThinkingIndicator> createState() => _ThinkingIndicatorState();
@@ -52,25 +54,43 @@ class _ThinkingIndicatorState extends State<ThinkingIndicator>
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 4.h),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: List.generate(_dotCount, (i) {
-          return AnimatedBuilder(
-            animation: _animations[i],
-            builder: (context, _) => Transform.translate(
-              offset: Offset(0, _animations[i].value),
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 3.w),
-                width: 8.r,
-                height: 8.r,
-                decoration: const BoxDecoration(
-                  color: _dotColor,
-                  shape: BoxShape.circle,
+        children: [
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(_dotCount, (i) {
+              return AnimatedBuilder(
+                animation: _animations[i],
+                builder: (context, _) => Transform.translate(
+                  offset: Offset(0, _animations[i].value),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 3.w),
+                    width: 8.r,
+                    height: 8.r,
+                    decoration: const BoxDecoration(
+                      color: _dotColor,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
                 ),
+              );
+            }),
+          ),
+          if (widget.label != null && widget.label!.isNotEmpty) ...[
+            SizedBox(height: 8.h),
+            Text(
+              widget.label!,
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w400,
+                color: _dotColor,
+                fontStyle: FontStyle.italic,
               ),
             ),
-          );
-        }),
+          ],
+        ],
       ),
     );
   }

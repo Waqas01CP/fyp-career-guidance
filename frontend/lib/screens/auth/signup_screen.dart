@@ -78,9 +78,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
           _passwordController.text,
           fullName,
         );
-    if (!mounted) return;
     if (success) {
-      Navigator.pushReplacementNamed(context, '/riasec-quiz');
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(context, '/riasec-quiz', (route) => false);
+      }
     } else {
       setState(() => _isLoading = false);
     }
@@ -221,7 +222,11 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
       backgroundColor: _bgColor,
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: LayoutBuilder(
+        bottom: false,
+        child: MediaQuery.removePadding(
+          context: context,
+          removeBottom: true,
+          child: LayoutBuilder(
           builder: (context, constraints) {
             final isCompact = (constraints.maxHeight - MediaQuery.of(context).viewInsets.bottom) < 600;
             final vGap = isCompact ? 10.h : 16.h;
@@ -254,7 +259,8 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
                 ),
               ],
             );
-          },
+            },
+          ),
         ),
       ),
     );

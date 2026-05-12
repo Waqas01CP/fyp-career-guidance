@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/api_service.dart';
+import 'auth_provider.dart';
 
 class ProfileState {
   final String onboardingStage;
@@ -66,7 +67,9 @@ class ProfileState {
 }
 
 class ProfileNotifier extends StateNotifier<ProfileState> {
-  ProfileNotifier() : super(const ProfileState());
+  final Ref ref;
+
+  ProfileNotifier(this.ref) : super(const ProfileState());
 
   Future<void> loadProfile(String token) async {
     state = state.copyWith(isLoading: true, clearError: true);
@@ -96,6 +99,7 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           error: 'session_expired',
           clearSessionId: true,
         );
+        ref.read(authProvider.notifier).handleUnauthorized();
       } else {
         state = state.copyWith(
           isLoading: false,
@@ -121,5 +125,5 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
 
 final profileProvider =
     StateNotifierProvider<ProfileNotifier, ProfileState>(
-  (ref) => ProfileNotifier(),
+  (ref) => ProfileNotifier(ref),
 );

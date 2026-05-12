@@ -2,9 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'dart:convert';
+import '../../providers/auth_provider.dart';
 import '../../providers/chat_provider.dart';
+import '../../services/api_service.dart';
 import '../../services/recommendation_cache_service.dart';
 import '../../widgets/university_card.dart';
+import '../../models/recommendation.dart';
 
 class RecommendationDashboard extends ConsumerStatefulWidget {
   const RecommendationDashboard({super.key});
@@ -174,6 +178,23 @@ class _RecommendationDashboardState
       final cached = await RecommendationCacheService.load();
       if (cached != null && cached.isNotEmpty && mounted) {
         ref.read(chatProvider.notifier).setRecommendations(cached);
+      } else {
+        if (!mounted) return;
+        final token = ref.read(authProvider).token;
+        if (token != null) {
+          try {
+            final response = await ApiService.get('/profile/recommendations', token: token);
+            if (response.statusCode == 200) {
+              final data = jsonDecode(response.body) as Map<String, dynamic>;
+              if (data['recommendations'] != null && mounted) {
+                final recsData = (data['recommendations'] as List).cast<Map<String, dynamic>>();
+                final recs = recsData.map((e) => Recommendation.fromJson(e)).toList();
+                ref.read(chatProvider.notifier).setRecommendations(recs);
+                RecommendationCacheService.save(recs);
+              }
+            }
+          } catch (_) {}
+        }
       }
     }
   }

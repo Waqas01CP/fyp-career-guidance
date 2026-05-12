@@ -164,6 +164,27 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
   }
 
   Future<void> _initQuiz() async {
+    if (!widget.isRetake) {
+      var profile = ref.read(profileProvider);
+      if (!profile.isLoaded) {
+        final token = ref.read(authProvider).token;
+        if (token != null) {
+          await ref.read(profileProvider.notifier).loadProfile(token);
+          profile = ref.read(profileProvider);
+        }
+      }
+      
+      final stage = profile.onboardingStage;
+      if (stage != 'not_started' && stage.isNotEmpty) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, '/riasec-complete');
+          }
+        });
+        return;
+      }
+    }
+
     await _loadQuestions();
     await _loadDraft();
   }

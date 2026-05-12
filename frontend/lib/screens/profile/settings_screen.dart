@@ -191,8 +191,8 @@ class SettingsScreen extends ConsumerWidget {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFFDAD6),
-                    foregroundColor: _error,
+                    backgroundColor: const Color(0xFFE0E3E5),
+                    foregroundColor: const Color(0xFF515F74),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16.r),

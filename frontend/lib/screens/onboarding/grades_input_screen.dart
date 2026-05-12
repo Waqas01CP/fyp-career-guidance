@@ -168,6 +168,27 @@ class _GradesInputScreenState extends ConsumerState<GradesInputScreen>
   /// falls back to reading submitted data from the profile provider so the
   /// user sees their previously entered marks when navigating back.
   Future<void> _loadDraftThenProfile() async {
+    if (!widget.isRetake) {
+      var profile = ref.read(profileProvider);
+      if (!profile.isLoaded) {
+        final token = ref.read(authProvider).token;
+        if (token != null) {
+          await ref.read(profileProvider.notifier).loadProfile(token);
+          profile = ref.read(profileProvider);
+        }
+      }
+      
+      final stage = profile.onboardingStage;
+      if (stage == 'grades_complete' || stage == 'assessment_complete' || stage == 'complete') {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, '/grades-complete');
+          }
+        });
+        return;
+      }
+    }
+
     final raw = await _storage.read(key: _draftKey);
     if (!mounted) return;
     if (raw != null) {

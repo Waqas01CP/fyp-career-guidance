@@ -279,7 +279,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             icon: Icon(Icons.dashboard_outlined,
                 color: Colors.white, size: 22.r),
             onPressed: () =>
-                Navigator.pushReplacementNamed(context, '/dashboard'),
+                Navigator.pushNamed(context, '/dashboard'),
             tooltip: 'Dashboard',
           ),
           IconButton(
@@ -475,7 +475,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
               ),
               padding: EdgeInsets.all(14.r),
               child: isEmpty && isStreaming
-                  ? const ThinkingIndicator()
+                  ? ThinkingIndicator(label: ref.watch(chatProvider).currentStatusLabel)
                   : MarkdownBody(
                       data: msg.content,
                       softLineBreak: true,
