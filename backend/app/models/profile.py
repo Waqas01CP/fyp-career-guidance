@@ -25,6 +25,7 @@ class StudentProfile(Base):
     grade_system        = Column(String)   # 'percentage' | 'olevel_alevel'
     stream              = Column(String)   # NULL for O/A Level until ProfilerNode confirms
     board               = Column(String)   # Karachi Board | Federal Board | AKU | Cambridge | Other
+    curriculum_level    = Column(String)
 
     # Assessment scores
     riasec_scores       = Column(JSONB, nullable=False, default=dict)   # {R,I,A,S,E,C} values 10-50
