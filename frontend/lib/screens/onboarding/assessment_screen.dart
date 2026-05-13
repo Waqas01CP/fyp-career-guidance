@@ -785,7 +785,7 @@ class _AssessmentScreenState extends ConsumerState<AssessmentScreen>
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius:
-              BorderRadius.vertical(top: Radius.circular(20.r)),
+              BorderRadius.vertical(top: Radius.circular(24.r)),
         ),
         child: Column(
           children: [

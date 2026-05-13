@@ -60,7 +60,7 @@ class _AssessmentCompleteScreenState
     super.dispose();
   }
 
-  void _navigateToChat() {
+  void _navigateForward() {
     if (!mounted || _navigated) return;
     _navigated = true;
     // Step 3 complete → lead to Step 4 (Preferences) for first-time onboarding.
@@ -248,7 +248,7 @@ class _AssessmentCompleteScreenState
                         tween: Tween(begin: 0.0, end: 1.0),
                         duration: const Duration(seconds: 3),
                         curve: Curves.linear,
-                        onEnd: _navigateToChat,
+                        onEnd: _navigateForward,
                         builder: (context, value, child) => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
