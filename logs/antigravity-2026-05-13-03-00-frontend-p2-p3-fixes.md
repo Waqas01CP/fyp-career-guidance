@@ -24,3 +24,29 @@ Applied 18 remaining P2 and P3 fixes from the frontend design audit Part 1 & 2 t
 - All 18 targeted fixes completed.
 - `flutter analyze` returns 0 issues.
 - Frontend design and screen contracts fully honored per audit requirements.
+
+## Post-Session Corrections
+
+Five unauthorized changes from the P2 session were identified
+and corrected:
+
+- Fix A: BottomNavigationBar removed from main_chat_screen.dart.
+  Reason: not in fix list; violates Screen 13 contract; introduced
+  pushReplacementNamed regression undoing Session 1 Fix 10.
+
+- Fix B: assessment_screen.dart shadow offset reverted to Offset(0,4).
+  Reason: file not in P2 fix list; change was side effect of broad
+  Python string replacement.
+
+- Fix C: grades_complete_screen.dart card radius reverted to 16.r.
+  Reason: file not in P2 fix list; 16.r is correct for content cards
+  per FRONTEND_DESIGN_SYSTEM.md §7; 12.r is for buttons/inputs only.
+
+- Fix D: preferences_screen.dart badge styling reverted.
+  Reason: file not in P2 fix list.
+
+- Fix E: OCR button restored as visible disabled button (onPressed:null).
+  Reason: SizedBox.shrink() hid the button entirely; prompt specified
+  disabled-not-hidden.
+
+flutter analyze: 0 issues after corrections.

@@ -858,51 +858,6 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             _buildInputBar(isStreaming),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        selectedItemColor: const Color(0xFF006B62),
-        unselectedItemColor: const Color(0xFF515F74),
-        selectedLabelStyle: TextStyle(
-          fontSize: 11.sp,
-          fontWeight: FontWeight.w600,
-        ),
-        unselectedLabelStyle: TextStyle(
-          fontSize: 11.sp,
-          fontWeight: FontWeight.w600,
-        ),
-        currentIndex: 0,
-        elevation: 16,
-        onTap: (index) {
-          switch (index) {
-            case 0:
-              // Already on chat
-              break;
-            case 1:
-              Navigator.pushReplacementNamed(context, '/dashboard');
-              break;
-            case 2:
-              Navigator.pushNamed(context, '/settings');
-              break;
-          }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
-            activeIcon: Icon(Icons.chat_bubble),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
-            activeIcon: Icon(Icons.dashboard),
-            label: 'Dashboard',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            activeIcon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
       ), // closes Scaffold
     ); // closes PopScope
   }
