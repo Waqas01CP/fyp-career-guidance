@@ -410,7 +410,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
           padding: EdgeInsets.only(right: 6.w),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            width: isActive ? 28.0 : 6.0,
+            width: isActive ? 28.w : 6.w,
             height: 3.h,
             decoration: BoxDecoration(
               color: isActive ? _dotActive : _dotInactive,

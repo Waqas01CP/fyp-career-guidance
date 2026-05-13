@@ -14,39 +14,45 @@ class ThinkingIndicator extends StatefulWidget {
 }
 
 class _ThinkingIndicatorState extends State<ThinkingIndicator>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   static const Color _dotColor = Color(0xFF6616D7);
   static const int _dotCount = 3;
 
-  late final List<AnimationController> _controllers;
+  late final AnimationController _controller;
   late final List<Animation<double>> _animations;
 
   @override
   void initState() {
     super.initState();
-    _controllers = List.generate(_dotCount, (i) {
-      final ctrl = AnimationController(
-        vsync: this,
-        duration: const Duration(milliseconds: 600),
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat();
+
+    _animations = List.generate(_dotCount, (i) {
+      final start = i * 0.2;
+      final end = start + 0.4;
+      return TweenSequence<double>([
+        TweenSequenceItem(
+          tween: Tween<double>(begin: 0, end: -8).chain(CurveTween(curve: Curves.easeOut)),
+          weight: 50,
+        ),
+        TweenSequenceItem(
+          tween: Tween<double>(begin: -8, end: 0).chain(CurveTween(curve: Curves.easeIn)),
+          weight: 50,
+        ),
+      ]).animate(
+        CurvedAnimation(
+          parent: _controller,
+          curve: Interval(start, end),
+        ),
       );
-      // Stagger: each dot starts 200ms after the previous
-      Future.delayed(Duration(milliseconds: i * 200), () {
-        if (mounted) ctrl.repeat(reverse: true);
-      });
-      return ctrl;
     });
-    _animations = _controllers
-        .map((ctrl) => Tween<double>(begin: 0, end: -8).animate(
-              CurvedAnimation(parent: ctrl, curve: Curves.easeInOut),
-            ))
-        .toList();
   }
 
   @override
   void dispose() {
-    for (final ctrl in _controllers) {
-      ctrl.dispose();
-    }
+    _controller.dispose();
     super.dispose();
   }
 
@@ -67,8 +73,8 @@ class _ThinkingIndicatorState extends State<ThinkingIndicator>
                   offset: Offset(0, _animations[i].value),
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 3.w),
-                    width: 8.r,
-                    height: 8.r,
+                    width: 6.r,
+                    height: 6.r,
                     decoration: const BoxDecoration(
                       color: _dotColor,
                       shape: BoxShape.circle,

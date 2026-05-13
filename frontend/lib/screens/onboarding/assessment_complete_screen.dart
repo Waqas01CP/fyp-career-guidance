@@ -39,6 +39,26 @@ class _AssessmentCompleteScreenState
   ];
 
   bool _navigated = false;
+  late final AnimationController _pulseController;
+  late final Animation<double> _pulseAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _pulseController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1500),
+    )..repeat(reverse: true);
+    _pulseAnimation = Tween<double>(begin: 0.85, end: 1.15).animate(
+      CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _pulseController.dispose();
+    super.dispose();
+  }
 
   void _navigateToChat() {
     if (!mounted || _navigated) return;
@@ -98,12 +118,10 @@ class _AssessmentCompleteScreenState
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    TweenAnimationBuilder<double>(
-                      tween: Tween(begin: 0.85, end: 1.15),
-                      duration: const Duration(milliseconds: 1500),
-                      curve: Curves.easeInOut,
-                      builder: (context, scale, child) => Transform.scale(
-                        scale: scale,
+                    AnimatedBuilder(
+                      animation: _pulseAnimation,
+                      builder: (context, child) => Transform.scale(
+                        scale: _pulseAnimation.value,
                         child: Container(
                           width: 120.r,
                           height: 120.r,
@@ -113,7 +131,6 @@ class _AssessmentCompleteScreenState
                           ),
                         ),
                       ),
-                      onEnd: () => setState(() {}), // re-trigger by rebuilding
                     ),
                     Container(
                       width: 96.r,

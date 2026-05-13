@@ -124,12 +124,20 @@ class _PreferencesScreenState extends ConsumerState<PreferencesScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Step 4 of 4 — Your Preferences',
-                style: TextStyle(
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0xFF515F74),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFE0E3E5),
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
+                child: Text(
+                  'STEP 4 OF 4',
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xFF515F74),
+                    letterSpacing: 0.8,
+                  ),
                 ),
               ),
               SizedBox(height: 8.h),

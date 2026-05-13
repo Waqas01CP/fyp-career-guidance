@@ -196,12 +196,12 @@ class RiasecCompleteScreen extends ConsumerWidget {
 
   Widget _buildInsightPanel() {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16.r),
+      borderRadius: BorderRadius.circular(12.r),
       child: Container(
         decoration: const BoxDecoration(
           color: Color(0xFFEADDFF),
           border: Border(
-            left: BorderSide(color: Color(0xFF6616D7), width: 4),
+            left: BorderSide(color: Color(0xFF6616D7), width: 3),
           ),
         ),
         padding: EdgeInsets.all(20.r),
@@ -345,10 +345,10 @@ class _RiasecRadarPainter extends CustomPainter {
     canvas.drawPath(dataPath, strokePaint);
 
     // Draw vertex labels
-    const labelStyle = TextStyle(
-      fontSize: 10,
+    final labelStyle = TextStyle(
+      fontSize: 10.sp,
       fontWeight: FontWeight.w600,
-      color: Color(0xFF515F74),
+      color: const Color(0xFF515F74),
     );
     for (int i = 0; i < 6; i++) {
       final angle       = (i * 60 - 90) * pi / 180;

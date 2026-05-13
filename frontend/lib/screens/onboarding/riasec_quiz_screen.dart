@@ -438,7 +438,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
       padding: EdgeInsets.all(24.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20.r),
+        borderRadius: BorderRadius.circular(16.r),
         boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
@@ -458,7 +458,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                     horizontal: 12.w, vertical: 4.h),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF2F4F6),
-                  borderRadius: BorderRadius.circular(20.r),
+                  borderRadius: BorderRadius.circular(16.r),
                 ),
                 child: Text(
                   dimName.toUpperCase(),
@@ -477,7 +477,7 @@ class _RiasecQuizScreenState extends ConsumerState<RiasecQuizScreen>
                       horizontal: 12.w, vertical: 6.h),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF2F4F6),
-                    borderRadius: BorderRadius.circular(20.r),
+                    borderRadius: BorderRadius.circular(16.r),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

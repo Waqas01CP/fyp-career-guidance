@@ -254,7 +254,7 @@ class GradesCompleteScreen extends ConsumerWidget {
               Container(
                 decoration: BoxDecoration(
                   color: const Color(0xFFEADDFF),
-                  borderRadius: BorderRadius.circular(16.r),
+                  borderRadius: BorderRadius.circular(12.r),
                   border: const Border(
                     left: BorderSide(color: Color(0xFF6616D7), width: 4),
                   ),

@@ -213,7 +213,7 @@ class _RecommendationDashboardState
       padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: const Color(0xFFFFF8E1),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.only(topRight: Radius.circular(12.r), bottomRight: Radius.circular(12.r)),
         border: const Border(
           left: BorderSide(color: Color(0xFFF59E0B), width: 4),
         ),

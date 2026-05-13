@@ -280,10 +280,10 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
 
   Widget _buildFormCard(double cardPadding) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(32)),
-        boxShadow: [
+        borderRadius: BorderRadius.all(Radius.circular(32.r)),
+        boxShadow: const [
           BoxShadow(
             color: Color(0x0F334155),
             blurRadius: 40,

@@ -343,9 +343,9 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
               decoration: BoxDecoration(
                 color: _primary,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(18.r),
-                  topRight: Radius.circular(18.r),
-                  bottomLeft: Radius.circular(18.r),
+                  topLeft: Radius.circular(16.r),
+                  topRight: Radius.circular(16.r),
+                  bottomLeft: Radius.circular(16.r),
                   bottomRight: Radius.circular(4.r),
                 ),
               ),
@@ -391,10 +391,10 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
                     decoration: BoxDecoration(
                       color: const Color(0xFFFFDAD6),
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(18.r),
-                        topRight: Radius.circular(18.r),
+                        topLeft: Radius.circular(16.r),
+                        topRight: Radius.circular(16.r),
                         bottomLeft: Radius.circular(4.r),
-                        bottomRight: Radius.circular(18.r),
+                        bottomRight: Radius.circular(16.r),
                       ),
                       border: const Border(
                         left: BorderSide(color: Color(0xFFBA1A1A), width: 3),
@@ -457,10 +457,10 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
               decoration: BoxDecoration(
                 color: _surfaceLowest,
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(18.r),
-                  topRight: Radius.circular(18.r),
+                  topLeft: Radius.circular(16.r),
+                  topRight: Radius.circular(16.r),
                   bottomLeft: Radius.circular(4.r),
-                  bottomRight: Radius.circular(18.r),
+                  bottomRight: Radius.circular(16.r),
                 ),
                 border: const Border(
                   left: BorderSide(color: _tertiary, width: 3),
@@ -468,7 +468,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
                 boxShadow: const [
                   BoxShadow(
                     color: Color(0x0F334155),
-                    blurRadius: 16,
+                    blurRadius: 24,
                     offset: Offset(0, 4),
                   ),
                 ],
@@ -572,7 +572,7 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   color: _surfaceLow,
-                  borderRadius: BorderRadius.circular(24.r),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: TextField(
                   controller: _inputController,
@@ -858,7 +858,52 @@ class _MainChatScreenState extends ConsumerState<MainChatScreen> {
             _buildInputBar(isStreaming),
         ],
       ),
-    ),
-    );
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        selectedItemColor: const Color(0xFF006B62),
+        unselectedItemColor: const Color(0xFF515F74),
+        selectedLabelStyle: TextStyle(
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: TextStyle(
+          fontSize: 11.sp,
+          fontWeight: FontWeight.w600,
+        ),
+        currentIndex: 0,
+        elevation: 16,
+        onTap: (index) {
+          switch (index) {
+            case 0:
+              // Already on chat
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(context, '/dashboard');
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/settings');
+              break;
+          }
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            activeIcon: Icon(Icons.chat_bubble),
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard_outlined),
+            activeIcon: Icon(Icons.dashboard),
+            label: 'Dashboard',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            activeIcon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+      ),
+      ), // closes Scaffold
+    ); // closes PopScope
   }
 }

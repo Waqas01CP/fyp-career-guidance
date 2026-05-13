@@ -13,6 +13,10 @@ class ProfileState {
   final String? educationLevel;
   final String? stream;
   final String? board;
+  final int? budgetPerSemester;
+  final bool? transportWilling;
+  final int? homeZone;
+  final String? careerGoal;
   final bool isLoading;
   final bool isLoaded;
   final String? error;
@@ -27,6 +31,10 @@ class ProfileState {
     this.educationLevel,
     this.stream,
     this.board,
+    this.budgetPerSemester,
+    this.transportWilling,
+    this.homeZone,
+    this.careerGoal,
     this.isLoading = false,
     this.isLoaded = false,
     this.error,
@@ -42,6 +50,10 @@ class ProfileState {
     String? educationLevel,
     String? stream,
     String? board,
+    int? budgetPerSemester,
+    bool? transportWilling,
+    int? homeZone,
+    String? careerGoal,
     bool? isLoading,
     bool? isLoaded,
     String? error,
@@ -60,6 +72,10 @@ class ProfileState {
         educationLevel: educationLevel ?? this.educationLevel,
         stream: clearStream ? null : stream ?? this.stream,
         board: clearBoard ? null : board ?? this.board,
+        budgetPerSemester: budgetPerSemester ?? this.budgetPerSemester,
+        transportWilling: transportWilling ?? this.transportWilling,
+        homeZone: homeZone ?? this.homeZone,
+        careerGoal: careerGoal ?? this.careerGoal,
         isLoading: isLoading ?? this.isLoading,
         isLoaded: isLoaded ?? this.isLoaded,
         error: clearError ? null : error ?? this.error,
@@ -90,6 +106,10 @@ class ProfileNotifier extends StateNotifier<ProfileState> {
           educationLevel: data['education_level'] as String?,
           stream: data['stream'] as String?,
           board: data['board'] as String?,
+          budgetPerSemester: data['budget_per_semester'] as int?,
+          transportWilling: data['transport_willing'] as bool?,
+          homeZone: data['home_zone'] as int?,
+          careerGoal: data['career_goal'] as String?,
           isLoading: false,
           isLoaded: true,
         );

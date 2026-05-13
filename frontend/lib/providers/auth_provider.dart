@@ -93,8 +93,8 @@ class AuthNotifier extends StateNotifier<AuthState> {
     state = const AuthState();
   }
 
-  void handleUnauthorized() {
-    AuthService.logout();
+  Future<void> handleUnauthorized() async {
+    await AuthService.logout();
     state = const AuthState(
       error: 'Session expired — please log in again.',
     );
