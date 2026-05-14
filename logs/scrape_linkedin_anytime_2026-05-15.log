@@ -1,0 +1,195 @@
+[2026-05-15 03:43:04] INFO | Script A starting — 2026-05-15T03:43:04.607649
+[2026-05-15 03:43:04] INFO | Output: C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\backend\data\linkedin_raw_jobs.json
+[2026-05-15 03:43:04] INFO | Log:    C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\logs\scrape_linkedin_anytime_2026-05-15.log
+[2026-05-15 03:43:04] INFO | Loaded existing data — 0 jobs in database
+[2026-05-15 03:43:04] INFO | Starting main pass (anytime, all jobs)
+[2026-05-15 03:43:04] INFO | Main pass resuming from page 0
+[2026-05-15 03:43:08] STATUS 200 | 1577ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:43:08] INFO | Page 0 → 9 cards
+[2026-05-15 03:43:11] STATUS 200 | 483ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413549980
+[2026-05-15 03:43:15] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413401596
+[2026-05-15 03:43:18] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413288683
+[2026-05-15 03:43:22] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4291282276
+[2026-05-15 03:43:25] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413939722
+[2026-05-15 03:43:29] STATUS 200 | 531ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410156698
+[2026-05-15 03:43:32] STATUS 200 | 485ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4407732590
+[2026-05-15 03:43:36] STATUS 200 | 514ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4411449609
+[2026-05-15 03:43:39] STATUS 200 | 469ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4403714276
+[2026-05-15 03:43:43] STATUS 200 | 1390ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:43:43] INFO | Page 1 → 10 cards
+[2026-05-15 03:43:47] STATUS 200 | 1188ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409790953
+[2026-05-15 03:43:51] STATUS 200 | 563ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409791930
+[2026-05-15 03:43:54] STATUS 200 | 844ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4335304013
+[2026-05-15 03:43:58] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4336987768
+[2026-05-15 03:44:02] STATUS 200 | 906ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4414254543
+[2026-05-15 03:44:06] STATUS 200 | 703ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412386982
+[2026-05-15 03:44:10] STATUS 200 | 1297ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412900343
+[2026-05-15 03:44:14] STATUS 200 | 1311ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4382613599
+[2026-05-15 03:44:19] STATUS 200 | 1297ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409280371
+[2026-05-15 03:44:23] STATUS 200 | 1468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4404709313
+[2026-05-15 03:44:26] STATUS 200 | 750ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:44:26] INFO | Page 2 → 10 cards
+[2026-05-15 03:44:29] STATUS 200 | 593ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4414928439
+[2026-05-15 03:44:33] STATUS 200 | 891ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408743818
+[2026-05-15 03:44:37] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4368637163
+[2026-05-15 03:44:41] STATUS 200 | 1093ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413280824
+[2026-05-15 03:44:44] STATUS 200 | 422ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4400299762
+[2026-05-15 03:44:48] STATUS 200 | 890ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4403573178
+[2026-05-15 03:44:48] INFO | Saved — total: 25 | new this session: 25
+[2026-05-15 03:44:52] STATUS 200 | 985ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4392909109
+[2026-05-15 03:44:56] STATUS 200 | 719ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4399297462
+[2026-05-15 03:45:00] STATUS 200 | 514ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4401620595
+[2026-05-15 03:45:03] STATUS 200 | 811ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412906087
+[2026-05-15 03:45:06] STATUS 200 | 686ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:45:06] INFO | Page 3 → 10 cards
+[2026-05-15 03:45:10] STATUS 200 | 827ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4339878423
+[2026-05-15 03:45:13] STATUS 200 | 514ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409908069
+[2026-05-15 03:45:17] STATUS 200 | 515ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4411131966
+[2026-05-15 03:45:20] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4381198875
+[2026-05-15 03:45:24] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4407610682
+[2026-05-15 03:45:28] STATUS 200 | 688ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413418278
+[2026-05-15 03:45:31] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4407584881
+[2026-05-15 03:45:35] STATUS 200 | 436ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4382616558
+[2026-05-15 03:45:38] STATUS 200 | 406ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412739535
+[2026-05-15 03:45:42] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4335774602
+[2026-05-15 03:45:44] STATUS 200 | 672ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:45:44] INFO | Page 4 → 10 cards
+[2026-05-15 03:45:48] STATUS 200 | 734ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413585614
+[2026-05-15 03:45:52] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4397793383
+[2026-05-15 03:45:55] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4382624196
+[2026-05-15 03:45:59] STATUS 200 | 483ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4414607973
+[2026-05-15 03:46:02] STATUS 200 | 469ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409264349
+[2026-05-15 03:46:06] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410851734
+[2026-05-15 03:46:09] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4102197990
+[2026-05-15 03:46:13] STATUS 200 | 609ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410516362
+[2026-05-15 03:46:16] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409347802
+[2026-05-15 03:46:20] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4392880635
+[2026-05-15 03:46:22] STATUS 200 | 703ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:46:22] INFO | Page 5 → 10 cards
+[2026-05-15 03:46:26] STATUS 200 | 750ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4243551082
+[2026-05-15 03:46:26] INFO | Saved — total: 50 | new this session: 50
+[2026-05-15 03:46:30] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4401716667
+[2026-05-15 03:46:33] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410171395
+[2026-05-15 03:46:37] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4381969297
+[2026-05-15 03:46:40] STATUS 200 | 547ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408805157
+[2026-05-15 03:46:44] STATUS 200 | 514ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4298144275
+[2026-05-15 03:46:47] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4411727284
+[2026-05-15 03:46:51] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4238864535
+[2026-05-15 03:46:54] STATUS 200 | 436ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4220921799
+[2026-05-15 03:46:58] STATUS 200 | 609ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4405623740
+[2026-05-15 03:47:01] STATUS 200 | 765ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:47:01] INFO | Page 6 → 10 cards
+[2026-05-15 03:47:04] STATUS 200 | 594ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4297427503
+[2026-05-15 03:47:08] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4220925097
+[2026-05-15 03:47:11] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4373155706
+[2026-05-15 03:47:15] STATUS 200 | 436ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4330417352
+[2026-05-15 03:47:18] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408238416
+[2026-05-15 03:47:21] STATUS 200 | 422ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4298142343
+[2026-05-15 03:47:25] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4387813306
+[2026-05-15 03:47:28] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4362707545
+[2026-05-15 03:47:32] STATUS 200 | 421ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4377812553
+[2026-05-15 03:47:35] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410033226
+[2026-05-15 03:47:38] STATUS 200 | 765ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:47:38] INFO | Page 7 → 10 cards
+[2026-05-15 03:47:42] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413938008
+[2026-05-15 03:47:45] STATUS 200 | 436ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408191683
+[2026-05-15 03:47:49] STATUS 200 | 1202ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4343874965
+[2026-05-15 03:47:53] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409270075
+[2026-05-15 03:47:56] STATUS 200 | 546ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413276544
+[2026-05-15 03:47:58] INFO | Script A starting — 2026-05-15T03:47:58.700504
+[2026-05-15 03:47:58] INFO | Output: C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\backend\data\linkedin_raw_jobs.json
+[2026-05-15 03:47:58] INFO | Log:    C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\logs\scrape_linkedin_anytime_2026-05-15.log
+[2026-05-15 03:47:58] INFO | Loaded existing data — 50 jobs in database
+[2026-05-15 03:47:58] INFO | Starting main pass (anytime, all jobs)
+[2026-05-15 03:47:58] INFO | Main pass resuming from page 5
+[2026-05-15 03:48:00] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410715078
+[2026-05-15 03:48:00] INFO | Saved — total: 75 | new this session: 75
+[2026-05-15 03:48:01] STATUS 200 | 1233ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:48:01] INFO | Page 5 → 10 cards
+[2026-05-15 03:48:03] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409272346
+[2026-05-15 03:48:05] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4401716667
+[2026-05-15 03:48:07] STATUS 200 | 547ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4400306522
+[2026-05-15 03:48:08] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4404557314
+[2026-05-15 03:48:11] STATUS 200 | 702ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410153590
+[2026-05-15 03:48:12] STATUS 200 | 656ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4381969297
+[2026-05-15 03:48:14] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4138914430
+[2026-05-15 03:48:16] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410171395
+[2026-05-15 03:48:17] STATUS 200 | 734ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:48:17] INFO | Page 8 → 10 cards
+[2026-05-15 03:48:20] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412748459
+[2026-05-15 03:48:24] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413404438
+[2026-05-15 03:48:28] STATUS 200 | 515ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413427371
+[2026-05-15 03:48:31] STATUS 200 | 750ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4335496692
+[2026-05-15 03:48:35] STATUS 200 | 656ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4398211296
+[2026-05-15 03:48:39] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409526047
+[2026-05-15 03:48:42] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4404995128
+[2026-05-15 03:48:46] STATUS 200 | 641ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408991432
+[2026-05-15 03:48:49] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413553479
+[2026-05-15 03:48:53] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4404562359
+[2026-05-15 03:48:55] STATUS 200 | 735ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:48:55] INFO | Page 9 → 10 cards
+[2026-05-15 03:48:59] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4324077941
+[2026-05-15 03:49:03] STATUS 200 | 750ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413919495
+[2026-05-15 03:49:06] STATUS 200 | 672ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4411170511
+[2026-05-15 03:49:10] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4378579763
+[2026-05-15 03:49:13] STATUS 200 | 422ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409070279
+[2026-05-15 03:49:17] STATUS 200 | 516ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4377160211
+[2026-05-15 03:49:20] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4399245216
+[2026-05-15 03:49:24] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410347078
+[2026-05-15 03:49:28] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4298134533
+[2026-05-15 03:49:31] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4406461104
+[2026-05-15 03:49:34] STATUS 200 | 875ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:49:34] INFO | Page 10 → 10 cards
+[2026-05-15 03:49:37] STATUS 200 | 531ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4407750824
+[2026-05-15 03:49:38] INFO | Saved — total: 100 | new this session: 100
+[2026-05-15 03:49:41] STATUS 200 | 656ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4409272023
+[2026-05-15 03:49:45] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410841760
+[2026-05-15 03:49:48] STATUS 200 | 485ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4283763152
+[2026-05-15 03:49:52] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4408289573
+[2026-05-15 03:49:56] STATUS 200 | 844ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4400187197
+[2026-05-15 03:50:00] STATUS 200 | 781ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4350685340
+[2026-05-15 03:50:03] STATUS 200 | 484ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412395386
+[2026-05-15 03:50:07] STATUS 200 | 485ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413933876
+[2026-05-15 03:50:10] STATUS 200 | 797ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4405644136
+[2026-05-15 03:50:13] STATUS 200 | 764ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:50:13] INFO | Page 11 → 10 cards
+[2026-05-15 03:50:17] STATUS 200 | 593ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4378802701
+[2026-05-15 03:50:21] STATUS 200 | 750ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4405516208
+[2026-05-15 03:50:24] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4365859827
+[2026-05-15 03:50:28] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4258403663
+[2026-05-15 03:50:32] STATUS 200 | 781ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4056361556
+[2026-05-15 03:50:35] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4173386766
+[2026-05-15 03:50:39] STATUS 200 | 516ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4396593011
+[2026-05-15 03:50:43] STATUS 200 | 1343ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4390886035
+[2026-05-15 03:50:47] STATUS 200 | 515ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4400307785
+[2026-05-15 03:50:50] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4407224946
+[2026-05-15 03:50:53] STATUS 200 | 922ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:50:53] INFO | Page 12 → 10 cards
+[2026-05-15 03:50:57] STATUS 200 | 734ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413296631
+[2026-05-15 03:51:00] STATUS 200 | 531ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4398932419
+[2026-05-15 03:51:04] STATUS 200 | 827ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4405592693
+[2026-05-15 03:51:08] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412646321
+[2026-05-15 03:51:11] STATUS 200 | 452ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4410999810
+[2026-05-15 03:51:15] STATUS 200 | 469ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4394764720
+[2026-05-15 03:51:15] INFO | Saved — total: 125 | new this session: 125
+[2026-05-15 03:51:19] STATUS 200 | 843ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412778218
+[2026-05-15 03:51:22] STATUS 200 | 436ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4390613052
+[2026-05-15 03:51:26] INFO | Script A starting — 2026-05-15T03:51:26.047481
+[2026-05-15 03:51:26] INFO | Output: C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\backend\data\linkedin_raw_jobs.json
+[2026-05-15 03:51:26] INFO | Log:    C:\Users\waqas\Downloads\fyp-career-guidance\fyp-career-guidance\logs\scrape_linkedin_anytime_2026-05-15.log
+[2026-05-15 03:51:26] INFO | Loaded existing data — 125 jobs in database
+[2026-05-15 03:51:26] INFO | Starting main pass (anytime, all jobs)
+[2026-05-15 03:51:26] INFO | Main pass resuming from page 12
+[2026-05-15 03:51:26] STATUS 200 | 438ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4373349116
+[2026-05-15 03:51:29] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4370980026
+[2026-05-15 03:51:29] STATUS 200 | 1561ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:51:29] INFO | Page 12 → 10 cards
+[2026-05-15 03:51:32] STATUS 200 | 718ms | https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?location=
+[2026-05-15 03:51:32] INFO | Page 13 → 10 cards
+[2026-05-15 03:51:33] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4413280790
+[2026-05-15 03:51:35] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4373534627
+[2026-05-15 03:51:36] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412774624
+[2026-05-15 03:51:39] STATUS 200 | 453ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412609048
+[2026-05-15 03:51:40] STATUS 200 | 500ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4412778218
+[2026-05-15 03:51:42] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4393528421
+[2026-05-15 03:51:43] STATUS 200 | 468ms | https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/4390613052
