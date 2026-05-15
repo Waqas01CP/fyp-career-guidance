@@ -393,7 +393,7 @@ def collect_main_pass(session, raw_jobs, seen_jobs, log_func):
         url = (
             "https://www.linkedin.com/jobs-guest/jobs/api/"
             f"seeMoreJobPostings/search"
-            f"?location=Pakistan&geoId=101022442&sortBy=DD&start={page * 25}"
+            f"?location=Pakistan&geoId=101022442&sortBy=DD&start={page * 10}"
         )
 
         time.sleep(PAGE_DELAY)
@@ -528,7 +528,7 @@ def collect_filter_pass(session, pass_name, f_wt_value, log_func):
             "https://www.linkedin.com/jobs-guest/jobs/api/"
             f"seeMoreJobPostings/search"
             f"?location=Pakistan&geoId=101022442"
-            f"&f_WT={f_wt_value}&sortBy=DD&start={page * 25}"
+            f"&f_WT={f_wt_value}&sortBy=DD&start={page * 10}"
         )
 
         time.sleep(PAGE_DELAY)
