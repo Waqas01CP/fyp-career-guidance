@@ -1,0 +1,69 @@
+name: LinkedIn Daily Scraper
+
+on:
+  schedule:
+    - cron: '0 4 * * *'   # 4am UTC = 9am PKT
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step A — Checkout data-branch (contains existing data files)
+      - name: Checkout data-branch
+        uses: actions/checkout@v4
+        with:
+          ref: data-branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      # Step B — Setup Python 3.12
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Step C — Install dependencies
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      # Step D — Fetch script from main branch (code lives on main, not data-branch)
+      - name: Fetch script from main
+        run: |
+          git fetch origin main
+          git checkout origin/main -- backend/scripts/scrape_linkedin_daily.py
+
+      # Step E — Run Script B in production mode
+      - name: Run daily scraper
+        env:
+          LINKEDIN_TEST_MODE: "false"
+        run: python backend/scripts/scrape_linkedin_daily.py
+
+      # Step F — Verify collection succeeded
+      - name: Verify collection
+        run: |
+          python -c "
+          import json, sys
+          try:
+              with open('backend/data/linkedin_raw_jobs.json',
+                        encoding='utf-8') as f:
+                  jobs = json.load(f)
+              print(f'Total jobs in database: {len(jobs)}')
+              if len(jobs) == 0:
+                  print('ERROR: Zero jobs in database')
+                  sys.exit(1)
+              print('Verification passed')
+          except FileNotFoundError:
+              print('ERROR: linkedin_raw_jobs.json not found')
+              sys.exit(1)
+          "
+
+      # Step G — Commit updated data files back to data-branch
+      - name: Commit data files
+        run: |
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add backend/data/linkedin_raw_jobs.json
+          git add backend/data/linkedin_seen_jobs.json
+          git diff --staged --quiet || git commit -m "data: daily scrape $(date +%Y-%m-%d) — $(python -c \"import json; d=json.load(open('backend/data/linkedin_raw_jobs.json')); print(len(d), 'jobs')\")"
+          git push origin data-branch
