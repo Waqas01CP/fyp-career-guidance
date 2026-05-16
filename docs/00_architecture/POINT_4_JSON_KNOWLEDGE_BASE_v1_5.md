@@ -441,7 +441,7 @@ polymer_petrochemical_engineering, urban_infrastructure_engineering,
 construction_engineering, textile_engineering, food_engineering,
 textile_sciences, english_linguistics, fintech, business_analytics,
 nursing, physical_therapy, economics_mathematics, economics_data_science,
-social_sciences
+social_sciences, petroleum_engineering
 ```
 
 ---

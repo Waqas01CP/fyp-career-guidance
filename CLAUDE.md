@@ -428,7 +428,7 @@ alembic downgrade -1
 | `LEAPFROG` | 30% | 20% | 30% | 20% | CS/AI/Software Engineering |
 | `FAST` | 35% | 25% | 24% | 16% | Cybersecurity, Digital Media, Data Science, telecommunications_engineering, business_analytics, economics_data_science |
 | `MEDIUM` | 40% | 30% | 18% | 12% | Cloud, Electrical, Biomedical Engineering, chemical_engineering, food_engineering, fintech, economics_mathematics |
-| `SLOW` | 45% | 35% | 12% | 8% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering |
+| `SLOW` | 45% | 35% | 12% | 8% | Robotics, IoT, Embedded, automotive_engineering, metallurgical_engineering, materials_engineering, polymer_petrochemical_engineering, industrial_manufacturing_engineering, petroleum_engineering |
 | `LOCAL` | 60% | 40% | 0% | 0% | Medicine, Law, Civil Eng, Business, urban_infrastructure_engineering, construction_engineering, textile_engineering, textile_sciences, english_linguistics, nursing, physical_therapy, social_sciences |
 
 layer1=pak_now, layer2=pak_future, layer3a=world_now, layer3b=world_future. All rows sum to 1.0.
