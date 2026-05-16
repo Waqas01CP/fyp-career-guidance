@@ -79,3 +79,7 @@ logs/scrape_linkedin_anytime_*.log
 logs/test_linkedin_scraper_*.log
 logs/scrape_linkedin_daily_*.log
 logs/scrape_linkedin_daily_*.log
+backend/data/linkedin_daily_temp.json
+backend/data/linkedin_raw_jobs.json
+backend/data/linkedin_seen_jobs.json
+backend/data/linkedin_scrape_progress.json
