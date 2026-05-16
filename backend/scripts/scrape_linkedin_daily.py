@@ -41,7 +41,10 @@ SAVE_INTERVAL = 25
 CLOSURE_CHECK_MIN_AGE_DAYS = 4
 CLOSURE_CHECK_MAX_PER_RUN = 300
 TIME_FILTER = "r86400"
-TEST_MODE = True   # IMPORTANT: default is True — safe for local testing
+import os
+TEST_MODE = os.environ.get("LINKEDIN_TEST_MODE", "true").lower() == "true"
+# Default: True (safe for local testing)
+# GitHub Actions sets LINKEDIN_TEST_MODE=false to run in production mode
 
 REPO_ROOT = pathlib.Path(__file__).parent.parent.parent
 DATA_DIR = REPO_ROOT / "backend" / "data"
