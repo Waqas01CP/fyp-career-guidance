@@ -688,12 +688,24 @@ the advice incomplete for NUST applicants.
 **Question:** Should an IQ/Analytical Reasoning assessment be added to
 the Phase 1C capability assessment screen?
 
+**Current interim state:**
+iq_weight in FAST universities.json was redistributed fully into
+math_weight as a deliberate interim decision (May 2026). Reason:
+ExplanationNode only reads five standard keys and silently ignores
+iq_weight. Keeping it as a separate key would mean zero advice
+generated for the IQ section — redistribution to math at least
+produces directionally correct advice since analytical reasoning
+correlates with mathematical ability. This was confirmed after
+research into FAST NU Test structure. This redistribution must
+be reverted if the answer to this question is Yes.
+
 **If yes:**
+- Revert iq_weight redistribution in universities.json for FAST
+  entries (restore adv_math_weight, basic_math_weight, iq_weight
+  as separate keys before normalization)
 - Add iq_score to student_profiles (Phase 1C migration)
 - Add iq_weight as a sixth standard entry_test key in ExplanationNode
-- Restore iq_weight in universities.json for FAST and NUST entries
-  (currently redistributed to math_weight — revert if yes)
-- Add 10-12 analytical reasoning questions to assessment_questions.json
+- Add 10-12 analytical reasoning questions to assessment_questions.json if required
 
 **If no:** math_weight redistribution stays permanently.
 
@@ -723,4 +735,4 @@ and makes entry test advice genuinely complete for FAST and NUST students.
 *CLAUDE.md v2.3 — April 2026 (frontend project valid and runnable; Android package name fix required; frontend development flow documented in FRONTEND_SPRINT_BUILD_PROCESS.md)*
 *CLAUDE.md v2.4 — May 2026 (design/screen_mockups/ deprecated — replaced by FRONTEND_SCREEN_CONTRACTS.md and FRONTEND_DESIGN_SYSTEM.md; screen count corrected to 16; FRONTEND_SPRINT_BUILD_PROCESS.md, FRONTEND_CHAT_INSTRUCTIONS.md, SPRINT_PLAN.md all updated to remove design/screen_mockups/ references)*
 *CLAUDE.md v2.5 — May 2026 (Phase 0b: 6 new student_profiles columns; POINT_2 v2.2 + POINT_3 v1.5 references updated; SCHEMA_CONTRACT.md added to navigation index; route_after_profiler + profile_update auto-rerun locked; university cards emission updated to include profile_update; LLM retry on 429 locked; GET /recommendations locked; roadmap_snapshot completeness locked; FLAG_DESCRIPTIONS additions locked; JWT 7-day expiry locked; Alembic+Supabase constraint documented; marks-first onboarding deferred to Phase 1C locked; full 7-instrument assessment stack locked — 257 questions; KCIS 96q 24 sub-scales; CAAS-5-SF; VNA original 9q; hybrid CDDQ + Big Five; assessment tier system; 3D RIASEC spherical model; dual dashboard architecture; LLM profile summary pipeline; MBTI rejection; Big Five selection rationale; EQ-i Youth deferral; PROFILER_REQUIRED_FIELDS empty; family context Step 4 collection; ProfilerNode tier-aware strategy; curriculum_level ORM gap; Flutter StudentProfile update deferred to Phase 1C)*
-*CLAUDE.md v2.6 — May 2026 (OPEN DESIGN QUESTIONS section added; OQ-01 IQ/analytical assessment question for Phase 1C)*
+*CLAUDE.md v2.6 — May 2026 (OPEN DESIGN QUESTIONS section added; OQ-01 IQ/analytical assessment question for Phase 1C; iq_weight redistribution rationale documented)*
