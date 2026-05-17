@@ -71,5 +71,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git add backend/data/linkedin_raw_jobs.json
           git add backend/data/linkedin_seen_jobs.json
-          git diff --staged --quiet || git commit -m "data: daily scrape $(date +%Y-%m-%d) — $(python -c \"import json; d=json.load(open('backend/data/linkedin_raw_jobs.json')); print(len(d), 'jobs')\")"
+          JOBCOUNT=$(python -c "import json; print(len(json.load(open('backend/data/linkedin_raw_jobs.json'))))")
+          DATESTR=$(date +%Y-%m-%d)
+          git diff --staged --quiet || git commit -m "data: daily scrape ${DATESTR} — ${JOBCOUNT} jobs"
           git push origin data-branch
