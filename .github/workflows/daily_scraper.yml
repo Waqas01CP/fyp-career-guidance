@@ -12,20 +12,26 @@ jobs:
     steps:
       # Step A — Checkout data-branch (contains existing data files)
       - name: Checkout data-branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: data-branch
           token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: false
 
       # Step B — Setup Python 3.12
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
       # Step C — Install dependencies
       - name: Install dependencies
         run: pip install requests beautifulsoup4
+
+      # Removing data folder restriction in .gitignore from data-branch
+      - name: Remove data directory from gitignore
+        run: |
+          sed -i '/backend\/data/d' .gitignore
 
       # Step D — Fetch script from main branch (code lives on main, not data-branch)
       - name: Fetch script from main
