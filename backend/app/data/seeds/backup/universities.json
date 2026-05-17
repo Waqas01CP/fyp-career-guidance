@@ -1,0 +1,6033 @@
+[
+  {
+    "university_id": "neduet",
+    "name": "NED University of Engineering & Technology",
+    "type": "public",
+    "zone": 3,
+    "location": {
+      "area": "University Road, Karachi – 75270",
+      "zone": 3
+    },
+    "scholarships": [
+      {
+        "name": "NED Merit Scholarship",
+        "coverage": "Full tuition waiver",
+        "criteria": "Top 10% of batch per department"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Partial to full tuition",
+        "criteria": "Financial need; CGPA ≥ 2.5"
+      },
+      {
+        "name": "Sindh Government Education Endowment Fund",
+        "coverage": "Partial tuition",
+        "criteria": "Sindh domicile; need-based"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+      {
+        "degree_id": "neduet_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates must have Mathematics at HSC level. A bridge course in Mathematics may be required. Subject to seat availability in this category."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 64475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 515800,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 83.59
+          },
+          {
+            "year": 2022,
+            "cutoff": 89.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 84.27
+          },
+          {
+            "year": 2024,
+            "cutoff": 84.27
+          },
+          {
+            "year": 2025,
+            "cutoff": 85.82
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.59,
+          "max": 89.45
+        },
+        "confidence_band": 5.86,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_ai",
+        "name": "BS Computer Science — AI Specialization",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 64475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 515800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.5
+          },
+          {
+            "year": 2022,
+            "cutoff": 88.14
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.5,
+          "max": 88.14
+        },
+        "confidence_band": 4.64,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_cybersecurity",
+        "name": "BS Computer Science — Cybersecurity Specialization",
+        "field_id": "cybersecurity",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 64475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 515800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.23
+          },
+          {
+            "year": 2022,
+            "cutoff": 87.82
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.23,
+          "max": 87.82
+        },
+        "confidence_band": 4.59,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_data_science",
+        "name": "BS Computer Science — Data Science Specialization",
+        "field_id": "data_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 64475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 515800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 83.73
+          },
+          {
+            "year": 2022,
+            "cutoff": 88.4
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.73,
+          "max": 88.4
+        },
+        "confidence_band": 4.67,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_animation",
+        "name": "BS Computer Science — Gaming & Animation Specialization",
+        "field_id": "digital_media",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 64475,
+        "admission_fee_pkr": 56390,
+        "estimated_total_cost_pkr": 515800,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 82.64
+          }
+        ],
+        "cutoff_range": {
+          "min": 82.64,
+          "max": 82.64
+        },
+        "confidence_band": 0.0,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_software_eng",
+        "name": "BE Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 86.86
+          },
+          {
+            "year": 2023,
+            "cutoff": 86.86
+          },
+          {
+            "year": 2022,
+            "cutoff": 91.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 83.35
+          },
+          {
+            "year": 2025,
+            "cutoff": 87.53
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.35,
+          "max": 91.5
+        },
+        "confidence_band": 8.15,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_cise",
+        "name": "BE Computer & Information Systems Engineering",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 83.9
+          },
+          {
+            "year": 2023,
+            "cutoff": 83.9
+          },
+          {
+            "year": 2022,
+            "cutoff": 89.18
+          },
+          {
+            "year": 2021,
+            "cutoff": 83.61
+          },
+          {
+            "year": 2025,
+            "cutoff": 85.84
+          }
+        ],
+        "cutoff_range": {
+          "min": 83.61,
+          "max": 89.18
+        },
+        "confidence_band": 5.57,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_electrical",
+        "name": "BE Electrical Engineering",
+        "field_id": "electrical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 78.74
+          },
+          {
+            "year": 2022,
+            "cutoff": 85.82
+          },
+          {
+            "year": 2023,
+            "cutoff": 79.41
+          },
+          {
+            "year": 2024,
+            "cutoff": 79.41
+          },
+          {
+            "year": 2025,
+            "cutoff": 80.02
+          }
+        ],
+        "cutoff_range": {
+          "min": 78.74,
+          "max": 85.82
+        },
+        "confidence_band": 7.08,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_electronics",
+        "name": "BE Electronics Engineering",
+        "field_id": "electronics_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 75.25
+          },
+          {
+            "year": 2022,
+            "cutoff": 83.41
+          },
+          {
+            "year": 2023,
+            "cutoff": 76.82
+          },
+          {
+            "year": 2024,
+            "cutoff": 76.02
+          },
+          {
+            "year": 2025,
+            "cutoff": 80.25
+          }
+        ],
+        "cutoff_range": {
+          "min": 75.25,
+          "max": 83.41
+        },
+        "confidence_band": 8.16,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_mechanical",
+        "name": "BE Mechanical Engineering",
+        "field_id": "mechanical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 77.67
+          },
+          {
+            "year": 2022,
+            "cutoff": 82.86
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.86
+          },
+          {
+            "year": 2024,
+            "cutoff": 73.06
+          },
+          {
+            "year": 2025,
+            "cutoff": 78.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 73.06,
+          "max": 82.86
+        },
+        "confidence_band": 9.8,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_civil",
+        "name": "BE Civil Engineering",
+        "field_id": "civil_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 69.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 70.18
+          },
+          {
+            "year": 2022,
+            "cutoff": 79.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.65
+          },
+          {
+            "year": 2025,
+            "cutoff": 72.34
+          }
+        ],
+        "cutoff_range": {
+          "min": 69.0,
+          "max": 79.0
+        },
+        "confidence_band": 10.0,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_biomedical",
+        "name": "BE Biomedical Engineering",
+        "field_id": "biomedical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Biomedical Engineering. Must have Biology and Chemistry at HSC level. A Mathematics bridge course is required before the first semester as per PEC guidelines. Seats in this category are limited."
+          },
+          "mandatory_subjects": [
+            "Physics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 73.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 72.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 62.77
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.3
+          },
+          {
+            "year": 2025,
+            "cutoff": 73.88
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.77,
+          "max": 73.88
+        },
+        "confidence_band": 11.11,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high",
+          "math_weight": 0.25
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_chemical",
+        "name": "BE Chemical Engineering",
+        "field_id": "chemical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 71.9
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.32
+          },
+          {
+            "year": 2021,
+            "cutoff": 74.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 76.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 71.9,
+          "max": 80.32
+        },
+        "confidence_band": 8.42,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_petroleum",
+        "name": "BE Petroleum Engineering",
+        "field_id": "petroleum_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 65.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.77
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.13
+          },
+          {
+            "year": 2021,
+            "cutoff": 71.25
+          },
+          {
+            "year": 2025,
+            "cutoff": 70.2
+          }
+        ],
+        "cutoff_range": {
+          "min": 65.0,
+          "max": 76.13
+        },
+        "confidence_band": 11.13,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_telecom",
+        "name": "BE Telecommunications Engineering",
+        "field_id": "telecommunications_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 71.68
+          },
+          {
+            "year": 2023,
+            "cutoff": 71.68
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.69
+          },
+          {
+            "year": 2025,
+            "cutoff": 76.4
+          }
+        ],
+        "cutoff_range": {
+          "min": 71.68,
+          "max": 80.5
+        },
+        "confidence_band": 8.82,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_industrial_mfg",
+        "name": "BE Industrial & Manufacturing Engineering",
+        "field_id": "industrial_manufacturing_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 76.04
+          },
+          {
+            "year": 2022,
+            "cutoff": 82.14
+          },
+          {
+            "year": 2023,
+            "cutoff": 73.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 73.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 77.43
+          }
+        ],
+        "cutoff_range": {
+          "min": 73.0,
+          "max": 82.14
+        },
+        "confidence_band": 9.14,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_automotive",
+        "name": "BE Mechanical Engineering — Automotive Specialization",
+        "field_id": "automotive_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 68.32
+          },
+          {
+            "year": 2023,
+            "cutoff": 68.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 78.95
+          },
+          {
+            "year": 2021,
+            "cutoff": 73.04
+          },
+          {
+            "year": 2025,
+            "cutoff": 74.54
+          }
+        ],
+        "cutoff_range": {
+          "min": 68.32,
+          "max": 78.95
+        },
+        "confidence_band": 10.63,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_metallurgical",
+        "name": "BE Metallurgy & Materials Engineering",
+        "field_id": "metallurgical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 63.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.77
+          },
+          {
+            "year": 2022,
+            "cutoff": 74.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 67.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 66.33
+          }
+        ],
+        "cutoff_range": {
+          "min": 60.77,
+          "max": 74.0
+        },
+        "confidence_band": 13.23,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_materials",
+        "name": "BE Materials Engineering",
+        "field_id": "materials_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 64.44
+          },
+          {
+            "year": 2023,
+            "cutoff": 62.36
+          },
+          {
+            "year": 2022,
+            "cutoff": 75.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 70.75
+          },
+          {
+            "year": 2025,
+            "cutoff": 68.12
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.36,
+          "max": 75.0
+        },
+        "confidence_band": 12.64,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_polymer_petrochem",
+        "name": "BE Polymer & Petrochemical Engineering",
+        "field_id": "polymer_petrochemical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 60.55
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.55
+          },
+          {
+            "year": 2022,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 70.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.32
+          }
+        ],
+        "cutoff_range": {
+          "min": 60.55,
+          "max": 72.0
+        },
+        "confidence_band": 11.45,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_urban_planning",
+        "name": "BE Civil Engineering — Urban Planning Specialization",
+        "field_id": "urban_infrastructure_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.41
+          },
+          {
+            "year": 2024,
+            "cutoff": 63.4
+          },
+          {
+            "year": 2025,
+            "cutoff": 68.83
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.4,
+          "max": 76.45
+        },
+        "confidence_band": 13.05,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_construction",
+        "name": "BE Civil Engineering — Construction Engineering Specialization",
+        "field_id": "construction_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 66.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 66.64
+          },
+          {
+            "year": 2022,
+            "cutoff": 77.86
+          },
+          {
+            "year": 2021,
+            "cutoff": 72.64
+          },
+          {
+            "year": 2025,
+            "cutoff": 69.56
+          }
+        ],
+        "cutoff_range": {
+          "min": 66.0,
+          "max": 77.86
+        },
+        "confidence_band": 11.86,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_textile_eng",
+        "name": "BE Textile Engineering",
+        "field_id": "textile_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 69.32
+          },
+          {
+            "year": 2023,
+            "cutoff": 69.32
+          },
+          {
+            "year": 2022,
+            "cutoff": 79.36
+          },
+          {
+            "year": 2021,
+            "cutoff": 74.89
+          },
+          {
+            "year": 2025,
+            "cutoff": 71.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 69.32,
+          "max": 79.36
+        },
+        "confidence_band": 10.04,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_be_food_eng",
+        "name": "BE Food Engineering",
+        "field_id": "food_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Food Engineering. Must have Biology and Chemistry at HSC level. A Mathematics bridge course is required before the first semester as per PEC guidelines. Seats in this category are limited."
+          },
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 68.27
+          },
+          {
+            "year": 2023,
+            "cutoff": 68.27
+          },
+          {
+            "year": 2022,
+            "cutoff": 80.27
+          },
+          {
+            "year": 2021,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 70.32
+          }
+        ],
+        "cutoff_range": {
+          "min": 68.27,
+          "max": 80.27
+        },
+        "confidence_band": 12.0,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high",
+          "math_weight": 0.25
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_physics",
+        "name": "BS Physics",
+        "field_id": "physics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Physics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 60.02
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.09
+          },
+          {
+            "year": 2022,
+            "cutoff": 73.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 58.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.65
+          }
+        ],
+        "cutoff_range": {
+          "min": 58.0,
+          "max": 73.0
+        },
+        "confidence_band": 15.0,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_chemistry",
+        "name": "BS Industrial Chemistry",
+        "field_id": "chemistry_biochemistry",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 60845,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 486760,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 58.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 73.2
+          },
+          {
+            "year": 2023,
+            "cutoff": 59.54
+          },
+          {
+            "year": 2024,
+            "cutoff": 59.34
+          },
+          {
+            "year": 2025,
+            "cutoff": 64.19
+          }
+        ],
+        "cutoff_range": {
+          "min": 58.0,
+          "max": 73.2
+        },
+        "confidence_band": 15.2,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_textile_science",
+        "name": "BS Textile Science",
+        "field_id": "textile_sciences",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates may apply for Textile Science. Subject to seat availability and meeting the minimum aggregate requirement."
+          },
+          "mandatory_subjects": [
+            "Chemistry"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 59.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 73.32
+          },
+          {
+            "year": 2023,
+            "cutoff": 61.05
+          },
+          {
+            "year": 2024,
+            "cutoff": 61.05
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.89
+          }
+        ],
+        "cutoff_range": {
+          "min": 59.0,
+          "max": 73.32
+        },
+        "confidence_band": 14.32,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_management_sci",
+        "name": "BS Management Sciences",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical candidates are eligible for Management Sciences. No additional bridge course required. Subject to seat availability."
+          },
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 66.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 77.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 69.14
+          },
+          {
+            "year": 2024,
+            "cutoff": 69.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 72.58
+          }
+        ],
+        "cutoff_range": {
+          "min": 66.0,
+          "max": 77.0
+        },
+        "confidence_band": 11.0,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_economics_finance",
+        "name": "BS Economics & Finance",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 61.36
+          },
+          {
+            "year": 2023,
+            "cutoff": 61.36
+          },
+          {
+            "year": 2022,
+            "cutoff": 71.5
+          },
+          {
+            "year": 2021,
+            "cutoff": 65.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 69.98
+          }
+        ],
+        "cutoff_range": {
+          "min": 61.36,
+          "max": 71.5
+        },
+        "confidence_band": 10.14,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_comp_finance",
+        "name": "BS Computational Finance",
+        "field_id": "finance_accounting",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 72.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 77.91
+          },
+          {
+            "year": 2023,
+            "cutoff": 72.73
+          },
+          {
+            "year": 2024,
+            "cutoff": 72.73
+          },
+          {
+            "year": 2025,
+            "cutoff": 78.98
+          }
+        ],
+        "cutoff_range": {
+          "min": 72.0,
+          "max": 78.98
+        },
+        "confidence_band": 6.98,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_dev_studies",
+        "name": "BS Development Studies",
+        "field_id": "social_work",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 60.0
+          },
+          {
+            "year": 2022,
+            "cutoff": 75.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.91
+          },
+          {
+            "year": 2024,
+            "cutoff": 60.09
+          },
+          {
+            "year": 2025,
+            "cutoff": 59.22
+          }
+        ],
+        "cutoff_range": {
+          "min": 59.22,
+          "max": 75.0
+        },
+        "confidence_band": 15.78,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_bs_english_ling",
+        "name": "BS English Linguistics",
+        "field_id": "english_linguistics",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce",
+            "Humanities",
+            "Pre-Medical"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "English"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "physics": 1.0,
+            "chemistry": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 59045,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 472360,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 59.34
+          },
+          {
+            "year": 2023,
+            "cutoff": 60.73
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.0
+          },
+          {
+            "year": 2021,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 62.65
+          }
+        ],
+        "cutoff_range": {
+          "min": 59.34,
+          "max": 76.0
+        },
+        "confidence_band": 16.66,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "english_weight": 0.25,
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      },
+      {
+        "degree_id": "neduet_barch_architecture",
+        "name": "B.Arch Architecture & Planning",
+        "field_id": "architecture",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 5,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.6,
+          "subject_weights": {
+            "mathematics": 1.0,
+            "other": 1.0
+          },
+          "notes": "Merit Score = 40% (HSC Part-I/O-Level marks or equivalent) + 60% weightage to the Entry Test Score. Note: For fresh applicants, the 40% is calculated using HSC Part-I marks, not the final HSSC total."
+        },
+        "fee_per_semester": 61245,
+        "admission_fee_pkr": 51930,
+        "estimated_total_cost_pkr": 612450,
+        "merit_history": [
+          {
+            "year": 2024,
+            "cutoff": 67.45
+          },
+          {
+            "year": 2023,
+            "cutoff": 67.45
+          },
+          {
+            "year": 2022,
+            "cutoff": 76.77
+          },
+          {
+            "year": 2021,
+            "cutoff": 71.05
+          },
+          {
+            "year": 2025,
+            "cutoff": 69.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 67.45,
+          "max": 76.77
+        },
+        "confidence_band": 9.32,
+        "location": {
+          "area": "University Road, Karachi – 75270",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NED Entry Test",
+          "math_weight": 0.25,
+          "physics_weight": 0.25,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.25,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1 – 2025",
+              "open": "March 2025",
+              "close": "May 2025",
+              "test_date": "May 24, 2025"
+            },
+            {
+              "round": "Round 2 – 2025",
+              "open": "June 2025",
+              "close": "July 2025",
+              "test_date": "July 12, 2025"
+            }
+          ],
+          "website": "https://www.neduet.edu.pk/admission",
+          "last_verified": "March 2026"
+        }
+      }
+    ]
+  },
+  
+  {
+    "university_id": "fast_nuces",
+    "name": "National University of Computer & Emerging Sciences (FAST-NUCES) – Karachi",
+    "type": "private",
+    "zone": 4,
+    "location": {
+      "area": "Shah Latif Town, National Highway, Malir, Karachi",
+      "zone": 4
+    },
+    "scholarships": [
+      {
+        "name": "FAST Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top scorers in NU Admission Test merit list"
+      },
+      {
+        "name": "FAST Need-Based Financial Assistance",
+        "coverage": "Up to 100% tuition fee",
+        "criteria": "Demonstrated financial need; annual income-based evaluation"
+      },
+      {
+        "name": "PEEF Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Punjab Education Endowment Fund – Punjab-domicile students with financial need"
+      },
+      {
+        "name": "Sindh Endowment Fund Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Sindh-domicile students with financial need"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "hard",
+    "degrees": [
+      {
+        "degree_id": "fast_nuces_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible to apply. No bridge course required — Mathematics must already be part of studies or equivalence. Confirmed: nu.edu.pk/Admissions/EligibilityCriteria (Aug 2025)."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC/FSc Part-1 + 10% SSC/Matric. HSSC Part-1 only is used if Part-2 result is not yet available. Source: nu.edu.pk official eligibility page. The uploaded merit file shows a simplified '50% Inter + 50% NU Test' which is an approximation; the 3-component formula is authoritative."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 62.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 68.26
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.5,
+          "max": 68.26
+        },
+        "confidence_band": 5.76,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_se",
+        "name": "BS Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.52
+          },
+          {
+            "year": 2025,
+            "cutoff": 66.37
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.0,
+          "max": 66.52
+        },
+        "confidence_band": 3.52,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ai",
+        "name": "BS Artificial Intelligence",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 63.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 65.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 67.43
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.47
+          }
+        ],
+        "cutoff_range": {
+          "min": 63.0,
+          "max": 67.43
+        },
+        "confidence_band": 4.43,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ds",
+        "name": "BS Data Science",
+        "field_id": "data_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 62.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.08
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.5,
+          "max": 66.14
+        },
+        "confidence_band": 3.64,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_cys",
+        "name": "BS Cyber Security",
+        "field_id": "cybersecurity",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical students who have passed or are appearing in an additional Mathematics examination are eligible. Mathematics must already be part of studies. Source: nu.edu.pk/Admissions/EligibilityCriteria."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must have passed or be appearing in an additional Mathematics examination.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Computing formula: 50% NU/NAT Test + 40% HSSC + 10% SSC. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 190875,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1527000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 62.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 63.8
+          },
+          {
+            "year": 2024,
+            "cutoff": 66.14
+          },
+          {
+            "year": 2025,
+            "cutoff": 65.08
+          }
+        ],
+        "cutoff_range": {
+          "min": 62.5,
+          "max": 66.14
+        },
+        "confidence_band": 3.64,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ee",
+        "name": "BS Electrical Engineering",
+        "field_id": "electrical_engineering",
+        "field_category": "Engineering",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [
+            "Mathematics",
+            "Physics"
+          ],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.17,
+          "inter_weight": 0.5,
+          "entry_test_weight": 0.33,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Engineering formula (PEC-mandated): 33% NU/NAT Test + 50% HSSC/FSc + 17% SSC/Matric. Different from computing programs. Source: nu.edu.pk official eligibility page (Aug 2025)."
+        },
+        "fee_per_semester": 195000,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1560000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 57.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 58.5
+          },
+          {
+            "year": 2024,
+            "cutoff": 60.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 61.33
+          }
+        ],
+        "cutoff_range": {
+          "min": 57.0,
+          "max": 61.33
+        },
+        "confidence_band": 4.33,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "adv_math_weight": 0.5,
+          "basic_math_weight": 0.2,
+          "iq_weight": 0.2,
+          "english_weight": 0.1,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bba",
+        "name": "BBA",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. Merit data for Karachi campus shows 'Data N/A' for 2025 — program offered but enrollment data not published. Merit estimates based on regional trend. policy_pending_verification set to true due to absence of confirmed Karachi-specific merit data."
+        },
+        "fee_per_semester": 188125,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1505000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 44.0
+          },
+          {
+            "year": 2023,
+            "cutoff": 46.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 48.0
+          },
+          {
+            "year": 2025,
+            "cutoff": 49.67
+          }
+        ],
+        "cutoff_range": {
+          "min": 44.0,
+          "max": 49.67
+        },
+        "confidence_band": 5.67,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ft",
+        "name": "BS Financial Technologies",
+        "field_id": "fintech",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. 2022-2023 merit history is estimated. 2024 and 2025 are confirmed from official Karachi campus data. NEW FIELD_ID: 'fintech' — Waqas must add to canonical list in DATA_CHAT_INSTRUCTIONS.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Matching lag_model.json and affinity_matrix.json entries required in this same commit. Add alias mapping in answer_node.py. min_percentage_hssc set to 45.0 (HEC general floor, Business category); verify if NCEAC governs this degree instead (would be 50.0)."
+        },
+        "fee_per_semester": 192250,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1538000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 51.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 54.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.62
+          },
+          {
+            "year": 2025,
+            "cutoff": 49.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 49.3,
+          "max": 56.62
+        },
+        "confidence_band": 7.32,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "fast_nuces_bs_ba",
+        "name": "BS Business Analytics",
+        "field_id": "business_analytics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Pre-Medical",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.1,
+          "inter_weight": 0.4,
+          "entry_test_weight": 0.5,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "FAST-NUCES Business formula: 50% NU/NAT/SAT Test + 40% HSSC + 10% SSC. All streams eligible. SAT minimum score: 1000. 2022-2023 merit history is estimated. 2024 is confirmed (56.62). 2025 data not published for Karachi in official file — possible low enrollment or merged with BBA merit list. NEW FIELD_ID: 'business_analytics' — Waqas must add to canonical list in DATA_CHAT_INSTRUCTIONS.md, POINT_4_JSON_KNOWLEDGE_BASE_v1_5.md, and CLAUDE.md. Matching lag_model.json and affinity_matrix.json entries required in this same commit. Add alias mapping in answer_node.py. min_percentage_hssc set to 45.0 (HEC general floor, Business category); verify if NCEAC governs this degree instead (would be 50.0)."
+        },
+        "fee_per_semester": 188125,
+        "admission_fee_pkr": 30000,
+        "estimated_total_cost_pkr": 1505000,
+        "merit_history": [
+          {
+            "year": 2022,
+            "cutoff": 51.5
+          },
+          {
+            "year": 2023,
+            "cutoff": 54.0
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.62
+          },
+          {
+            "year": 2025,
+            "cutoff": 56.0
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.5,
+          "max": 56.62
+        },
+        "confidence_band": 5.12,
+        "location": {
+          "area": "Shah Latif Town, National Highway, Malir, Karachi",
+          "zone": 4
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "NU Test",
+          "basic_math_weight": 0.5,
+          "iq_weight": 0.25,
+          "essay_weight": 0.15,
+          "english_weight": 0.1,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "June",
+          "typical_close": "July",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.nu.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+    ],
+    "notes": "MERIT CUTOFF CONTEXT: All historical merit cutoffs and aggregate formulas provided in this dataset apply strictly to the NU (National University) Entry Test track. These cutoffs are community-sourced estimates. FAST-NUCES does not officially publish closing aggregates. Cutoffs for NAT and SAT applicant tracks are calculated separately and are subject to different, typically much higher, merit benchmarks due to limited seat quotas."
+  },
+  {
+    "university_id": "uok",
+    "name": "University of Karachi",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "UoK Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top-ranked students by merit in each department — awarded at time of admission"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Up to full tuition",
+        "criteria": "HEC income-based eligibility — apply via HEC portal before semester commencement"
+      },
+      {
+        "name": "Sindh Endowment Fund Scholarship",
+        "coverage": "Partial tuition support",
+        "criteria": "Sindh-domicile students demonstrating financial need — apply through UoK Dean of Students office"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "uok_bs_cs_morning",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission is also subject to passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). The entry test is a qualifying threshold, not a weighted component of the merit aggregate. Matric marks are not included. Cutoffs in merit_history are HSSC closing percentages (K-category — Karachi domicile seats). NOTE: 2025 morning test-based data was not available in the source PDFs provided."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.09},
+          {"year": 2022, "cutoff": 83.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 76.45},
+          {"year": 2026, "cutoff": 77.91}
+        ],
+        "cutoff_range": {
+          "min": 76.45,
+          "max": 90.09
+        },
+        "confidence_band": 13.6,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_cs_evening",
+        "name": "BS Computer Science (Evening)",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level (or O-Level equivalent). No bridge course is offered — Mathematics must already appear in the academic record. Admission also requires passing the UoK Entry Test with a minimum score of 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level. No bridge course — subject must already be part of the academic record before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK evening test-based programs rank students purely on HSSC academic percentage after the entry test gate is cleared (minimum 50 out of 100). Entry test is a qualifying threshold, not a weighted merit component. Matric marks excluded. Cutoffs are HSSC closing percentages (K-category). Evening programs have significantly lower cutoffs than morning due to smaller applicant pool and higher fees."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 56.45},
+          {"year": 2023, "cutoff": 76.82},
+          {"year": 2024, "cutoff": 55.00},
+          {"year": 2025, "cutoff": 61.73},
+          {"year": 2026, "cutoff": 68.82}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 76.82
+        },
+        "confidence_band": 21.8,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_morning",
+        "name": "BS Software Engineering",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked purely on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Entry test is qualifying threshold only — not a weighted merit component. Matric excluded. Cutoffs are HSSC closing % (K-category). NOTE: BSSE (BS Software Engineering) is NCEAC-governed — min_percentage_hssc is 50.0, not 60.0. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 25000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 200000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 90.45},
+          {"year": 2022, "cutoff": 85.00},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 77.91},
+          {"year": 2026, "cutoff": 77.18}
+        ],
+        "cutoff_range": {
+          "min": 75.00,
+          "max": 90.45
+        },
+        "confidence_band": 15.4,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_se_evening",
+        "name": "BS Software Engineering (Evening)",
+        "field_id": "software_engineering",
+        "field_category": "CS",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must already be in the academic record. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application. No bridge course available.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100 for primary track; secondary track at 45/100 also appears in some years — primary track cutoffs used here). Entry test is a gate only. Evening programs carry higher fees and lower cutoffs than morning."
+        },
+        "fee_per_semester": 60000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 480000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 55.09},
+          {"year": 2023, "cutoff": 75.00},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2025, "cutoff": 55.00},
+          {"year": 2026, "cutoff": 62.18}
+        ],
+        "cutoff_range": {
+          "min": 55.00,
+          "max": 75.00
+        },
+        "confidence_band": 20.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_ai_morning",
+        "name": "BS Artificial Intelligence",
+        "field_id": "artificial_intelligence",
+        "field_category": "CS",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "ICS"],
+          "conditionally_eligible_streams": ["Pre-Medical"],
+          "eligibility_notes": {
+            "Pre-Medical": "Pre-Medical applicants must have studied Mathematics as an additional subject at intermediate level. No bridge course offered — Mathematics must appear in the academic record before application. Admission requires passing UoK Entry Test with minimum 50 out of 100."
+          },
+          "mandatory_subjects": ["Mathematics"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": ["Pre-Medical"],
+              "condition": "Must have passed Mathematics as an additional subject at FSc level before application.",
+              "max_intake_percentage": null
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "New program introduced in 2026 admissions cycle. Ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). Only one year of cutoff data available — confidence_band is 0.0 and the single data point should be treated as indicative only. policy_pending_verification set true due to limited data on full eligibility rules for this new program."
+        },
+        "fee_per_semester": 35000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 280000,
+        "merit_history": [
+          {"year": 2026, "cutoff": 77.36}
+        ],
+        "cutoff_range": {
+          "min": 77.36,
+          "max": 77.36
+        },
+        "confidence_band": 0.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.60,
+          "english_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_be_chemical_morning",
+        "name": "BE Chemical Engineering",
+        "field_id": "chemical_engineering",
+        "field_category": "Engineering",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering"],
+          "conditionally_eligible_streams": ["ICS"],
+          "eligibility_notes": {
+            "ICS": "ICS applicants typically lack Chemistry at FSc level, which is a PEC requirement for Chemical Engineering. Applicants must have passed Chemistry at O-Level (minimum Grade C) or equivalent to meet PEC eligibility. Admission is also subject to passing the UoK Entry Test with minimum score 50 out of 100. Verify current policy with UoK Directorate of Admissions before applying."
+          },
+          "mandatory_subjects": ["Mathematics", "Physics", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "UoK BE Chemical Engineering is PEC-governed (min_percentage_hssc: 60.0). Ranked on HSSC academic percentage after clearing UoK Entry Test gate (minimum 50/100). Entry test is a qualifying gate — not weighted in the merit aggregate. Cutoffs in merit_history are HSSC closing percentages (K-category). Significant downward trend observed: 86% in 2021 to 60% in 2024-2026 — reflects increased seat capacity or lower applicant competition. 2022 and 2023 cutoffs are identical at 74.18. NOTE: 2025 morning data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 15000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 86.00},
+          {"year": 2022, "cutoff": 74.18},
+          {"year": 2023, "cutoff": 74.18},
+          {"year": 2024, "cutoff": 60.18},
+          {"year": 2026, "cutoff": 60.00}
+        ],
+        "cutoff_range": {
+          "min": 60.00,
+          "max": 86.00
+        },
+        "confidence_band": 26.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "math_weight": 0.40,
+          "physics_weight": 0.30,
+          "chemistry_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_morning",
+        "name": "BBA (Karachi University Business School)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA morning is entry-test-based. Students are ranked on HSSC academic percentage after clearing the UoK Entry Test gate (minimum 50/100). All intermediate streams are eligible. Entry test is a qualifying gate, not weighted in merit aggregate. Cutoffs represent strong downward trend: 83% in 2021 to 73% in 2024-2026 — possibly reflecting increased seats or reduced competition. NOTE: 2025 morning test-based data not available in source PDFs."
+        },
+        "fee_per_semester": 45000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 360000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 83.09},
+          {"year": 2022, "cutoff": 81.18},
+          {"year": 2023, "cutoff": 81.18},
+          {"year": 2024, "cutoff": 73.09},
+          {"year": 2026, "cutoff": 73.09}
+        ],
+        "cutoff_range": {
+          "min": 73.09,
+          "max": 83.09
+        },
+        "confidence_band": 10.0,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "UoK Entry Test",
+          "english_weight": 0.60,
+          "math_weight": 0.40,
+          "difficulty": "medium"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bba_evening",
+        "name": "BBA — Karachi University Business School (Evening)",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "KUBS BBA evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages (K-category seats). Evening fees are significantly higher than morning. Downward trend in recent years (76% to 66%) makes this increasingly accessible."
+        },
+        "fee_per_semester": 65000,
+        "admission_fee_pkr": 20000,
+        "estimated_total_cost_pkr": 520000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 76.36},
+          {"year": 2023, "cutoff": 76.36},
+          {"year": 2024, "cutoff": 68.18},
+          {"year": 2025, "cutoff": 65.82},
+          {"year": 2026, "cutoff": 66.82}
+        ],
+        "cutoff_range": {
+          "min": 65.82,
+          "max": 76.36
+        },
+        "confidence_band": 10.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_morning",
+        "name": "BS Economics & Finance",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "morning",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) is an open-merit-based morning program — no entry test required. Ranked purely on HSSC academic percentage. All intermediate streams eligible. Cutoffs are HSSC closing percentages for the Karachi (K) domicile category. Significant downward trend: 80.45% in 2022 to 65.36% in 2026 — reflects either increased seat capacity or reduced applicant competition. 2021 morning open-merit data was not available in source PDFs."
+        },
+        "fee_per_semester": 20000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 160000,
+        "merit_history": [
+          {"year": 2022, "cutoff": 80.45},
+          {"year": 2024, "cutoff": 68.09},
+          {"year": 2025, "cutoff": 67.55},
+          {"year": 2026, "cutoff": 65.36}
+        ],
+        "cutoff_range": {
+          "min": 65.36,
+          "max": 80.45
+        },
+        "confidence_band": 15.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "uok_bs_econ_finance_evening",
+        "name": "BS Economics & Finance (Evening)",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "evening",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Engineering", "Pre-Medical", "ICS", "Commerce", "Humanities"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 1.0,
+          "entry_test_weight": 0.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "BS Economics & Finance (BSEF) evening is open-merit-based — no entry test required. Ranked purely on HSSC academic percentage. All streams eligible. Cutoffs are HSSC closing percentages for the K-category (Karachi domicile). Highly volatile cutoffs (ranging from 45.09% to 63.64%) suggest year-to-year seat availability fluctuations. Evening fees are higher than morning. Very accessible financially compared to private alternatives."
+        },
+        "fee_per_semester": 40000,
+        "admission_fee_pkr": 12000,
+        "estimated_total_cost_pkr": 320000,
+        "merit_history": [
+          {"year": 2021, "cutoff": 45.09},
+          {"year": 2023, "cutoff": 63.64},
+          {"year": 2024, "cutoff": 45.09},
+          {"year": 2025, "cutoff": 49.45},
+          {"year": 2026, "cutoff": 45.09}
+        ],
+        "cutoff_range": {
+          "min": 45.09,
+          "max": 63.64
+        },
+        "confidence_band": 18.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 2
+        },
+        "entry_test": {
+          "required": false,
+          "test_name": null,
+          "difficulty": null
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "September",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://ku.edu.pk/admissions",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  },
+  
+  {
+    "university_id": "iba",
+    "name": "Institute of Business Administration (IBA), Karachi",
+    "type": "public",
+    "zone": 3,
+    "location": {
+      "area": "University Road, Karachi",
+      "zone": 3
+    },
+    "scholarships": [
+      {
+        "name": "IBA National Talent Hunt Program (NTHP)",
+        "coverage": "Fully funded",
+        "criteria": "Merit-based national talent program"
+      },
+      {
+        "name": "IBA Financial Assistance Program",
+        "coverage": "Up to 100% tuition",
+        "criteria": "Need-based assessment; over 30% of students receive some assistance annually"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "hard",
+    "degrees": [
+      {
+        "degree_id": "iba_bba",
+        "name": "BBA",
+        "field_id": "business_bba",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. SAT route also available \u2014 top SAT scorers may qualify for direct admission or interview. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_accounting_finance",
+        "name": "BS Accounting & Finance",
+        "field_id": "finance_accounting",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_business_analytics",
+        "name": "BS Business Analytics",
+        "field_id": "business_analytics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS",
+            "Commerce"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Business Studies (SBS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 63.3
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 63.3
+        },
+        "confidence_band": 12.2,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "January",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "January 21, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics",
+        "name": "BS Economics",
+        "field_id": "economics",
+        "field_category": "Business",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_ssla",
+        "name": "BS Social Sciences & Liberal Arts",
+        "field_id": "social_sciences",
+        "field_category": "Arts",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "Pre-Medical",
+            "ICS",
+            "Commerce",
+            "Humanities"
+          ],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": [],
+          "min_percentage_hssc": 45.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). Aptitude test for BSSS includes an essay writing component unlike other UG programs."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2022,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 51.1
+          },
+          {
+            "year": 2025,
+            "cutoff": 51.1
+          }
+        ],
+        "cutoff_range": {
+          "min": 51.1,
+          "max": 55.6
+        },
+        "confidence_band": 4.5,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_cs",
+        "name": "BS Computer Science",
+        "field_id": "computer_science",
+        "field_category": "CS",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Requires passing Mathematics deficiency course. Mathematics background required at SSC or O-Level level."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). No interview stage for BSCS per official IBA admission schedule."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_mathematics",
+        "name": "BS Mathematics",
+        "field_id": "mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics background required at high school level (SSC/O-Level). Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [
+          {
+            "year": 2021,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2022,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2023,
+            "cutoff": 55.6
+          },
+          {
+            "year": 2024,
+            "cutoff": 56.7
+          },
+          {
+            "year": 2025,
+            "cutoff": 55.6
+          }
+        ],
+        "cutoff_range": {
+          "min": 55.6,
+          "max": 56.7
+        },
+        "confidence_band": 1.1,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "February",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "February 18, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_mathematics",
+        "name": "BS Economics & Mathematics",
+        "field_id": "economics_mathematics",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). School of Economics and Social Sciences (SESS). Merit history data not available — IBA does not publish program-specific aptitude score cutoffs publicly. Fazal to obtain historical cutoff data directly from IBA admissions office before this degree can go live."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+      {
+        "degree_id": "iba_bs_economics_data_science",
+        "name": "BS Economics & Data Science",
+        "field_id": "economics_data_science",
+        "field_category": "Science",
+        "shift": "full_day",
+        "duration_years": 4,
+        "eligibility": {
+          "fully_eligible_streams": [
+            "Pre-Engineering",
+            "ICS"
+          ],
+          "conditionally_eligible_streams": [
+            "Pre-Medical"
+          ],
+          "eligibility_notes": {
+            "Pre-Medical": "Mathematics required at HSSC or O/A-Level. Must pass deficiency math course in first semester."
+          },
+          "mandatory_subjects": [
+            "Mathematics"
+          ],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": true,
+          "subject_waivers": {
+            "Mathematics": {
+              "waivable_for_streams": [
+                "Pre-Medical"
+              ],
+              "condition": "Must pass deficiency math course in first semester",
+              "max_intake_percentage": 20
+            }
+          }
+        },
+        "aggregate_formula": {
+          "matric_weight": 0.0,
+          "inter_weight": 0.0,
+          "entry_test_weight": 1.0,
+          "subject_weights": {
+            "other": 1.0
+          },
+          "notes": "IBA admission is 100% on IBA Aptitude Test. Raw test scores are out of 360; cutoffs stored as percentage (score/360 x 100). 41 courses, 131 credit hours, 1 research project per official program table. School of Economics and Social Sciences (SESS)."
+        },
+        "fee_per_semester": 448000,
+        "admission_fee_pkr": 115000,
+        "estimated_total_cost_pkr": 3584000,
+        "merit_history": [],
+        "cutoff_range": {
+          "min": null,
+          "max": null
+        },
+        "confidence_band": null,
+        "location": {
+          "area": "University Road, Karachi",
+          "zone": 3
+        },
+        "entry_test": {
+          "required": true,
+          "test_name": "IBA Aptitude Test",
+          "math_weight": 0.5,
+          "english_weight": 0.5,
+          "difficulty": "high"
+        },
+        "application_window": {
+          "data_cycle": "2026",
+          "typical_open": "January",
+          "typical_close": "March",
+          "multiple_rounds": true,
+          "round_details": [
+            {
+              "round": "Round 1",
+              "open": "January 01, 2026",
+              "close": "March 25, 2026"
+            },
+            {
+              "round": "Round 2",
+              "open": "TBC",
+              "close": "TBC"
+            }
+          ],
+          "website": "https://admissions.iba.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+    ]
+  },
+
+  {
+    "university_id": "dow",
+    "name": "Dow University of Health Sciences",
+    "short_name": "DUHS",
+    "type": "public",
+    "zone": 2,
+    "location": {
+      "area": "Baba-e-Urdu Road / Ojha Campus, Karachi",
+      "zone": 2
+    },
+    "scholarships": [
+      {
+        "name": "DUHS Merit Scholarship",
+        "coverage": "Partial to full tuition waiver",
+        "criteria": "Top merit list positions in MDCAT / DUHS Entry Test — exact threshold varies by program"
+      },
+      {
+        "name": "HEC Need-Based Scholarship",
+        "coverage": "Partial fee waiver",
+        "criteria": "Financial need + academic merit, administered through HEC portal"
+      }
+    ],
+    "data_last_verified": "April 2026",
+    "entry_test_difficulty_tier": "standard",
+    "degrees": [
+
+      {
+        "degree_id": "dow_mbbs",
+        "name": "MBBS",
+        "field_id": "medicine_mbbs",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 55% for MBBS. MDCAT 2025 conducted by IBA-Sukkur."
+        },
+
+        "fee_per_semester": 24000,
+        "admission_fee_pkr": 25000,
+        "estimated_total_cost_pkr": 240000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 83.0 },
+          { "year": 2022, "cutoff": 81.0 },
+          { "year": 2023, "cutoff": 79.3 },
+          { "year": 2024, "cutoff": 75.6 }
+        ],
+        "cutoff_range": {
+          "min": 75.6,
+          "max": 83.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "Baba-e-Urdu Road, Karachi (Dow Medical College)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 55.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bds",
+        "name": "BDS (Bachelor of Dental Surgery)",
+        "field_id": "dentistry_bds",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry", "Physics"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "physics": 1.0,
+            "other": 1.0
+          },
+          "notes": "CONFIRMED from DUHS Prospectus MBBS & BDS 2025-26 (p.113, p.122): 10% Matric + 40% FSc + 50% MDCAT. Min MDCAT 50% for BDS. MDCAT 2025 conducted by IBA-Sukkur. Fee structure is for DIKIOHS (primary public-sector BDS college, 100 seats). DDC and DIDC have higher fees (PKR 750,000/yr — self-finance category)."
+        },
+
+        "fee_per_semester": 100000,
+        "admission_fee_pkr": 60000,
+        "estimated_total_cost_pkr": 800000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 81.0 },
+          { "year": 2022, "cutoff": 79.0 },
+          { "year": 2023, "cutoff": 75.4 },
+          { "year": 2024, "cutoff": 74.0 }
+        ],
+        "cutoff_range": {
+          "min": 74.0,
+          "max": 81.0
+        },
+        "confidence_band": 2.0,
+
+        "location": {
+          "area": "DIKIOHS Campus, Karachi (Dr. Ishrat-ul-Ebad Khan Institute of Oral Health Sciences)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "MDCAT",
+          "conducting_body": "IBA-Sukkur",
+          "min_score_percent": 50.0,
+          "biology_weight": 0.40,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.20,
+          "english_weight": 0.10,
+          "difficulty": "high"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "November",
+          "typical_close": "November",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_pharmd",
+        "name": "Pharm-D (Doctor of Pharmacy)",
+        "field_id": "pharmacy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 60.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official Pharm-D merit list 2024-25 (dated 16-Jan-2025): 10% Matric + 40% FSc + 50% DUHS Entry Test. Min entry test 25%. Fee verified from DUHS seat allocation notifications 2024-25: Open Merit PKR 275,000 per year (PKR 137,500 per semester). Self-Finance fee is PKR 435,000 per year. estimated_total_cost_pkr = 5yr tuition (1,375,000) + admission fee estimate (7,500)."
+        },
+
+        "fee_per_semester": 137500,
+        "fee_data_status": "verified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 1375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 74.6 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 74.6
+        },
+        "confidence_band": 3.5,
+
+        "location": {
+          "area": "DUHS Campus, Karachi (Dow College of Pharmacy — DCOP)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": 25.0,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_dpt",
+        "name": "Doctor of Physical Therapy (DPT)",
+        "field_id": "physical_therapy",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 5,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology", "Chemistry"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "chemistry": 1.5,
+            "other": 1.0
+          },
+          "notes": "Formula confirmed from official DPT merit list 2023-24: 10% Matric + 40% FSc + 50% DUHS Entry Test. Merit #1 = 88.327%. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover DPT fees. Requires verification against DIPM&R (Ojha Campus) fee schedule."
+        },
+
+        "fee_per_semester": 37500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 375000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 72.5 },
+          { "year": 2022, "cutoff": 72.5 },
+          { "year": 2023, "cutoff": 72.5 },
+          { "year": 2024, "cutoff": 72.5 }
+        ],
+        "cutoff_range": {
+          "min": 72.5,
+          "max": 72.5
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Physical Medicine and Rehabilitation — DIPM&R)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.50,
+          "chemistry_weight": 0.30,
+          "physics_weight": 0.15,
+          "english_weight": 0.05,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      },
+
+      {
+        "degree_id": "dow_bs_nursing",
+        "name": "BS Nursing (Generic)",
+        "field_id": "nursing",
+        "field_category": "Medical",
+        "shift": "full_day",
+        "duration_years": 4,
+
+        "eligibility": {
+          "fully_eligible_streams": ["Pre-Medical"],
+          "conditionally_eligible_streams": [],
+          "eligibility_notes": {},
+          "mandatory_subjects": ["Biology"],
+          "min_percentage_hssc": 50.0,
+          "policy_pending_verification": false,
+          "subject_waivers": {}
+        },
+
+        "aggregate_formula": {
+          "matric_weight": 0.10,
+          "inter_weight": 0.40,
+          "entry_test_weight": 0.50,
+          "subject_weights": {
+            "biology": 2.0,
+            "other": 1.0
+          },
+          "notes": "Merit lists (Male/Female separate) published via DION&M (Dow Institute of Nursing & Midwifery), Ojha Campus. DUHS Entry Test formula applied. ⚠ Fee is an ESTIMATE — the 2025 MBBS & BDS prospectus does not cover BS Nursing fees. Requires verification against DION&M fee schedule."
+        },
+
+        "fee_per_semester": 27500,
+        "fee_data_status": "estimate_unverified",
+        "admission_fee_pkr": 7500,
+        "estimated_total_cost_pkr": 220000,
+
+        "merit_history": [
+          { "year": 2021, "cutoff": 70.0 },
+          { "year": 2022, "cutoff": 70.0 },
+          { "year": 2023, "cutoff": 70.0 },
+          { "year": 2024, "cutoff": 70.0 }
+        ],
+        "cutoff_range": {
+          "min": 70.0,
+          "max": 70.0
+        },
+        "confidence_band": 0.0,
+
+        "location": {
+          "area": "Ojha Campus, Karachi (Dow Institute of Nursing and Midwifery — DION&M)",
+          "zone": 2
+        },
+
+        "entry_test": {
+          "required": true,
+          "test_name": "DUHS Entry Test",
+          "conducting_body": "DUHS",
+          "min_score_percent": null,
+          "biology_weight": 0.60,
+          "chemistry_weight": 0.25,
+          "english_weight": 0.15,
+          "difficulty": "medium"
+        },
+
+        "application_window": {
+          "data_cycle": "2025",
+          "typical_open": "July",
+          "typical_close": "September",
+          "multiple_rounds": false,
+          "round_details": null,
+          "website": "https://admissions.duhs.edu.pk",
+          "last_verified": "April 2026"
+        }
+      }
+
+    ]
+  } 
+]
