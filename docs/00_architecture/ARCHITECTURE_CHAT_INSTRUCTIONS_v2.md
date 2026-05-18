@@ -367,6 +367,104 @@ different keys. This is not active scope.
 
 ---
 
+## RATIONALE DOCUMENTATION
+
+### Purpose
+
+The `docs/rationale/` folder documents the *why* behind every major
+decision. It exists for three purposes:
+1. Viva defense — answer any "why did you choose X" question
+2. Written FYP report — feeds directly into methodology sections
+3. Future development — context for anyone joining the project
+
+### When to Write a Rationale File
+
+Write AFTER a component is **100% complete and committed** — not before,
+not during implementation. A file written mid-implementation reflects
+the initial design, not the final one. Components change significantly
+during implementation (Script B is a documented example of this).
+
+If a rationale file already exists for a component being worked on,
+**check and fill gaps** after the component is fully complete before
+moving to the next task.
+
+### What Triggers a New File or Addition
+
+**Triggers:**
+- A major component fully complete and committed
+- A significant architectural decision made or changed
+- An instrument, tool, or approach adopted or rejected with reasoning
+- A deviation from prior design with documented rationale
+- A phase fully complete
+
+**Does NOT trigger:**
+- Minor bug fixes or style changes
+- Adding a single field to a schema
+- Routine test additions
+- Anything that will likely change again before the component is done
+
+### Epistemic Status — NOT Authoritative
+
+Rationale files are **not** ground truth. They describe reasoning that
+was correct at the time of writing. If a rationale file conflicts with:
+- CLAUDE.md → CLAUDE.md wins
+- Actual committed code → the code wins
+- What the user says in the current conversation → the conversation wins
+
+Treat rationale files as useful background context, not specification.
+Do not defend a rationale file against evidence that the design changed.
+Do not assume a rationale file is complete — gaps are expected especially
+for components decided in earlier Architecture Chat sessions.
+
+### File Structure
+
+```
+docs/rationale/
+  README.md                          ← index, file status (complete/pending)
+
+  system/
+    agentic_ai_and_langgraph.md
+
+  assessment/
+    riasec_and_3d_model.md
+    kcis.md
+    caas_vna_cddq_bigfive.md
+    rejected_instruments.md
+
+  pipeline/
+    nodes_and_routing.md
+
+  data_files/
+    json_knowledge_base.md
+    assessment_questions.md          ← pending Phase 1B completion
+
+  scraper/
+    linkedin_scraper_pipeline.md     ← gaps expected for Script C/D
+
+  market/
+    pakistani_market_context.md
+
+  infrastructure/
+    deployment_and_database.md
+```
+
+### Gap-Filling Workflow
+
+When completing a component in Architecture Chat:
+1. Component is done and committed
+2. Check if a rationale file exists for it
+3. If yes: read it, identify gaps or inaccuracies from the actual
+   implementation, update the file
+4. If no: write the file now, based on what was actually built
+5. Commit the rationale file
+6. Move to the next task
+
+The rationale file for Script C (map_job_titles.py) should be written
+in Architecture Chat v6 once Script C is fully complete and verified —
+not before.
+
+---
+
 ## POINT FILES — AUTHORITATIVE VERSIONS
 
 When multiple versions exist, highest version number wins.
