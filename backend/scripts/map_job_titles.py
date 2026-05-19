@@ -3,7 +3,7 @@ Script C — Job title → field_id mapping via Gemini.
 Maps free-text LinkedIn job titles to canonical HEC degree field_ids.
 Output: backend/data/job_title_mapping.json
 Human review required before committing the mapping file.
-No project imports. stdlib + google.generativeai + dotenv only.
+No project imports. stdlib + google.genai + dotenv only.
 """
 
 import os
@@ -14,11 +14,13 @@ import re
 import sys
 from datetime import datetime
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
+from google.genai import types
+from google.genai import errors as genai_errors
 
 load_dotenv("backend/.env")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-genai.configure(api_key=GEMINI_API_KEY)
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 REPO_ROOT = pathlib.Path(__file__).parent.parent.parent
 DATA_DIR = REPO_ROOT / "backend" / "data"
@@ -28,7 +30,7 @@ INPUT_FILE = DATA_DIR / "linkedin_raw_jobs.json"
 MAPPING_FILE = DATA_DIR / "job_title_mapping.json"
 AFFINITY_FILE = APP_DATA_DIR / "affinity_matrix.json"
 
-MODEL_NAME = "gemini-2.0-flash-lite"
+MODEL_NAME = "gemini-3.1-flash-lite-preview"
 BATCH_SIZE = 20
 REQUEST_DELAY = 4
 MAX_RETRIES = 3
@@ -369,7 +371,7 @@ def build_field_id_block(field_map):
 # STEP 6 — Gemini API call with retry
 # ---------------------------------------------------------------------------
 
-def call_gemini(model, batch_titles, system_prompt, log_func):
+def call_gemini(client, batch_titles, system_prompt, log_func):
     """
     Send a batch of titles to Gemini for mapping.
     Returns parsed list of mapping dicts, or None on failure.
@@ -387,10 +389,12 @@ def call_gemini(model, batch_titles, system_prompt, log_func):
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            response = model.generate_content(
-                [system_prompt, user_message],
-                generation_config=genai.GenerationConfig(
-                    temperature=0.1,
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=user_message,
+                config=types.GenerateContentConfig(
+                    system_instruction=system_prompt,
+                    temperature=0.0,
                     top_p=0.9,
                     max_output_tokens=8192,
                 )
@@ -417,8 +421,11 @@ def call_gemini(model, batch_titles, system_prompt, log_func):
                 time.sleep(REQUEST_DELAY)
 
         except Exception as e:
-            error_str = str(e)
-            if "quota" in error_str.lower() or "429" in error_str or "resource_exhausted" in error_str.lower():
+            error_str = str(e).lower()
+            if any(x in error_str for x in [
+                "quota", "429", "resource_exhausted",
+                "clienterror", "rate_limit", "too_many_requests"
+            ]):
                 log_func(f"WARN | Rate limited attempt {attempt} — waiting {RETRY_WAIT}s")
                 time.sleep(RETRY_WAIT)
             else:
@@ -586,6 +593,27 @@ if __name__ == "__main__":
     )
     log_func(f"INFO | New titles to map this run: {len(new_titles)}")
 
+    # Refresh count_in_dataset for already-mapped titles.
+    # Keeps the field accurate for human review prioritisation
+    # as new jobs accumulate between Script C runs.
+    count_refreshed = 0
+    title_count_map = {item["title"]: item["count"] for item in title_items}
+    for section in ("confirmed", "needs_review"):
+        for title, entry in mapping[section].items():
+            if title in title_count_map:
+                new_count = title_count_map[title]
+                if entry.get("count_in_dataset") != new_count:
+                    entry["count_in_dataset"] = new_count
+                    count_refreshed += 1
+    if count_refreshed > 0:
+        save_mapping(mapping, log_func)
+        log_func(
+            f"INFO | Refreshed count_in_dataset for "
+            f"{count_refreshed} existing titles"
+        )
+    else:
+        log_func("INFO | count_in_dataset up to date — no refresh needed")
+
     if not new_titles:
         log_func("INFO | No new titles found — mapping is up to date. Exiting.")
         log_handle.close()
@@ -594,9 +622,6 @@ if __name__ == "__main__":
     # Build system prompt with field_id block injected
     field_id_block = build_field_id_block(field_map)
     system_prompt = GEMINI_SYSTEM_PROMPT.format(field_id_block=field_id_block)
-
-    # Initialize Gemini model
-    model = genai.GenerativeModel(MODEL_NAME)
 
     # Process in batches
     batches = [
@@ -612,7 +637,7 @@ if __name__ == "__main__":
     for batch_num, batch in enumerate(batches, 1):
         log_func(f"INFO | Batch {batch_num}/{len(batches)} — {len(batch)} titles")
 
-        results = call_gemini(model, batch, system_prompt, log_func)
+        results = call_gemini(client, batch, system_prompt, log_func)
 
         if results is None:
             log_func(f"ERROR | Batch {batch_num} failed — titles queued for retry on next run")
