@@ -31,10 +31,87 @@ MAPPING_FILE = DATA_DIR / "job_title_mapping.json"
 AFFINITY_FILE = APP_DATA_DIR / "affinity_matrix.json"
 
 MODEL_NAME = "gemini-3.1-flash-lite-preview"
-BATCH_SIZE = 20
+BATCH_SIZE = 15
 REQUEST_DELAY = 4
 MAX_RETRIES = 3
 RETRY_WAIT = 60
+
+# When True: needs_review entries are reprocessed by Gemini on the next run,
+# giving medium-confidence entries a second chance at higher confidence.
+# Reset to False after running — never commit as True.
+FORCE_REMAP_NEEDS_REVIEW = False
+
+# Stable, well-known canonical title anchors. Titles that are noise variants
+# of these are pointed at the matching anchor as their canonical_form.
+# process_engineer, lecturer, research_associate deliberately excluded —
+# context-dependent, always resolved via company/industry fields.
+HARDCODED_ANCHORS = {
+    # Software Development
+    "software_engineer",
+    "frontend_engineer",
+    "frontend_designer",
+    "backend_developer",
+    "fullstack_developer",
+    "mobile_developer",
+    "android_developer",
+    "ios_developer",
+    "web_developer",
+    "wordpress_developer",
+    "shopify_developer",
+    "game_developer",
+    # Data and AI
+    "data_analyst",
+    "data_scientist",
+    "data_engineer",
+    "ml_engineer",
+    "ai_engineer",
+    "business_analyst",
+    "power_bi_developer",
+    "database_administrator",
+    # QA and DevOps
+    "qa_engineer",
+    "devops_engineer",
+    "cloud_engineer",
+    "network_engineer",
+    "systems_administrator",
+    # Management and Business
+    "project_manager",
+    "product_manager",
+    "business_development_manager",
+    "sales_executive",
+    "marketing_manager",
+    "account_manager",
+    "hr_manager",
+    "operations_manager",
+    "customer_service_representative",
+    "recruitment_consultant",
+    # Finance and Accounting
+    "accountant",
+    "financial_analyst",
+    "audit_officer",
+    "tax_consultant",
+    # Engineering (non-software)
+    "mechanical_engineer",
+    "civil_engineer",
+    "electrical_engineer",
+    "chemical_engineer",
+    "structural_engineer",
+    "quantity_surveyor",
+    "hse_officer",
+    # Design and Media
+    "graphic_designer",
+    "ui_ux_designer",
+    "motion_graphics_designer",
+    "content_writer",
+    "social_media_manager",
+    "video_editor",
+    # Healthcare and Sciences
+    "pharmacist",
+    "lab_technician",
+    "biomedical_engineer",
+    # Education
+    "teacher",
+}
 
 LOG_FILE = REPO_ROOT / "logs" / f"map_job_titles_{datetime.now().strftime('%Y_%m_%d_%H%M')}.log"
 
@@ -72,6 +149,7 @@ def extract_unique_titles(raw_jobs):
     Extract all unique job titles from linkedin_raw_jobs.json.
     For each unique title, collect representative company, industry, job_functions.
     Returns: list of dicts sorted by count descending.
+    Titles are lowercased for deduplication — preserves company/industry casing.
     """
     title_groups = {}
 
@@ -79,7 +157,7 @@ def extract_unique_titles(raw_jobs):
         title = job.get("title")
         if not title:
             continue
-        title = " ".join(title.split())
+        title = " ".join(title.split()).lower()
 
         if title not in title_groups:
             title_groups[title] = {
@@ -138,6 +216,8 @@ For each title in the input batch, output EXACTLY this JSON structure:
   "sub_specialisation": "freeform sub-type label or null",
   "confidence": "high|medium|low",
   "unmapped": false,
+  "canonical_form": "snake_case base title this maps to",
+  "is_noise_variant": false,
   "llm_reasoning": "Your explanation of the mapping decision"
 }}
 
@@ -150,6 +230,20 @@ Rules:
 - confidence "high": title maps clearly to one field, no ambiguity
 - confidence "medium": 2-3 plausible fields, partially resolved by context
 - confidence "low": genuinely ambiguous, Urdu title, or unknown role
+- canonical_form: always the base title with noise stripped, in snake_case.
+  If the title itself is already canonical, canonical_form equals
+  canonical_title.
+- is_noise_variant: true ONLY when ALL of:
+  1. primary_field_id is identical to the canonical_form entry's field_id
+  2. secondary_field_ids are identical or a subset
+  3. sub_specialisation is null or identical
+  4. The only difference from canonical_form is: location, company name,
+     seniority prefix, work arrangement, or posting metadata
+  is_noise_variant: false when ANY of:
+  - sub_specialisation differs meaningfully
+  - secondary_field_ids differ
+  - Title represents a distinct technology or domain even within the same
+    primary_field_id
 
 ---
 ## DISAMBIGUATION RULES FOR PAKISTAN
@@ -339,6 +433,71 @@ business_bba sub-types: hr_management, marketing, supply_chain,
 
 Use null if the title is generic and no clear sub-type applies.
 
+### RULE 14 — Canonical form and noise variant detection.
+
+Every title must specify its canonical_form — the base title this maps
+to, stripped of noise, in snake_case.
+
+ANCHOR TITLES — stable well-known canonical forms. When a title is a
+noise variant of an anchor, set canonical_form to the matching anchor:
+{anchor_block}
+
+MEMORY — non-anchor canonical titles already confirmed in this system.
+When a title is a noise variant of a memory entry, set canonical_form
+to that entry:
+{memory_block}
+
+NOISE — strip these from title to get canonical_form:
+  Locations: "- Karachi", "- Lahore", "- Islamabad", "- Remote",
+    "- Onsite", "| Hybrid", city names
+  Company names: "- Safepay HQ", "at Systems Limited", "| VentureDive",
+    "| Arbisoft", company suffixes
+  Posting metadata: "- $3000/month", "| JumpStart 3.0", "- Ref: 12345",
+    salary ranges, cohort names
+  Work arrangement: "(Remote)", "(Onsite)", "| WFH", "(Hybrid)"
+  Seniority alone when it does NOT change the sub_specialisation:
+    "Senior", "Junior", "Lead", "Associate", "Principal", "Sr.", "Jr."
+
+NOT NOISE — keep in canonical_form:
+  Technical domain: "- Backend", "- AI/ML", "- Embedded Systems",
+    "- iOS", "- React"
+  Specialisation: "- Data Warehousing", "- Django", "- SAP",
+    "- Salesforce", technology stacks
+  Industry that changes secondary_field_ids: "- Banking",
+    "- Healthcare", "- Fintech", "- Manufacturing"
+
+EXAMPLES:
+  "Frontend Engineer - Safepay HQ"
+    → canonical_form: "frontend_engineer"
+    → is_noise_variant: true (company name only, no field signal change)
+
+  "React Developer"
+    → canonical_form: "react_developer"
+    → is_noise_variant: false (distinct technology, different
+      sub_specialisation from frontend_engineer)
+
+  "Senior Software Engineer - AI/ML"
+    → canonical_form: "senior_software_engineer_ai_ml"
+    → is_noise_variant: false (AI/ML changes secondary_field_ids)
+
+  "Software Engineer - Karachi"
+    → canonical_form: "software_engineer"
+    → is_noise_variant: true (location only, no field signal change)
+
+  "SQA Engineer"
+    → canonical_form: "qa_engineer"
+    → is_noise_variant: true (naming convention variant, identical
+      field mapping to qa_engineer anchor)
+
+  "Django Developer"
+    → canonical_form: "django_developer"
+    → is_noise_variant: false (specific framework, distinct
+      sub_specialisation)
+
+  "Frontend Engineer - Karachi - Remote"
+    → canonical_form: "frontend_engineer"
+    → is_noise_variant: true (location + work arrangement only)
+
 ---
 ## RESPONSE FORMAT
 
@@ -371,21 +530,32 @@ def build_field_id_block(field_map):
 # STEP 6 — Gemini API call with retry
 # ---------------------------------------------------------------------------
 
-def call_gemini(client, batch_titles, system_prompt, log_func):
+def call_gemini(client, batch, system_prompt, anchor_block, memory_block, log_func):
     """
     Send a batch of titles to Gemini for mapping.
+    system_prompt is already fully formatted — do not call .format() here.
     Returns parsed list of mapping dicts, or None on failure.
     """
-    user_message = "Map the following job titles:\n\n"
-    for i, item in enumerate(batch_titles, 1):
-        user_message += f"{i}. Title: \"{item['title']}\"\n"
-        if item["companies"]:
-            user_message += f"   Company examples: {', '.join(item['companies'][:3])}\n"
-        if item["industries"]:
-            user_message += f"   Industry: {', '.join(item['industries'][:2])}\n"
-        if item["job_functions"]:
-            user_message += f"   Job functions: {', '.join(item['job_functions'][:2])}\n"
-        user_message += "\n"
+    anchor_section = (
+        "ANCHOR TITLES (always exist — use as canonical_form targets "
+        "when applicable):\n"
+        + anchor_block
+        + "\n\n"
+    ) if anchor_block else ""
+
+    memory_section = (
+        "MEMORY (confirmed non-anchor canonical titles — use as "
+        "canonical_form targets when applicable):\n"
+        + memory_block
+        + "\n\n"
+    ) if memory_block else ""
+
+    user_message = (
+        anchor_section
+        + memory_section
+        + "Map these job titles:\n\n"
+        + json.dumps(batch, indent=2)
+    )
 
     for attempt in range(1, MAX_RETRIES + 1):
         try:
@@ -458,6 +628,8 @@ def validate_mapping(result, valid_field_ids, title_item, log_func):
     result.setdefault("sub_specialisation", None)
     result.setdefault("confidence", "low")
     result.setdefault("unmapped", False)
+    result.setdefault("canonical_form", result.get("canonical_title", ""))
+    result.setdefault("is_noise_variant", False)
     result.setdefault("llm_reasoning", "")
 
     result["count_in_dataset"] = title_item["count"]
@@ -487,6 +659,18 @@ def validate_mapping(result, valid_field_ids, title_item, log_func):
         result["secondary_field_ids"] = []
         result["confidence"] = "low"
 
+    # Validate is_noise_variant type
+    if not isinstance(result.get("is_noise_variant"), bool):
+        result["is_noise_variant"] = False
+        log_func(
+            f"WARN | is_noise_variant not bool for "
+            f"'{result['title']}' — defaulted to False"
+        )
+
+    # canonical_form must be non-empty string
+    if not result.get("canonical_form"):
+        result["canonical_form"] = result.get("canonical_title", "")
+
     # Flag empty reasoning
     if not result["llm_reasoning"]:
         result["llm_reasoning"] = "[MISSING — Gemini did not provide reasoning]"
@@ -510,16 +694,124 @@ def load_existing_mapping():
     return {"confirmed": {}, "needs_review": {}, "metadata": {}}
 
 
+def migrate_keys_to_lowercase(mapping, log_func):
+    """
+    One-time migration: lowercase all title keys in confirmed and
+    needs_review sections. The 'title' field inside each entry keeps
+    its original casing for human readability. Idempotent — safe to
+    run on already-migrated data. Does not change any field_id values
+    or entry content — only the dict keys.
+    """
+    migrated = 0
+    for section in ("confirmed", "needs_review"):
+        old = dict(mapping.get(section, {}))
+        mapping[section] = {}
+        for title_key, entry in old.items():
+            new_key = title_key.lower()
+            mapping[section][new_key] = entry
+            if new_key != title_key:
+                migrated += 1
+    if migrated > 0:
+        log_func(f"INFO | Migrated {migrated} keys to lowercase")
+    else:
+        log_func("INFO | Keys already lowercase — no migration needed")
+    return mapping
+
+
 def find_new_titles(title_items, existing_mapping):
     """
     Find titles not yet in the existing mapping.
     Makes Script C incremental — only new titles are sent to Gemini.
+    Respects FORCE_REMAP_NEEDS_REVIEW flag.
     """
-    all_mapped = (
-        set(existing_mapping.get("confirmed", {}).keys()) |
-        set(existing_mapping.get("needs_review", {}).keys())
-    )
-    return [t for t in title_items if t["title"] not in all_mapped]
+    already_confirmed = set(existing_mapping.get("confirmed", {}).keys())
+    already_review = set(existing_mapping.get("needs_review", {}).keys())
+
+    if FORCE_REMAP_NEEDS_REVIEW:
+        # Reprocess needs_review entries — give them a second chance at
+        # higher confidence with the improved v2 prompt
+        skip_set = already_confirmed
+    else:
+        # Standard behaviour — skip both sections
+        skip_set = already_confirmed | already_review
+
+    new_titles = [t for t in title_items if t["title"] not in skip_set]
+
+    if FORCE_REMAP_NEEDS_REVIEW:
+        remap_count = len(
+            [t for t in title_items if t["title"] in already_review]
+        )
+        # Note: remap_count logged in main() after this call
+        return new_titles, remap_count
+
+    return new_titles, 0
+
+
+def compute_dynamic_anchors(confirmed_mapping, threshold=5):
+    """
+    Auto-promote canonical_forms to anchor status for this run.
+
+    A canonical_form is promoted when:
+    1. It exists as a direct confirmed entry where is_noise_variant=False
+       AND confidence="high" AND primary_field_id is not null
+    2. At least {threshold} DISTINCT noise variant titles in confirmed
+       point to it as their canonical_form
+
+    Returns set of canonical_form strings. On first run (before any
+    entry has canonical_form) this correctly returns an empty set.
+    """
+    from collections import defaultdict
+
+    # Only canonical_forms that are themselves stable high-confidence
+    # direct entries are eligible
+    eligible_canonicals = {
+        entry.get("canonical_form")
+        for entry in confirmed_mapping.values()
+        if (
+            not entry.get("is_noise_variant", False)
+            and entry.get("confidence") == "high"
+            and entry.get("canonical_form")
+            and entry.get("primary_field_id")
+        )
+    }
+    eligible_canonicals.discard(None)
+
+    # Count distinct noise variant titles per canonical
+    citation_count = defaultdict(int)
+    for entry in confirmed_mapping.values():
+        cf = entry.get("canonical_form")
+        if entry.get("is_noise_variant", False) and cf in eligible_canonicals:
+            citation_count[cf] += 1
+
+    promoted = {cf for cf, count in citation_count.items() if count >= threshold}
+    return promoted
+
+
+def build_memory_index(confirmed_mapping, effective_anchors):
+    """
+    Build the compact memory index sent to Gemini per batch.
+
+    Contains all unique canonical_forms from confirmed entries where:
+    - is_noise_variant is False (only canonical originals)
+    - canonical_form is not already in effective_anchors
+    - primary_field_id is not null (real mapping)
+
+    On first run (before any entry has canonical_form) this correctly
+    returns an empty list.
+
+    Returns sorted list of canonical_form strings.
+    """
+    memory = set()
+    for entry in confirmed_mapping.values():
+        cf = entry.get("canonical_form")
+        if (
+            cf
+            and not entry.get("is_noise_variant", False)
+            and cf not in effective_anchors
+            and entry.get("primary_field_id")
+        ):
+            memory.add(cf)
+    return sorted(memory)
 
 
 # ---------------------------------------------------------------------------
@@ -584,14 +876,23 @@ if __name__ == "__main__":
     title_items = extract_unique_titles(raw_jobs)
     log_func(f"INFO | Unique titles found: {len(title_items)}")
 
-    # Load existing mapping and find only new titles
+    # Load existing mapping, migrate keys to lowercase, find new titles
     mapping = load_existing_mapping()
-    new_titles = find_new_titles(title_items, mapping)
+    mapping = migrate_keys_to_lowercase(mapping, log_func)
+    save_mapping(mapping, log_func)
+
+    new_titles, remap_count = find_new_titles(title_items, mapping)
     log_func(
         f"INFO | Already mapped: "
         f"{len(mapping['confirmed']) + len(mapping['needs_review'])}"
     )
     log_func(f"INFO | New titles to map this run: {len(new_titles)}")
+
+    if FORCE_REMAP_NEEDS_REVIEW:
+        log_func(
+            f"INFO | FORCE_REMAP_NEEDS_REVIEW=True — "
+            f"{remap_count} needs_review titles will be reprocessed"
+        )
 
     # Refresh count_in_dataset for already-mapped titles.
     # Keeps the field accurate for human review prioritisation
@@ -619,9 +920,33 @@ if __name__ == "__main__":
         log_handle.close()
         sys.exit(0)
 
-    # Build system prompt with field_id block injected
+    # Build system prompt components
     field_id_block = build_field_id_block(field_map)
-    system_prompt = GEMINI_SYSTEM_PROMPT.format(field_id_block=field_id_block)
+
+    # Compute effective anchors for this run
+    dynamic_anchors = compute_dynamic_anchors(mapping["confirmed"], threshold=5)
+    effective_anchors = HARDCODED_ANCHORS | dynamic_anchors
+    if dynamic_anchors:
+        log_func(
+            f"INFO | Dynamic anchors promoted: "
+            f"{len(dynamic_anchors)} — {sorted(dynamic_anchors)}"
+        )
+    log_func(f"INFO | Effective anchors: {len(effective_anchors)} total")
+
+    # Build memory index
+    memory_titles = build_memory_index(mapping["confirmed"], effective_anchors)
+    log_func(f"INFO | Memory index: {len(memory_titles)} canonical titles")
+
+    # Build anchor and memory block strings for prompt
+    anchor_block = "\n".join(sorted(effective_anchors))
+    memory_block = "\n".join(memory_titles)
+
+    # Single format() call — all three placeholders filled
+    system_prompt = GEMINI_SYSTEM_PROMPT.format(
+        field_id_block=field_id_block,
+        anchor_block=anchor_block,
+        memory_block=memory_block,
+    )
 
     # Process in batches
     batches = [
@@ -637,7 +962,10 @@ if __name__ == "__main__":
     for batch_num, batch in enumerate(batches, 1):
         log_func(f"INFO | Batch {batch_num}/{len(batches)} — {len(batch)} titles")
 
-        results = call_gemini(client, batch, system_prompt, log_func)
+        results = call_gemini(
+            client, batch, system_prompt,
+            anchor_block, memory_block, log_func
+        )
 
         if results is None:
             log_func(f"ERROR | Batch {batch_num} failed — titles queued for retry on next run")
