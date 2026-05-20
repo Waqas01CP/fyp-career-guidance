@@ -577,6 +577,9 @@ def call_gemini(client, batch, system_prompt, anchor_block, memory_block, log_fu
                 raw_text = re.sub(r"\n?```$", "", raw_text)
                 raw_text = raw_text.strip()
 
+            # Strip trailing commas before } or ] —
+            # Gemini quirk with 10-field schema
+            raw_text = re.sub(r',\s*([\]}])', r'\1', raw_text)
             parsed = json.loads(raw_text)
             if not isinstance(parsed, list):
                 log_func(f"WARN | Gemini returned non-list: {type(parsed)}")
