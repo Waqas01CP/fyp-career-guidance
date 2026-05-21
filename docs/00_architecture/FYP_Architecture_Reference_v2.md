@@ -42,6 +42,9 @@
 >         incomplete-profile detection, Step 4 family context expansion, session-to-tier
 >         mapping. Updated: Dimension 2 family extraction approach, Phase 0c, Phase 2
 >         node sequence, Appendix A and B.
+> v2.2 — Added: Formal rationale documentation standard pointer (Section after Appendix B).
+>         References ARCHITECTURE_CHAT_INSTRUCTIONS_v2.md and docs/rationale/README.md
+>         for full four-level hierarchy and algorithm specification standard.
 
 ---
 
@@ -1520,7 +1523,38 @@ The following decisions need research paper citations in the final defense docum
 
 ---
 
-*FYP Architecture Reference v2.1. Supersedes v1 and v2.0.*
+### Documentation Standard (added Architecture Chat v6)
+
+All rationale documents produced from Architecture Chat v6 onwards follow
+a formal four-level hierarchy and algorithm specification standard. This
+supersedes the earlier "document the why" approach.
+
+**The four levels:**
+- Level 1: Full system (pre-viva Opus gate check document)
+- Level 2: Subsystem (bounded component set — one rationale file covers L2+L3+L4)
+- Level 3: Component (individual script, node, module — specification within L2 doc)
+- Level 4: Algorithm (formal specification within L3 component section)
+
+**Algorithm specifications require:** name, purpose, input (full type spec),
+output (full type spec), pseudocode (formal notation — not prose, not code),
+complexity (O() with n defined), invariants (pre/post/loop), edge cases
+(enumerated with exact handling), design rationale (alternatives rejected).
+
+**Diagrams required per subsystem document:** system context, internal
+component, data flow — all in Mermaid or ASCII.
+
+**Trigger:** 100% complete and committed only. Never during implementation.
+
+**Full standard:** See ARCHITECTURE_CHAT_INSTRUCTIONS_v2.md rationale section
+and docs/rationale/README.md.
+
+**Applies to:** All future rationale documents. Earlier documents (v5 and
+before) followed the lighter standard and may have gaps — review before viva.
+
+---
+
+*FYP Architecture Reference v2.2. Supersedes v1, v2.0, v2.1.*
 *Last updated: May 2026 — added assessment tiers, Step 4 family context expansion,*
 *ProfilerNode incomplete-profile detection, session-to-tier mapping, subject MCQ confirmation.*
+*May 2026 (v2.2) — added formal rationale documentation standard pointer.*
 *Next review: Before June 15 viva — update CLAUDE.md with all decisions from this document.*

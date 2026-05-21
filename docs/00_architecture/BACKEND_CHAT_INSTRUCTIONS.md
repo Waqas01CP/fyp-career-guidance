@@ -778,6 +778,61 @@ When producing a Claude Code prompt, always include:
 Format: structured numbered steps, not prose. Claude Code executes better
 with explicit numbered instructions than with conversational descriptions.
 
+### Log Detail Standard for Algorithm Reconstruction
+
+Session logs produced by Claude Code are the primary source material
+Architecture Chat uses to write formal rationale documents. A log that
+describes only *what was done* is insufficient — it must contain enough
+detail that the algorithm can be fully reconstructed and formally
+specified from the log alone, without reading the code.
+
+For any session that implements a non-trivial algorithm, the log MUST
+contain all of the following:
+
+**Algorithm reconstruction material (required in every relevant log):**
+
+1. **Exact function signatures** — copy the def line of every function
+   that implements algorithmic logic. Not paraphrased. Copied verbatim.
+
+2. **Core logic transcription** — for the main algorithmic loop or
+   decision tree, transcribe the actual code (not pseudocode, not
+   description). This is what Architecture Chat converts to formal
+   pseudocode. Without this, the pseudocode cannot be written accurately.
+
+3. **Input/output examples** — at least one concrete example showing:
+   what went in (actual data structure with real values), what came out
+   (actual data structure with real values). This anchors the formal
+   Input/Output specification in the rationale document.
+
+4. **Edge case handling** — for every edge case the code handles (null
+   checks, empty collections, retry logic, fallback paths), state:
+   what the input condition is, what line of code handles it, and what
+   the output is. If an edge case is NOT handled, say so explicitly.
+
+5. **Constants and thresholds** — every constant that affects algorithm
+   behaviour (BATCH_SIZE, MAX_RETRIES, threshold values, delay values)
+   listed with its current value and the reason it was set at that value
+   if known.
+
+6. **Failure modes observed** — any failures that occurred during the
+   session (parse errors, API errors, rate limits) with exact error
+   messages and how the algorithm responded. This populates the Edge
+   Cases section of the rationale document.
+
+7. **What was NOT implemented** — explicit list of known limitations or
+   cases the algorithm does not handle. This is as important as what
+   it does handle.
+
+This standard applies to all sessions implementing: scraper logic,
+LangGraph nodes, scoring or ranking algorithms, data aggregation
+functions, or any function with non-trivial conditional logic. It does
+not apply to pure configuration changes, dependency updates, or
+documentation-only sessions.
+
+The rationale document cannot be written accurately without this
+information. A log missing these items will require a follow-up session
+to fill gaps, delaying documentation completion before the viva.
+
 ---
 
 ## WHAT IS NOT YOUR SCOPE

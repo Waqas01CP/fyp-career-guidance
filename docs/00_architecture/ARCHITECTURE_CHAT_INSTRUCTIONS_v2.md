@@ -371,97 +371,340 @@ different keys. This is not active scope.
 
 ### Purpose
 
-The `docs/rationale/` folder documents the *why* behind every major
-decision. It exists for three purposes:
-1. Viva defense — answer any "why did you choose X" question
-2. Written FYP report — feeds directly into methodology sections
-3. Future development — context for anyone joining the project
+The `docs/rationale/` folder is a formal technical reference. It is not
+a decision log, not internal notes, and not a summary of what was built.
+It exists for four purposes:
 
-### When to Write a Rationale File
+1. **Viva defense** — when an examiner asks "explain your algorithm",
+   "why did you choose this architecture", or "what is the complexity
+   of your matching algorithm", the answer exists in this folder as a
+   formal documented artefact that can be opened and shown. Not recalled
+   from memory. The document contains pseudocode, complexity analysis,
+   invariant statements, design justification, and system diagrams.
 
-Write AFTER a component is **100% complete and committed** — not before,
-not during implementation. A file written mid-implementation reflects
-the initial design, not the final one. Components change significantly
-during implementation (Script B is a documented example of this).
+2. **Written FYP report** — rationale documents feed directly into the
+   methodology and system design chapters of the written report. They
+   are written at academic submission standard — not internal shorthand.
 
-If a rationale file already exists for a component being worked on,
-**check and fill gaps** after the component is fully complete before
-moving to the next task.
+3. **Engineering proof** — the documentation demonstrates that the system
+   was designed with rigour, not just built until it worked. Formal
+   algorithm specifications, invariant analysis, and multi-level system
+   diagrams are evidence of engineering discipline that examiners
+   recognise and reward.
 
-### What Triggers a New File or Addition
+4. **Operational reference** — someone with no prior context must be able
+   to read a rationale document and fully understand, operate, maintain,
+   and extend the component or subsystem without asking anyone. If a
+   reader finishes the document and still has questions that the document
+   should have answered, the document is incomplete.
 
-**Triggers:**
-- A major component fully complete and committed
-- A significant architectural decision made or changed
-- An instrument, tool, or approach adopted or rejected with reasoning
-- A deviation from prior design with documented rationale
-- A phase fully complete
+---
 
-**Does NOT trigger:**
-- Minor bug fixes or style changes
-- Adding a single field to a schema
-- Routine test additions
-- Anything that will likely change again before the component is done
+### Documentation Hierarchy
+
+Every component in this system exists at a level within a hierarchy.
+Rationale documents must reflect this hierarchy explicitly — each document
+must identify which level(s) it covers and must show how each level
+connects to the level above it.
+
+**Level 1 — Full System**
+The complete FYP AI-Assisted Academic Career Guidance System. All major
+subsystems (Flutter frontend, FastAPI backend, LangGraph agent pipeline,
+LinkedIn data pipeline, recommendation engine, assessment pipeline) and
+how they connect. What data flows between subsystems. What triggers what.
+What each subsystem produces and what depends on it. This is the grandest
+view. Every Level 2 document must show where its subsystem sits within
+this picture. The Level 1 document is the pre-viva Opus holistic gate
+check — it covers the entire system as a coherent whole.
+
+**Level 2 — Subsystem**
+A coherent bounded set of components with a single purpose and clear
+inputs and outputs at its boundary. Example: the LinkedIn Data Pipeline
+(Scripts A → B → C → D). Purpose: produce monthly_postings_history data
+in lag_model.json to power the FutureValue score shown to students. The
+Level 2 document describes the subsystem boundary, all components within
+it, data flows between components, file inputs and outputs, trigger
+conditions, and how the subsystem plugs into Level 1. Every Level 2
+document includes all Level 3 and Level 4 content for the components
+within it.
+
+**Level 3 — Component**
+An individual script, node, endpoint, or module. Example: Script C
+(map_job_titles.py), ExplanationNode, the /chat/stream endpoint. The
+Level 3 specification covers: purpose, interface contract (exact inputs
+and outputs with types and field names), operating instructions (how to
+run it, what flags exist, what to check before and after, expected output
+ranges), failure modes (enumerated, with exact symptoms and recovery
+steps), known limitations (honest, with post-FYP improvement path), and
+all algorithm specifications for algorithms implemented within this
+component.
+
+**Level 4 — Algorithm**
+A formal specification of a non-trivial algorithm implemented inside a
+component. See the Algorithm Standard section below for the complete
+required format.
+
+**A subsystem rationale document covers Levels 2, 3, and 4 in one file.**
+It contains: the subsystem overview and system context (Level 2), the
+component specification for every component in the subsystem (Level 3),
+and the formal algorithm specification for every non-trivial algorithm
+in every component (Level 4). It also contains diagrams connecting each
+level to the one above.
+
+---
+
+### Algorithm Standard
+
+Every non-trivial algorithm in the system must be documented with ALL
+of the following sections. This is a formal software engineering
+specification — not a prose description of what the code does, not a
+summary, and not pseudocode-flavoured English. Each section is mandatory.
+If any section is missing, the document is incomplete.
+
+**Name**
+A precise, unique, descriptive name. The name must identify the algorithm
+distinctly from all others in the system.
+Example: "Context-Augmented Canonical Mapping Algorithm with Dynamic
+Anchor Promotion" — not "the mapping algorithm" or "Script C's logic."
+
+**Purpose**
+One sentence stating exactly what problem this algorithm solves and why
+that problem matters in the broader context of the system.
+Example: "Maps raw LinkedIn job title strings to canonical degree
+field_ids by combining a pre-built anchor index with a dynamically
+maintained memory index, enabling accurate aggregation of job market
+demand signals per academic field without requiring description text."
+
+**Input**
+Exact data structures. Every parameter named, typed, and described. Nested
+structures fully expanded. Constraints (nullable, non-empty, bounded
+values) stated explicitly.
+
+  raw_jobs: dict[str, JobRecord]
+    JobRecord fields:
+      job_id:        str        — unique LinkedIn job identifier
+      title:         str        — raw title as scraped, may contain noise
+      first_seen:    str        — ISO date "YYYY-MM-DD"
+      company:       str | null
+      still_active:  bool
+
+  confirmed_mapping: dict[str, MappingEntry]
+    MappingEntry fields:
+      title:               str    — display title (original casing)
+      primary_field_id:    str | null  — canonical field from affinity_matrix
+      secondary_field_ids: list[str]   — supporting fields, may be empty
+      sub_specialisation:  str | null  — technology/domain sub-type
+      confidence:          "high" | "medium" | "low"
+      unmapped:            bool   — true if no valid field_id exists
+      canonical_form:      str    — snake_case base title, noise stripped
+      is_noise_variant:    bool   — true if title differs from canonical
+                                    by noise only (location, company, etc.)
+      count_in_dataset:    int    — count at time of last Script C run
+
+**Output**
+Exact data structures with the same level of detail as Input.
+
+**Pseudocode**
+Written in formal pseudocode notation. Step-numbered. Every conditional,
+loop, assignment, and data operation made explicit. Not Python code. Not
+indented English prose. Standard pseudocode constructs:
+
+  ←         assignment
+  ∈         membership test
+  ∀         universal quantification
+  ∅         empty set
+  BEGIN/END block delimiters
+  FOR EACH ... DO ... END FOR
+  IF ... THEN ... ELSE ... END IF
+  WHILE ... DO ... END WHILE
+  RETURN, CONTINUE, BREAK in capitals
+
+Example (generic template — not a specific algorithm):
+
+  ALGORITHM [Name]
+  INPUT:  param_a: type_a,
+          param_b: type_b
+  OUTPUT: result: type_r
+
+  BEGIN
+    result ← ∅
+
+    FOR EACH item ∈ param_a DO
+      processed ← TRANSFORM(item)
+
+      IF processed.field = null THEN
+        CONTINUE
+      END IF
+
+      IF processed.value > threshold THEN
+        result ← result ∪ {processed}
+      ELSE
+        LOG warning for item
+      END IF
+    END FOR
+
+    RETURN result
+  END
+
+**Complexity**
+Time complexity and space complexity in O() notation. Define what n
+represents. If multiple passes exist, give complexity for each pass and
+the overall complexity.
+
+  Time:  O(n / b × t)
+         n = number of unique titles to map
+         b = BATCH_SIZE (15)
+         t = average Gemini API latency per batch
+  Space: O(n + m)
+         n = entries in confirmed_mapping held in memory
+         m = size of memory_index built each run
+
+**Invariants**
+Three categories, all mandatory:
+
+  Preconditions — what must be true before the algorithm begins.
+    All keys in confirmed_mapping are lowercase strings.
+    effective_anchors is a non-empty set.
+    GEMINI_API_KEY is set in environment.
+
+  Postconditions — what is guaranteed true after the algorithm completes.
+    Every title in raw_jobs exists in confirmed_mapping, needs_review,
+    or the failed set. No title is silently dropped without a log entry.
+    confirmed_mapping contains only entries where unmapped=false and
+    confidence="high".
+
+  Loop invariants — what stays true through each iteration of the main loop.
+    save_mapping() is called after every batch completes, regardless of
+    whether the batch succeeded or failed. Data loss on interrupt is
+    bounded to at most one batch of BATCH_SIZE titles.
+
+**Edge Cases**
+Explicitly enumerated. For each edge case: what the input condition looks
+like, and exactly how the algorithm handles it. Missing edge cases that
+cause silent failures are the most dangerous defect in a pipeline system.
+
+  Empty new_titles list (no titles to process):
+    → Algorithm logs "No new titles found — mapping is up to date"
+    → Exits immediately with no API calls made
+    → confirmed_mapping unchanged
+
+  Gemini returns trailing comma in JSON response:
+    → re.sub(r',\s*([\]}])', r'\1', raw_text) strips it before json.loads()
+    → Transparent to caller — not counted as a parse failure
+
+  Gemini returns a field_id not in affinity_matrix:
+    → validate_mapping() nulls the primary_field_id
+    → Entry routed to needs_review regardless of confidence value
+    → WARN logged: "Invalid field_id '[value]' for '[title]' — removed"
+
+  Batch fails all MAX_RETRIES attempts:
+    → Titles placed in needs_review with null primary_field_id
+    → WARN logged: "Batch N failed — titles queued for retry on next run"
+    → Script continues with next batch — never aborts
+
+  FORCE_REMAP_NEEDS_REVIEW = True:
+    → skip_set = already_confirmed only (needs_review excluded from skip)
+    → needs_review entries are re-sent to Gemini for a second chance
+    → On return: if confidence now "high" → moved to confirmed
+    → On return: if still "medium"/"low" → overwrites existing needs_review entry
+    → NEVER commit code with FORCE_REMAP_NEEDS_REVIEW = True
+
+  Title with special characters (|, /, &, commas, parentheses):
+    → Passed to Gemini as-is after whitespace+lowercase normalisation
+    → No preprocessing strips special characters
+    → Gemini handles correctly per Rule 14 noise detection
+
+**Design Rationale**
+Why this algorithm. What alternatives were considered and rejected. What
+constraints drove the design toward this approach. Honest about trade-offs.
+
+---
+
+### Diagrams (mandatory for all subsystem documents)
+
+Every subsystem rationale document must contain all three diagram types.
+Diagrams are not decorative — they are the primary communication mechanism
+for Level 1 and Level 2 information. A reader should understand the
+subsystem structure from the diagrams alone, with text providing depth.
+
+**1. System context diagram**
+Shows the subsystem as a black box within the Level 1 full system.
+What external components feed into it. What it produces. What other
+subsystems or components depend on its output. Drawn at the boundary
+level — internal components of the subsystem are not visible.
+
+**2. Internal component diagram**
+Shows all components within the subsystem with all data flows between
+them. Every file input and output labelled with filename and format.
+Trigger conditions shown (what causes each component to run, how often).
+Sequential dependencies shown with arrows. Components that run in parallel
+marked explicitly.
+
+**3. Data flow diagram**
+Shows how data transforms from raw input to final output. Every
+intermediate representation named and described. Every transformation
+step (script, node, function) labelled. Shows where data is persisted
+to disk and where it lives only in memory.
+
+All diagrams produced in ASCII art or Mermaid format. No image files.
+Mermaid is preferred — it renders directly in GitHub.
+
+Example Mermaid syntax for a data flow:
+```mermaid
+graph LR
+    A[LinkedIn Guest API] --> B[linkedin_raw_jobs.json]
+    B --> C[Script C]
+    C --> D[job_title_mapping.json]
+    D --> E[Script D]
+    E --> F[lag_model.json monthly_postings_history]
+    F --> G[ExplanationNode FutureValue score]
+```
+
+---
+
+### When to Write
+
+Write rationale documentation AFTER a component or subsystem is 100%
+complete and committed. Not before. Not during. Not when you think it
+is nearly done.
+
+Implementations change significantly during development. A document
+written mid-implementation reflects the initial design, which may differ
+substantially from the final one. A document written too early becomes
+misleading and must be entirely rewritten — wasted effort.
+
+**Trigger for the LinkedIn data pipeline subsystem document:**
+Scripts A, B, C, and D are all committed, verified, and the mapping
+file has been reviewed. Architecture Chat then produces a single Claude
+Code prompt that writes the full subsystem document in one session. The
+document covers all four scripts as Level 3 components, all algorithms
+within each script as Level 4, and the subsystem as a whole as Level 2
+with all three required diagrams.
+
+**Gap-filling workflow (when a rationale file already exists):**
+1. Component is done and committed
+2. Read the existing rationale file
+3. Identify gaps — sections that are missing, outdated, or incomplete
+   relative to what was actually built
+4. Write additions or corrections based on the actual committed code,
+   not the original design
+5. Commit the updated rationale file
+6. Move to the next task
+
+---
 
 ### Epistemic Status — NOT Authoritative
 
-Rationale files are **not** ground truth. They describe reasoning that
-was correct at the time of writing. If a rationale file conflicts with:
-- CLAUDE.md → CLAUDE.md wins
-- Actual committed code → the code wins
-- What the user says in the current conversation → the conversation wins
+Rationale files describe reasoning that was correct at the time of
+writing. They are background context, not ground truth.
 
-Treat rationale files as useful background context, not specification.
-Do not defend a rationale file against evidence that the design changed.
-Do not assume a rationale file is complete — gaps are expected especially
-for components decided in earlier Architecture Chat sessions.
+Priority order always:
+  CLAUDE.md > committed code > current conversation > rationale files
 
-### File Structure
-
-```
-docs/rationale/
-  README.md                          ← index, file status (complete/pending)
-
-  system/
-    agentic_ai_and_langgraph.md
-
-  assessment/
-    riasec_and_3d_model.md
-    kcis.md
-    caas_vna_cddq_bigfive.md
-    rejected_instruments.md
-
-  pipeline/
-    nodes_and_routing.md
-
-  data_files/
-    json_knowledge_base.md
-    assessment_questions.md          ← pending Phase 1B completion
-
-  scraper/
-    linkedin_scraper_pipeline.md     ← gaps expected for Script C/D
-
-  market/
-    pakistani_market_context.md
-
-  infrastructure/
-    deployment_and_database.md
-```
-
-### Gap-Filling Workflow
-
-When completing a component in Architecture Chat:
-1. Component is done and committed
-2. Check if a rationale file exists for it
-3. If yes: read it, identify gaps or inaccuracies from the actual
-   implementation, update the file
-4. If no: write the file now, based on what was actually built
-5. Commit the rationale file
-6. Move to the next task
-
-The rationale file for Script C (map_job_titles.py) should be written
-in Architecture Chat v6 once Script C is fully complete and verified —
-not before.
+Do not defend a rationale file if evidence shows the design changed.
+Do not assume a rationale file is complete — gaps are expected,
+especially for components completed in earlier Architecture Chat sessions
+before this documentation standard was established.
 
 ---
 

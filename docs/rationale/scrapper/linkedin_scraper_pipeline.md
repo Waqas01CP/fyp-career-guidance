@@ -253,3 +253,126 @@ Backup (after each pull):
   move Script D to weekly after sufficient mapping coverage
 - If job_title_mapping.json grows large (>10,000 titles) → consider
   vector similarity for new title matching before sending to Gemini
+
+---
+
+## ⏳ SECTION PENDING — Script C: Context-Augmented Canonical Mapping
+
+**Status:** Implementation complete. Formal documentation pending Script D
+completion. Will be written in full as part of the complete pipeline
+document in Architecture Chat v6.
+
+**What this section will contain when written:**
+
+### Script C — Component Specification
+- Purpose and system context
+- Interface contract (inputs: linkedin_raw_jobs.json, affinity_matrix.json;
+  outputs: job_title_mapping.json confirmed and needs_review sections)
+- Operating instructions: how to run, FORCE_REMAP_NEEDS_REVIEW flag usage,
+  BATCH_SIZE, when to run (every 15 days alongside Script D), quota
+  considerations, expected runtime
+- Failure modes: JSON parse failures (trailing comma fix), 503 UNAVAILABLE
+  handling, quota exhaustion, partial batch failures
+- Known limitations: title-only mapping (no description text), shallow
+  normalisation history, needs_review re-send gap, near-duplicate title
+  explosion (partially addressed by v2 anchor+memory system)
+- Post-FYP improvement path: description-augmented mapping for
+  medium-confidence titles, Gap 2 full lowercase migration, Gap 3
+  near-duplicate collapsing improvement
+
+### Algorithm 1 — Context-Augmented Canonical Mapping Algorithm
+  with Dynamic Anchor Promotion
+- Full formal specification including:
+  Name, Purpose, Input, Output, Pseudocode, Complexity,
+  Invariants (pre/post/loop), Edge Cases (all 7 enumerated),
+  Design Rationale (embedding similarity rejected, full index rejected,
+  naive string matching rejected — reasons documented)
+
+### Algorithm 2 — Two-Tier Anchor+Memory Reference System
+- Hardcoded anchor list (56 entries): rationale, selection criteria,
+  deliberately excluded titles (process_engineer, lecturer) and why
+- Dynamic anchor promotion: citation threshold=5, eligible_canonicals
+  guard conditions, first-run behaviour (empty set)
+- Memory index construction: what qualifies, what is excluded,
+  relationship to anchor list, growth over time
+- Batch prompt construction: anchor_block format, memory_block format,
+  how Rule 14 uses them per batch
+
+### Algorithm 3 — Noise Variant Detection and Canonical Collapse
+- is_noise_variant decision rules (formal)
+- canonical_form assignment rules
+- What constitutes noise (location, company, work arrangement, metadata)
+- What does NOT constitute noise (technology domain, sub-specialisation,
+  industry that changes secondary_field_ids)
+- The React Developer ≠ Frontend Engineer distinction formally stated
+- Why the mapping file does not shrink (Script D job-level lookup)
+
+### Algorithm 4 — Batch Retry with Exponential Backoff
+- call_gemini() retry logic
+- Trailing comma fix: re.sub pattern, why it occurs with 10-field schema
+- 503 handling vs 429 handling (different error paths)
+- Failed batch disposition: placed in needs_review with null field_id
+
+---
+
+## ⏳ SECTION PENDING — Script D: Monthly Job Count Aggregation
+
+**Status:** Not yet implemented. Will be written after Script D is
+complete and committed.
+
+**What this section will contain when written:**
+
+### Script D — Component Specification
+- Purpose and system context
+- Interface contract (inputs: linkedin_raw_jobs.json,
+  job_title_mapping.json confirmed section; outputs: lag_model.json
+  monthly_postings_history field per entry)
+- Operating instructions: how to run, when to run (every 15 days after
+  Script C, after mapping review), expected runtime, what to verify
+- Failure modes: missing mapping file, missing raw jobs file, field_ids
+  in counts but not in lag_model (warning + skip)
+- Known limitations: count_in_dataset staleness (reference only, not
+  used in aggregation), title-level not job-description-level signal
+- Idempotency: each run recalculates from scratch
+
+### Algorithm 5 — Weighted Field Credit Aggregation
+- Counting rules: +1.0 primary, +0.5 per secondary
+- Month key extraction: first_seen[:7] → YYYY-MM format
+- Confirmed-only lookup (needs_review excluded)
+- Field_id accumulation per month: defaultdict(lambda: defaultdict(float))
+- Sub-specialisation breakdown: by_specialisation dict within each month
+- Output structure: monthly_postings_history as dict[YYYY-MM, MonthData]
+  where MonthData has total: float and by_specialisation: dict[str, float]
+
+### Algorithm 6 — Lag Model Safe Write
+- field_id matching: counts keyed by field_id matched to lag_model entries
+- computed block protection: never touched, only raw block modified
+- Empty field handling: {} not null for fields with no job data
+- Extra field_id warning: field_ids in counts not in lag_model → WARN + skip
+- Atomic write pattern: .tmp then replace
+
+---
+
+## ⏳ SECTION PENDING — Full Pipeline Diagrams
+
+**Status:** Pending Script D completion. Three diagrams will be produced:
+
+1. **System context diagram** — LinkedIn Data Pipeline as black box
+   in the full FYP system. Showing: LinkedIn guest API as input source,
+   lag_model.json as output consumed by ExplanationNode, connection to
+   FutureValue score displayed on recommendation cards.
+
+2. **Internal component diagram** — Scripts A, B, C, D with all data
+   flows. File inputs and outputs labelled. Trigger conditions (A: manual
+   monthly, B: GitHub Actions daily, C+D: manual every 15 days).
+   Sequential dependencies (C requires A or B output, D requires C output).
+
+3. **Data flow diagram** — full transformation chain:
+   LinkedIn guest API pages
+   → linkedin_raw_jobs.json (raw job records)
+   → [Script C: title extraction + Gemini mapping]
+   → job_title_mapping.json (confirmed + needs_review)
+   → [Script D: aggregation]
+   → lag_model.json (monthly_postings_history per field_id)
+   → [ExplanationNode: FutureValue calculation]
+   → recommendation card (future_value score displayed to student)
