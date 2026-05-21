@@ -76,3 +76,5 @@ backend/data/
 logs/scrape_linkedin_anytime_*.log
 logs/scrape_linkedin_daily_*.log
 logs/test_linkedin_scraper_*.log
+logs/map_job_titles_*.log
+logs/aggregate_job_counts_*.log
